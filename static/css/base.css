@@ -295,3 +295,14 @@ body {
   font-size: .9rem;
 }
 
+/* ================================================
+   14. ETER FLAME — Background Override
+=================================================== */
+
+.main-bg {
+  background-color: var(--bg-body) !important;
+}
+
+main.flex-grow-1.main-bg {
+  background-color: var(--bg-body) !important;
+}

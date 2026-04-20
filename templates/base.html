@@ -13,13 +13,12 @@
 <html lang="en">
 
 <head>
-    <title>EterPoetic</title>
+    <title>ETER FLAME — Aythnyk</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover">
 
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -36,15 +35,15 @@
 
 </head>
 
-<body class="d-flex flex-column main-bg">
+<body class="d-flex flex-column">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <!-- Brand goes to Home (poetry) -->
             <a class="navbar-brand" href="{% url 'poetry:poetry_home' %}">
                 <img src="{% static 'images/my_logo.png' %}" alt="My Site Logo" height="50" class="d-inline-block align-text-top">
-            <span class="ms-2">EterPoetic</span>
+            <span class="ms-2" style="font-family:'Cormorant Garamond',serif;letter-spacing:3px;color:#c49a40;">ETER FLAME</span>
 
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -144,7 +143,7 @@
     <footer class="footer py-3 dark-bg">
         <p class="m-0 text-center text-white">
     {% block copyright %}
-    Made by EterPoetic
+    ETER FLAME &copy; 2025 · Aythnyk
     {% endblock copyright %}
         </p>
 
