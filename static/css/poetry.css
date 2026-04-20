@@ -457,8 +457,10 @@ a.page-link {
 .poem-detail-overlay {
   border-radius: 7px;
   background-color: rgba(10, 8, 4, 0.95);
-  padding: 2rem 3rem;
+  padding: 2rem 2.5rem;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .poem-detail-title {
@@ -501,6 +503,9 @@ a.page-link {
   padding: 0 !important;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  white-space: pre-wrap;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .poem-body p:empty {
