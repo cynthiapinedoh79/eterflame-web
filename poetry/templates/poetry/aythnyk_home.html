@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/poetry.css' %}?v={% now 'U' %}">
+{% endblock %}
+
+{% block content %}
+
+{# Show hero/quotes only on first page, or when no paginator exists #}
+{% if not page_obj or page_obj.number == 1 %}
+<section class="poetry-hero py-5">
+  <div class="container-xxl">
+
+  <h1 class="text-center mb-4" style="font-weight: 500; color: var(--color-text-dark);">
+    THE ART OF EXPRESSION
+  </h1>
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+      
+      <p class="lead mb-4" style="font-weight: 400; color: var(--color-text-dark);">
+        The art of expressing emotions, thoughts, sensations, and feelings is a gift. 
+        It opens before us a path of possibilities: a space to reflect, to transform. 
+        It is the art of letting a fragment of our heart escape through words, of 
+        releasing the weight that burdens our steps, of lightening the body so it 
+        may open its wings and begin a flight born from a deep, infinite inspiration.
+      </p>
+
+    </div>
+  </div>
+
+    <div class="cover-art mb-4">
+      <img
+        src="{% if cover_image_url %}{{ cover_image_url }}{% else %}{% static 'images/poetry_cover.png' %}{% endif %}"
+        alt="Poetry cover" class="img-fluid w-100 rounded-0 shadow-sm">
+    </div>
+
+    <div class="text-center mb-4">
+      <a href="#poems-search" class="btn btn-outline-dark">
+        View Poems & Collections
+      </a>
+    </div>
+
+    {# Optional heading (remove or make visually-hidden to save space) #}
+    <h2 class="text-center mb-4" style="font-weight: 400; color: var(--color-text-dark);">
+      Inspiration for the Ages
+    </h2>
+
+    {# Quote banner (black or red) #}
+    {% include "poetry/_quote_banner.html" with theme="banner--black" %}
+    <div class="mb-5"> {% include "poetry/_quote_banner.html" with theme="banner--black" %}
+    </div> 
+    <div class="hero-art mx-auto mb-5">
+      <img src="{% if hero_image_url %}{{ hero_image_url }}{% else %}{% static 'images/poetry_hero.png' %}{% endif %}"
+        alt="Poetry hero" class="img-fluid rounded-4 shadow-sm w-100">
+    </div>
+
+  </div>
+</section>
+{% endif %}
+
+{# === Section 2: Poem list (reuses your partial) === #}
+<section class="py-4 {% if not page_obj.paginator.num_pages > 1 %}pb-5{% endif %}">
+
+  {# --- NEW DYNAMIC TITLE FOR LIST --- #}
+  <div class="container-xxl">
+    <h2 id="poems-search" class="text-center mb-4" style="font-weight: 400; color: var(--color-text-dark);">
+      {% if page_mode == 'collections' %}
+      Explore the Collections
+      {% else %}
+      Poems &amp; Search Results
+      {% endif %}
+    </h2>
+  </div>
+
+  {% include "poetry/_poem_list_section.html" %}
+
+</section>
+
+<div class="text-center py-5">
+  <a href="{% url 'works:works_home' %}" class="eter-back-link">→ Conocer Etherflame Works</a>
+</div>
+
+{% endblock %}
+
+{# === Full-width red quote bar... === #}
+{% block full_width_banner %}
+<div class="quote-banner-fw banner-tuck">
+  {% include "poetry/_quote_banner.html" with theme="banner--red" %}
+</div>
+{% endblock full_width_banner %} {# <-- ADD THIS LINE TO CLOSE THE BLOCK #} {# This block must be separate, not nested
+  #} {% block extras %} <script src="{% static 'js/quote_banner.js' %}"></script>
+  {% endblock extras %}

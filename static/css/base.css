@@ -325,3 +325,26 @@ body {
 main.flex-grow-1.main-bg {
   background-color: var(--bg-body) !important;
 }
+
+/* === Back navigation breadcrumbs === */
+.eter-breadcrumb {
+  padding: 16px 24px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.eter-back-link {
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-primary-brand);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.eter-back-link:hover {
+  opacity: 1;
+  color: var(--color-primary-brand);
+}
