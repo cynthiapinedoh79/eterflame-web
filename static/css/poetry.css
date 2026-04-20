@@ -447,66 +447,86 @@ a.page-link {
 
 .poem-detail-card {
   position: relative;
-  border: 1px solid #e0ddd7;
+  border: 0.5px solid rgba(196,154,64,0.2);
   border-radius: 8px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: #0a0804;
   overflow: hidden;
+  width: 100%;
 }
 
 .poem-detail-overlay {
   border-radius: 7px;
-  background-color: rgba(255, 251, 243, 0.842);
+  background-color: rgba(10, 8, 4, 0.95);
+  padding: 2rem 3rem;
+  overflow: hidden;
 }
 
 .poem-detail-title {
-  font-family: 'Georgia', 'Times New Roman', Times, serif;
-  font-weight: 700;
-  color: var(--color-text-dark);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  color: #f5e0b0;
 }
 
 .poem-detail-author {
-  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
   font-size: 1.1rem;
-  margin-bottom: 0.25rem !important; 
+  color: #c49a40;
+  margin-bottom: 0.25rem !important;
 }
 
 .poem-body {
   white-space: pre-wrap;
   word-wrap: break-word;
-  font-family: 'Georgia', 'Times New Roman', Times, serif;
-  font-size: 1.15rem;
-  color: #333;
+  overflow-wrap: break-word;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  line-height: 1.75;
+  color: #f0ddb0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  letter-spacing: 0.02em;
+  box-sizing: border-box;
 }
-
-a.text-decoration-none {
-  color: var(--color-link) !important;
-}
-a.text-decoration-none:hover {
-  color: var(--color-link-hover) !important;
-}
-
-/* --- CONTROL THE SPACE BETWEEN STANZAS --- */
 
 .poem-body p {
-    display: block;
-    margin-bottom: 2px !important; 
-    margin-top: 0 !important;
-    line-height: 1.0 !important;
-    padding: 0 !important;
-}
-
-.poem-body .poem-container {
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: inherit !important;
-    width: 100%;
+  display: block;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  line-height: 1.75 !important;
+  padding: 0 !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .poem-body p:empty {
-    display: none !important;
+  display: block !important;
+  height: 1.2em !important;
+  margin: 0 !important;
+}
+
+.poem-body br {
+  display: block;
+  content: "";
+  margin-top: 0;
+}
+
+.poem-body .stanza-break,
+.poem-body br + br {
+  display: block;
+  margin-bottom: 1.5rem !important;
+}
+
+
+a.text-decoration-none {
+  color: #c49a40 !important;
+}
+a.text-decoration-none:hover {
+  color: #e8c06a !important;
 }
 
 /* ================================================
