@@ -32,7 +32,8 @@ urlpatterns += i18n_patterns(
     path("blog/", include(("blog.urls", "blog"), namespace="blog")),
 
     path("about/", include("about.urls")),
-    path("", include(("poetry.urls", "poetry"), namespace="poetry")),
+    path("", include(("works.urls", "works"), namespace="works")),
+    path("aythnyk/", include(("poetry.urls", "poetry"), namespace="poetry")),
     path('', include('facebook_integration.urls')),
     path("accounts/", include("allauth.urls")),
     path("summernote/", include("django_summernote.urls")),

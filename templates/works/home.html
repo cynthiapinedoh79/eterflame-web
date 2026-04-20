@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}?v={% now 'U' %}">
+{% endblock %}
+
+{% block content %}
+<section class="works-hero py-5">
+  <div class="container-xxl text-center">
+
+    <h1 class="display-3 mb-3" style="font-family:'Cormorant Garamond',serif;color:#c49a40;letter-spacing:4px;">
+      ETER FLAME <span class="fw-light">Works</span>
+    </h1>
+    <p class="lead mb-5" style="color:#d4c5a9;max-width:640px;margin:0 auto;">
+      Creative studio for brands that move. Design, media, and production — built for bold ideas.
+    </p>
+
+    <div class="row g-4 justify-content-center mt-2">
+
+      <div class="col-12 col-md-4">
+        <a href="{% url 'works:design' %}" class="text-decoration-none">
+          <div class="p-4 h-100" style="border:1px solid #c49a40;border-radius:4px;transition:background .2s;"
+               onmouseover="this.style.background='rgba(196,154,64,0.1)'"
+               onmouseout="this.style.background='transparent'">
+            <i class="fas fa-pen-nib fa-2x mb-3" style="color:#c49a40;"></i>
+            <h3 style="color:#c49a40;font-family:'Cormorant Garamond',serif;letter-spacing:2px;">Design</h3>
+            <p style="color:#d4c5a9;">Brand identity, visual systems, and art direction.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <a href="{% url 'works:media' %}" class="text-decoration-none">
+          <div class="p-4 h-100" style="border:1px solid #c49a40;border-radius:4px;transition:background .2s;"
+               onmouseover="this.style.background='rgba(196,154,64,0.1)'"
+               onmouseout="this.style.background='transparent'">
+            <i class="fas fa-film fa-2x mb-3" style="color:#c49a40;"></i>
+            <h3 style="color:#c49a40;font-family:'Cormorant Garamond',serif;letter-spacing:2px;">Media</h3>
+            <p style="color:#d4c5a9;">Photography, video, and digital content production.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <a href="{% url 'works:studio' %}" class="text-decoration-none">
+          <div class="p-4 h-100" style="border:1px solid #c49a40;border-radius:4px;transition:background .2s;"
+               onmouseover="this.style.background='rgba(196,154,64,0.1)'"
+               onmouseout="this.style.background='transparent'">
+            <i class="fas fa-microphone-alt fa-2x mb-3" style="color:#c49a40;"></i>
+            <h3 style="color:#c49a40;font-family:'Cormorant Garamond',serif;letter-spacing:2px;">Studio</h3>
+            <p style="color:#d4c5a9;">Recording, production, and sonic branding.</p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="mt-5">
+      <a href="{% url 'works:design' %}" class="btn btn-outline-warning px-4 py-2 me-2"
+         style="letter-spacing:2px;font-family:'DM Sans',sans-serif;">Get in touch</a>
+      <a href="{% url 'poetry:poetry_home' %}" class="btn btn-link"
+         style="color:#c49a40;letter-spacing:1px;">Aythnyk →</a>
+    </div>
+
+  </div>
+</section>
+{% endblock %}
