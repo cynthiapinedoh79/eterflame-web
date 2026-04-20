@@ -8,6 +8,16 @@
 
 {% block content %}
 
+<div class="eter-breadcrumb">
+  <a href="{% url 'poetry:poetry_home' %}" class="eter-back-link">
+    ← Aythnyk
+  </a>
+  <span class="eter-breadcrumb-sep">·</span>
+  <a href="{% url 'blog:bloghome' %}" class="eter-back-link">
+    Blog
+  </a>
+</div>
+
 <div class="masthead">
     <div class="container">
         <div class="row g-0">

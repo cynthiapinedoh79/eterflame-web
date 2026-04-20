@@ -348,3 +348,9 @@ main.flex-grow-1.main-bg {
   opacity: 1;
   color: var(--color-primary-brand);
 }
+
+.eter-breadcrumb-sep {
+  color: rgba(196,154,64,0.3);
+  margin: 0 8px;
+  font-size: 11px;
+}
