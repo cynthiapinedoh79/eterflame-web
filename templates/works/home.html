@@ -214,7 +214,7 @@
       <div class="row g-3">
 
         <!-- EF Design -->
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-4">
           <a href="{% url 'works:design' %}" class="ef-division-card h-100 d-flex">
             <div class="ef-division-accent" style="background:#4a8ab5;"></div>
             <div class="ef-division-name">EF Design</div>
@@ -230,7 +230,7 @@
         </div>
 
         <!-- EF Media -->
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-4">
           <a href="{% url 'works:media' %}" class="ef-division-card h-100 d-flex">
             <div class="ef-division-accent" style="background:#9a9a9a;"></div>
             <div class="ef-division-name">EF Media</div>
@@ -244,7 +244,7 @@
         </div>
 
         <!-- EF Studio -->
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-4">
           <a href="{% url 'works:studio' %}" class="ef-division-card h-100 d-flex">
             <div class="ef-division-accent" style="background:#b87a3a;"></div>
             <div class="ef-division-name">EF Studio</div>
@@ -257,28 +257,32 @@
           </a>
         </div>
 
-        <!-- Aythnyk -->
-        <div class="col-12 col-md-6 col-lg-3">
-          <a href="{% url 'poetry:poetry_home' %}" class="ef-division-card h-100 d-flex" style="border-color:rgba(196,154,64,.35);">
-            <div class="ef-division-accent" style="background:linear-gradient(90deg,#c49a40,#e8c06a);"></div>
-            <div class="ef-division-name" style="color:#c49a40;">Aythnyk</div>
-            <div class="ef-division-subtitle">Arte · Poesía · Alma</div>
-            <p class="ef-division-desc">
-              The artistic voice of Etherflame Works — poetry, music,
-              stories and creative expression in Spanish.
-            </p>
-            <span style="font-family:'Courier Prime',monospace;font-size:.75rem;letter-spacing:2px;color:#c49a40;margin-top:1.2rem;">
-              Visitar →
-            </span>
-          </a>
-        </div>
-
       </div>
     </section>
 
     <div class="ef-divider"></div>
 
   </div>
+
+  <!-- Aythnyk featured section -->
+  <section class="works-aythnyk-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+          <a href="{% url 'poetry:poetry_home' %}" class="works-aythnyk-card">
+            <p class="works-aythnyk-eyebrow">The Artist Behind the Work</p>
+            <h2 class="works-aythnyk-name">Aythnyk</h2>
+            <p class="works-aythnyk-desc">
+              Alongside our studio work lives a poetic universe —
+              a space of verses, silence, and stories in Spanish.
+              Etherflame Works is the structure; Aythnyk is the spirit.
+            </p>
+            <span class="works-aythnyk-link">Visitar →</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </div>
 {% endblock %}

@@ -392,3 +392,57 @@ main.flex-grow-1.main-bg {
 .poem-brand-item:hover .poem-brand-aythnyk {
   color: var(--color-gold, #c49a40);
 }
+
+/* === Aythnyk featured section on Works home === */
+.works-aythnyk-section {
+  padding: 60px 0 80px;
+  border-top: 0.5px solid rgba(196,154,64,0.15);
+}
+.works-aythnyk-card {
+  display: block;
+  text-align: center;
+  padding: 48px 40px;
+  border: 0.5px solid rgba(196,154,64,0.25);
+  border-radius: 4px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #130e05 0%, #1e1508 100%);
+  transition: border-color 0.3s, background 0.3s;
+}
+.works-aythnyk-card:hover {
+  border-color: rgba(196,154,64,0.6);
+  background: linear-gradient(135deg, #1e1508 0%, #2a1e08 100%);
+}
+.works-aythnyk-eyebrow {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(196,154,64,0.5);
+  margin-bottom: 16px;
+}
+.works-aythnyk-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 600;
+  letter-spacing: 8px;
+  color: #c49a40;
+  margin-bottom: 20px;
+}
+.works-aythnyk-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: #7a5c2e;
+  max-width: 480px;
+  margin: 0 auto 24px;
+  line-height: 1.7;
+}
+.works-aythnyk-link {
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c49a40;
+  border-bottom: 0.5px solid rgba(196,154,64,0.4);
+  padding-bottom: 2px;
+}
