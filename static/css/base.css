@@ -115,6 +115,25 @@ main {
   .navbar-collapse .navbar-nav .nav-link.active::after{display:none;}
 }
 
+.navbar-separator {
+  color: rgba(196,154,64,0.3);
+  padding: 10px 8px;
+  display: inline-block;
+}
+
+.mobile-section-label span {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(196,154,64,0.5);
+  text-transform: uppercase;
+  padding: 8px 18px;
+  display: block;
+}
+@media (min-width: 992px) {
+  .mobile-section-label { display: none; }
+}
+
 /* ================================================
    6. Alerts
 =================================================== */

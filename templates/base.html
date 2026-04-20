@@ -1,7 +1,9 @@
 {% load static %}
 
 {% url 'works:works_home' as home_url %}
+{% url 'works:design' as design_url %}
 {% url 'poetry:poetry_home' as aythnyk_url %}
+{% url 'poetry:poem_list' as poems_url %}
 {% url 'poetry:favorites_list' as favorites_url %}
 {% url 'blog:bloghome' as blog_url %}
 {% url 'about' as about_url %}
@@ -54,37 +56,63 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
+                    <!-- Works section (always visible) -->
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == home_url %}active{% endif %}"
                             href="{{ home_url }}"
-                            {% if request.path == home_url %}aria-current="page"{% endif %}>
-                            Home
-                        </a>
+                            {% if request.path == home_url %}aria-current="page"{% endif %}>Etherflame Works</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == favorites_url %}active{% endif %}"
-                            href="{{ favorites_url }}"
-                            {% if request.path == favorites_url %}aria-current="page"{% endif %}>My Favorites</a>
+                        <a class="nav-link {% if request.path == design_url %}active{% endif %}"
+                            href="{{ design_url }}"
+                            {% if request.path == design_url %}aria-current="page"{% endif %}>Design</a>
                     </li>
 
+                    <!-- Separator -->
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == blog_url %}active{% endif %}"
-                            href="{{ blog_url }}"
-                            {% if request.path == blog_url %}aria-current="page"{% endif %}>Blog</a>
+                        <span class="navbar-separator">|</span>
                     </li>
 
+                    <!-- Aythnyk anchor (always visible) -->
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == aythnyk_url %}active{% endif %}"
                             href="{{ aythnyk_url }}"
                             {% if request.path == aythnyk_url %}aria-current="page"{% endif %}>Aythnyk</a>
                     </li>
 
+                    <!-- Aythnyk sub-links (only when inside /aythnyk/*) -->
+                    {% if request.path|slice:":9" == "/aythnyk/" or request.path == "/aythnyk" %}
+                    <li class="nav-item mobile-section-label">
+                        <span>— Arte —</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == poems_url %}active{% endif %}"
+                            href="{{ poems_url }}"
+                            {% if request.path == poems_url %}aria-current="page"{% endif %}>Poemas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == blog_url %}active{% endif %}"
+                            href="{{ blog_url }}"
+                            {% if request.path == blog_url %}aria-current="page"{% endif %}>Blog</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == favorites_url %}active{% endif %}"
+                            href="{{ favorites_url }}"
+                            {% if request.path == favorites_url %}aria-current="page"{% endif %}>My Favorites</a>
+                    </li>
+                    {% endif %}
+                    {% endif %}
+
+                </ul>
+
+                <!-- Right side -->
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == about_url %}active{% endif %}"
                             href="{{ about_url }}"
                             {% if request.path == about_url %}aria-current="page"{% endif %}>About</a>
                     </li>
-
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %}"
@@ -104,10 +132,6 @@
                     </li>
                     {% endif %}
                 </ul>
-
-                <span class="navbar-text text-muted">
-                    Adventures of a software developer
-                </span>
             </div>
         </div>
     </nav>
