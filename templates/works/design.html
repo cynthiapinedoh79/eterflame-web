@@ -1,0 +1,372 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<style>
+  .ef-design-page {
+    background: var(--bg-body, #0a0804);
+    min-height: 100vh;
+    padding: 4rem 0 6rem;
+  }
+  .ef-eyebrow {
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .72rem;
+    letter-spacing: 4px;
+    color: var(--color-text-muted, #7a5c2e);
+    text-transform: uppercase;
+    margin-bottom: .8rem;
+  }
+  .ef-page-title {
+    font-family: var(--font-display, 'Cormorant Garamond', serif);
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    font-weight: 300;
+    color: var(--color-gold, #c49a40);
+    letter-spacing: 6px;
+    margin-bottom: .4rem;
+  }
+  .ef-page-subtitle {
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .8rem;
+    letter-spacing: 3px;
+    color: #4a8ab5;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+  }
+  .ef-divider {
+    width: 50px;
+    height: 1px;
+    background: var(--color-gold, #c49a40);
+    opacity: .4;
+    margin: 3rem 0;
+  }
+  .ef-section-label {
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .7rem;
+    letter-spacing: 4px;
+    color: var(--color-text-muted, #7a5c2e);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  /* Service cards */
+  .ef-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+    border: 1px solid rgba(196,154,64,.12);
+  }
+  .ef-service-card {
+    padding: 2rem 1.8rem;
+    background: var(--bg-dark, #130e05);
+    transition: background .2s;
+  }
+  .ef-service-card:hover { background: rgba(196,154,64,.04); }
+  .ef-service-icon {
+    font-size: 1.4rem;
+    margin-bottom: .8rem;
+    display: block;
+  }
+  .ef-service-name {
+    font-family: var(--font-display, 'Cormorant Garamond', serif);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: var(--color-gold, #c49a40);
+    margin-bottom: .4rem;
+  }
+  .ef-service-desc {
+    font-family: var(--font-body, 'DM Sans', sans-serif);
+    font-size: .88rem;
+    color: var(--color-text-dark, #f5e0b0);
+    line-height: 1.6;
+    margin-bottom: .8rem;
+  }
+  .ef-service-price {
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .72rem;
+    letter-spacing: 2px;
+    color: #4a8ab5;
+  }
+
+  /* Credentials */
+  .ef-credentials {
+    border: 1px solid rgba(196,154,64,.15);
+    padding: 2.5rem;
+    background: var(--bg-dark, #130e05);
+  }
+  .ef-credentials h3 {
+    font-family: var(--font-display, 'Cormorant Garamond', serif);
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: var(--color-gold, #c49a40);
+    margin-bottom: .3rem;
+  }
+  .ef-credentials .ef-institution {
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .75rem;
+    letter-spacing: 2px;
+    color: var(--color-text-muted, #7a5c2e);
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+  }
+  .ef-skill-pill {
+    display: inline-block;
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .7rem;
+    letter-spacing: 1px;
+    color: var(--color-text-dark, #f5e0b0);
+    border: 1px solid rgba(196,154,64,.25);
+    padding: .25rem .7rem;
+    margin: .2rem .1rem;
+  }
+
+  /* Contact form */
+  .ef-contact-form {
+    border: 1px solid rgba(196,154,64,.15);
+    padding: 3rem 2.5rem;
+    background: var(--bg-dark, #130e05);
+  }
+  .ef-form-group { margin-bottom: 1.5rem; }
+  .ef-form-group label {
+    display: block;
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .7rem;
+    letter-spacing: 3px;
+    color: var(--color-text-muted, #7a5c2e);
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+  }
+  .ef-form-group input,
+  .ef-form-group select,
+  .ef-form-group textarea {
+    width: 100%;
+    background: var(--bg-body, #0a0804);
+    border: 1px solid rgba(196,154,64,.2);
+    color: var(--color-text-dark, #f5e0b0);
+    font-family: var(--font-body, 'DM Sans', sans-serif);
+    font-size: .95rem;
+    padding: .75rem 1rem;
+    outline: none;
+    transition: border-color .2s;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  .ef-form-group input:focus,
+  .ef-form-group select:focus,
+  .ef-form-group textarea:focus {
+    border-color: rgba(196,154,64,.6);
+  }
+  .ef-form-group select option { background: #130e05; }
+  .ef-form-group textarea { resize: vertical; min-height: 130px; }
+  .ef-submit-btn {
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-gold, #c49a40);
+    background: transparent;
+    border: 1px solid var(--color-gold, #c49a40);
+    padding: .75rem 2.5rem;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .ef-submit-btn:hover {
+    background: var(--color-gold, #c49a40);
+    color: var(--bg-dark, #130e05);
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="ef-design-page">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="mb-5">
+      <p class="ef-eyebrow">Etherflame Works</p>
+      <h1 class="ef-page-title">EF DESIGN</h1>
+      <p class="ef-page-subtitle">Creative Technology &amp; Design</p>
+    </div>
+
+    <!-- Services -->
+    <p class="ef-section-label">Services &amp; Pricing</p>
+    <div class="ef-services-grid mb-5">
+
+      <div class="ef-service-card">
+        <span class="ef-service-icon">🌐</span>
+        <div class="ef-service-name">Full Stack Web Development</div>
+        <p class="ef-service-desc">
+          End-to-end web applications built with Python/Django or JavaScript frameworks,
+          responsive design, deployment-ready.
+        </p>
+        <span class="ef-service-price">From $500</span>
+      </div>
+
+      <div class="ef-service-card">
+        <span class="ef-service-icon">🎨</span>
+        <div class="ef-service-name">UI/UX Design</div>
+        <p class="ef-service-desc">
+          User interface design, wireframes, prototypes, and design systems
+          tailored to your brand and audience.
+        </p>
+        <span class="ef-service-price">From $300</span>
+      </div>
+
+      <div class="ef-service-card">
+        <span class="ef-service-icon">✦</span>
+        <div class="ef-service-name">Branding &amp; Visual Identity</div>
+        <p class="ef-service-desc">
+          Logo design, colour palettes, typography, brand guidelines —
+          everything your brand needs to speak with one voice.
+        </p>
+        <span class="ef-service-price">From $400</span>
+      </div>
+
+      <div class="ef-service-card">
+        <span class="ef-service-icon">📊</span>
+        <div class="ef-service-name">Data Analysis &amp; Visualisation</div>
+        <p class="ef-service-desc">
+          Interactive dashboards, data pipelines, and visual reports that
+          turn raw data into strategic clarity.
+        </p>
+        <span class="ef-service-price">From $350</span>
+      </div>
+
+      <div class="ef-service-card">
+        <span class="ef-service-icon">🛒</span>
+        <div class="ef-service-name">E-commerce Solutions</div>
+        <p class="ef-service-desc">
+          Custom online stores, payment integration, product management,
+          and conversion-optimised checkout flows.
+        </p>
+        <span class="ef-service-price">From $600</span>
+      </div>
+
+      <div class="ef-service-card">
+        <span class="ef-service-icon">🔌</span>
+        <div class="ef-service-name">API Development &amp; Integration</div>
+        <p class="ef-service-desc">
+          RESTful APIs, third-party integrations (payment gateways, social,
+          CRMs), and backend service architecture.
+        </p>
+        <span class="ef-service-price">From $400</span>
+      </div>
+
+      <div class="ef-service-card">
+        <span class="ef-service-icon">🗄</span>
+        <div class="ef-service-name">Database Design</div>
+        <p class="ef-service-desc">
+          Schema design, query optimisation, PostgreSQL setup, and
+          migration strategy for scalable data storage.
+        </p>
+        <span class="ef-service-price">From $250</span>
+      </div>
+
+    </div>
+
+    <div class="ef-divider"></div>
+
+    <!-- Credentials -->
+    <p class="ef-section-label">Credentials</p>
+    <div class="ef-credentials mb-5">
+      <h3>Diploma in Full Stack Software Development</h3>
+      <p class="ef-institution">Code Institute · Dublin, Ireland</p>
+      <div>
+        <span class="ef-skill-pill">Python</span>
+        <span class="ef-skill-pill">Django</span>
+        <span class="ef-skill-pill">JavaScript</span>
+        <span class="ef-skill-pill">PostgreSQL</span>
+        <span class="ef-skill-pill">HTML/CSS</span>
+        <span class="ef-skill-pill">Agile</span>
+        <span class="ef-skill-pill">Git</span>
+      </div>
+    </div>
+
+    <div class="ef-divider"></div>
+
+    <!-- Contact -->
+    <p class="ef-section-label">Start a Project</p>
+    <div class="ef-contact-form">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="mb-3" style="font-family:'DM Sans',sans-serif;font-size:.9rem;
+               color:{% if 'error' in message.tags %}#e07070{% else %}#7abf7a{% endif %};">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      <form method="post" action="{% url 'works:design' %}">
+        {% csrf_token %}
+        <div class="row g-4">
+          <div class="col-12 col-md-6">
+            <div class="ef-form-group">
+              <label for="id_name">Name <span style="color:#c49a40;">*</span></label>
+              <input type="text" id="id_name" name="name" required placeholder="Your name">
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="ef-form-group">
+              <label for="id_email">Email <span style="color:#c49a40;">*</span></label>
+              <input type="email" id="id_email" name="email" required placeholder="your@email.com">
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="ef-form-group">
+              <label for="id_service">Service</label>
+              <select id="id_service" name="service">
+                <option value="">Select a service</option>
+                <option value="Full Stack Web Development">Full Stack Web Development</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="Branding & Visual Identity">Branding &amp; Visual Identity</option>
+                <option value="Data Analysis & Visualisation">Data Analysis &amp; Visualisation</option>
+                <option value="E-commerce Solutions">E-commerce Solutions</option>
+                <option value="API Development & Integration">API Development &amp; Integration</option>
+                <option value="Database Design">Database Design</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="ef-form-group">
+              <label for="id_budget">Budget Range</label>
+              <select id="id_budget" name="budget">
+                <option value="">Select a budget</option>
+                <option value="Under $500">Under $500</option>
+                <option value="$500 – $1,000">$500 – $1,000</option>
+                <option value="$1,000 – $3,000">$1,000 – $3,000</option>
+                <option value="$3,000 – $5,000">$3,000 – $5,000</option>
+                <option value="$5,000+">$5,000+</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="ef-form-group">
+              <label for="id_timeline">Timeline</label>
+              <select id="id_timeline" name="timeline">
+                <option value="">Select a timeline</option>
+                <option value="ASAP">ASAP</option>
+                <option value="Within 1 month">Within 1 month</option>
+                <option value="1–3 months">1–3 months</option>
+                <option value="3–6 months">3–6 months</option>
+                <option value="Flexible">Flexible</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="ef-form-group">
+              <label for="id_description">Project Description <span style="color:#c49a40;">*</span></label>
+              <textarea id="id_description" name="description" required
+                placeholder="Tell us about your project — goals, audience, scope..."></textarea>
+            </div>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="ef-submit-btn">Send Enquiry</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

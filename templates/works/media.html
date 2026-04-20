@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<style>
+  .ef-coming-soon {
+    background: var(--bg-body, #0a0804);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .ef-coming-soon .ef-eyebrow {
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .72rem;
+    letter-spacing: 4px;
+    color: var(--color-text-muted, #7a5c2e);
+    text-transform: uppercase;
+    margin-bottom: .8rem;
+  }
+  .ef-coming-soon h1 {
+    font-family: var(--font-display, 'Cormorant Garamond', serif);
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    font-weight: 300;
+    color: var(--color-gold, #c49a40);
+    letter-spacing: 6px;
+    margin-bottom: .5rem;
+  }
+  .ef-coming-soon .ef-subtitle {
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .8rem;
+    letter-spacing: 3px;
+    color: #9a9a9a;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  .ef-coming-soon p {
+    font-family: var(--font-body, 'DM Sans', sans-serif);
+    font-size: 1rem;
+    color: var(--color-text-dark, #f5e0b0);
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+  .ef-back-link {
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-text-muted, #7a5c2e);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .ef-back-link:hover { color: var(--color-gold, #c49a40); }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="ef-coming-soon">
+  <div class="container">
+    <p class="ef-eyebrow">Etherflame Works</p>
+    <h1>EF MEDIA</h1>
+    <p class="ef-subtitle">Video · Audio · Content</p>
+    <p>
+      Photography, video production, podcast, and digital content strategy
+      built to move audiences. Currently in development — launching soon.
+    </p>
+    <div style="width:40px;height:1px;background:#c49a40;opacity:.4;margin:0 auto 2rem;"></div>
+    <a href="{% url 'works:works_home' %}" class="ef-back-link">← Back to Etherflame Works</a>
+  </div>
+</div>
+{% endblock %}
