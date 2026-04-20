@@ -4,14 +4,27 @@
    1. Root Variables
 =================================================== */
 :root {
-  --color-primary-brand:#E86A33; --color-primary-brand-light:#C43A3A;
-  --color-link:#4C3A51; --color-link-hover:#C08A3E;
-  --color-danger:#C43A3A;
-  --color-text-dark:#1A2C42; --color-text-light:#FBF9F6; --color-text-body:#1A2C42; --color-text-muted:#8F8D8B;
-  --bg-body:#FBF9F6; --bg-dark:#4c3a51; --bg-light:#FFFFFF;
-  --font-stack-primary:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  --font-stack-brand:var(--font-stack-primary);
-  --color-primary-text:#FBF9F6; --color-danger-text:#FBF9F6;
+  /* ETER FLAME Brand Colors */
+  --color-primary-brand: #c49a40;
+  --color-primary-brand-light: #e8c06a;
+  --color-link: #c49a40;
+  --color-link-hover: #e8c06a;
+  --color-danger: #c0580a;
+  --color-text-dark: #f5e0b0;
+  --color-text-light: #f5e0b0;
+  --color-text-body: #d4a85a;
+  --color-text-muted: #7a5c2e;
+  --bg-body: #0a0804;
+  --bg-dark: #130e05;
+  --bg-light: #1e1508;
+  --font-stack-primary: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-stack-brand: 'Cormorant Garamond', Georgia, serif;
+  --color-primary-text: #f5e0b0;
+  --color-danger-text: #f5e0b0;
+  --color-border: rgba(196,154,64,0.18);
+  --color-gold: #c49a40;
+  --color-gold-light: #e8c06a;
+  --color-gold-dim: #7a5c2e;
 }
 
 /* ================================================
@@ -217,7 +230,17 @@ main.flex-grow-1 {
 
 /* Prevents horizontal scrolling/movement for the entire page */
 body {
-    overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  height: 100%;
+  background-color: var(--bg-body);
+  font-family: var(--font-stack-primary);
+  color: var(--color-text-body);
+  margin-bottom: 0;
+  padding-top: 70px;
+  padding-bottom: 0;
+  overflow-x: hidden;
 }
 
 /* ================================================
