@@ -56,34 +56,22 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    <!-- Works section (always visible) -->
+                    <!-- Works home (always visible) -->
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == home_url %}active{% endif %}"
                             href="{{ home_url }}"
                             {% if request.path == home_url %}aria-current="page"{% endif %}>Etherflame Works</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == design_url %}active{% endif %}"
-                            href="{{ design_url }}"
-                            {% if request.path == design_url %}aria-current="page"{% endif %}>Design</a>
-                    </li>
 
-                    <!-- Separator -->
+                    <!-- Aythnyk section nav (only when inside /aythnyk/*) -->
+                    {% if request.path|slice:":9" == "/aythnyk/" or request.path == "/aythnyk" %}
                     <li class="nav-item">
                         <span class="navbar-separator">|</span>
                     </li>
-
-                    <!-- Aythnyk anchor (always visible) -->
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == aythnyk_url %}active{% endif %}"
                             href="{{ aythnyk_url }}"
                             {% if request.path == aythnyk_url %}aria-current="page"{% endif %}>Aythnyk</a>
-                    </li>
-
-                    <!-- Aythnyk sub-links (only when inside /aythnyk/*) -->
-                    {% if request.path|slice:":9" == "/aythnyk/" or request.path == "/aythnyk" %}
-                    <li class="nav-item mobile-section-label">
-                        <span>— Arte —</span>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == poems_url %}active{% endif %}"

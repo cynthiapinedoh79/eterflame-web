@@ -10,6 +10,19 @@
 <div class="eter-breadcrumb">
   <a href="{% url 'poetry:poetry_home' %}" class="eter-back-link">← Aythnyk</a>
 </div>
+
+<!-- Dual brand header -->
+<div class="poem-brand-bar">
+  <a href="{% url 'works:works_home' %}" class="poem-brand-item">
+    <img src="{% static 'images/my_logo.png' %}" alt="Etherflame" height="28" style="opacity:.85;">
+    <span class="poem-brand-name">ETER FLAME</span>
+  </a>
+  <span class="poem-brand-divider">×</span>
+  <a href="{% url 'poetry:poetry_home' %}" class="poem-brand-item">
+    <span class="poem-brand-aythnyk">AYTHNYK</span>
+  </a>
+</div>
+
 <div class="container mt-4">
   <div class="d-flex align-items-center justify-content-between mb-4">
     <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;letter-spacing:4px;color:var(--color-gold,#c49a40);margin:0;">

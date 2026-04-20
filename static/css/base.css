@@ -354,3 +354,41 @@ main.flex-grow-1.main-bg {
   margin: 0 8px;
   font-size: 11px;
 }
+
+/* === Dual brand bar (poems page) === */
+.poem-brand-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px 24px 0;
+}
+.poem-brand-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.poem-brand-name {
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: rgba(196,154,64,0.6);
+  text-transform: uppercase;
+}
+.poem-brand-divider {
+  font-family: 'Courier Prime', monospace;
+  font-size: 13px;
+  color: rgba(196,154,64,0.25);
+}
+.poem-brand-aythnyk {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 300;
+  letter-spacing: 5px;
+  color: rgba(196,154,64,0.7);
+}
+.poem-brand-item:hover .poem-brand-name,
+.poem-brand-item:hover .poem-brand-aythnyk {
+  color: var(--color-gold, #c49a40);
+}
