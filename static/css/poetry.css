@@ -797,3 +797,87 @@ a.text-decoration-none:hover {
     transform: translateX(32px); /* Move it right by its own width (32px) */
 }
 
+/* ================================================
+   AYTHNYK HOME — Navigation Cards
+=================================================== */
+.aythnyk-nav-sections {
+  padding: 80px 0;
+  background: var(--bg-body);
+}
+.aythnyk-nav-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 24px;
+  border: 0.5px solid rgba(196,154,64,0.2);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+  background: var(--bg-dark);
+  height: 100%;
+  position: relative;
+}
+.aythnyk-nav-card:hover {
+  border-color: rgba(196,154,64,0.6);
+  background: var(--bg-light);
+  text-decoration: none;
+}
+.aythnyk-nav-card--soon {
+  opacity: 0.6;
+  cursor: default;
+}
+.aythnyk-nav-icon {
+  font-size: 24px;
+  color: var(--color-primary-brand);
+  margin-bottom: 16px;
+  display: block;
+}
+.aythnyk-nav-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--color-text-dark);
+  margin-bottom: 8px;
+}
+.aythnyk-nav-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+.aythnyk-coming-soon {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-primary-brand);
+  border: 0.5px solid rgba(196,154,64,0.3);
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-top: 12px;
+  display: inline-block;
+}
+
+/* ================================================
+   POEMS PAGE — Mis Favoritos link
+=================================================== */
+.btn-favorites-link {
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-primary-brand);
+  text-decoration: none;
+  border: 0.5px solid rgba(196,154,64,0.3);
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.btn-favorites-link:hover {
+  background: rgba(196,154,64,0.1);
+  color: var(--color-primary-brand);
+}
+

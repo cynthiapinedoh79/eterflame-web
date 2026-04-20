@@ -7,11 +7,17 @@
 {% endblock %}
 
 {% block content %}
-  {% comment %}
-    This page now just includes the partial.
-    All the logic is in _poem_list_section.html
-  {% endcomment %}
-  {% include "poetry/_poem_list_section.html" %}
+<div class="container mt-4">
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;letter-spacing:4px;color:var(--color-gold,#c49a40);margin:0;">
+      Poemas
+    </h1>
+    {% if user.is_authenticated %}
+    <a href="{% url 'poetry:favorites_list' %}" class="btn-favorites-link">&#9825; Mis Favoritos</a>
+    {% endif %}
+  </div>
+</div>
+{% include "poetry/_poem_list_section.html" %}
 {% endblock %}
 
 {% block full_width_banner %}

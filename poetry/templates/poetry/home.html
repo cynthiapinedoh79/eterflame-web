@@ -174,49 +174,48 @@
   <!-- Quote banner -->
   {% include "poetry/_quote_banner.html" with theme="banner--black" %}
 
-  <div class="container">
+  <!-- Navigation cards -->
+  <section class="aythnyk-nav-sections">
+    <div class="container">
+      <div class="row g-4 justify-content-center">
 
-    <div class="ef-divider"></div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="{% url 'poetry:poem_list' %}" class="aythnyk-nav-card">
+            <span class="aythnyk-nav-icon">✦</span>
+            <h3 class="aythnyk-nav-title">Poemas</h3>
+            <p class="aythnyk-nav-desc">Colecciones y escritos</p>
+          </a>
+        </div>
 
-    <!-- Collections grid -->
-    <section>
-      <p class="ef-section-label">Colecciones</p>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="{% url 'blog:bloghome' %}" class="aythnyk-nav-card">
+            <span class="aythnyk-nav-icon">✦</span>
+            <h3 class="aythnyk-nav-title">Blog</h3>
+            <p class="aythnyk-nav-desc">Reflexiones y proceso creativo</p>
+          </a>
+        </div>
 
-      {% if all_collections %}
-      <div class="collection-grid">
-        {% for collection in all_collections %}
-        <a href="{% url 'poetry:poem_list' %}?collection={{ collection.slug }}"
-           class="collection-card">
-          {% if collection.collection_image and "placeholder" not in collection.collection_image.url %}
-            <img src="{{ collection.collection_image.url }}"
-                 alt="{{ collection.name_es|default:collection.name_en }}">
-          {% else %}
-            <img src="{% static 'images/placeholder_coll.png' %}"
-                 alt="Colección">
-          {% endif %}
-          <div class="collection-card-body">
-            <div class="collection-card-name">
-              {{ collection.name_es|default:collection.name_en }}
-            </div>
-            {% if collection.description_es or collection.description_en %}
-            <p class="collection-card-desc">
-              {{ collection.description_es|default:collection.description_en|striptags|truncatechars:80 }}
-            </p>
-            {% endif %}
-          </div>
-        </a>
-        {% endfor %}
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="#" class="aythnyk-nav-card aythnyk-nav-card--soon">
+            <span class="aythnyk-nav-icon">✦</span>
+            <h3 class="aythnyk-nav-title">Canciones</h3>
+            <p class="aythnyk-nav-desc">Música y letras</p>
+            <span class="aythnyk-coming-soon">Próximamente</span>
+          </a>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="#" class="aythnyk-nav-card aythnyk-nav-card--soon">
+            <span class="aythnyk-nav-icon">✦</span>
+            <h3 class="aythnyk-nav-title">Tienda</h3>
+            <p class="aythnyk-nav-desc">Productos y descargas</p>
+            <span class="aythnyk-coming-soon">Próximamente</span>
+          </a>
+        </div>
+
       </div>
-      {% else %}
-      <p style="text-align:center;color:var(--color-text-muted,#7a5c2e);font-family:'Courier Prime',monospace;font-size:.8rem;letter-spacing:2px;">
-        Colecciones próximamente
-      </p>
-      {% endif %}
-    </section>
-
-    <div class="ef-divider"></div>
-
-  </div>
+    </div>
+  </section>
 
   <!-- Etherflame Works CTA -->
   <div class="ef-works-cta">
