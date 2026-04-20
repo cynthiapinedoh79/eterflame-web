@@ -147,15 +147,12 @@ def poetry_home(request):
         },
     ]
 
-    ctx = _build_poem_list_context(request)
-    ctx.update(
-        {
-            "hero_image_url": static("images/poetry_hero.png"),
-            "cover_image_url": static("images/poetry_cover.png"),
-            "quotes": quotes,
-            "hide_page_title": True,
-        }
-    )
+    ctx = {
+        "hero_image_url": static("images/poetry_hero.png"),
+        "cover_image_url": static("images/poetry_cover.png"),
+        "quotes": quotes,
+        "hide_page_title": True,
+    }
     return render(request, "poetry/home.html", ctx)
 
 
