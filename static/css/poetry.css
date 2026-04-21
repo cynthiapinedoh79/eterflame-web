@@ -501,69 +501,67 @@ a.page-link { color: var(--ay-primary); }
 =================================================== */
 
 .poem-detail-card {
-  background: #1a0508;
-  border: 1px solid rgba(200,16,46,0.4);
-  border-top: 3px solid #c8102e;
-  border-radius: 10px;
-  overflow: hidden;
-  width: 100%;
+  background: #3d0812 !important;
+  border: none !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  width: 100% !important;
   box-shadow:
-    0 0 0 1px rgba(200,16,46,0.15),
-    0 40px 100px rgba(0,0,0,0.8),
-    inset 0 0 80px rgba(200,16,46,0.05);
+    0 4px 6px rgba(0,0,0,0.3),
+    0 40px 80px rgba(0,0,0,0.6) !important;
   position: relative;
 }
 
 .poem-detail-overlay {
-  background: #1a0508;
-  padding: 52px 60px;
-  overflow: hidden;
+  background: #3d0812 !important;
+  padding: 52px 60px !important;
+  overflow: hidden !important;
 }
 
 .poem-detail-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 600;
-  letter-spacing: 5px;
-  color: #f5e6c8;
-  text-transform: uppercase;
-  line-height: 1.15;
-  margin-bottom: 10px;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: 5px !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  line-height: 1.15 !important;
+  margin-bottom: 10px !important;
 }
 
 .poem-detail-author {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1.1rem;
-  color: #c8102e;
-  letter-spacing: 3px;
-  margin-bottom: 40px;
-  display: block;
-  text-transform: uppercase;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-style: italic !important;
+  font-size: 1.1rem !important;
+  color: #d4a843 !important;
+  letter-spacing: 3px !important;
+  margin-bottom: 40px !important;
+  display: block !important;
+  text-transform: uppercase !important;
 }
 
 .poem-body {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
-  line-height: 2;
-  color: #f0ddb0;
-  max-width: 620px;
-  margin: 0 auto;
-  letter-spacing: 0.03em;
-  width: 100%;
-  box-sizing: border-box;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.25rem !important;
+  line-height: 2 !important;
+  color: #ffffff !important;
+  max-width: 620px !important;
+  margin: 0 auto !important;
+  letter-spacing: 0.03em !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .poem-body::before {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: #c8102e;
-  margin: 0 auto 48px;
+  content: '' !important;
+  display: block !important;
+  width: 40px !important;
+  height: 2px !important;
+  background: rgba(255,255,255,0.3) !important;
+  margin: 0 auto 48px !important;
 }
 
 .poem-body p {
@@ -571,14 +569,14 @@ a.page-link { color: var(--ay-primary); }
   margin-top: 0 !important;
   line-height: 2 !important;
   padding: 0 !important;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  color: #f0ddb0;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  color: #ffffff !important;
 }
 
 .poem-body p:empty {
   display: block !important;
-  height: 1.5em;
+  height: 1.5em !important;
   margin: 0 !important;
 }
 
@@ -596,16 +594,14 @@ a.page-link { color: var(--ay-primary); }
 
 
 a.text-decoration-none {
-  color: #c8102e !important;
-  font-family: 'Courier Prime', monospace;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  opacity: 0.8;
+  color: rgba(255,255,255,0.6) !important;
+  font-family: 'Courier Prime', monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
 }
 a.text-decoration-none:hover {
-  color: #e8314f !important;
-  opacity: 1;
+  color: #ffffff !important;
 }
 
 /* ================================================
@@ -810,10 +806,10 @@ a.text-decoration-none:hover {
 
   /* Poem Detail */
   .poem-detail-overlay {
-    padding: 32px 24px;
+    padding: 32px 24px !important;
   }
   .poem-body {
-    font-size: 1.1rem;
+    font-size: 1.1rem !important;
   }
 }
 
@@ -1158,28 +1154,28 @@ a.text-decoration-none:hover {
    POEM DETAIL — Language toggle buttons
 =================================================== */
 #btn-es, #btn-en {
-  background: transparent;
-  border: 1px solid rgba(200,16,46,0.3);
-  color: #a08070;
-  font-family: 'Courier Prime', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  padding: 5px 10px;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: all 0.2s;
+  background: transparent !important;
+  border: 1px solid rgba(255,255,255,0.25) !important;
+  color: rgba(255,255,255,0.6) !important;
+  font-family: 'Courier Prime', monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 2px !important;
+  padding: 5px 10px !important;
+  border-radius: 2px !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
 }
 #btn-es:hover, #btn-en:hover {
-  border-color: rgba(200,16,46,0.6);
-  color: #f0ddb0;
-  background: rgba(200,16,46,0.1);
+  border-color: rgba(255,255,255,0.5) !important;
+  color: #ffffff !important;
+  background: rgba(255,255,255,0.1) !important;
 }
 #btn-es.active, #btn-en.active,
 #btn-es.btn-secondary, #btn-en.btn-secondary {
-  background: #c8102e;
-  color: #ffffff;
-  border-color: #c8102e;
-  font-weight: 600;
+  background: #c8102e !important;
+  color: #ffffff !important;
+  border-color: #c8102e !important;
+  font-weight: 600 !important;
 }
 #btn-es.btn-outline-secondary,
 #btn-en.btn-outline-secondary {
@@ -1194,19 +1190,9 @@ a.text-decoration-none:hover {
   color: var(--ay-light);
 }
 
-/* Poem detail card gradient overlay */
-.poem-detail-card {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+/* Poem detail card - overlay layer disabled (solid background used instead) */
 .poem-detail-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(10,8,4,0.92) 0%, rgba(20,16,9,0.85) 100%);
-  border-radius: 8px;
-  z-index: 0;
+  display: none;
 }
 .poem-detail-overlay { position: relative; z-index: 1; }
 
@@ -1362,14 +1348,14 @@ a.text-decoration-none:hover {
 
 /* btn-like override for Aythnyk */
 .btn-like {
-  color: rgba(200,16,46,0.35) !important;
+  color: rgba(255,255,255,0.4) !important;
   font-size: 14px;
   transition: all 0.2s !important;
 }
 .btn-like:hover,
 .btn-like.favorited {
-  color: #c8102e !important;
-  transform: scale(1.2);
+  color: #ffffff !important;
+  transform: scale(1.2) !important;
 }
 
 /* ES/EN badges in card footer */
