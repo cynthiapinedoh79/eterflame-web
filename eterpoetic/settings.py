@@ -51,7 +51,7 @@ ALLOWED_HOSTS = [
     "dev.local",
     '[::1]',
     '.herokuapp.com',
-    'eterpoetic-62a49da213d8.herokuapp.com',
+    'eterfalame-web-3348815acb0e.herokuapp.com',
     '*.codeinstitute-ide.net',
     '*.githubpreview.dev',
 ]

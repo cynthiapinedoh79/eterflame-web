@@ -166,10 +166,16 @@ def poetry_home(request):
         },
     ]
 
+    try:
+        all_collections = Collection.objects.all().order_by("name_en")
+    except Exception:
+        all_collections = []
+
     ctx = {
         "hero_image_url": static("images/poetry_hero.png"),
         "cover_image_url": static("images/poetry_cover.png"),
         "quotes": quotes,
+        "all_collections": all_collections,
         "hide_page_title": True,
     }
     return render(request, "poetry/home.html", ctx)
