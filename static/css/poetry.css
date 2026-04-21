@@ -61,7 +61,7 @@ section.py-4 {
    2. PAGE: POETRY LIST
 =================================================== */
 
-/* --- 2.1. List Layout, Grid & Search --- */
+/* --- 2.1. Layout, Grid & Search --- */
 
 .poetry-list.container {
   max-width: 96%;
@@ -69,9 +69,25 @@ section.py-4 {
   padding-right: 0.75rem;
 }
 
-.poetry-list h2 { 
-  font-weight: 800; 
-  letter-spacing: .2px; 
+.poetry-list h1 {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(2rem, 5vw, 3rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 6px !important;
+  color: #f5e6c8 !important;
+  text-transform: uppercase;
+}
+
+.poetry-list h2 {
+  color: #f5e6c8 !important;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  letter-spacing: 3px;
+}
+
+.poetry-list h2.mt-2.mb-2,
+.poetry-list h2.mt-2.mb-3 {
+  margin-top: 2.5rem !important;
 }
 
 .poetry-list .center-grid {
@@ -91,43 +107,106 @@ section.py-4 {
   width: 100%;
 }
 
+.poetry-list .search-input,
+.poetry-list input[type="search"],
+.poetry-list input[type="text"] {
+  background: var(--bg-card);
+  border: 1px solid rgba(200, 16, 46, 0.15);
+  color: var(--text-primary);
+  border-radius: 4px;
+  padding: 11px 16px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
 .poetry-list .search-input {
   flex: 1;
   border-radius: 999px;
   padding-left: 1rem;
   padding-right: 1rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
-.poetry-list .form-control { 
-  box-shadow: 0 2px 10px rgba(0,0,0,.04); 
-  border-radius: 12px; 
+.poetry-list .form-control {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
 }
 
-/* --- 2.2. Base Card Styles --- */
+.poetry-list .search-input:hover {
+  border-color: rgba(200, 16, 46, 0.3);
+}
 
-.poetry-list .card {
+.poetry-list .search-input:focus,
+.poetry-list input[type="text"]:focus {
+  border-color: var(--ay-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
+  background: var(--bg-card-hover);
+}
+
+.poetry-list .search-input::placeholder {
+  color: #3a2010;
+}
+
+.poetry-list select,
+.poetry-list .form-select {
+  background-color: var(--bg-card);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c8102e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  border: 1px solid rgba(200, 16, 46, 0.15);
+  color: var(--text-body);
+  border-radius: 4px;
+  padding: 11px 36px 11px 14px;
+  font-size: 14px;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.poetry-list select:hover,
+.poetry-list .form-select:hover {
+  border-color: rgba(200, 16, 46, 0.35);
+}
+
+.poetry-list select:focus,
+.poetry-list .form-select:focus {
+  border-color: var(--ay-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
+}
+
+.poetry-list select option,
+.poetry-list .form-select option {
   background: var(--bg-card);
-  border: 1px solid rgba(200,16,46,0.08);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: all 0.25s ease;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.poetry-list .card:hover {
-  background: #1a0508;
-  border-color: rgba(200,16,46,0.4);
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 20px rgba(200,16,46,0.1);
+  color: var(--text-body);
 }
 
-.poetry-list .image-wrap { 
-  position: relative; 
-  overflow: hidden; 
-  border-top-left-radius:16px; 
-  border-top-right-radius:16px; 
+/* --- 2.2. Shared Card Base --- */
+
+.poetry-list .card,
+.poetry-list .collection-album-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid rgba(200, 16, 46, 0.10);
+  border-radius: 14px;
+  overflow: hidden;
+  height: 100%;
+  transform: scale(1);
+  transform-origin: center center;
+  transition:
+    transform 0.30s ease,
+    background-color 0.30s ease,
+    border-color 0.30s ease,
+    box-shadow 0.30s ease;
+}
+
+.poetry-list .image-wrap {
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
 }
 
 .poetry-list .card-img-top {
@@ -139,10 +218,9 @@ section.py-4 {
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
   transform: scale(1);
-  transition: transform .25s ease;
-}
-.poetry-list .card:hover .card-img-top { 
-  transform: scale(1.02); 
+  transform-origin: center center;
+  transition: transform 0.42s ease, filter 0.42s ease;
+  will-change: transform;
 }
 
 .poetry-list .card-img-top[alt="Placeholder image"] {
@@ -159,6 +237,7 @@ section.py-4 {
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
+
 .poetry-list .card-title a.post-link {
   text-decoration: none;
   color: #f5e6c8;
@@ -167,17 +246,24 @@ section.py-4 {
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
-.poetry-list .card-title a.post-link:hover,
-.poetry-list .card:hover .card-title a.post-link {
-  color: #c8102e;
+
+.poetry-list .card-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #6b4020;
+  line-height: 1.5;
+  font-style: italic;
+  transition: color 0.2s ease;
 }
-.poetry-list .card-text { font-family: 'DM Sans', sans-serif; font-size: 13px; color: #6b4020; line-height: 1.5; font-style: italic; transition: color 0.2s; }
-.poetry-list .card:hover .card-text { color: var(--text-muted); }
-.poetry-list .text-muted { color: var(--text-subtle) !important; font-size: 11px; font-family: var(--font-mono); letter-spacing: 0.5px; }
-.poetry-list .card .card-footer { background: transparent; border-top: 1px solid rgba(200,16,46,0.08); transition: border-color 0.2s; }
-.poetry-list .card:hover .card-footer { border-top-color: rgba(200,16,46,0.2); }
+
+.poetry-list .text-muted {
+  color: var(--text-subtle) !important;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.5px;
+}
 
 .poetry-list .text-muted.small {
   font-family: 'Courier Prime', monospace;
@@ -188,56 +274,129 @@ section.py-4 {
   opacity: 1;
 }
 
+.poetry-list .card .text-muted:not(.small) {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: #7a6035 !important;
+}
+
 .poetry-list .card .card-footer {
   background: transparent;
-  border-top: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
   font-family: 'Courier Prime', monospace;
   font-size: 10px;
   letter-spacing: 1px;
   color: #5a4020;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
-/* --- 2.3. Featured Card Styles --- */
+.poetry-list .card-footer span:not(.favorites-bar-heart) {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
 
-.poetry-list .badge.bg-warning { 
+/* --- 2.3. Standard Poem Card Hover --- */
+
+.poetry-list .card:hover {
+  background: #c8102e;
+  border-color: #e8314f;
+  transform: translateY(-4px) scale(1.018);
+  z-index: 3;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(200, 16, 46, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.poetry-list .card:hover .card-img-top {
+  transform: scale(1.08) translateY(-2px);
+  filter: brightness(1.03);
+}
+
+.poetry-list .card:hover .card-title,
+.poetry-list .card:hover .card-title a.post-link {
+  color: #fff5df !important;
+}
+
+.poetry-list .card:hover .text-muted.small,
+.poetry-list .card:hover .card-footer,
+.poetry-list .card:hover .card-footer span:not(.favorites-bar-heart),
+.poetry-list .card:hover .card .text-muted:not(.small) {
+  color: #0a0804 !important;
+}
+
+.poetry-list .card:hover .card-text {
+  color: #f2dfb9 !important;
+}
+
+.poetry-list .card:hover .card-footer {
+  border-top-color: rgba(10, 8, 4, 0.18) !important;
+}
+
+/* --- 2.4. Featured Card --- */
+
+.poetry-list .badge.bg-warning {
   background: var(--color-primary-brand) !important;
   color: #000 !important;
 }
-.poetry-list .card:hover .badge.bg-warning { 
+
+.poetry-list .card:hover .badge.bg-warning {
   box-shadow: 0 0 0 3px rgba(232, 106, 51, 0.1);
 }
 
 .poetry-list .card.is-featured {
-  background: var(--bg-light); 
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+  background: var(--bg-light);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: scale(1.05);
+  z-index: 1;
 }
 
 .poetry-list .card.is-featured .card-title a.post-link {
   color: var(--color-primary-brand);
-  transition: color .2s ease;
+  transition: color 0.2s ease;
 }
+
 .poetry-list .card.is-featured .card-title a.post-link:hover {
   color: var(--color-link-hover);
-  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .poetry-list .feature-flag {
-  position: absolute; top: 14px; left: 6px;
-  padding: 4px 12px 4px 4px; border-radius: 2px;
-  font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
-  color: var(--color-danger-text); z-index: 2;
+  position: absolute;
+  top: 14px;
+  left: 6px;
+  padding: 4px 12px 4px 4px;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-danger-text);
+  z-index: 2;
   background: linear-gradient(135deg, var(--color-primary-brand), var(--color-danger));
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-  text-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 }
+
 .poetry-list .feature-flag::after {
-  content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-  background: linear-gradient(120deg, rgba(255,255,255,0.3), transparent);
-  transition: all .5s ease;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.5s ease;
 }
-.poetry-list .card:hover .feature-flag::after { left: 100%; }
+
+.poetry-list .card:hover .feature-flag::after {
+  left: 100%;
+}
+
 .poetry-list .card:hover .feature-flag {
-  transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,.18);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
 }
 
 .poetry-list .card.is-featured .card-footer {
@@ -245,118 +404,60 @@ section.py-4 {
   border-top: 1px solid #eee;
 }
 
-.poetry-list .card.is-featured:hover {
-  border-color: rgba(232, 106, 51, 0.45);
-  box-shadow: 0 12px 28px rgba(0,0,0,.10), 0 0 0 3px rgba(232, 106, 51, 0.1);
-}
-
-.poetry-list .card.is-featured .card-img-top {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-}
+.poetry-list .card.is-featured .card-img-top,
 .poetry-list .card.is-featured .image-wrap {
   aspect-ratio: 4 / 3;
-  overflow: hidden;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
 }
+
 .poetry-list .card.is-featured .image-wrap .card-img-top {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.poetry-list .card.is-featured {
-    transform: scale(1.05);
-    transition: transform 0.2s ease-in-out;
-    z-index: 1;
-}
 .poetry-list .card.is-featured:hover {
-    transform: scale(1.05);
+  transform: translateY(-4px) scale(1.065);
+  border-color: rgba(232, 106, 51, 0.45);
+  z-index: 4;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10), 0 0 0 3px rgba(232, 106, 51, 0.1);
 }
 
-/* --- 2.4. Collection Album Card --- */
+.poetry-list .card.is-featured:hover .card-img-top {
+  transform: scale(1.08);
+  filter: brightness(1.03);
+}
+
+/* --- 2.5. Collection Album Card --- */
 
 .poetry-list .collection-album-card {
-  position: relative;
-  background: var(--bg-card);
-  border: 1px solid rgba(200,16,46,0.1);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  height: 100%;
-  overflow: hidden;
   cursor: pointer;
 }
 
 .poetry-list .collection-album-card:hover {
-  background: #1a0508;
-  border-color: rgba(200,16,46,0.5);
-  transform: translateY(-5px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(200,16,46,0.15);
+  background: #c8102e;
+  border-color: rgba(200, 16, 46, 0.5);
+  transform: translateY(-5px) scale(1.018);
+  z-index: 3;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(200, 16, 46, 0.2);
 }
 
-.poetry-list.collection-album-card .card-img-top {
-  display: block;
-  width: calc(100% - 34px);
-  margin-right: 34px;
-  float: left;
-  height: auto;
-  aspect-ratio: 5 / 4;
-  object-fit: cover;
-  border-top-left-radius: 14px;
-  border-top-right-radius: 0; 
-  border-bottom-right-radius: 0;
-  transform: scale(1);
-  transition: transform .25s ease;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
-}
-
-.poetry-list.collection-album-card:hover .card-img-top {
-  transform: scale(1.02);
-}
-
-.poetry-list .collection-album-card .card-title {
-  color: var(--text-primary);
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  margin-bottom: 0.25rem !important;
-  transition: color 0.2s;
-}
-
-.poetry-list .collection-album-card:hover .card-title {
-  color: #e8314f;
-}
-
-.poetry-list .collection-album-card .card-body {
-  padding: 0.75rem 1rem 1rem 1rem;
-  padding-right: calc(1rem + 32px) !important;
-  line-height: 1.4;
-  color: #a0844a;
-  transition: color 0.2s;
-}
-
-.poetry-list .collection-album-card:hover .card-body { color: #c8b882; }
-
-/* Vertical "COLLECTION" Flag on the Right Edge */
+/* force right-side ribbon */
 .poetry-list .collection-album-card::before {
   content: "COLLECTION";
   position: absolute;
   top: 0;
-  right: -2px;
+  right: 0 !important;
+  left: auto !important;
   width: 34px;
   height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  writing-mode: vertical-lr;
-  background-color: var(--ay-primary);
+  justify-content: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  background: #c8102e;
   color: #ffffff;
   font-size: 0.75rem;
   font-weight: 700;
@@ -366,72 +467,128 @@ section.py-4 {
   border-bottom-right-radius: 8px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  box-shadow: -4px 0 10px rgba(0,0,0,0.3);
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
   z-index: 10;
-  transition: background-color 0.25s, color 0.25s;
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .poetry-list .collection-album-card:hover::before {
-  background-color: var(--ay-light);
-  color: #ffffff;
-  box-shadow: -4px 0 15px rgba(0,0,0,0.4);
+  background: linear-gradient(180deg, #e8314f, #c8102e);
+  color: #ffffff !important;
+  box-shadow: -6px 0 20px rgba(200, 16, 46, 0.4);
 }
 
 .poetry-list .collection-album-card .card-img-top {
   display: block;
   width: calc(100% - 34px) !important;
-  margin-right: 34px;
-  border-top-right-radius: 0 !important;
+  margin-right: 34px !important;
+  margin-left: 0 !important;
+  float: none;
   height: auto;
+  aspect-ratio: 5 / 4;
   object-fit: cover;
-
-}
-
-/* --- 2.5. XXL Compact Card Tweaks --- */
-
-.poetry-list .row .col-xxl-2 .card { 
-  border-radius: 14px; 
-  overflow: hidden; 
-}
-
-.poetry-list .row .col-xxl-2 .card-img-top {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
-  margin-bottom: .5rem;
   border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0;
+  transform: scale(1);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.poetry-list .row .col-xxl-2 .card-body { padding: .65rem .75rem; }
-.poetry-list .row .col-xxl-2 .card-title { font-size: 1.25rem; line-height: 1.15; margin-bottom: .25rem !important; }
-.poetry-list .row .col-xxl-2 .card-footer { 
+.poetry-list .collection-album-card:hover .card-img-top {
+  transform: scale(1.08) !important;
+  filter: brightness(1.03) !important;
+}
+
+.poetry-list .collection-album-card .card-body {
+  padding: 0.75rem 1rem 1rem 1rem;
+  padding-right: calc(1rem + 34px) !important;
+  padding-left: 1rem !important;
+  line-height: 1.4;
+  color: #a0844a;
+  transition: color 0.2s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.poetry-list .collection-album-card .card-title,
+.poetry-list .collection-album-card .card-text {
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+}
+
+.poetry-list .collection-album-card .card-title {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem !important;
+  transition: color 0.2s ease;
+}
+
+.poetry-list .collection-album-card:hover .card-title,
+.poetry-list .collection-album-card:hover .card-title a,
+.poetry-list .collection-album-card:hover .card-title a.post-link {
+  color: #fff5df !important;
+}
+
+.poetry-list .collection-album-card:hover .card-body,
+.poetry-list .collection-album-card:hover .card-text {
+  color: rgba(255, 232, 190, 0.88) !important;
+}
+
+/* --- 2.6. XXL Tweaks --- */
+
+.poetry-list .row .col-xxl-2 .card {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.poetry-list .row .col-xxl-2 .card-body {
+  padding: 0.65rem 0.75rem;
+}
+
+.poetry-list .row .col-xxl-2 .card-title {
+  font-size: 1.25rem;
+  line-height: 1.15;
+  margin-bottom: 0.25rem !important;
+}
+
+.poetry-list .row .col-xxl-2 .card-footer {
   background: transparent;
-  border-top:1px solid rgba(0,0,0,0.05);
-  padding:.45rem .75rem; 
-  font-size:.8125rem; 
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 0.45rem 0.75rem;
+  font-size: 0.8125rem;
 }
 
 .poetry-list .row .col-xxl-2 .card-title a.post-link {
-  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
-}
-.poetry-list .row .col-xxl-2 .card-text {
-  margin-bottom: 0; font-size: .92rem; line-height: 1.35;
-  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
-}
-.poetry-list .row .col-xxl-2 .text-muted.small { margin-bottom: .25rem !important; }
-.poetry-list .row .col-xxl-2 .card:hover { 
-  transform: translateY(-2px); 
-  box-shadow: 0 8px 18px rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.05);
-  background: var(--bg-light);
-}
-.poetry-list .row .col-xxl-2 .card:hover .card-footer {
-  background: var(--bg-light);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
-/* --- 2.6. Pagination & Spacing --- */
+.poetry-list .row .col-xxl-2 .card-text {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.poetry-list .row .col-xxl-2 .text-muted.small {
+  margin-bottom: 0.25rem !important;
+}
+
+/* keep xxl image ratios but do not kill zoom */
+.poetry-list .row .col-xxl-2 .card-img-top {
+  aspect-ratio: 4 / 3;
+}
+
+/* --- 2.7. Buttons, Pagination, Favorites --- */
 
 .poetry-list .btn.btn-secondary,
 .poetry-list button[type="submit"] {
@@ -446,54 +603,146 @@ section.py-4 {
   text-transform: uppercase;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
+
 .poetry-list .btn.btn-secondary:hover,
 .poetry-list button[type="submit"]:hover {
   background: var(--ay-light);
   color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(200,16,46,0.3);
+  box-shadow: 0 6px 20px rgba(200, 16, 46, 0.3);
 }
+
 .poetry-list .btn-outline-secondary,
 .poetry-list a.btn-outline-secondary {
   background: transparent;
   color: var(--text-subtle);
-  border: 1px solid rgba(200,16,46,0.2);
+  border: 1px solid rgba(200, 16, 46, 0.2);
   border-radius: 4px;
   padding: 11px 16px;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 1px;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
-.poetry-list .btn-outline-secondary:hover { background: rgba(200,16,46,0.08); color: var(--ay-light); border-color: rgba(200,16,46,0.4); }
+
+.poetry-list .btn-outline-secondary:hover {
+  background: rgba(200, 16, 46, 0.08);
+  color: var(--ay-light);
+  border-color: rgba(200, 16, 46, 0.4);
+}
 
 .poetry-list .pagination .page-link {
   background: var(--bg-card);
-  border-color: rgba(200,16,46,0.15);
+  border-color: rgba(200, 16, 46, 0.15);
   color: var(--text-muted);
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 1px;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   border-radius: 4px;
 }
-.poetry-list .pagination .page-link:hover { background: rgba(200,16,46,0.1); border-color: rgba(200,16,46,0.4); color: var(--ay-light); }
-.poetry-list .pagination .page-item.active .page-link { background: var(--ay-primary); border-color: var(--ay-primary); color: #ffffff; font-weight: 600; }
-.poetry-list .pagination .page-item.disabled .page-link { background: var(--bg-surface); border-color: rgba(200,16,46,0.08); color: var(--text-subtle); }
 
-a.page-link { color: var(--ay-primary); }
+.poetry-list .pagination .page-link:hover {
+  background: rgba(200, 16, 46, 0.1);
+  border-color: rgba(200, 16, 46, 0.4);
+  color: var(--ay-light);
+}
 
-.poetry-list h2.mt-2.mb-2 {
-  margin-top: 2.5rem !important;
+.poetry-list .pagination .page-item.active .page-link {
+  background: var(--ay-primary);
+  border-color: var(--ay-primary);
+  color: #ffffff;
+  font-weight: 600;
 }
-.poetry-list h2.mt-2.mb-3 {
-  margin-top: 2.5rem !important;
+
+.poetry-list .pagination .page-item.disabled .page-link {
+  background: var(--bg-surface);
+  border-color: rgba(200, 16, 46, 0.08);
+  color: var(--text-subtle);
 }
+
+a.page-link {
+  color: var(--ay-primary);
+}
+
 .poetry-list nav[aria-label="Poem pages"] {
-  margin-bottom: 0rem;
-  margin-top: 0rem;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.btn-favorites-link,
+.favorites-bar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ay-primary);
+  text-decoration: none;
+  border: 1px solid rgba(200, 16, 46, 0.25);
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.btn-favorites-link {
+  padding: 9px 20px;
+}
+
+.favorites-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 0 20px;
+}
+
+.favorites-bar-link {
+  padding: 9px 20px;
+}
+
+.btn-favorites-link:hover,
+.favorites-bar-link:hover {
+  background: rgba(200, 16, 46, 0.1);
+  color: var(--ay-light);
+  border-color: rgba(200, 16, 46, 0.5);
+  transform: translateY(-1px);
+}
+
+.favorites-bar-heart {
+  font-size: 14px;
+  color: var(--ay-primary);
+}
+
+/* like button */
+.poetry-list .btn-like {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.poetry-list .btn-like:hover,
+.poetry-list .btn-like:focus,
+.poetry-list .btn-like:active {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.poetry-list .btn-like i {
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.poetry-list .btn-like:hover i {
+  color: #c8102e;
+  transform: scale(1.1);
+}
+
+.poetry-list .btn-like.liked i,
+.poetry-list .btn-like i.fas {
+  color: #c8102e;
 }
 
 /* ================================================
@@ -1402,3 +1651,285 @@ a.text-decoration-none:hover {
   text-transform: uppercase;
 }
 
+/* ================================================
+   FORCE COLLECTION LABEL TO THE RIGHT
+=================================================== */
+
+.poetry-list .collection-album-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* banda roja SIEMPRE a la derecha */
+.poetry-list .collection-album-card::before {
+  content: "COLLECTION";
+  position: absolute;
+  top: 0;
+  right: 0 !important;
+  left: auto !important;
+
+  width: 34px;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+
+  background: #c8102e;
+  color: #ffffff;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+/* imagen deja espacio para la banda derecha */
+.poetry-list .collection-album-card .card-img-top {
+  display: block;
+  width: calc(100% - 34px) !important;
+  margin-right: 34px !important;
+  margin-left: 0 !important;
+  height: auto;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  border-top-right-radius: 0 !important;
+}
+
+/* contenido deja espacio para la banda derecha */
+.poetry-list .collection-album-card .card-body {
+  padding-right: calc(1rem + 34px) !important;
+  padding-left: 1rem !important;
+  position: relative;
+  z-index: 2;
+}
+
+/* texto visible */
+.poetry-list .collection-album-card .card-title,
+.poetry-list .collection-album-card .card-text {
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.poetry-list .collection-album-card:hover .card-text {
+  opacity: 1;
+}
+
+/* ================================================
+   FINAL HOVER FIX — POEMS + COLLECTIONS
+=================================================== */
+
+/* ---------- 1. Poem cards: stronger image zoom ---------- */
+.poetry-list .card .card-img-top,
+.poetry-list .collection-album-card .card-img-top {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.poetry-list .card:hover .card-img-top,
+.poetry-list .collection-album-card:hover .card-img-top {
+  transform: scale(1.05);
+  filter: brightness(1.03);
+}
+
+/* ---------- 2. Standard poem cards: text contrast on red hover ---------- */
+.poetry-list .card:hover .card-title,
+.poetry-list .card:hover .card-title a.post-link {
+  color: #fff5df !important; /* title visible on red */
+}
+
+.poetry-list .card:hover .card-text {
+  color: rgba(255, 232, 190, 0.88) !important; /* body visible but lower hierarchy */
+}
+
+.poetry-list .card:hover .card-footer,
+.poetry-list .card:hover .text-muted,
+.poetry-list .card:hover .text-muted.small,
+.poetry-list .card:hover .card .text-muted:not(.small),
+.poetry-list .card:hover .card-footer span:not(.favorites-bar-heart) {
+  color: rgba(255, 235, 205, 0.78) !important;
+}
+
+.poetry-list .card:hover .card-footer {
+  border-top-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* ---------- 3. Collection album cards: title must NOT stay red ---------- */
+.poetry-list .collection-album-card:hover .card-title,
+.poetry-list .collection-album-card:hover .card-title a,
+.poetry-list .collection-album-card:hover .card-title a.post-link {
+  color: #fff5df !important;
+}
+
+/* excerpt on collection hover */
+.poetry-list .collection-album-card:hover .card-text,
+.poetry-list .collection-album-card:hover .card-body {
+  color: rgba(255, 232, 190, 0.88) !important;
+}
+
+/* keep collection ribbon readable */
+.poetry-list .collection-album-card:hover::before {
+  color: #ffffff !important;
+}
+
+/* ---------- 4. Author labels on hover ---------- */
+.poetry-list .card:hover .image-flash,
+.poetry-list .collection-album-card:hover .image-flash {
+  background: #0b0d10;
+  color: #d4a843;
+}
+
+/* ---------- 5. Optional: slightly stronger hover glow ---------- */
+.poetry-list .card:hover,
+.poetry-list .collection-album-card:hover {
+  box-shadow:
+    0 22px 50px rgba(0, 0, 0, 0.48),
+    0 0 24px rgba(212, 168, 67, 0.10);
+}
+
+/* ================================================
+   POEM CARDS — INVERT RED TEXT TO BLACK ON HOVER
+=================================================== */
+
+/* base: oscuro + rojo */
+.poetry-list .card .text-muted.small,
+.poetry-list .card .card-footer,
+.poetry-list .card .card-footer span:not(.favorites-bar-heart),
+.poetry-list .card .card .text-muted:not(.small) {
+  color: var(--ay-primary) !important;
+}
+
+/* hover: rojo + negro */
+.poetry-list .card:hover .text-muted.small,
+.poetry-list .card:hover .card-footer,
+.poetry-list .card:hover .card-footer span:not(.favorites-bar-heart),
+.poetry-list .card:hover .card .text-muted:not(.small) {
+  color: #0a0804 !important;
+}
+
+/* footer line on hover */
+.poetry-list .card:hover .card-footer {
+  border-top-color: rgba(10, 8, 4, 0.18) !important;
+}
+
+/* body text (poem) → negro en hover */
+.poetry-list .card:hover .card-text {
+  color: #f2dfb9 !important;
+}
+
+/* quitar fondo rojo del botón like */
+.poetry-list .btn-like {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* quitar fondo en hover/focus */
+.poetry-list .btn-like:hover,
+.poetry-list .btn-like:focus,
+.poetry-list .btn-like:active {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* icono corazón */
+.poetry-list .btn-like i {
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+/* hover → rojo limpio */
+.poetry-list .btn-like:hover i {
+  color: #c8102e;
+  transform: scale(1.1);
+}
+
+/* cuando está activo (liked) */
+.poetry-list .btn-like.liked i,
+.poetry-list .btn-like i.fas {
+  color: #c8102e;
+}
+
+/* ================================================
+   POEM CARDS — SLIGHT CARD SCALE ON HOVER
+=================================================== */
+
+.poetry-list .card,
+.poetry-list .collection-album-card {
+  transform: scale(1);
+  transform-origin: center center;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    background-color 0.28s ease,
+    border-color 0.28s ease;
+}
+
+/* poem + collection cards */
+.poetry-list .card:hover,
+.poetry-list .collection-album-card:hover {
+  transform: translateY(-4px) scale(1.018);
+  z-index: 3;
+}
+
+/* featured card: keep it slightly larger, but still react on hover */
+.poetry-list .card.is-featured {
+  transform: scale(1.05);
+}
+
+.poetry-list .card.is-featured:hover {
+  transform: translateY(-4px) scale(1.065);
+  z-index: 4;
+}
+
+/* ================================================
+   FINAL IMAGE HOVER ZOOM — POEMS + COLLECTIONS
+=================================================== */
+
+/* asegura recorte limpio */
+.poetry-list .card .image-wrap,
+.poetry-list .collection-album-card,
+.poetry-list .collection-album-card .image-wrap {
+  overflow: hidden;
+}
+
+/* transición fuerte y consistente */
+.poetry-list .card .card-img-top,
+.poetry-list .collection-album-card .card-img-top,
+.poetry-list .card.is-featured .card-img-top {
+  transform: scale(1) !important;
+  transition: transform 0.42s ease, filter 0.42s ease !important;
+  will-change: transform;
+}
+
+/* zoom visible en poem */
+.poetry-list .card:hover .card-img-top {
+  transform: scale(1.06) !important;
+  filter: brightness(1.03) !important;
+}
+
+/* zoom visible en collection */
+.poetry-list .collection-album-card:hover .card-img-top {
+  transform: scale(1.06) !important;
+  filter: brightness(1.03) !important;
+}
+
+/* featured card también */
+.poetry-list .card.is-featured:hover .card-img-top {
+  transform: scale(1.06) !important;
+  filter: brightness(1.03) !important;
+}

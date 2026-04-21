@@ -327,3 +327,72 @@
     }
 }
 
+/* ================================================
+   8. BLOG HOVER — KEEP ORIGINAL TEXT COLORS
+=================================================== */
+
+/* CARD HOVER (se mantiene) */
+.left .card:hover {
+    transform: translateY(-8px) scale(1.01);
+    background: linear-gradient(180deg, #d4a843, #b9912f);
+    border-color: #d4a843;
+    box-shadow:
+        0 30px 60px rgba(0,0,0,0.5),
+        0 0 25px rgba(212,168,67,0.35);
+}
+
+/* 🚫 NO CAMBIAR COLORES — SOLO TRANSICIONES SUAVES */
+.left .card-title,
+.left .card-text,
+.left .text-muted,
+.left .card-footer,
+.left p.text-muted {
+    transition: color 0.3s ease;
+}
+
+/* 🔥 IMAGE */
+.left .card:hover .card-img-top {
+    transform: scale(1.05);
+    filter: brightness(1.05);
+}
+
+/* 🔥 AUTHOR LABEL (esto sí cambia porque da contraste arriba) */
+.left .card:hover .image-flash {
+    background: #0b0d10;
+    color: #d4a843;
+}
+
+/* 🔥 HR */
+.left .card:hover hr {
+    border-color: rgba(0,0,0,0.2);
+}
+
+.left .card:hover {
+    filter: brightness(1.02) contrast(1.05);
+}
+
+/* ================================================
+   9. BLOG HOVER — CONTRAST BOOST (SUBTLE)
+=================================================== */
+
+/* 🔥 TÍTULO — mismo tono, más presencia */
+.left .card:hover .card-title {
+    filter: brightness(1.25) contrast(1.1);
+}
+
+/* ✨ EXCERPT — más contraste sin romper estética */
+.left .card:hover .card-text {
+    color: #3c2c07; /* beige claro elegante */
+}
+
+/* 🪶 FOOTER — más visible pero sigue sutil */
+.left .card:hover .text-muted,
+.left .card:hover .card-footer,
+.left .card:hover p.text-muted {
+    filter: brightness(1.2);
+}
+
+/* 🔥 OPCIONAL — mejora general del bloque */
+.left .card:hover {
+    filter: brightness(1.03) contrast(1.08);
+}
