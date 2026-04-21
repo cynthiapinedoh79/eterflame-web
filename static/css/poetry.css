@@ -152,29 +152,49 @@ section.py-4 {
   border: 0;
 }
 
+.poetry-list .card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
 .poetry-list .card-title a.post-link {
   text-decoration: none;
-  color: var(--text-primary);
+  color: #f5e6c8;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
   font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   transition: color 0.2s;
 }
 .poetry-list .card-title a.post-link:hover,
 .poetry-list .card:hover .card-title a.post-link {
-  color: var(--ay-light);
+  color: #c8102e;
 }
-.poetry-list .card-text { color: var(--text-subtle); font-size: 0.875rem; line-height: 1.5; transition: color 0.2s; }
+.poetry-list .card-text { font-family: 'DM Sans', sans-serif; font-size: 13px; color: #6b4020; line-height: 1.5; font-style: italic; transition: color 0.2s; }
 .poetry-list .card:hover .card-text { color: var(--text-muted); }
 .poetry-list .text-muted { color: var(--text-subtle) !important; font-size: 11px; font-family: var(--font-mono); letter-spacing: 0.5px; }
 .poetry-list .card .card-footer { background: transparent; border-top: 1px solid rgba(200,16,46,0.08); transition: border-color 0.2s; }
 .poetry-list .card:hover .card-footer { border-top-color: rgba(200,16,46,0.2); }
 
-.poetry-list .text-muted.small { 
-  opacity: .85; 
+.poetry-list .text-muted.small {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c8102e !important;
+  opacity: 1;
 }
 
 .poetry-list .card .card-footer {
   background: transparent;
   border-top: 1px solid rgba(0,0,0,0.05);
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #5a4020;
 }
 
 /* --- 2.3. Featured Card Styles --- */
@@ -837,8 +857,8 @@ a.text-decoration-none:hover {
     justify-content: center; 
     align-items: center; 
     writing-mode: vertical-lr; 
-    background-color: var(--color-text-dark); 
-    color: #fff; 
+    background-color: #c8102e;
+    color: #ffffff;
     font-size: 0.75rem; 
     font-weight: 700;
     letter-spacing: 2px;
@@ -1327,11 +1347,13 @@ a.text-decoration-none:hover {
 
 /* btn-like override for Aythnyk */
 .btn-like {
-  color: rgba(200,16,46,0.4) !important;
+  color: rgba(200,16,46,0.35) !important;
+  font-size: 14px;
   transition: all 0.2s !important;
 }
-.btn-like:hover {
-  color: var(--ay-primary) !important;
+.btn-like:hover,
+.btn-like.favorited {
+  color: #c8102e !important;
   transform: scale(1.2);
 }
 
