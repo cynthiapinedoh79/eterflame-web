@@ -517,8 +517,10 @@ a.page-link { color: var(--ay-primary); }
     rgba(201,168,76,0.99) 0%,
     rgba(212,168,67,0.99) 40%,
     rgba(184,146,46,0.98) 100%) !important;
-  padding: 52px 60px !important;
+  padding: 52px 48px !important;
   overflow: hidden !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
 }
 
 .poem-detail-title {
@@ -549,15 +551,17 @@ a.page-link { color: var(--ay-primary); }
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
   font-family: 'Cormorant Garamond', serif !important;
-  font-size: 1.5rem !important;
-  font-weight: 500 !important;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
   line-height: 2 !important;
-  color: #1a0804 !important;
-  max-width: 620px !important;
+  color: #0a0804 !important;
+  max-width: 100% !important;
   margin: 0 auto !important;
   letter-spacing: 0.03em !important;
   width: 100% !important;
+  padding: 0 20px !important;
   box-sizing: border-box !important;
+  text-align: left !important;
 }
 
 .poem-body::before {
@@ -572,13 +576,18 @@ a.page-link { color: var(--ay-primary); }
 .poem-body p {
   margin-bottom: 0 !important;
   margin-top: 0 !important;
-  line-height: 2 !important;
+  line-height: 1.85 !important;
   padding: 0 !important;
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
-  color: #1a0804 !important;
-  font-size: 1.5rem !important;
-  font-weight: 500 !important;
+  white-space: pre-wrap !important;
+  color: #0a0804 !important;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
 }
 
 .poem-body p:empty {
@@ -813,9 +822,13 @@ a.text-decoration-none:hover {
 
   /* Poem Detail */
   .poem-detail-overlay {
-    padding: 32px 24px !important;
+    padding: 32px 20px !important;
   }
   .poem-body {
+    font-size: 1.1rem !important;
+    padding: 0 8px !important;
+  }
+  .poem-body p {
     font-size: 1.1rem !important;
   }
 }
