@@ -4,7 +4,7 @@
 =================================================== */
 
 .poetry-hero {
-  background: linear-gradient(180deg, #fafbfd 0%, #ffffff 100%);
+  background: linear-gradient(180deg, var(--bg-dark, #0f0b05) 0%, var(--bg-body, #0a0804) 100%);
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
@@ -107,19 +107,20 @@ section.py-4 {
 /* --- 2.2. Base Card Styles --- */
 
 .poetry-list .card {
-  background: var(--bg-body);
-  border: none;
-  border-radius: 16px;
+  background: #141009;
+  border: 0.5px solid rgba(212,168,67,0.1);
+  border-radius: 8px;
   overflow: hidden;
-  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+  transition: all 0.22s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 .poetry-list .card:hover {
-  background: var(--bg-light);
+  background: #1a1208;
+  border-color: rgba(212,168,67,0.35);
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0,0,0,.10), 0 2px 6px rgba(0,0,0,.06);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
 }
 
 .poetry-list .image-wrap { 
@@ -153,12 +154,19 @@ section.py-4 {
 
 .poetry-list .card-title a.post-link {
   text-decoration: none;
-  color: var(--color-text-dark);
-  font-weight: 700;
+  color: #f5e6c8;
+  font-weight: 600;
+  transition: color 0.2s;
 }
-.poetry-list .card-title a.post-link:hover { 
-  color: var(--color-primary-brand); 
+.poetry-list .card-title a.post-link:hover,
+.poetry-list .card:hover .card-title a.post-link {
+  color: #d4a843;
 }
+.poetry-list .card-text { color: #8a6c3a; font-size: 0.875rem; line-height: 1.5; transition: color 0.2s; }
+.poetry-list .card:hover .card-text { color: #a0844a; }
+.poetry-list .text-muted { color: #7a6035 !important; font-size: 12px; }
+.poetry-list .card .card-footer { background: transparent; border-top: 0.5px solid rgba(212,168,67,0.08); transition: border-color 0.2s; }
+.poetry-list .card:hover .card-footer { border-top-color: rgba(212,168,67,0.2); }
 
 .poetry-list .text-muted.small { 
   opacity: .85; 
@@ -256,19 +264,20 @@ section.py-4 {
 
 .poetry-list .collection-album-card {
   position: relative;
-  background: linear-gradient(180deg, var(--bg-light) 0%, #f0f0f0 100%); 
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 16px;
-  transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+  background: #141009;
+  border: 0.5px solid rgba(212,168,67,0.15);
+  border-radius: 8px;
+  transition: all 0.25s ease;
   height: 100%;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .poetry-list .collection-album-card:hover {
-  background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15), 0 5px 12px rgba(0,0,0,0.1), 0 0 0 3px rgba(232, 106, 51, 0.1); 
-  border-color: rgba(232, 106, 51, 0.5);
+  background: #1a1208;
+  border-color: rgba(212,168,67,0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,168,67,0.15);
 }
 
 .poetry-list.collection-album-card .card-img-top {
@@ -292,60 +301,60 @@ section.py-4 {
 }
 
 .poetry-list .collection-album-card .card-title {
-  color: var(--color-text-dark);
-  font-weight: 700;
-  font-size: 1.15rem;
+  color: #f5e6c8;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
   margin-bottom: 0.25rem !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: color 0.2s;
 }
 
 .poetry-list .collection-album-card:hover .card-title {
-  color: var(--color-primary-brand);
+  color: #d4a843;
 }
 
 .poetry-list .collection-album-card .card-body {
   padding: 0.75rem 1rem 1rem 1rem;
   padding-right: calc(1rem + 32px) !important;
-
   line-height: 1.4;
-  color: var(--color-text-muted);
+  color: #a0844a;
+  transition: color 0.2s;
 }
+
+.poetry-list .collection-album-card:hover .card-body { color: #c8b882; }
 
 /* Vertical "COLLECTION" Flag on the Right Edge */
 .poetry-list .collection-album-card::before {
-  content: "COLLECTION"; 
+  content: "COLLECTION";
   position: absolute;
   top: 0;
-  right: -2px; 
+  right: -2px;
   width: 34px;
   height: 100%;
-  
-  /* Use Flexbox for perfect vertical centering */
   display: flex;
   justify-content: center;
   align-items: center;
-  
   writing-mode: vertical-lr;
-  
-  /* Styling */
-  background-color: var(--color-text-dark); 
-  color: #fff; 
-  font-size: 0.75rem; 
+  background-color: #1e1508;
+  color: #a0844a;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  
-  /* Shape and Aesthetics */
-  border-top-right-radius: 16px; 
-  border-bottom-right-radius: 16px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2); 
+  box-shadow: -4px 0 10px rgba(0,0,0,0.3);
   z-index: 10;
+  transition: background-color 0.25s, color 0.25s;
 }
 
 .poetry-list .collection-album-card:hover::before {
-  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3);
+  background-color: #d4a843;
+  color: #0a0804;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.4);
 }
 
 .poetry-list .collection-album-card .card-img-top {
@@ -404,31 +413,56 @@ section.py-4 {
 
 /* --- 2.6. Pagination & Spacing --- */
 
-.poetry-list .btn.btn-secondary { 
-  background:var(--color-text-dark); 
-  border-color:var(--color-text-dark); 
-  border-radius: 999px; 
-  font-weight: 700; 
-  color: var(--color-text-light);
+.poetry-list .btn.btn-secondary,
+.poetry-list button[type="submit"] {
+  background: #d4a843;
+  color: #0a0804;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
 }
-.poetry-list .btn.btn-secondary:hover { 
-  background: var(--color-danger);
-  border-color: var(--color-danger);
-  color: var(--color-danger-text);
+.poetry-list .btn.btn-secondary:hover,
+.poetry-list button[type="submit"]:hover {
+  background: #e8c06a;
+  color: #0a0804;
+  transform: translateY(-1px);
 }
-.poetry-list .pagination .page-link { 
-  border-radius: 999px; 
+.poetry-list .btn-outline-secondary,
+.poetry-list a.btn-outline-secondary {
+  background: transparent;
+  color: #a0844a;
+  border: 0.5px solid rgba(212,168,67,0.25);
+  border-radius: 4px;
+  padding: 10px 16px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  transition: all 0.2s;
 }
-.poetry-list .pagination .page-item.active .page-link,
-.poetry-list .pagination .page-link:hover {
-  background:var(--color-text-dark); 
-  color:var(--color-text-light); 
-  border-color:var(--color-text-dark);
-}
+.poetry-list .btn-outline-secondary:hover { background: rgba(212,168,67,0.08); color: #d4a843; border-color: rgba(212,168,67,0.4); }
 
-a.page-link {
-  color: #b30000;
+.poetry-list .pagination .page-link {
+  background: #141009;
+  border-color: rgba(212,168,67,0.2);
+  color: #a0844a;
+  font-family: 'Courier Prime', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+  border-radius: 4px;
 }
+.poetry-list .pagination .page-link:hover { background: #1a1208; border-color: rgba(212,168,67,0.45); color: #d4a843; }
+.poetry-list .pagination .page-item.active .page-link { background: #d4a843; border-color: #d4a843; color: #0a0804; font-weight: 600; }
+.poetry-list .pagination .page-item.disabled .page-link { background: #0f0b05; border-color: rgba(212,168,67,0.08); color: #3a2e15; }
+
+a.page-link { color: #a0844a; }
 
 .poetry-list h2.mt-2.mb-2 {
   margin-top: 2.5rem !important;
@@ -465,18 +499,21 @@ a.page-link {
 
 .poem-detail-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 600;
-  font-size: 2rem;
-  letter-spacing: 3px;
-  color: #f5e0b0;
+  letter-spacing: 4px;
+  color: #f5e6c8;
+  line-height: 1.2;
+  margin-bottom: 8px;
 }
 
 .poem-detail-author {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
   font-size: 1.1rem;
-  color: #c49a40;
-  margin-bottom: 0.25rem !important;
+  color: #d4a843;
+  letter-spacing: 1px;
+  margin-bottom: 32px !important;
 }
 
 .poem-body {
@@ -485,10 +522,10 @@ a.page-link {
   overflow-wrap: break-word;
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.2rem;
-  line-height: 1.75;
-  color: #f0ddb0;
+  line-height: 1.85;
+  color: #e8d5b0;
   width: 100%;
-  max-width: 100%;
+  max-width: 620px;
   margin: 0 auto;
   padding: 0;
   letter-spacing: 0.02em;
@@ -499,7 +536,8 @@ a.page-link {
   display: block;
   margin-bottom: 0 !important;
   margin-top: 0 !important;
-  line-height: 1.75 !important;
+  line-height: 1.85 !important;
+  color: #e8d5b0;
   padding: 0 !important;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -552,8 +590,8 @@ a.text-decoration-none:hover {
   box-shadow: 0 8px 20px rgba(0,0,0,.15);
 }
 
-.banner--black{ background:#0b0b0b; color:#fff; border:1px solid rgba(255,255,255,.08); }
-.banner--red  { background:#b30000; color:#fff; border:1px solid rgba(255,255,255,.12); }
+.banner--black { background: #0f0b05; color: #f5e6c8; border: 0.5px solid rgba(212,168,67,0.15); }
+.banner--red   { background: #1a0802; color: #f5e6c8; border: 0.5px solid rgba(192,88,10,0.3); }
 
 .qb-track{ display:flex; width:100%; transition: transform .45s ease; will-change: transform; }
 .qb-slide{
@@ -563,41 +601,42 @@ a.text-decoration-none:hover {
   margin: 0; /* Merged from duplicate rule */
 }
 
-.qb-text{
-  margin:0;
+.qb-text {
+  margin: 0;
   font-style: italic;
-  line-height:1.25;
-  font-size:1.5rem;
-  font-weight:400;
-  letter-spacing:.2px;
-  max-width:85ch;
-  display:-webkit-box;
-  -webkit-line-clamp:3;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-  text-overflow:ellipsis;
+  line-height: 1.25;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: .2px;
+  max-width: 85ch;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #f5e6c8;
 }
 
-.qb-author{
-  margin:0 0 0 .5rem;
-  opacity:.9;
-  font-size:1.1rem;
-  font-weight:500;
-  white-space:nowrap;
+.qb-author {
+  margin: 0 0 0 .5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  color: #d4a843;
 }
 
-.qb-nav{
-  position:absolute; top:50%; transform:translateY(-50%);
-  width:36px; height:36px; display:grid; place-items:center;
-  border:0; border-radius:999px; cursor:pointer; z-index:2;
-  color:#fff; background:rgba(255,255,255,.18); backdrop-filter:saturate(120%) blur(2px);
-  transition: background .2s ease, transform .1s ease;
+.qb-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 36px; height: 36px; display: grid; place-items: center;
+  border: 0.5px solid rgba(212,168,67,0.2); border-radius: 999px; cursor: pointer; z-index: 2;
+  color: #d4a843; background: rgba(212,168,67,0.12);
+  transition: background .2s ease, border-color .2s ease, transform .1s ease;
 }
-.qb-nav:hover{ background:rgba(255,255,255,.35); }
-.qb-nav:active{ transform:translateY(-50%) scale(.96); }
-.qb-prev{ left:8px; }
-.qb-next{ right:8px; }
-.qb-nav:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
+.qb-nav:hover { background: rgba(212,168,67,0.25); color: #e8c06a; border-color: rgba(212,168,67,0.4); }
+.qb-nav:active { transform: translateY(-50%) scale(.96); }
+.qb-prev { left: 8px; }
+.qb-next { right: 8px; }
+.qb-nav:focus-visible { outline: 2px solid rgba(212,168,67,0.5); outline-offset: 2px; }
 
 .quote-banner-wrapper {
   width: 100vw;
@@ -810,51 +849,66 @@ a.text-decoration-none:hover {
   align-items: center;
   text-align: center;
   padding: 40px 24px;
-  border: 0.5px solid rgba(196,154,64,0.2);
-  border-radius: 4px;
+  border: 0.5px solid rgba(212,168,67,0.15);
+  border-radius: 6px;
   text-decoration: none;
-  transition: border-color 0.2s, background 0.2s;
-  background: var(--bg-dark);
+  background: #141009;
   height: 100%;
   position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+.aythnyk-nav-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(212,168,67,0.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 .aythnyk-nav-card:hover {
-  border-color: rgba(196,154,64,0.6);
-  background: var(--bg-light);
+  border-color: rgba(212,168,67,0.5);
+  background: #1a1208;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(212,168,67,0.1);
   text-decoration: none;
 }
-.aythnyk-nav-card--soon {
-  opacity: 0.6;
-  cursor: default;
-}
+.aythnyk-nav-card:hover::before { opacity: 1; }
+.aythnyk-nav-card--soon { opacity: 0.6; cursor: default; }
 .aythnyk-nav-icon {
   font-size: 24px;
-  color: var(--color-primary-brand);
+  color: rgba(212,168,67,0.5);
   margin-bottom: 16px;
   display: block;
+  transition: color 0.2s, transform 0.2s;
 }
+.aythnyk-nav-card:hover .aythnyk-nav-icon { color: #d4a843; transform: scale(1.15); }
 .aythnyk-nav-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
   font-weight: 600;
   letter-spacing: 2px;
-  color: var(--color-text-dark);
+  color: #e8d5b0;
   margin-bottom: 8px;
+  transition: color 0.2s;
 }
+.aythnyk-nav-card:hover .aythnyk-nav-title { color: #d4a843; }
 .aythnyk-nav-desc {
   font-family: 'DM Sans', sans-serif;
   font-size: 13px;
   font-weight: 300;
-  color: var(--color-text-muted);
+  color: #7a6035;
   margin: 0;
+  transition: color 0.2s;
 }
+.aythnyk-nav-card:hover .aythnyk-nav-desc { color: #a0844a; }
 .aythnyk-coming-soon {
   font-family: 'Courier Prime', monospace;
   font-size: 9px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--color-primary-brand);
-  border: 0.5px solid rgba(196,154,64,0.3);
+  color: #a0844a;
+  border: 0.5px solid rgba(212,168,67,0.3);
   padding: 3px 10px;
   border-radius: 2px;
   margin-top: 12px;
@@ -913,4 +967,56 @@ a.text-decoration-none:hover {
   font-size: 14px;
   color: var(--color-primary-brand);
 }
+
+/* === Search inputs === */
+.poetry-list .search-input,
+.poetry-list input[type="search"],
+.poetry-list input[type="text"] {
+  background: #141009;
+  border: 0.5px solid rgba(212,168,67,0.2);
+  color: #f5e6c8;
+  border-radius: 4px;
+  padding: 10px 16px;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.poetry-list .search-input:hover { border-color: rgba(212,168,67,0.4); }
+.poetry-list .search-input:focus,
+.poetry-list input[type="text"]:focus {
+  border-color: #d4a843;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212,168,67,0.12);
+  background: #1a1208;
+  color: #f5e6c8;
+}
+.poetry-list .search-input::placeholder { color: #5a4820; }
+
+.poetry-list select,
+.poetry-list .form-select {
+  background-color: #141009;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23d4a843' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  border: 0.5px solid rgba(212,168,67,0.2);
+  color: #e8d5b0;
+  border-radius: 4px;
+  padding: 10px 36px 10px 14px;
+  font-size: 14px;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.poetry-list select:hover, .poetry-list .form-select:hover { border-color: rgba(212,168,67,0.45); color: #f5e6c8; }
+.poetry-list select:focus, .poetry-list .form-select:focus { border-color: #d4a843; outline: none; box-shadow: 0 0 0 3px rgba(212,168,67,0.12); background-color: #1a1208; }
+.poetry-list select option, .poetry-list .form-select option { background: #141009; color: #e8d5b0; }
+
+/* Poem card image hover zoom */
+.poetry-list .card-img-top { transition: transform 0.35s ease; }
+.poetry-list .card:hover .card-img-top { transform: scale(1.04); }
+.poetry-list .collection-album-card .card-img-top { transition: transform 0.4s ease; }
+.poetry-list .collection-album-card:hover .card-img-top { transform: scale(1.03); }
+
+/* Poem list h2 title */
+.poetry-list h2 { color: #f5e6c8 !important; font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-spacing: 3px; }
 
