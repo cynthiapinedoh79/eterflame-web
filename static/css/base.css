@@ -4,133 +4,108 @@
    1. Root Variables
 =================================================== */
 :root {
-  /* === ETHERFLAME WORKS — GOLD === */
+  /* BRAND CORE */
   --ew-primary: #d4a843;
-  --ew-light: #e8c06a;
-  --ew-dark: #a07830;
-  --ew-dim: #6b5020;
-  --ew-glow: rgba(212,168,67,0.15);
-  --ew-bg: rgba(212,168,67,0.07);
+  --ew-light: #ebc874;
+  --ew-dark: #8f6a1f;
 
-  /* === EF DESIGN — METALLIC BLUE === */
-  --ef-design: #2e6da4;
-  --ef-design-light: #4a8fc4;
-  --ef-design-lighter: #7ab8e8;
-  --ef-design-dark: #1a3d5c;
-  --ef-design-bg: rgba(46,109,164,0.08);
-  --ef-design-glow: rgba(46,109,164,0.2);
+  /* GLOBAL DARK SYSTEM */
+  --bg-base: #070708;
+  --bg-surface: #0f1012;
+  --bg-card: #17191d;
+  --bg-card-2: #1d2025;
+  --bg-card-hover: #232730;
+  --bg-border: rgba(255,255,255,0.10);
+  --text-primary: #f5f7fa;
+  --text-body: #dde3ea;
+  --text-muted: #aab4c0;
+  --text-subtle: #7f8995;
+  --text-on-dark: #f5f7fa;
+  --text-on-light: #0b0d10;
 
-  /* === EF MEDIA — PLATINUM SILVER === */
-  --ef-media: #8a8fa8;
-  --ef-media-light: #b0b5cc;
-  --ef-media-lighter: #d0d5e8;
-  --ef-media-dark: #4a4f62;
-  --ef-media-bg: rgba(138,143,168,0.08);
-  --ef-media-glow: rgba(138,143,168,0.15);
+  /* AYTHNYK — RED */
+  --ay-primary: #c1122f;
+  --ay-light: #e63956;
+  --ay-dark: #7a0d20;
+  --ay-tint: rgba(193,18,47,0.14);
+  --ay-border: rgba(230,57,86,0.30);
 
-  /* === EF STUDIO — COPPER BRONZE === */
-  --ef-studio: #b87333;
-  --ef-studio-light: #d4924d;
-  --ef-studio-lighter: #e8b070;
-  --ef-studio-dark: #6b4220;
-  --ef-studio-bg: rgba(184,115,51,0.08);
-  --ef-studio-glow: rgba(184,115,51,0.2);
+  /* DESIGN — METALLIC BLUE */
+  --design-primary: #4d7ea8;
+  --design-light: #86a9c7;
+  --design-dark: #27455f;
+  --design-tint: rgba(77,126,168,0.15);
+  --design-border: rgba(134,169,199,0.30);
 
-  /* === AYTHNYK — CRIMSON RED === */
-  --ay-primary: #c8102e;
-  --ay-light: #e8314f;
-  --ay-lighter: #f06878;
-  --ay-dark: #8a0820;
-  --ay-bg: rgba(200,16,46,0.08);
-  --ay-glow: rgba(200,16,46,0.2);
+  /* STUDIO — SILVER METAL */
+  --studio-primary: #b8bec7;
+  --studio-light: #d7dde5;
+  --studio-dark: #6e7782;
+  --studio-tint: rgba(184,190,199,0.16);
+  --studio-border: rgba(215,221,229,0.28);
 
-  /* === GLOBAL BACKGROUNDS === */
-  --bg-base: #0a0804;
-  --bg-surface: #0f0b05;
-  --bg-card: #141009;
-  --bg-card-hover: #1a1208;
-  --bg-elevated: #1e1508;
+  /* MEDIA — COPPER METAL */
+  --media-primary: #b86b43;
+  --media-light: #d79470;
+  --media-dark: #6e3d25;
+  --media-tint: rgba(184,107,67,0.16);
+  --media-border: rgba(215,148,112,0.28);
 
-  /* === TEXT — HIGH CONTRAST === */
-  --text-primary: #f5e6c8;
-  --text-body: #e0ccaa;
-  --text-muted: #a08050;
-  --text-subtle: #6b5030;
-  --text-on-color: #ffffff;
-  --text-on-gold: #0a0804;
+  /* SHADOWS */
+  --shadow-soft: 0 10px 30px rgba(0,0,0,0.28);
+  --shadow-card: 0 18px 50px rgba(0,0,0,0.34);
 
-  /* === TYPOGRAPHY === */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'DM Sans', -apple-system, sans-serif;
-  --font-mono: 'Courier Prime', monospace;
-
-  /* === BORDERS === */
-  --border-gold: rgba(212,168,67,0.2);
-  --border-subtle: rgba(212,168,67,0.1);
-  --border-strong: rgba(212,168,67,0.4);
-
-  /* === COMPATIBILITY ALIASES === */
+  /* COMPATIBILITY ALIASES */
   --color-primary-brand: var(--ew-primary);
-  --color-primary-brand-light: var(--ew-light);
   --color-gold: var(--ew-primary);
   --color-gold-light: var(--ew-light);
-  --color-gold-dim: var(--ew-dim);
   --color-text-dark: var(--text-primary);
-  --color-text-light: var(--text-primary);
   --color-text-body: var(--text-body);
   --color-text-muted: var(--text-muted);
   --color-text-subtle: var(--text-subtle);
   --bg-body: var(--bg-base);
   --bg-dark: var(--bg-surface);
-  --bg-light: var(--bg-elevated);
-  --color-border: var(--border-gold);
+  --bg-light: var(--bg-card);
+  --color-border: var(--bg-border);
   --color-link: var(--ew-primary);
   --color-link-hover: var(--ew-light);
-  --color-danger: #c0580a;
-  --color-danger-text: #f5e6c8;
-  --font-stack-primary: var(--font-body);
-  --font-stack-brand: var(--font-display);
+  --font-stack-primary: 'DM Sans', sans-serif;
+  --font-stack-brand: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'Courier Prime', monospace;
   --color-primary-text: var(--text-primary);
-
-  /* === SECTION ACCENT ALIASES (legacy compat) === */
-  --accent-works: var(--ay-primary);
-  --accent-works-light: var(--ay-light);
-  --accent-works-dim: var(--ay-dark);
-  --accent-design: var(--ef-design);
-  --accent-design-light: var(--ef-design-light);
-  --accent-design-dim: var(--ef-design-dark);
-  --accent-media: var(--ef-media);
-  --accent-media-light: var(--ef-media-light);
-  --accent-media-dim: var(--ef-media-dark);
-  --accent-studio: var(--ef-studio);
-  --accent-studio-light: var(--ef-studio-light);
-  --accent-studio-dim: var(--ef-studio-dark);
+  --color-danger: #c0580a;
+  --color-danger-text: var(--text-primary);
 }
 
 /* ================================================
    2. Base & Typography
 =================================================== */
-body{
-  display: flex;
-  flex-direction: column;
-  min-height: 100dvh;
-  background-color: var(--bg-base);
-  font-family: var(--font-body);
+html { scroll-behavior: smooth; }
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(212,168,67,0.05), transparent 28%),
+    radial-gradient(circle at top right, rgba(255,255,255,0.03), transparent 24%),
+    linear-gradient(180deg, #070708 0%, #0b0d10 100%);
   color: var(--text-body);
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin-bottom: 0;
-  padding-top: 64px;
-  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
   overflow-x: hidden;
+  padding-top: 64px;
 }
 .brand{font-family:var(--font-stack-brand);font-size:1.4rem;font-weight:700;color:var(--color-text-dark);}
 .brand-accent{color:var(--color-primary-brand);}
 pre{white-space:pre-wrap;word-wrap:break-word;font-family:var(--font-stack-primary);font-size:1.05rem;line-height:1.8;}
 
 html, body { height: 100%; }
+/* scroll-behavior set in body block above */
 
 main {
   flex: 1 0 auto;
@@ -436,24 +411,7 @@ main.flex-grow-1 {
 /* ================================================
    12. Zoom and Overflow Control
 =================================================== */
-
-/* Prevents horizontal scrolling/movement for the entire page */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100dvh;
-  background-color: var(--bg-base);
-  font-family: var(--font-body);
-  color: var(--text-body);
-  font-size: 16px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin-bottom: 0;
-  padding-top: 64px;
-  padding-bottom: 0;
-  overflow-x: hidden;
-}
+/* overflow-x: hidden is set in the primary body block above */
 
 /* ================================================
    13. Allauth Form Styling
@@ -685,8 +643,6 @@ main.flex-grow-1.main-bg {
 }
 
 /* === Global Polish === */
-html { scroll-behavior: smooth; }
-
 ::selection { background: rgba(212,168,67,0.25); color: #f5e6c8; }
 
 ::-webkit-scrollbar { width: 5px; }
@@ -1195,4 +1151,275 @@ p.text-end.m-3 { color: #4a3820 !important; font-size: 11px; font-family: var(--
   text-align: center;
   margin-bottom: 48px;
   display: block;
+}
+
+/* ================================================
+   15. Section System
+=================================================== */
+
+/* Section shells */
+.section-shell {
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+  border: 1px solid var(--bg-border);
+  border-radius: 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Global card base */
+.card,
+.service-card,
+.division-card,
+.poem-card,
+.contact-card {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015)),
+    var(--bg-card) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  border-radius: 22px;
+  box-shadow: var(--shadow-card);
+  color: var(--text-body);
+  transition: transform 0.25s ease, background-color 0.25s ease,
+    color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover,
+.service-card:hover,
+.division-card:hover,
+.poem-card:hover,
+.contact-card:hover {
+  transform: translateY(-4px);
+}
+
+h1, h2, h3, h4, h5, .display-title {
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+p, li, label, input, textarea, select {
+  color: var(--text-body);
+}
+
+small, .text-muted, .meta, .helper-text {
+  color: var(--text-muted) !important;
+}
+
+/* Invert hover system */
+.invert-hover--gold {
+  background: transparent;
+  color: var(--ew-primary);
+  border: 1px solid rgba(212,168,67,0.35);
+  transition: all 0.25s ease;
+}
+.invert-hover--gold:hover {
+  background: var(--ew-primary);
+  color: var(--text-on-light);
+  border-color: var(--ew-primary);
+}
+
+.invert-hover--gold-solid {
+  background: var(--ew-primary);
+  color: var(--text-on-light);
+  border: 1px solid var(--ew-primary);
+  transition: all 0.25s ease;
+}
+.invert-hover--gold-solid:hover {
+  background: #0b0d10;
+  color: var(--ew-primary);
+  border-color: var(--ew-primary);
+}
+
+/* Section buttons */
+.btn-ay {
+  background: var(--ay-primary);
+  color: #fff;
+  border: 1px solid var(--ay-primary);
+  transition: all 0.25s ease;
+}
+.btn-ay:hover {
+  background: #0b0d10;
+  color: var(--ay-light);
+  border-color: var(--ay-light);
+}
+
+.btn-design {
+  background: var(--design-primary);
+  color: var(--text-on-light);
+  border: 1px solid var(--design-primary);
+  transition: all 0.25s ease;
+}
+.btn-design:hover {
+  background: #0b0d10;
+  color: var(--design-light);
+  border-color: var(--design-light);
+}
+
+.btn-studio {
+  background: var(--studio-primary);
+  color: var(--text-on-light);
+  border: 1px solid var(--studio-primary);
+  transition: all 0.25s ease;
+}
+.btn-studio:hover {
+  background: #0b0d10;
+  color: var(--studio-light);
+  border-color: var(--studio-light);
+}
+
+.btn-media {
+  background: var(--media-primary);
+  color: #fff;
+  border: 1px solid var(--media-primary);
+  transition: all 0.25s ease;
+}
+.btn-media:hover {
+  background: #0b0d10;
+  color: var(--media-light);
+  border-color: var(--media-light);
+}
+
+/* Aythnyk section */
+.section-aythnyk .section-kicker,
+.section-aythnyk .accent-text,
+.section-aythnyk a:not(.btn) {
+  color: var(--ay-light);
+}
+
+.section-aythnyk .card,
+.section-aythnyk .poem-card {
+  border-color: var(--ay-border) !important;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.34), 0 0 0 1px rgba(230,57,86,0.06);
+}
+
+.section-aythnyk .card:hover,
+.section-aythnyk .poem-card:hover {
+  background: var(--ay-primary) !important;
+  color: #fff !important;
+  border-color: var(--ay-light) !important;
+}
+
+.section-aythnyk .card:hover h3,
+.section-aythnyk .card:hover h4,
+.section-aythnyk .card:hover p,
+.section-aythnyk .poem-card:hover * {
+  color: #fff !important;
+}
+
+/* Design section */
+.section-design .section-kicker,
+.section-design .accent-text,
+.section-design a:not(.btn) {
+  color: var(--design-light);
+}
+
+.section-design .service-card {
+  border-color: var(--design-border) !important;
+  background:
+    linear-gradient(180deg, rgba(134,169,199,0.06), rgba(255,255,255,0.015)),
+    var(--bg-card) !important;
+}
+
+.section-design .service-card:hover {
+  background: var(--design-primary) !important;
+  color: var(--text-on-light) !important;
+  border-color: var(--design-light) !important;
+}
+
+.section-design .service-card:hover h3,
+.section-design .service-card:hover h4,
+.section-design .service-card:hover p,
+.section-design .service-card:hover .price,
+.section-design .service-card:hover .meta {
+  color: var(--text-on-light) !important;
+}
+
+/* Studio section */
+.section-studio .section-kicker,
+.section-studio .accent-text,
+.section-studio a:not(.btn) {
+  color: var(--studio-light);
+}
+
+.section-studio .card,
+.section-studio .service-card {
+  border-color: var(--studio-border) !important;
+  background:
+    linear-gradient(180deg, rgba(215,221,229,0.06), rgba(255,255,255,0.015)),
+    var(--bg-card) !important;
+}
+
+.section-studio .card:hover,
+.section-studio .service-card:hover {
+  background: var(--studio-primary) !important;
+  color: var(--text-on-light) !important;
+  border-color: var(--studio-light) !important;
+}
+
+.section-studio .card:hover *,
+.section-studio .service-card:hover * {
+  color: var(--text-on-light) !important;
+}
+
+/* Media section */
+.section-media .section-kicker,
+.section-media .accent-text,
+.section-media a:not(.btn) {
+  color: var(--media-light);
+}
+
+.section-media .card,
+.section-media .service-card {
+  border-color: var(--media-border) !important;
+  background:
+    linear-gradient(180deg, rgba(215,148,112,0.06), rgba(255,255,255,0.015)),
+    var(--bg-card) !important;
+}
+
+.section-media .card:hover,
+.section-media .service-card:hover {
+  background: var(--media-primary) !important;
+  color: #fff !important;
+  border-color: var(--media-light) !important;
+}
+
+.section-media .card:hover *,
+.section-media .service-card:hover * {
+  color: #fff !important;
+}
+
+/* Card depth effect */
+.card::before,
+.service-card::before,
+.division-card::before,
+.contact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.05),
+    transparent 35%,
+    transparent 65%,
+    rgba(255,255,255,0.03));
+}
+
+/* Form inputs */
+input, textarea, select {
+  background: #111318 !important;
+  color: var(--text-primary) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 16px !important;
+  padding: 14px 16px !important;
+  box-shadow: none !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-subtle);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--design-light) !important;
+  box-shadow: 0 0 0 4px rgba(134,169,199,0.16) !important;
+  background: #151922 !important;
+  outline: none;
 }

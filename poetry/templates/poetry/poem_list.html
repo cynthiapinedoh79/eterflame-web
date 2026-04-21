@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="section-aythnyk">
 {% if is_favorites_page %}
 <div class="eter-breadcrumb">
   <a href="{% url 'poetry:poetry_home' %}" class="eter-back-link">← Aythnyk</a>
@@ -34,6 +35,7 @@
 {% endif %}
 
 {% include "poetry/_poem_list_section.html" with hide_page_title=True %}
+</div>
 {% endblock %}
 
 {% block full_width_banner %}
