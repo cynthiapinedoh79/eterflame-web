@@ -1,4 +1,34 @@
 /* ================================================
+   0. Dark Theme Overrides
+=================================================== */
+.about-page {
+  background: var(--bg-body, #0a0804);
+  min-height: 100vh;
+  color: #f5e6c8;
+}
+
+.about-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: 5px;
+  color: #f5e6c8;
+  margin-bottom: .5rem;
+}
+
+.about-page .container {
+  color: #f5e6c8;
+}
+
+.about-content p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #c8b882;
+  margin-bottom: 1.2rem;
+}
+
+/* ================================================
    1. Page Layout & Spacing
 =================================================== */
 

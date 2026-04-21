@@ -11,48 +11,60 @@
     justify-content: center;
     text-align: center;
   }
-  .ef-coming-soon .ef-eyebrow {
+  .ef-eyebrow {
     font-family: var(--font-mono, 'Courier Prime', monospace);
     font-size: .72rem;
     letter-spacing: 4px;
-    color: var(--color-text-muted, #7a5c2e);
+    color: #8a8fa8;
     text-transform: uppercase;
     margin-bottom: .8rem;
   }
-  .ef-coming-soon h1 {
+  .ef-page-title {
     font-family: var(--font-display, 'Cormorant Garamond', serif);
     font-size: clamp(2.4rem, 6vw, 4.5rem);
     font-weight: 300;
-    color: var(--color-gold, #c49a40);
+    color: #b0b5cc;
     letter-spacing: 6px;
     margin-bottom: .5rem;
   }
-  .ef-coming-soon .ef-subtitle {
+  .ef-subtitle {
     font-family: var(--font-mono, 'Courier Prime', monospace);
     font-size: .8rem;
     letter-spacing: 3px;
-    color: #9a9a9a;
+    color: #8a8fa8;
     text-transform: uppercase;
     margin-bottom: 2rem;
   }
-  .ef-coming-soon p {
+  .ef-body-text {
     font-family: var(--font-body, 'DM Sans', sans-serif);
     font-size: 1rem;
-    color: var(--color-text-dark, #f5e0b0);
+    color: #c8ccd8;
     max-width: 500px;
     margin: 0 auto 2rem;
     line-height: 1.7;
+  }
+  .ef-badge-soon {
+    display: inline-block;
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .72rem;
+    letter-spacing: 3px;
+    color: #4a4f62;
+    border: 0.5px solid rgba(138,143,168,0.2);
+    padding: .4rem 1.2rem;
+    text-transform: uppercase;
+    border-radius: 2px;
+    margin-bottom: 2rem;
   }
   .ef-back-link {
     font-family: var(--font-mono, 'Courier Prime', monospace);
     font-size: .75rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--color-text-muted, #7a5c2e);
+    color: #4a4f62;
     text-decoration: none;
     transition: color .2s;
   }
-  .ef-back-link:hover { color: var(--color-gold, #c49a40); }
+  .ef-back-link:hover { color: #b0b5cc; }
 </style>
 {% endblock %}
 
@@ -63,13 +75,15 @@
 <div class="ef-coming-soon">
   <div class="container">
     <p class="ef-eyebrow">Etherflame Works</p>
-    <h1>EF MEDIA</h1>
+    <h1 class="ef-page-title">EF MEDIA</h1>
     <p class="ef-subtitle">Video · Audio · Content</p>
-    <p>
+    <div style="width:40px;height:1px;background:rgba(138,143,168,0.4);margin:0 auto 2rem;"></div>
+    <p class="ef-body-text">
       Photography, video production, podcast, and digital content strategy
       built to move audiences. Currently in development — launching soon.
     </p>
-    <div style="width:40px;height:1px;background:#c49a40;opacity:.4;margin:0 auto 2rem;"></div>
+    <div class="ef-badge-soon">Próximamente</div>
+    <br>
     <a href="{% url 'works:works_home' %}" class="ef-back-link">← Back to Etherflame Works</a>
   </div>
 </div>

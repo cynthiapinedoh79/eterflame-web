@@ -11,8 +11,8 @@
   .ef-eyebrow {
     font-family: var(--font-mono, 'Courier Prime', monospace);
     font-size: .75rem;
-    letter-spacing: 4px;
-    color: var(--color-text-muted, #7a5c2e);
+    letter-spacing: 5px;
+    color: #c8102e;
     text-transform: uppercase;
     margin-bottom: 1rem;
   }
@@ -36,9 +36,8 @@
   .ef-divider {
     width: 60px;
     height: 1px;
-    background: var(--color-gold, #c49a40);
+    background: rgba(200,16,46,0.4);
     margin: 2.5rem auto;
-    opacity: .5;
   }
   .ef-section-label {
     font-family: var(--font-mono, 'Courier Prime', monospace);
@@ -59,25 +58,27 @@
   .ef-card-group {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1px;
-    border: 1px solid rgba(196,154,64,.2);
+    gap: 16px;
     margin: 3rem 0;
   }
   .ef-info-card {
-    padding: 2.5rem 2rem;
-    background: var(--bg-dark, #130e05);
+    padding: 24px 28px;
+    background: #141009;
+    border-left: 2px solid #c8102e;
+    border-radius: 0 6px 6px 0;
   }
   .ef-info-card h4 {
-    font-family: var(--font-display, 'Cormorant Garamond', serif);
-    font-size: 1.25rem;
-    letter-spacing: 2px;
-    color: var(--color-gold, #c49a40);
-    margin-bottom: 1rem;
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #c8102e;
+    text-transform: uppercase;
+    margin-bottom: 12px;
   }
   .ef-info-card p {
     font-family: var(--font-body, 'DM Sans', sans-serif);
     font-size: .95rem;
-    color: var(--color-text-dark, #f5e0b0);
+    color: #c8b882;
     line-height: 1.7;
     margin: 0;
   }
@@ -160,11 +161,9 @@
     <div class="container">
       <p class="ef-eyebrow">Creative &amp; Digital Production</p>
       <h1 class="ef-headline">ETHERFLAME<br><span style="font-weight:600;">WORKS</span></h1>
+      <div style="width:60px;height:2px;background:#c8102e;margin:16px auto 20px;"></div>
       <p class="ef-tagline">Design · Media · Studio</p>
-      <a href="{% url 'works:design' %}" class="btn px-5 py-2 me-3"
-         style="font-family:'Courier Prime',monospace;font-size:.8rem;letter-spacing:3px;text-transform:uppercase;border:1px solid #c49a40;color:#c49a40;background:transparent;">
-        Explore Services
-      </a>
+      <a href="{% url 'works:design' %}" class="works-explore-btn me-3">Explore Services</a>
       <a href="{% url 'poetry:poetry_home' %}" class="ef-cta-link">Meet Aythnyk →</a>
     </div>
   </section>
@@ -215,7 +214,7 @@
 
         <!-- EF Design -->
         <div class="col-12 col-md-4">
-          <a href="{% url 'works:design' %}" class="ef-division-card h-100 d-flex">
+          <a href="{% url 'works:design' %}" class="ef-division-card works-division-card design-card h-100 d-flex">
             <div class="ef-division-accent" style="background:#4a8ab5;"></div>
             <div class="ef-division-name">EF Design</div>
             <div class="ef-division-subtitle">Creative Technology &amp; Design</div>
@@ -231,7 +230,7 @@
 
         <!-- EF Media -->
         <div class="col-12 col-md-4">
-          <a href="{% url 'works:media' %}" class="ef-division-card h-100 d-flex">
+          <a href="{% url 'works:media' %}" class="ef-division-card works-division-card media-card h-100 d-flex">
             <div class="ef-division-accent" style="background:#9a9a9a;"></div>
             <div class="ef-division-name">EF Media</div>
             <div class="ef-division-subtitle">Video · Audio · Content</div>
@@ -245,7 +244,7 @@
 
         <!-- EF Studio -->
         <div class="col-12 col-md-4">
-          <a href="{% url 'works:studio' %}" class="ef-division-card h-100 d-flex">
+          <a href="{% url 'works:studio' %}" class="ef-division-card works-division-card studio-card h-100 d-flex">
             <div class="ef-division-accent" style="background:#b87a3a;"></div>
             <div class="ef-division-name">EF Studio</div>
             <div class="ef-division-subtitle">Creative Writing &amp; Storytelling</div>

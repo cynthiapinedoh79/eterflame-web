@@ -45,6 +45,27 @@
   --color-primary-text: #f5e6c8;
   --font-stack-primary: 'DM Sans', -apple-system, sans-serif;
   --font-stack-brand: 'Cormorant Garamond', Georgia, serif;
+
+  /* Section Accent Colors */
+  --accent-works: #c8102e;
+  --accent-works-light: #e8314f;
+  --accent-works-dim: #6b0818;
+
+  --accent-design: #2e6da4;
+  --accent-design-light: #4a8fc4;
+  --accent-design-dim: #1a3d5c;
+
+  --accent-media: #8a8fa8;
+  --accent-media-light: #b0b5cc;
+  --accent-media-dim: #4a4f62;
+
+  --accent-studio: #b87333;
+  --accent-studio-light: #d4924d;
+  --accent-studio-dim: #6b4220;
+
+  --accent-aythnyk: #d4a843;
+  --accent-aythnyk-light: #e8c06a;
+  --accent-aythnyk-dim: #7a6035;
 }
 
 /* ================================================
@@ -471,17 +492,31 @@ main.flex-grow-1.main-bg {
 .works-aythnyk-card {
   display: block;
   text-align: center;
-  padding: 48px 40px;
-  border: 0.5px solid rgba(196,154,64,0.25);
-  border-radius: 4px;
+  padding: 56px 48px;
+  border: 0.5px solid rgba(212,168,67,0.2);
+  border-radius: 6px;
   text-decoration: none;
-  background: linear-gradient(135deg, #130e05 0%, #1e1508 100%);
-  transition: border-color 0.3s, background 0.3s;
+  background: linear-gradient(135deg, #130e05 0%, #1e1508 50%, #130e05 100%);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.works-aythnyk-card::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(ellipse 40% 30% at 50% 50%, rgba(212,168,67,0.06) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
 }
 .works-aythnyk-card:hover {
-  border-color: rgba(196,154,64,0.6);
-  background: linear-gradient(135deg, #1e1508 0%, #2a1e08 100%);
+  border-color: rgba(212,168,67,0.5);
+  background: linear-gradient(135deg, #1a1208 0%, #251a08 50%, #1a1208 100%);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(212,168,67,0.08);
 }
+.works-aythnyk-card:hover::before { opacity: 1; }
 .works-aythnyk-eyebrow {
   font-family: var(--font-mono);
   font-size: 10px;
@@ -492,12 +527,15 @@ main.flex-grow-1.main-bg {
 }
 .works-aythnyk-name {
   font-family: var(--font-display);
-  font-size: clamp(36px, 6vw, 64px);
-  font-weight: 600;
-  letter-spacing: 8px;
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 400;
+  letter-spacing: 12px;
   color: #d4a843;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  transition: color 0.2s, letter-spacing 0.3s;
+  position: relative;
 }
+.works-aythnyk-card:hover .works-aythnyk-name { color: #e8c06a; letter-spacing: 16px; }
 .works-aythnyk-desc {
   font-family: var(--font-body);
   font-size: 15px;
@@ -552,6 +590,74 @@ p.text-end.m-3 { color: #5a4820 !important; font-size: 11px; font-family: var(--
 }
 .eter-btn-secondary:hover { background: rgba(212,168,67,0.12); color: #e8c06a; border-color: #e8c06a; transform: translateY(-2px); }
 .eter-btn-secondary:active { transform: translateY(0); }
+
+/* === Navbar animated underline === */
+.navbar-nav .nav-link { position: relative; }
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 16px;
+  right: 16px;
+  height: 1px;
+  background: #d4a843;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+.navbar-nav .nav-link:hover::after { transform: scaleX(1); }
+.navbar-nav .nav-link.active::after { transform: scaleX(1); height: 2px; }
+
+/* === Works Home — Crimson identity === */
+.works-hero-accent { width: 60px; height: 2px; background: var(--accent-works); margin: 20px auto; }
+.works-eyebrow { color: var(--accent-works); font-family: var(--font-mono); font-size: 11px; letter-spacing: 5px; text-transform: uppercase; }
+.works-explore-btn {
+  background: var(--accent-works); color: #ffffff;
+  padding: 14px 36px; font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 3px; text-transform: uppercase; border: none;
+  border-radius: 3px; cursor: pointer; transition: all 0.2s;
+  text-decoration: none; display: inline-block;
+}
+.works-explore-btn:hover { background: var(--accent-works-light); color: #ffffff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,16,46,0.3); }
+.works-mission-card {
+  border-left: 2px solid var(--accent-works);
+  padding: 24px 28px;
+  background: #141009;
+  border-radius: 0 6px 6px 0;
+  height: 100%;
+}
+.works-mission-title { color: var(--accent-works); font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
+.works-mission-card p { color: #c8b882; font-size: 14px; line-height: 1.7; margin: 0; }
+
+/* === Works Division Card accent variants === */
+.works-division-card.design-card { border-top: 2px solid var(--accent-design); }
+.works-division-card.design-card:hover { box-shadow: 0 16px 40px rgba(46,109,164,0.2); }
+.works-division-card.design-card .ef-division-name,
+.works-division-card.design-card .works-division-title { color: var(--accent-design-light); }
+.works-division-card.design-card .works-division-link { color: var(--accent-design-light); border-bottom-color: rgba(46,109,164,0.4); }
+.works-division-card.design-card:hover .works-division-link { color: #7ab8e8; border-bottom-color: rgba(46,109,164,0.8); }
+
+.works-division-card.media-card { border-top: 2px solid var(--accent-media); }
+.works-division-card.media-card:hover { box-shadow: 0 16px 40px rgba(138,143,168,0.15); }
+.works-division-card.media-card .ef-division-name,
+.works-division-card.media-card .works-division-title { color: var(--accent-media-light); }
+.works-division-card.media-card .works-division-link,
+.works-division-card.media-card .works-coming-soon { color: var(--accent-media); border-color: rgba(138,143,168,0.3); }
+
+.works-division-card.studio-card { border-top: 2px solid var(--accent-studio); }
+.works-division-card.studio-card:hover { box-shadow: 0 16px 40px rgba(184,115,51,0.2); }
+.works-division-card.studio-card .ef-division-name,
+.works-division-card.studio-card .works-division-title { color: var(--accent-studio-light); }
+.works-division-card.studio-card .works-division-link,
+.works-division-card.studio-card .works-coming-soon { color: var(--accent-studio); border-color: rgba(184,115,51,0.3); }
+
+/* === Blog cards === */
+.blog-card { background: #141009; border: 0.5px solid rgba(212,168,67,0.12); border-radius: 8px; overflow: hidden; transition: all 0.25s ease; }
+.blog-card:hover { background: #1a1208; border-color: rgba(212,168,67,0.35); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+.blog-card-title { color: #f5e6c8; font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; transition: color 0.2s; }
+.blog-card:hover .blog-card-title { color: #d4a843; }
+.blog-card-meta { color: #7a6035; font-family: var(--font-mono); font-size: 11px; letter-spacing: 1px; }
+.blog-card-excerpt { color: #8a6c3a; font-size: 14px; line-height: 1.6; transition: color 0.2s; }
+.blog-card:hover .blog-card-excerpt { color: #a0844a; }
 
 /* === Works Division Cards === */
 .works-division-card {
