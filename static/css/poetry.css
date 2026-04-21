@@ -501,23 +501,21 @@ a.page-link { color: var(--ay-primary); }
 =================================================== */
 
 .poem-detail-card {
-  background: #1a0c06;
-  border: 1px solid rgba(200,16,46,0.3);
+  background: #1a0508;
+  border: 1px solid rgba(200,16,46,0.4);
   border-top: 3px solid #c8102e;
   border-radius: 10px;
   overflow: hidden;
   width: 100%;
   box-shadow:
-    0 0 0 1px rgba(200,16,46,0.1),
-    0 40px 100px rgba(0,0,0,0.7),
-    inset 0 1px 0 rgba(200,16,46,0.15);
+    0 0 0 1px rgba(200,16,46,0.15),
+    0 40px 100px rgba(0,0,0,0.8),
+    inset 0 0 80px rgba(200,16,46,0.05);
   position: relative;
 }
 
 .poem-detail-overlay {
-  background: linear-gradient(180deg,
-    rgba(22,8,5,0.99) 0%,
-    rgba(18,6,4,0.99) 100%);
+  background: #1a0508;
   padding: 52px 60px;
   overflow: hidden;
 }
@@ -538,7 +536,7 @@ a.page-link { color: var(--ay-primary); }
   font-style: italic;
   font-size: 1.1rem;
   color: #c8102e;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   margin-bottom: 40px;
   display: block;
   text-transform: uppercase;
@@ -551,7 +549,7 @@ a.page-link { color: var(--ay-primary); }
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.25rem;
   line-height: 2;
-  color: #e8d5b0;
+  color: #f0ddb0;
   max-width: 620px;
   margin: 0 auto;
   letter-spacing: 0.03em;
@@ -563,8 +561,8 @@ a.page-link { color: var(--ay-primary); }
   content: '';
   display: block;
   width: 40px;
-  height: 1px;
-  background: rgba(200,16,46,0.4);
+  height: 2px;
+  background: #c8102e;
   margin: 0 auto 48px;
 }
 
@@ -575,7 +573,7 @@ a.page-link { color: var(--ay-primary); }
   padding: 0 !important;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  color: #e8d5b0;
+  color: #f0ddb0;
 }
 
 .poem-body p:empty {
@@ -598,14 +596,16 @@ a.page-link { color: var(--ay-primary); }
 
 
 a.text-decoration-none {
-  color: var(--ay-primary) !important;
-  font-family: var(--font-mono);
+  color: #c8102e !important;
+  font-family: 'Courier Prime', monospace;
   font-size: 10px;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-transform: uppercase;
+  opacity: 0.8;
 }
 a.text-decoration-none:hover {
-  color: var(--ay-light) !important;
+  color: #e8314f !important;
+  opacity: 1;
 }
 
 /* ================================================
@@ -806,6 +806,14 @@ a.text-decoration-none:hover {
   .poetry-list .search-input-wrapper {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  /* Poem Detail */
+  .poem-detail-overlay {
+    padding: 32px 24px;
+  }
+  .poem-body {
+    font-size: 1.1rem;
   }
 }
 
@@ -1151,9 +1159,9 @@ a.text-decoration-none:hover {
 =================================================== */
 #btn-es, #btn-en {
   background: transparent;
-  border: 1px solid rgba(200,16,46,0.25);
-  color: var(--text-subtle);
-  font-family: var(--font-mono);
+  border: 1px solid rgba(200,16,46,0.3);
+  color: #a08070;
+  font-family: 'Courier Prime', monospace;
   font-size: 10px;
   letter-spacing: 2px;
   padding: 5px 10px;
@@ -1162,15 +1170,15 @@ a.text-decoration-none:hover {
   transition: all 0.2s;
 }
 #btn-es:hover, #btn-en:hover {
-  border-color: rgba(200,16,46,0.5);
-  color: var(--ay-light);
-  background: rgba(200,16,46,0.08);
+  border-color: rgba(200,16,46,0.6);
+  color: #f0ddb0;
+  background: rgba(200,16,46,0.1);
 }
 #btn-es.active, #btn-en.active,
 #btn-es.btn-secondary, #btn-en.btn-secondary {
-  background: var(--ay-primary);
+  background: #c8102e;
   color: #ffffff;
-  border-color: var(--ay-primary);
+  border-color: #c8102e;
   font-weight: 600;
 }
 #btn-es.btn-outline-secondary,
