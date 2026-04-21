@@ -40,17 +40,17 @@
     margin: 2.5rem auto;
   }
   .ef-section-label {
-    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-family: var(--font-mono);
     font-size: .7rem;
     letter-spacing: 4px;
-    color: var(--color-text-muted, #7a5c2e);
+    color: var(--text-subtle);
     text-transform: uppercase;
     margin-bottom: 1.5rem;
   }
   .ef-body-text {
-    font-family: var(--font-body, 'DM Sans', sans-serif);
+    font-family: var(--font-body);
     font-size: 1.05rem;
-    color: var(--color-text-dark, #f5e0b0);
+    color: var(--text-body);
     line-height: 1.8;
     max-width: 680px;
     margin: 0 auto 1.2rem;
@@ -76,9 +76,9 @@
     margin-bottom: 12px;
   }
   .ef-info-card p {
-    font-family: var(--font-body, 'DM Sans', sans-serif);
+    font-family: var(--font-body);
     font-size: .95rem;
-    color: #c8b882;
+    color: var(--text-muted);
     line-height: 1.7;
     margin: 0;
   }
@@ -215,44 +215,42 @@
         <!-- EF Design -->
         <div class="col-12 col-md-4">
           <a href="{% url 'works:design' %}" class="ef-division-card works-division-card design-card h-100 d-flex">
-            <div class="ef-division-accent" style="background:#4a8ab5;"></div>
-            <div class="ef-division-name">EF Design</div>
-            <div class="ef-division-subtitle">Creative Technology &amp; Design</div>
-            <p class="ef-division-desc">
+            <div class="works-division-accent"></div>
+            <div class="ef-division-name works-division-title">EF Design</div>
+            <div class="ef-division-subtitle works-division-subtitle">Creative Technology &amp; Design</div>
+            <p class="ef-division-desc works-division-desc">
               Full-stack web development, UI/UX, branding, data visualisation,
               e-commerce, API integration, and database architecture.
             </p>
-            <span style="font-family:'Courier Prime',monospace;font-size:.75rem;letter-spacing:2px;color:#4a8ab5;margin-top:1.2rem;">
-              View Services →
-            </span>
+            <span class="works-division-link">View Services →</span>
           </a>
         </div>
 
         <!-- EF Media -->
         <div class="col-12 col-md-4">
           <a href="{% url 'works:media' %}" class="ef-division-card works-division-card media-card h-100 d-flex">
-            <div class="ef-division-accent" style="background:#9a9a9a;"></div>
-            <div class="ef-division-name">EF Media</div>
-            <div class="ef-division-subtitle">Video · Audio · Content</div>
-            <p class="ef-division-desc">
+            <div class="works-division-accent"></div>
+            <div class="ef-division-name works-division-title">EF Media</div>
+            <div class="ef-division-subtitle works-division-subtitle">Video · Audio · Content</div>
+            <p class="ef-division-desc works-division-desc">
               Photography, video production, podcast, and digital content
               strategy built to move audiences.
             </p>
-            <span class="ef-badge-soon">Coming Soon</span>
+            <span class="works-coming-soon">Coming Soon</span>
           </a>
         </div>
 
         <!-- EF Studio -->
         <div class="col-12 col-md-4">
           <a href="{% url 'works:studio' %}" class="ef-division-card works-division-card studio-card h-100 d-flex">
-            <div class="ef-division-accent" style="background:#b87a3a;"></div>
-            <div class="ef-division-name">EF Studio</div>
-            <div class="ef-division-subtitle">Creative Writing &amp; Storytelling</div>
-            <p class="ef-division-desc">
+            <div class="works-division-accent"></div>
+            <div class="ef-division-name works-division-title">EF Studio</div>
+            <div class="ef-division-subtitle works-division-subtitle">Creative Writing &amp; Storytelling</div>
+            <p class="ef-division-desc works-division-desc">
               Copywriting, editorial, ghostwriting, and narrative brand voice
               for projects that need a soul.
             </p>
-            <span class="ef-badge-soon">Coming Soon</span>
+            <span class="works-coming-soon">Coming Soon</span>
           </a>
         </div>
 

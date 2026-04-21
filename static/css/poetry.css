@@ -107,20 +107,20 @@ section.py-4 {
 /* --- 2.2. Base Card Styles --- */
 
 .poetry-list .card {
-  background: #141009;
-  border: 0.5px solid rgba(212,168,67,0.1);
+  background: var(--bg-card);
+  border: 1px solid rgba(200,16,46,0.08);
   border-radius: 8px;
   overflow: hidden;
-  transition: all 0.22s ease;
+  transition: all 0.25s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 .poetry-list .card:hover {
-  background: #1a1208;
-  border-color: rgba(212,168,67,0.35);
+  background: var(--bg-card-hover);
+  border-color: rgba(200,16,46,0.3);
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 20px rgba(200,16,46,0.08);
 }
 
 .poetry-list .image-wrap { 
@@ -154,19 +154,19 @@ section.py-4 {
 
 .poetry-list .card-title a.post-link {
   text-decoration: none;
-  color: #f5e6c8;
+  color: var(--text-primary);
   font-weight: 600;
   transition: color 0.2s;
 }
 .poetry-list .card-title a.post-link:hover,
 .poetry-list .card:hover .card-title a.post-link {
-  color: #d4a843;
+  color: var(--ay-light);
 }
-.poetry-list .card-text { color: #8a6c3a; font-size: 0.875rem; line-height: 1.5; transition: color 0.2s; }
-.poetry-list .card:hover .card-text { color: #a0844a; }
-.poetry-list .text-muted { color: #7a6035 !important; font-size: 12px; }
-.poetry-list .card .card-footer { background: transparent; border-top: 0.5px solid rgba(212,168,67,0.08); transition: border-color 0.2s; }
-.poetry-list .card:hover .card-footer { border-top-color: rgba(212,168,67,0.2); }
+.poetry-list .card-text { color: var(--text-subtle); font-size: 0.875rem; line-height: 1.5; transition: color 0.2s; }
+.poetry-list .card:hover .card-text { color: var(--text-muted); }
+.poetry-list .text-muted { color: var(--text-subtle) !important; font-size: 11px; font-family: var(--font-mono); letter-spacing: 0.5px; }
+.poetry-list .card .card-footer { background: transparent; border-top: 1px solid rgba(200,16,46,0.08); transition: border-color 0.2s; }
+.poetry-list .card:hover .card-footer { border-top-color: rgba(200,16,46,0.2); }
 
 .poetry-list .text-muted.small { 
   opacity: .85; 
@@ -264,20 +264,20 @@ section.py-4 {
 
 .poetry-list .collection-album-card {
   position: relative;
-  background: #141009;
-  border: 0.5px solid rgba(212,168,67,0.15);
+  background: var(--bg-card);
+  border: 1px solid rgba(200,16,46,0.1);
   border-radius: 8px;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
   height: 100%;
   overflow: hidden;
   cursor: pointer;
 }
 
 .poetry-list .collection-album-card:hover {
-  background: #1a1208;
-  border-color: rgba(212,168,67,0.45);
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,168,67,0.15);
+  background: var(--bg-card-hover);
+  border-color: rgba(200,16,46,0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(200,16,46,0.1);
 }
 
 .poetry-list.collection-album-card .card-img-top {
@@ -301,8 +301,8 @@ section.py-4 {
 }
 
 .poetry-list .collection-album-card .card-title {
-  color: #f5e6c8;
-  font-family: 'Cormorant Garamond', serif;
+  color: var(--text-primary);
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.1rem;
   letter-spacing: 1px;
@@ -311,7 +311,7 @@ section.py-4 {
 }
 
 .poetry-list .collection-album-card:hover .card-title {
-  color: #d4a843;
+  color: var(--ay-light);
 }
 
 .poetry-list .collection-album-card .card-body {
@@ -336,8 +336,8 @@ section.py-4 {
   justify-content: center;
   align-items: center;
   writing-mode: vertical-lr;
-  background-color: #1e1508;
-  color: #a0844a;
+  background-color: var(--ay-primary);
+  color: #ffffff;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -352,8 +352,8 @@ section.py-4 {
 }
 
 .poetry-list .collection-album-card:hover::before {
-  background-color: #d4a843;
-  color: #0a0804;
+  background-color: var(--ay-light);
+  color: #ffffff;
   box-shadow: -4px 0 15px rgba(0,0,0,0.4);
 }
 
@@ -415,54 +415,55 @@ section.py-4 {
 
 .poetry-list .btn.btn-secondary,
 .poetry-list button[type="submit"] {
-  background: #d4a843;
-  color: #0a0804;
+  background: var(--ay-primary);
+  color: #ffffff;
   border: none;
   border-radius: 4px;
-  padding: 10px 20px;
-  font-family: 'Courier Prime', monospace;
-  font-size: 12px;
+  padding: 11px 20px;
+  font-family: var(--font-mono);
+  font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  transition: all 0.2s;
 }
 .poetry-list .btn.btn-secondary:hover,
 .poetry-list button[type="submit"]:hover {
-  background: #e8c06a;
-  color: #0a0804;
+  background: var(--ay-light);
+  color: #ffffff;
   transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(200,16,46,0.3);
 }
 .poetry-list .btn-outline-secondary,
 .poetry-list a.btn-outline-secondary {
   background: transparent;
-  color: #a0844a;
-  border: 0.5px solid rgba(212,168,67,0.25);
+  color: var(--text-subtle);
+  border: 1px solid rgba(200,16,46,0.2);
   border-radius: 4px;
-  padding: 10px 16px;
-  font-family: 'Courier Prime', monospace;
+  padding: 11px 16px;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 1px;
   transition: all 0.2s;
 }
-.poetry-list .btn-outline-secondary:hover { background: rgba(212,168,67,0.08); color: #d4a843; border-color: rgba(212,168,67,0.4); }
+.poetry-list .btn-outline-secondary:hover { background: rgba(200,16,46,0.08); color: var(--ay-light); border-color: rgba(200,16,46,0.4); }
 
 .poetry-list .pagination .page-link {
-  background: #141009;
-  border-color: rgba(212,168,67,0.2);
-  color: #a0844a;
-  font-family: 'Courier Prime', monospace;
+  background: var(--bg-card);
+  border-color: rgba(200,16,46,0.15);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 1px;
   transition: all 0.2s;
   border-radius: 4px;
 }
-.poetry-list .pagination .page-link:hover { background: #1a1208; border-color: rgba(212,168,67,0.45); color: #d4a843; }
-.poetry-list .pagination .page-item.active .page-link { background: #d4a843; border-color: #d4a843; color: #0a0804; font-weight: 600; }
-.poetry-list .pagination .page-item.disabled .page-link { background: #0f0b05; border-color: rgba(212,168,67,0.08); color: #3a2e15; }
+.poetry-list .pagination .page-link:hover { background: rgba(200,16,46,0.1); border-color: rgba(200,16,46,0.4); color: var(--ay-light); }
+.poetry-list .pagination .page-item.active .page-link { background: var(--ay-primary); border-color: var(--ay-primary); color: #ffffff; font-weight: 600; }
+.poetry-list .pagination .page-item.disabled .page-link { background: var(--bg-surface); border-color: rgba(200,16,46,0.08); color: var(--text-subtle); }
 
-a.page-link { color: #a0844a; }
+a.page-link { color: var(--ay-primary); }
 
 .poetry-list h2.mt-2.mb-2 {
   margin-top: 2.5rem !important;
@@ -508,12 +509,13 @@ a.page-link { color: #a0844a; }
 }
 
 .poem-detail-author {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 1.1rem;
-  color: #d4a843;
-  letter-spacing: 1px;
-  margin-bottom: 32px !important;
+  color: var(--ay-primary);
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  display: block;
 }
 
 .poem-body {
@@ -566,10 +568,14 @@ a.page-link { color: #a0844a; }
 
 
 a.text-decoration-none {
-  color: #c49a40 !important;
+  color: var(--ay-primary) !important;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 a.text-decoration-none:hover {
-  color: #e8c06a !important;
+  color: var(--ay-light) !important;
 }
 
 /* ================================================
@@ -595,8 +601,8 @@ a.text-decoration-none:hover {
   box-shadow: inset 0 0 80px rgba(212,168,67,0.04);
 }
 
-.banner--black { background: #0f0b05; }
-.banner--red   { background: linear-gradient(135deg, #1a0802 0%, #2a0e04 100%); border-color: rgba(192,88,10,0.3); }
+.banner--black { background: linear-gradient(90deg, #0a0804, #0f0a05, #0a0804); }
+.banner--red   { background: linear-gradient(90deg, #100204, #160306, #100204); border-color: rgba(200,16,46,0.25); }
 
 .qb-track{ display:flex; width:100%; transition: transform .45s ease; will-change: transform; }
 .qb-slide{
@@ -624,20 +630,20 @@ a.text-decoration-none:hover {
 
 .qb-author {
   margin: 0 0 0 .5rem;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
   white-space: nowrap;
-  color: #d4a843;
+  color: var(--ay-primary);
 }
 
 .qb-nav {
   position: absolute; top: 50%; transform: translateY(-50%);
   width: 36px; height: 36px; display: grid; place-items: center;
-  border: 0.5px solid rgba(212,168,67,0.2); border-radius: 999px; cursor: pointer; z-index: 2;
-  color: #d4a843; background: rgba(212,168,67,0.12);
+  border: 1px solid rgba(200,16,46,0.2); border-radius: 999px; cursor: pointer; z-index: 2;
+  color: var(--ay-primary); background: rgba(200,16,46,0.1);
   transition: background .2s ease, border-color .2s ease, transform .1s ease;
 }
-.qb-nav:hover { background: rgba(212,168,67,0.25); color: #e8c06a; border-color: rgba(212,168,67,0.4); }
+.qb-nav:hover { background: rgba(200,16,46,0.2); color: var(--ay-light); border-color: rgba(200,16,46,0.4); }
 .qb-nav:active { transform: translateY(-50%) scale(.96); }
 .qb-prev { left: 8px; }
 .qb-next { right: 8px; }
@@ -845,176 +851,194 @@ a.text-decoration-none:hover {
    AYTHNYK HOME — Navigation Cards
 =================================================== */
 .aythnyk-nav-sections {
-  padding: 80px 0;
-  background: var(--bg-body);
+  padding: 80px 0 100px;
+  background: var(--bg-base);
+  position: relative;
 }
 .aythnyk-nav-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 40px 24px;
-  border: 0.5px solid rgba(212,168,67,0.15);
-  border-radius: 6px;
+  padding: 44px 28px;
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 8px;
   text-decoration: none;
-  background: #141009;
+  transition: all 0.3s ease;
   height: 100%;
   position: relative;
   overflow: hidden;
-  transition: all 0.25s ease;
 }
 .aythnyk-nav-card::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(212,168,67,0.05) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.3s;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--ay-primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 .aythnyk-nav-card:hover {
-  border-color: rgba(212,168,67,0.5);
-  background: #1a1208;
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(212,168,67,0.1);
+  background: linear-gradient(160deg, #160508 0%, #141009 70%);
+  border-color: rgba(200,16,46,0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(200,16,46,0.1);
   text-decoration: none;
 }
-.aythnyk-nav-card:hover::before { opacity: 1; }
-.aythnyk-nav-card--soon { opacity: 0.6; cursor: default; }
-.aythnyk-nav-icon {
-  font-size: 24px;
-  color: rgba(212,168,67,0.5);
-  margin-bottom: 16px;
-  display: block;
-  transition: color 0.2s, transform 0.2s;
+.aythnyk-nav-card:hover::before { transform: scaleX(1); }
+.aythnyk-nav-card--soon:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(200,16,46,0.15);
+  box-shadow: none;
+  transform: translateY(-2px);
 }
-.aythnyk-nav-card:hover .aythnyk-nav-icon { color: #d4a843; transform: scale(1.15); }
+.aythnyk-nav-icon {
+  font-size: 22px;
+  color: rgba(200,16,46,0.5);
+  margin-bottom: 18px;
+  display: block;
+  transition: all 0.25s;
+}
+.aythnyk-nav-card:hover .aythnyk-nav-icon { color: var(--ay-light); transform: scale(1.2); }
 .aythnyk-nav-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 22px;
   font-weight: 600;
-  letter-spacing: 2px;
-  color: #e8d5b0;
-  margin-bottom: 8px;
-  transition: color 0.2s;
+  letter-spacing: 3px;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  transition: color 0.25s;
 }
-.aythnyk-nav-card:hover .aythnyk-nav-title { color: #d4a843; }
+.aythnyk-nav-card:hover .aythnyk-nav-title { color: var(--ay-light); }
 .aythnyk-nav-desc {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 300;
-  color: #7a6035;
+  color: var(--text-subtle);
   margin: 0;
-  transition: color 0.2s;
+  transition: color 0.25s;
+  line-height: 1.5;
 }
-.aythnyk-nav-card:hover .aythnyk-nav-desc { color: #a0844a; }
+.aythnyk-nav-card:hover .aythnyk-nav-desc { color: var(--text-muted); }
 .aythnyk-coming-soon {
-  font-family: 'Courier Prime', monospace;
+  font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #a0844a;
-  border: 0.5px solid rgba(212,168,67,0.3);
-  padding: 3px 10px;
+  color: rgba(200,16,46,0.35);
+  border: 1px solid rgba(200,16,46,0.15);
+  padding: 4px 12px;
   border-radius: 2px;
-  margin-top: 12px;
+  margin-top: 14px;
   display: inline-block;
+  transition: all 0.2s;
+}
+.aythnyk-nav-card:hover .aythnyk-coming-soon {
+  color: rgba(200,16,46,0.6);
+  border-color: rgba(200,16,46,0.3);
 }
 
 /* ================================================
    POEMS PAGE — Mis Favoritos link
 =================================================== */
 .btn-favorites-link {
-  font-family: 'Courier Prime', monospace;
-  font-size: 11px;
+  font-family: var(--font-mono);
+  font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--color-primary-brand);
+  color: var(--ay-primary);
   text-decoration: none;
-  border: 0.5px solid rgba(196,154,64,0.3);
-  padding: 8px 20px;
-  border-radius: 2px;
-  transition: background 0.2s;
+  border: 1px solid rgba(200,16,46,0.25);
+  padding: 9px 20px;
+  border-radius: 3px;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 .btn-favorites-link:hover {
-  background: rgba(196,154,64,0.1);
-  color: var(--color-primary-brand);
+  background: rgba(200,16,46,0.1);
+  color: var(--ay-light);
+  border-color: rgba(200,16,46,0.5);
+  transform: translateY(-1px);
 }
 
 /* === Favorites bar === */
 .favorites-bar {
   display: flex;
   justify-content: flex-end;
-  padding: 0 0 16px 0;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding-right: 24px;
+  padding: 0 0 20px;
 }
 .favorites-bar-link {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Courier Prime', monospace;
-  font-size: 11px;
+  font-family: var(--font-mono);
+  font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--color-primary-brand);
+  color: var(--ay-primary);
   text-decoration: none;
-  border: 0.5px solid rgba(196,154,64,0.3);
-  padding: 10px 20px;
-  border-radius: 2px;
-  transition: background 0.2s;
+  border: 1px solid rgba(200,16,46,0.25);
+  padding: 9px 20px;
+  border-radius: 3px;
+  transition: all 0.2s;
 }
 .favorites-bar-link:hover {
-  background: rgba(196,154,64,0.1);
-  color: var(--color-primary-brand);
+  background: rgba(200,16,46,0.1);
+  color: var(--ay-light);
+  border-color: rgba(200,16,46,0.5);
+  transform: translateY(-1px);
 }
 .favorites-bar-heart {
   font-size: 14px;
-  color: var(--color-primary-brand);
+  color: var(--ay-primary);
 }
 
 /* === Search inputs === */
 .poetry-list .search-input,
 .poetry-list input[type="search"],
 .poetry-list input[type="text"] {
-  background: #141009;
-  border: 0.5px solid rgba(212,168,67,0.2);
-  color: #f5e6c8;
+  background: var(--bg-card);
+  border: 1px solid rgba(200,16,46,0.15);
+  color: var(--text-primary);
   border-radius: 4px;
-  padding: 10px 16px;
+  padding: 11px 16px;
   font-size: 14px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: all 0.2s;
 }
-.poetry-list .search-input:hover { border-color: rgba(212,168,67,0.4); }
+.poetry-list .search-input:hover { border-color: rgba(200,16,46,0.3); }
 .poetry-list .search-input:focus,
 .poetry-list input[type="text"]:focus {
-  border-color: #d4a843;
+  border-color: var(--ay-primary);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(212,168,67,0.12);
-  background: #1a1208;
-  color: #f5e6c8;
+  box-shadow: 0 0 0 3px rgba(200,16,46,0.1);
+  background: var(--bg-card-hover);
 }
-.poetry-list .search-input::placeholder { color: #5a4820; }
+.poetry-list .search-input::placeholder { color: #3a2010; }
 
 .poetry-list select,
 .poetry-list .form-select {
-  background-color: #141009;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23d4a843' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-color: var(--bg-card);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c8102e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
-  border: 0.5px solid rgba(212,168,67,0.2);
-  color: #e8d5b0;
+  border: 1px solid rgba(200,16,46,0.15);
+  color: var(--text-body);
   border-radius: 4px;
-  padding: 10px 36px 10px 14px;
+  padding: 11px 36px 11px 14px;
   font-size: 14px;
   appearance: none;
   -webkit-appearance: none;
   cursor: pointer;
-  transition: border-color 0.2s;
+  transition: all 0.2s;
 }
-.poetry-list select:hover, .poetry-list .form-select:hover { border-color: rgba(212,168,67,0.45); color: #f5e6c8; }
-.poetry-list select:focus, .poetry-list .form-select:focus { border-color: #d4a843; outline: none; box-shadow: 0 0 0 3px rgba(212,168,67,0.12); background-color: #1a1208; }
-.poetry-list select option, .poetry-list .form-select option { background: #141009; color: #e8d5b0; }
+.poetry-list select:hover, .poetry-list .form-select:hover { border-color: rgba(200,16,46,0.35); }
+.poetry-list select:focus, .poetry-list .form-select:focus { border-color: var(--ay-primary); outline: none; box-shadow: 0 0 0 3px rgba(200,16,46,0.1); }
+.poetry-list select option, .poetry-list .form-select option { background: var(--bg-card); color: var(--text-body); }
 
 /* Poem card image hover zoom */
 .poetry-list .card-img-top { transition: transform 0.35s ease; }
@@ -1037,35 +1061,43 @@ a.text-decoration-none:hover {
 }
 
 .eter-phrase {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-family: var(--font-display);
   font-style: italic;
+  font-size: 19px;
   font-weight: 300;
-  color: #c8b882;
-  letter-spacing: 1px;
-  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin: 0 auto 52px;
+  line-height: 1.65;
   text-align: center;
-  margin: 0 auto;
-  max-width: 600px;
 }
 
 /* Works CTA on Aythnyk home */
 .eter-works-cta {
-  font-family: 'Courier Prime', monospace;
-  font-size: .75rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #7a6035;
-  text-decoration: none;
-  transition: color .2s;
+  padding: 80px 40px;
+  text-align: center;
+  background: var(--bg-surface);
+  border-top: 1px solid rgba(212,168,67,0.1);
+  position: relative;
 }
-.eter-works-cta:hover { color: #d4a843; }
+
+.eter-works-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--ew-primary);
+  margin-bottom: 12px;
+  display: block;
+}
 
 .eter-works-text {
-  font-family: 'DM Sans', sans-serif;
-  font-size: .9rem;
-  color: #7a6035;
-  line-height: 1.6;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
 }
 
 /* Collections header */
@@ -1082,31 +1114,40 @@ a.text-decoration-none:hover {
    POEM DETAIL — Language toggle buttons
 =================================================== */
 #btn-es, #btn-en {
-  font-family: 'Courier Prime', monospace;
-  font-size: .7rem;
+  background: transparent;
+  border: 1px solid rgba(200,16,46,0.25);
+  color: var(--text-subtle);
+  font-family: var(--font-mono);
+  font-size: 10px;
   letter-spacing: 2px;
-  text-transform: uppercase;
+  padding: 5px 10px;
   border-radius: 2px;
-  padding: 5px 12px;
+  cursor: pointer;
   transition: all 0.2s;
 }
-#btn-es.btn-secondary,
-#btn-en.btn-secondary {
-  background: #d4a843;
-  border-color: #d4a843;
-  color: #0a0804;
+#btn-es:hover, #btn-en:hover {
+  border-color: rgba(200,16,46,0.5);
+  color: var(--ay-light);
+  background: rgba(200,16,46,0.08);
+}
+#btn-es.active, #btn-en.active,
+#btn-es.btn-secondary, #btn-en.btn-secondary {
+  background: var(--ay-primary);
+  color: #ffffff;
+  border-color: var(--ay-primary);
+  font-weight: 600;
 }
 #btn-es.btn-outline-secondary,
 #btn-en.btn-outline-secondary {
   background: transparent;
-  border-color: rgba(212,168,67,0.3);
-  color: #a0844a;
+  border-color: rgba(200,16,46,0.25);
+  color: var(--text-subtle);
 }
 #btn-es.btn-outline-secondary:hover,
 #btn-en.btn-outline-secondary:hover {
-  background: rgba(212,168,67,0.1);
-  border-color: rgba(212,168,67,0.5);
-  color: #d4a843;
+  background: rgba(200,16,46,0.08);
+  border-color: rgba(200,16,46,0.5);
+  color: var(--ay-light);
 }
 
 /* Poem detail card gradient overlay */
@@ -1126,55 +1167,162 @@ a.text-decoration-none:hover {
 .poem-detail-overlay { position: relative; z-index: 1; }
 
 /* ================================================
-   AYTHNYK HOME — CTA Buttons
+   AYTHNYK HOME — Hero Section
+=================================================== */
+.eter-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 40px;
+  background: var(--bg-base);
+  position: relative;
+  overflow: hidden;
+}
+.eter-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 80%, rgba(200,16,46,0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 30% 20%, rgba(200,16,46,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+.eter-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,16,46,0.3), transparent);
+}
+.eter-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+.eter-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 6px;
+  color: rgba(200,16,46,0.6);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: block;
+}
+.eter-name {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 11vw, 104px);
+  font-weight: 600;
+  letter-spacing: 16px;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.5);
+}
+.eter-subtitle {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--ay-primary);
+  letter-spacing: 4px;
+  margin-bottom: 24px;
+}
+.eter-ctas {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ================================================
+   AYTHNYK HOME — CTA Buttons (Crimson identity)
 =================================================== */
 .eter-btn-primary {
-  background: #d4a843;
-  color: #0a0804;
-  padding: 16px 40px;
-  font-family: 'Courier Prime', monospace;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ew-primary);
+  color: var(--text-on-gold);
+  padding: 14px 36px;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
+  font-weight: 700;
   text-decoration: none;
   border-radius: 3px;
-  display: inline-block;
-  font-weight: 700;
   border: none;
   cursor: pointer;
   transition: all 0.25s ease;
 }
 .eter-btn-primary:hover {
-  background: #e8c06a;
-  color: #0a0804;
+  background: var(--ew-light);
+  color: var(--text-on-gold);
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(212,168,67,0.4);
+  box-shadow: 0 12px 32px rgba(212,168,67,0.35);
   letter-spacing: 4px;
   text-decoration: none;
 }
 
+.eter-btn-primary.ay-btn {
+  background: var(--ay-primary);
+  color: #ffffff;
+}
+.eter-btn-primary.ay-btn:hover {
+  background: var(--ay-light);
+  color: #ffffff;
+  box-shadow: 0 12px 32px rgba(200,16,46,0.35);
+}
+
 .eter-btn-secondary {
-  border: 1px solid #d4a843;
-  color: #d4a843;
-  padding: 15px 39px;
-  font-family: 'Courier Prime', monospace;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--ew-primary);
+  padding: 13px 35px;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 3px;
-  display: inline-block;
-  background: transparent;
+  border: 1px solid var(--ew-primary);
   cursor: pointer;
   transition: all 0.25s ease;
 }
 .eter-btn-secondary:hover {
-  background: rgba(212,168,67,0.15);
-  color: #e8c06a;
-  border-color: #e8c06a;
+  background: rgba(212,168,67,0.12);
+  color: var(--ew-light);
+  border-color: var(--ew-light);
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(212,168,67,0.2);
   letter-spacing: 4px;
   text-decoration: none;
+}
+
+.eter-btn-secondary.ay-btn {
+  border-color: var(--ay-primary);
+  color: var(--ay-primary);
+}
+.eter-btn-secondary.ay-btn:hover {
+  background: rgba(200,16,46,0.1);
+  color: var(--ay-light);
+  border-color: var(--ay-light);
+  box-shadow: 0 8px 24px rgba(200,16,46,0.2);
+}
+
+/* btn-like override for Aythnyk */
+.btn-like {
+  color: rgba(200,16,46,0.4) !important;
+  transition: all 0.2s !important;
+}
+.btn-like:hover {
+  color: var(--ay-primary) !important;
+  transform: scale(1.2);
 }
 
