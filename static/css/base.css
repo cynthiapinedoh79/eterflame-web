@@ -613,8 +613,8 @@ main.flex-grow-1.main-bg {
   display: block;
   text-align: center;
   padding: 64px 48px;
-  background: #160508;
-  border: 1px solid rgba(200,16,46,0.3);
+  background: linear-gradient(135deg, #2a1f08 0%, #1e1608 50%, #2a1f08 100%);
+  border: 1px solid rgba(212,168,67,0.35);
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.35s ease;
@@ -653,9 +653,10 @@ main.flex-grow-1.main-bg {
   font-size: 10px;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: rgba(200,16,46,0.6);
+  color: rgba(212,168,67,0.6);
   margin-bottom: 20px;
   transition: all 0.25s;
+  display: block;
 }
 .works-aythnyk-card:hover .works-aythnyk-eyebrow { color: rgba(212,168,67,0.8); letter-spacing: 6px; }
 .works-aythnyk-name {
@@ -663,10 +664,11 @@ main.flex-grow-1.main-bg {
   font-size: clamp(40px, 7vw, 72px);
   font-weight: 400;
   letter-spacing: 12px;
-  color: #e8314f;
+  color: #d4a843;
   margin-bottom: 20px;
   transition: all 0.35s ease;
   position: relative;
+  display: block;
 }
 .works-aythnyk-card:hover .works-aythnyk-name {
   color: #d4a843;
@@ -674,7 +676,7 @@ main.flex-grow-1.main-bg {
   text-shadow: 0 0 30px rgba(212,168,67,0.3);
 }
 .works-aythnyk-desc {
-  color: #6b2030;
+  color: #a08050;
   font-size: 15px;
   max-width: 520px;
   margin: 0 auto 28px;
@@ -687,15 +689,15 @@ main.flex-grow-1.main-bg {
   font-size: 10px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #c8102e;
-  border-bottom: 1px solid rgba(200,16,46,0.4);
+  color: #d4a843;
+  border-bottom: 1px solid rgba(212,168,67,0.4);
   padding-bottom: 3px;
   transition: all 0.2s;
   display: inline-block;
 }
 .works-aythnyk-card:hover .works-aythnyk-link {
   color: #d4a843;
-  letter-spacing: 4px;
+  letter-spacing: 5px;
   border-bottom-color: rgba(212,168,67,0.6);
 }
 
