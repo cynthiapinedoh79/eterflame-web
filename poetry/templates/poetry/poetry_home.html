@@ -10,6 +10,9 @@
   <div class="container-xxl">
     
     <div class="hero-art mx-auto mb-5">
+      <img src="{% static 'images/aythnyk_logo.png' %}"
+           alt="Aythnyk" height="60" class="mb-3 d-block mx-auto"
+           onerror="this.style.display='none'">
       <img src="{% if hero_image_url %}{{ hero_image_url }}{% else %}{% static 'images/poetry_hero.png' %}{% endif %}"
         alt="Poetry hero" class="img-fluid rounded-4 shadow-sm w-100">
     </div>

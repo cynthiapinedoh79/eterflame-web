@@ -102,8 +102,27 @@ def poem_detail(request, slug):
 
 def poem_list(request):
     """Display a list of poems or collections based on filters."""
-    ctx = _build_poem_list_context(request)
-    return render(request, "poetry/poem_list.html", ctx)
+    import logging
+    logger = logging.getLogger(__name__)
+    try:
+        ctx = _build_poem_list_context(request)
+        return render(request, "poetry/poem_list.html", ctx)
+    except Exception as e:
+        logger.error(f"poem_list error: {e}")
+        ctx = {
+            "page_obj": None,
+            "page_mode": "collections",
+            "q": "",
+            "total": 0,
+            "all_collections": [],
+            "all_authors": [],
+            "current_collection_slug": None,
+            "current_collection": None,
+            "current_author_slug": None,
+            "current_author": None,
+            "favorite_poem_ids": [],
+        }
+        return render(request, "poetry/poem_list.html", ctx)
 
 
 def poetry_home(request):
