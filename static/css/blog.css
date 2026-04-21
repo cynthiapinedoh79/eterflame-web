@@ -16,7 +16,14 @@
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: var(--color-primary-brand);
+    background: #d4a843;
+    color: #0a0804;
+    font-family: 'Courier Prime', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    font-weight: 700;
 }
 
 .scale {
@@ -170,8 +177,36 @@
 
 .card-img-top {
     width: 100%;
-    height: 400px;
+    height: 200px;
     object-fit: cover;
+    object-position: center;
+}
+
+@media (max-width: 768px) {
+    .card-img-top {
+        height: 160px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-img-top {
+        height: 220px;
+    }
+}
+
+.card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #f5e6c8;
+    line-height: 1.3;
+}
+
+.card-text {
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    color: #8a6c3a;
+    line-height: 1.5;
 }
 
 .image-wrapper {

@@ -501,79 +501,86 @@ a.page-link { color: var(--ay-primary); }
 =================================================== */
 
 .poem-detail-card {
-  background: linear-gradient(180deg, #1a0f05 0%, #130a04 100%);
-  border: 1px solid rgba(200,16,46,0.25);
-  border-top: 2px solid rgba(200,16,46,0.4);
+  background: #1a0c06;
+  border: 1px solid rgba(200,16,46,0.3);
+  border-top: 3px solid #c8102e;
   border-radius: 10px;
   overflow: hidden;
   width: 100%;
-  box-shadow: 0 0 0 1px rgba(200,16,46,0.08),
-              0 40px 100px rgba(0,0,0,0.6),
-              inset 0 1px 0 rgba(200,16,46,0.1);
+  box-shadow:
+    0 0 0 1px rgba(200,16,46,0.1),
+    0 40px 100px rgba(0,0,0,0.7),
+    inset 0 1px 0 rgba(200,16,46,0.15);
   position: relative;
 }
 
 .poem-detail-overlay {
   background: linear-gradient(180deg,
-    rgba(20,8,5,0.98) 0%,
-    rgba(15,5,3,0.99) 100%);
+    rgba(22,8,5,0.99) 0%,
+    rgba(18,6,4,0.99) 100%);
   padding: 52px 60px;
   overflow: hidden;
 }
 
 .poem-detail-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 600;
-  letter-spacing: 4px;
+  letter-spacing: 5px;
   color: #f5e6c8;
-  line-height: 1.2;
-  margin-bottom: 8px;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin-bottom: 10px;
 }
 
 .poem-detail-author {
-  font-family: var(--font-display);
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 1.1rem;
-  color: var(--ay-primary);
+  color: #c8102e;
   letter-spacing: 2px;
   margin-bottom: 40px;
   display: block;
+  text-transform: uppercase;
 }
 
 .poem-body {
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.2rem;
-  line-height: 1.85;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  line-height: 2;
   color: #e8d5b0;
-  width: 100%;
   max-width: 620px;
   margin: 0 auto;
-  padding: 0;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
+  width: 100%;
   box-sizing: border-box;
 }
 
-.poem-body p {
+.poem-body::before {
+  content: '';
   display: block;
+  width: 40px;
+  height: 1px;
+  background: rgba(200,16,46,0.4);
+  margin: 0 auto 48px;
+}
+
+.poem-body p {
   margin-bottom: 0 !important;
   margin-top: 0 !important;
-  line-height: 1.85 !important;
-  color: #e8d5b0;
+  line-height: 2 !important;
   padding: 0 !important;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  white-space: pre-wrap;
-  width: 100%;
-  box-sizing: border-box;
+  color: #e8d5b0;
 }
 
 .poem-body p:empty {
   display: block !important;
-  height: 1.2em !important;
+  height: 1.5em;
   margin: 0 !important;
 }
 
