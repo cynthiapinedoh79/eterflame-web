@@ -1423,3 +1423,69 @@ input:focus, textarea:focus, select:focus {
   background: #151922 !important;
   outline: none;
 }
+
+/* ================================================
+   16. AYTHNYK / COLLECTION RED CONTRAST
+=================================================== */
+
+:root {
+  --ay-primary: #c8102e;
+  --ay-light: #ef3e5b;
+  --ay-dark: #7f0b1f;
+}
+
+.section-aythnyk .collection-card,
+.section-aythnyk .poem-card,
+.collection-card.aythnyk-card {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)),
+    linear-gradient(180deg, #c8102e 0%, #a20d25 100%);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 38px rgba(0,0,0,0.30);
+}
+
+.section-aythnyk .collection-card h1,
+.section-aythnyk .collection-card h2,
+.section-aythnyk .collection-card h3,
+.section-aythnyk .collection-card h4,
+.section-aythnyk .poem-card h1,
+.section-aythnyk .poem-card h2,
+.section-aythnyk .poem-card h3,
+.section-aythnyk .poem-card h4,
+.collection-card.aythnyk-card h1,
+.collection-card.aythnyk-card h2,
+.collection-card.aythnyk-card h3,
+.collection-card.aythnyk-card h4 {
+  color: #fff5f7 !important;
+}
+
+.section-aythnyk .collection-card p,
+.section-aythnyk .poem-card p,
+.collection-card.aythnyk-card p {
+  color: #ffe3e8 !important;
+}
+
+.section-aythnyk .collection-card .meta,
+.section-aythnyk .poem-card .meta,
+.collection-card.aythnyk-card .meta {
+  color: #ffd0d8 !important;
+}
+
+.section-aythnyk .collection-card:hover,
+.section-aythnyk .poem-card:hover,
+.collection-card.aythnyk-card:hover {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+    #0d0f12 !important;
+  border-color: rgba(239, 62, 91, 0.45);
+}
+
+.section-aythnyk .collection-card:hover h1,
+.section-aythnyk .collection-card:hover h2,
+.section-aythnyk .collection-card:hover h3,
+.section-aythnyk .collection-card:hover h4,
+.section-aythnyk .collection-card:hover p,
+.section-aythnyk .poem-card:hover *,
+.collection-card.aythnyk-card:hover * {
+  color: var(--ay-light) !important;
+}
