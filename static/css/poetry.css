@@ -1019,10 +1019,24 @@ a.text-decoration-none:hover {
 /* --- Mobile --- */
 
 @media (max-width: 575.98px){
+
   /* Quote Banner */
   .quote-banner{ padding:10px 48px; min-height:75px; }
   .qb-text{ font-size:1.15rem; line-height:1.45; -webkit-line-clamp:4; }
   .qb-author{ font-size:1rem; }
+
+  .collection-detail-wrapper::before {
+    width: 24px;
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+
+    /* 🔥 IMPORTANTE (faltaba esto si no lo pusiste global) */
+    transform: none;
+  }
+
+  .collection-detail-wrapper {
+    padding-right: 24px;
+  }
 }
 
 @media (min-width: 481px) and (max-width: 575.98px) {
@@ -1120,7 +1134,8 @@ a.text-decoration-none:hover {
 /* -------------------------------------- */
 
 .collection-detail-wrapper {
-    position: relative; 
+    position: relative;
+    padding-right: 32px;
 }
 
 .collection-detail-wrapper::before {
@@ -1147,7 +1162,7 @@ a.text-decoration-none:hover {
     border-bottom-right-radius: 16px; 
     box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2); 
     z-index: 10;
-    transform: translateX(32px); /* Move it right by its own width (32px) */
+    transform: none; /* Ensure no unintended transforms */
 }
 
 /* ================================================

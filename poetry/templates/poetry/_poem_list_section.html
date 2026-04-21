@@ -63,7 +63,8 @@
     {% if page_obj.object_list %}
       <div class="row g-4">
         {% for collection in page_obj.object_list %}
-          <div class="col-12 col-sm-6 col-lg-3 col-xxl-2">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2">
+        
             <a href="?collection={{ collection.slug }}#poems-search" class="card text-decoration-none collection-album-card h-100 shadow-sm">
               
               {% if collection.collection_image and "placeholder" not in collection.collection_image.url %}
@@ -124,7 +125,7 @@
 
       <div class="row g-4">
         {% for poem in page_obj.object_list %}
-          <div class="col-12 col-sm-6 col-lg-3 col-xxl-2">
+          <div class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2">
             <div class="card h-100 {% if poem.is_featured %}is-featured{% else %}shadow-sm{% endif %}">
               <div class="image-wrap">
                 {% if poem.is_featured %}<span class="feature-flag">Featured</span>{% endif %}

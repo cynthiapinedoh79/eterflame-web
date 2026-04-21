@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/blog.css' %}?v=99">
+<link rel="stylesheet" href="{% static 'css/blog.css' %}?v={% now 'U' %}">
 {% endblock %}
 
 {% block content %}
@@ -16,7 +16,7 @@
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for post in post_list %}
-                <div class="col-6 col-xs-6 col-md-4 col-xl-3 col-xxl-2">
+                <div class="col-6 col-xs-6 col-sm-6 col-md-4 col-xl-3 col-xxl-2"> 
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="image-container">
