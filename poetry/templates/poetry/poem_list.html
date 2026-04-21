@@ -25,11 +25,10 @@
   </h1>
 </div>
 
-{% if user.is_authenticated and not is_favorites_page %}
+{% if user.is_authenticated %}
 <div class="favorites-bar">
   <a href="{% url 'poetry:favorites_list' %}" class="favorites-bar-link">
-    <span class="favorites-bar-heart">♥</span>
-    Mis Favoritos
+    ♥ Mis Favoritos
   </a>
 </div>
 {% endif %}
