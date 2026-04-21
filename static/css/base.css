@@ -613,92 +613,75 @@ main.flex-grow-1.main-bg {
   display: block;
   text-align: center;
   padding: 64px 48px;
-  background: linear-gradient(135deg, #2a1f08 0%, #1e1608 50%, #2a1f08 100%);
-  border: 1px solid rgba(212,168,67,0.35);
+  background: linear-gradient(135deg, #c9a84c 0%, #d4a843 40%, #b8922e 100%);
+  border: none;
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.35s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3),
+              inset 0 1px 0 rgba(255,255,255,0.2);
 }
-.works-aythnyk-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(200,16,46,0.08) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-.works-aythnyk-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--ay-primary), transparent);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-}
+.works-aythnyk-card::before { display: none; }
+.works-aythnyk-card::after { display: none; }
 .works-aythnyk-card:hover {
   background: #c8102e;
-  border-color: #e8314f;
+  border: none;
   transform: translateY(-5px);
-  box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 40px rgba(200,16,46,0.4);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4),
+              0 0 40px rgba(200,16,46,0.3);
 }
-.works-aythnyk-card:hover::before { opacity: 0; }
-.works-aythnyk-card:hover::after { transform: scaleX(0); }
 .works-aythnyk-eyebrow {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: rgba(212,168,67,0.6);
+  color: rgba(200,16,46,0.7);
   margin-bottom: 20px;
   transition: all 0.25s;
   display: block;
 }
-.works-aythnyk-card:hover .works-aythnyk-eyebrow { color: rgba(212,168,67,0.8); letter-spacing: 6px; }
+.works-aythnyk-card:hover .works-aythnyk-eyebrow { color: rgba(255,255,255,0.7); letter-spacing: 6px; }
 .works-aythnyk-name {
   font-family: var(--font-display);
   font-size: clamp(40px, 7vw, 72px);
   font-weight: 400;
   letter-spacing: 12px;
-  color: #d4a843;
+  color: #c8102e;
   margin-bottom: 20px;
   transition: all 0.35s ease;
   position: relative;
   display: block;
 }
 .works-aythnyk-card:hover .works-aythnyk-name {
-  color: #d4a843;
+  color: #ffffff;
   letter-spacing: 16px;
-  text-shadow: 0 0 30px rgba(212,168,67,0.3);
 }
 .works-aythnyk-desc {
-  color: #a08050;
+  color: rgba(200,16,46,0.75);
   font-size: 15px;
   max-width: 520px;
   margin: 0 auto 28px;
   line-height: 1.75;
   transition: color 0.25s;
 }
-.works-aythnyk-card:hover .works-aythnyk-desc { color: rgba(212,168,67,0.85); }
+.works-aythnyk-card:hover .works-aythnyk-desc { color: rgba(255,255,255,0.85); }
 .works-aythnyk-link {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #d4a843;
-  border-bottom: 1px solid rgba(212,168,67,0.4);
+  color: #c8102e;
+  border-bottom: 1px solid rgba(200,16,46,0.4);
   padding-bottom: 3px;
   transition: all 0.2s;
   display: inline-block;
 }
 .works-aythnyk-card:hover .works-aythnyk-link {
-  color: #d4a843;
-  letter-spacing: 5px;
-  border-bottom-color: rgba(212,168,67,0.6);
+  color: #ffffff;
+  border-bottom-color: rgba(255,255,255,0.5);
+  letter-spacing: 4px;
 }
 
 /* === Global Polish === */
