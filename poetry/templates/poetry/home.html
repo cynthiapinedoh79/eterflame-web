@@ -174,32 +174,6 @@
   <!-- Quote banner -->
   {% include "poetry/_quote_banner.html" with theme="banner--black" %}
 
-  {% if all_collections %}
-  <!-- Collections grid -->
-  <section class="container py-5">
-    <p class="ef-section-label">Colecciones</p>
-    {% static 'images/placeholder_coll.png' as PLACEHOLDER_COLL_IMG %}
-    <div class="collection-grid">
-      {% for collection in all_collections %}
-      <a href="{% url 'poetry:poem_list' %}?collection={{ collection.slug }}" class="collection-card">
-        {% if collection.collection_image and "placeholder" not in collection.collection_image.url %}
-          <img src="{{ collection.collection_image.url }}" alt="{{ collection.name_en|default:collection.name_es }}">
-        {% else %}
-          <img src="{{ PLACEHOLDER_COLL_IMG }}" alt="Collection">
-        {% endif %}
-        <div class="collection-card-body">
-          <p class="collection-card-name">{{ collection.name_en|default:collection.name_es }}</p>
-          <p class="collection-card-desc">{{ collection.description_en|default:collection.description_es|striptags|truncatechars:80 }}</p>
-        </div>
-      </a>
-      {% endfor %}
-    </div>
-    <div class="text-center mt-4">
-      <a href="{% url 'poetry:poem_list' %}" class="aythnyk-cta-secondary">Ver todas las colecciones →</a>
-    </div>
-  </section>
-  {% endif %}
-
   <!-- Navigation cards -->
   <section class="aythnyk-nav-sections">
     <div class="container">
