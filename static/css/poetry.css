@@ -861,8 +861,8 @@ a.text-decoration-none:hover {
   align-items: center;
   text-align: center;
   padding: 44px 28px;
-  background: var(--bg-card);
-  border: 1px solid rgba(255,255,255,0.05);
+  background: #160508;
+  border: 1px solid rgba(200,16,46,0.2);
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -889,12 +889,17 @@ a.text-decoration-none:hover {
   text-decoration: none;
 }
 .aythnyk-nav-card:not(.aythnyk-nav-card--soon):hover::before { transform: scaleX(1); }
+.aythnyk-nav-card--soon {
+  background: #100305;
+  border-color: rgba(200,16,46,0.12);
+  opacity: 0.65;
+}
 .aythnyk-nav-card--soon:hover {
-  background: #1a0508;
+  background: #160508;
   border-color: rgba(200,16,46,0.2);
   transform: translateY(-2px);
   box-shadow: none;
-  transform: translateY(-2px);
+  opacity: 0.8;
 }
 .aythnyk-nav-icon {
   font-size: 22px;
@@ -903,27 +908,27 @@ a.text-decoration-none:hover {
   display: block;
   transition: all 0.25s;
 }
-.aythnyk-nav-card:not(.aythnyk-nav-card--soon):hover .aythnyk-nav-icon { color: #ffffff; transform: scale(1.2); }
+.aythnyk-nav-card:not(.aythnyk-nav-card--soon):hover .aythnyk-nav-icon { color: #d4a843; transform: scale(1.2); }
 .aythnyk-nav-title {
   font-family: var(--font-display);
   font-size: 22px;
   font-weight: 600;
   letter-spacing: 3px;
-  color: var(--text-primary);
+  color: #e8d5b0;
   margin-bottom: 10px;
   transition: color 0.25s;
 }
-.aythnyk-nav-card:not(.aythnyk-nav-card--soon):hover .aythnyk-nav-title { color: #ffffff; }
+.aythnyk-nav-card:not(.aythnyk-nav-card--soon):hover .aythnyk-nav-title { color: #d4a843; }
 .aythnyk-nav-desc {
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 300;
-  color: var(--text-subtle);
+  color: #6b2030;
   margin: 0;
   transition: color 0.25s;
   line-height: 1.5;
 }
-.aythnyk-nav-card:not(.aythnyk-nav-card--soon):hover .aythnyk-nav-desc { color: rgba(255,255,255,0.75); }
+.aythnyk-nav-card:not(.aythnyk-nav-card--soon):hover .aythnyk-nav-desc { color: rgba(212,168,67,0.75); }
 .aythnyk-coming-soon {
   font-family: var(--font-mono);
   font-size: 9px;

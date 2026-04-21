@@ -21,7 +21,10 @@ def about_me(request):
     :template:`about/about.html`
     """
     # 1. Always fetch the static content
-    about = About.objects.all().order_by('-updated_on').last()
+    try:
+        about = About.objects.all().order_by('-updated_on').last()
+    except Exception:
+        about = None
 
     if request.method == "POST":
         collaborate_form = CollaborateForm(data=request.POST)
@@ -67,7 +70,10 @@ def profile_list(request):
     within the app's template directory structure.
     """
     # Fetch all profiles and order them by title for easy reading
-    profiles = About.objects.all().order_by('title')
+    try:
+        profiles = About.objects.all().order_by('title')
+    except Exception:
+        profiles = []
 
     return render(
         request,
