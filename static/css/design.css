@@ -19,7 +19,7 @@
   font-size: 0.72rem;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: var(--design-primary);
+  color: #4f95d6;
 }
 
 .ef-page-title {
@@ -27,7 +27,7 @@
   font-size: clamp(2.6rem, 6vw, 5rem);
   font-weight: 300;
   letter-spacing: 8px;
-  color: var(--design-light);
+  color: #8fc1ef;
   margin-bottom: 0.45rem;
 }
 
@@ -36,7 +36,7 @@
   font-size: 0.8rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--design-primary);
+  color: rgba(143, 193, 239, 0.78);
   margin-bottom: 3rem;
 }
 
@@ -46,7 +46,7 @@
   border: 0;
   border-radius: 2px;
   margin: 3rem 0 2rem;
-  background: linear-gradient(90deg, var(--design-primary), var(--design-light));
+  background: linear-gradient(90deg, #4f95d6, #8fc1ef);
 }
 
 .ef-section-label {
@@ -54,7 +54,7 @@
   font-size: 0.7rem;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: var(--design-primary);
+  color: #4f95d6;
   margin-bottom: 1.8rem;
 }
 
@@ -75,14 +75,12 @@
 .ef-service-card {
   position: relative;
   overflow: hidden;
-  padding: 28px 24px;
   min-height: 100%;
+  padding: 28px 24px;
   border-radius: 8px;
-  border: 1px solid rgba(121, 183, 232, 0.24);
-  border-top: 2px solid var(--design-primary);
-  background:
-    linear-gradient(135deg, #061426 0%, #0a1f3a 40%, #0d2a4a 100%),
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 40%);
+  border: 1px solid rgba(121, 183, 232, 0.22);
+  border-top: 2px solid #3b82c4;
+  background: linear-gradient(135deg, #07182c 0%, #0a2340 50%, #12365c 100%);
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
   transition:
     transform 0.3s ease,
@@ -97,22 +95,19 @@
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  background: linear-gradient(135deg, rgba(59, 130, 196, 0.08) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(121, 183, 232, 0.06) 0%, transparent 60%);
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
 .ef-service-card:hover {
-  background:
-    linear-gradient(135deg, #6eaeea 0%, #3d8fe4 42%, #1c67b7 100%),
-    radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 24%),
-    radial-gradient(circle at bottom right, rgba(0,0,0,0.14), transparent 18%);
+  background: linear-gradient(135deg, #5fd0d6 0%, #2fb6c4 50%, #1c8fa3 100%);
   border-color: rgba(255, 255, 255, 0.12);
   border-top-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-6px) scale(1.01);
+  transform: translateY(-5px);
   box-shadow:
-    0 22px 55px rgba(0, 0, 0, 0.55),
-    0 0 48px rgba(62, 143, 223, 0.38);
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(47, 182, 196, 0.35);
 }
 
 .ef-service-card:hover::before {
@@ -135,7 +130,7 @@
   font-size: 1.22rem;
   font-weight: 500;
   letter-spacing: 1px;
-  color: #f2f7fc;
+  color: #8fc1ef;
   margin-bottom: 0.45rem;
   transition: color 0.25s ease;
 }
@@ -144,7 +139,7 @@
   font-family: var(--font-body, "DM Sans", sans-serif);
   font-size: 0.92rem;
   line-height: 1.65;
-  color: #b8cfe0;
+  color: #c0d7ea;
   margin-bottom: 0.9rem;
   transition: color 0.25s ease;
 }
@@ -155,13 +150,13 @@
   font-size: 0.72rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--design-primary);
+  color: #4f95d6;
   transition: color 0.25s ease;
 }
 
 /* hover hierarchy */
 .ef-service-card:hover .ef-service-name {
-  color: #12365c;
+  color: #083c44;
 }
 
 .ef-service-card:hover .ef-service-desc {
@@ -169,7 +164,7 @@
 }
 
 .ef-service-card:hover .ef-service-price {
-  color: #184a7d;
+  color: #0a4e57;
 }
 
 /* ================================================
@@ -178,11 +173,12 @@
 
 .ef-credentials {
   border: 1px solid rgba(121, 183, 232, 0.22);
+  border-left: 3px solid #3b82c4;
   border-radius: 8px;
   padding: 2.5rem;
   background:
     linear-gradient(135deg, rgba(121, 183, 232, 0.04), rgba(255, 255, 255, 0.01)),
-    #141009;
+    #0f1722;
 }
 
 .ef-credentials h3 {
@@ -190,7 +186,7 @@
   font-size: 1.55rem;
   font-weight: 400;
   letter-spacing: 2px;
-  color: #f5e6c8;
+  color: #f2f7fc;
   margin-bottom: 0.35rem;
 }
 
@@ -199,7 +195,7 @@
   font-size: 0.75rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--design-primary);
+  color: #4f95d6;
   margin-bottom: 1.4rem;
 }
 
@@ -208,8 +204,9 @@
   font-family: var(--font-mono, "Courier Prime", monospace);
   font-size: 0.7rem;
   letter-spacing: 1px;
-  color: #e8d5b0;
+  color: #d7e8f7;
   border: 1px solid rgba(121, 183, 232, 0.28);
+  background: rgba(7, 24, 44, 0.5);
   padding: 0.32rem 0.75rem;
   margin: 0.2rem 0.1rem;
   border-radius: 2px;
@@ -217,8 +214,8 @@
 }
 
 .ef-skill-pill:hover {
-  background: rgba(59, 130, 196, 0.12);
-  color: var(--design-light);
+  background: rgba(79, 149, 214, 0.12);
+  color: #8fc1ef;
   border-color: rgba(121, 183, 232, 0.5);
 }
 
@@ -232,7 +229,7 @@
   padding: 3rem 2.5rem;
   background:
     linear-gradient(135deg, rgba(121, 183, 232, 0.04), rgba(255, 255, 255, 0.01)),
-    #141009;
+    #0f1722;
 }
 
 .ef-form-group {
@@ -245,21 +242,21 @@
   font-size: 0.7rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #7a6035;
+  color: #8fc1ef;
   margin-bottom: 0.5rem;
 }
 
 .ef-required {
-  color: #c49a40;
+  color: #4f95d6;
 }
 
 .ef-form-group input,
 .ef-form-group select,
 .ef-form-group textarea {
   width: 100%;
-  background: #0f0b05;
+  background: #0b1118;
   border: 1px solid rgba(59, 130, 196, 0.2);
-  color: #f5e6c8;
+  color: #eaf4fd;
   font-family: var(--font-body, "DM Sans", sans-serif);
   font-size: 0.95rem;
   padding: 12px 16px;
@@ -272,25 +269,25 @@
 .ef-form-group input:hover,
 .ef-form-group select:hover,
 .ef-form-group textarea:hover {
-  border-color: rgba(59, 130, 196, 0.4);
+  border-color: rgba(79, 149, 214, 0.4);
 }
 
 .ef-form-group input:focus,
 .ef-form-group select:focus,
 .ef-form-group textarea:focus {
-  border-color: var(--design-primary);
-  box-shadow: 0 0 0 3px rgba(59, 130, 196, 0.12);
-  background: #141009;
+  border-color: #4f95d6;
+  box-shadow: 0 0 0 3px rgba(79, 149, 214, 0.12);
+  background: #101927;
 }
 
 .ef-form-group input::placeholder,
 .ef-form-group textarea::placeholder {
-  color: #3a2e15;
+  color: #607b95;
 }
 
 .ef-form-group select option {
-  background: #141009;
-  color: #e8d5b0;
+  background: #0f1722;
+  color: #dcecff;
 }
 
 .ef-form-group textarea {
@@ -326,14 +323,15 @@
   letter-spacing: 3px;
   text-transform: uppercase;
   color: #ffffff;
-  background: #2e6da4;
+  background: linear-gradient(135deg, #2f78c4 0%, #3d8fe4 55%, #2a6fb8 100%);
   transition: all 0.2s ease;
 }
 
 .ef-submit-btn:hover {
-  background: #4a8fc4;
+  background: linear-gradient(135deg, #5fd0d6 0%, #2fb6c4 50%, #1c8fa3 100%);
+  color: #083c44;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(46, 109, 164, 0.3);
+  box-shadow: 0 8px 24px rgba(47, 182, 196, 0.28);
 }
 
 /* ================================================
