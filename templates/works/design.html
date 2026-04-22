@@ -2,231 +2,27 @@
 {% load static %}
 
 {% block extra_css %}
-<style>
-  .ef-design-page {
-    background: var(--bg-body, #0a0804);
-    min-height: 100vh;
-    padding: 4rem 0 6rem;
-  }
-  .ef-eyebrow {
-    font-family: var(--font-mono, 'Courier Prime', monospace);
-    font-size: .72rem;
-    letter-spacing: 5px;
-    color: #2e6da4;
-    text-transform: uppercase;
-    margin-bottom: .8rem;
-  }
-  .ef-page-title {
-    font-family: var(--font-display, 'Cormorant Garamond', serif);
-    font-size: clamp(2.4rem, 6vw, 4.5rem);
-    font-weight: 300;
-    color: #4a8fc4;
-    letter-spacing: 6px;
-    margin-bottom: .4rem;
-  }
-  .ef-page-subtitle {
-    font-family: var(--font-mono, 'Courier Prime', monospace);
-    font-size: .8rem;
-    letter-spacing: 3px;
-    color: #2e6da4;
-    text-transform: uppercase;
-    margin-bottom: 3rem;
-  }
-  .ef-divider {
-    width: 50px; height: 2px;
-    background: linear-gradient(90deg, #2e6da4, #4a8fc4);
-    margin: 3rem 0; border: none;
-  }
-  .ef-section-label {
-    font-family: var(--font-mono, 'Courier Prime', monospace);
-    font-size: .7rem;
-    letter-spacing: 4px;
-    color: #2e6da4;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-  }
-
-  /* Service cards */
-  .ef-services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
-  }
-  .ef-service-card {
-    padding: 28px 24px;
-    background: #141009;
-    border: 0.5px solid rgba(46,109,164,0.15);
-    border-top: 2px solid #2e6da4;
-    border-radius: 6px;
-    transition: all 0.25s ease;
-  }
-  .ef-service-card:hover {
-    background: #1a1208;
-    border-color: rgba(46,109,164,0.5);
-    border-top-color: #4a8fc4;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(46,109,164,0.1);
-  }
-  .ef-service-icon {
-    font-size: 1.4rem;
-    margin-bottom: .8rem;
-    display: block;
-    transition: transform 0.2s;
-  }
-  .ef-service-card:hover .ef-service-icon { transform: scale(1.15); }
-  .ef-service-name {
-    font-family: var(--font-display, 'Cormorant Garamond', serif);
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: #f5e6c8;
-    margin-bottom: .4rem;
-    transition: color 0.2s;
-  }
-  .ef-service-card:hover .ef-service-name { color: #4a8fc4; }
-  .ef-service-desc {
-    font-family: var(--font-body, 'DM Sans', sans-serif);
-    font-size: .88rem;
-    color: #8a6c3a;
-    line-height: 1.6;
-    margin-bottom: .8rem;
-    transition: color 0.2s;
-  }
-  .ef-service-card:hover .ef-service-desc { color: #c8b882; }
-  .ef-service-price {
-    font-family: var(--font-mono, 'Courier Prime', monospace);
-    font-size: .72rem;
-    letter-spacing: 2px;
-    color: #2e6da4;
-    transition: color 0.2s;
-  }
-  .ef-service-card:hover .ef-service-price { color: #4a8fc4; }
-
-  /* Credentials */
-  .ef-credentials {
-    border: 0.5px solid rgba(46,109,164,0.2);
-    border-radius: 6px;
-    padding: 2.5rem;
-    background: #141009;
-  }
-  .ef-credentials h3 {
-    font-family: var(--font-display, 'Cormorant Garamond', serif);
-    font-size: 1.4rem;
-    font-weight: 400;
-    letter-spacing: 2px;
-    color: #f5e6c8;
-    margin-bottom: .3rem;
-  }
-  .ef-credentials .ef-institution {
-    font-family: var(--font-mono, 'Courier Prime', monospace);
-    font-size: .75rem;
-    letter-spacing: 2px;
-    color: #4a8fc4;
-    text-transform: uppercase;
-    margin-bottom: 1.4rem;
-  }
-  .ef-skill-pill {
-    display: inline-block;
-    font-family: var(--font-mono, 'Courier Prime', monospace);
-    font-size: .7rem;
-    letter-spacing: 1px;
-    color: #e8d5b0;
-    border: 0.5px solid rgba(46,109,164,0.3);
-    padding: .25rem .7rem;
-    margin: .2rem .1rem;
-    border-radius: 2px;
-    transition: all 0.2s;
-  }
-  .ef-skill-pill:hover { background: rgba(46,109,164,0.15); color: #4a8fc4; border-color: rgba(46,109,164,0.6); }
-
-  /* Contact form */
-  .ef-contact-form {
-    border: 0.5px solid rgba(46,109,164,0.2);
-    border-radius: 6px;
-    padding: 3rem 2.5rem;
-    background: #141009;
-  }
-  .ef-form-group { margin-bottom: 1.5rem; }
-  .ef-form-group label {
-    display: block;
-    font-family: var(--font-mono, 'Courier Prime', monospace);
-    font-size: .7rem;
-    letter-spacing: 3px;
-    color: #7a6035;
-    text-transform: uppercase;
-    margin-bottom: .5rem;
-  }
-  .ef-form-group input,
-  .ef-form-group select,
-  .ef-form-group textarea {
-    width: 100%;
-    background: #0f0b05;
-    border: 0.5px solid rgba(46,109,164,0.2);
-    color: #f5e6c8;
-    font-family: var(--font-body, 'DM Sans', sans-serif);
-    font-size: .95rem;
-    padding: 12px 16px;
-    outline: none;
-    transition: border-color .2s, box-shadow .2s;
-    -webkit-appearance: none;
-    border-radius: 4px;
-  }
-  .ef-form-group input:hover,
-  .ef-form-group select:hover,
-  .ef-form-group textarea:hover { border-color: rgba(46,109,164,0.4); }
-  .ef-form-group input:focus,
-  .ef-form-group select:focus,
-  .ef-form-group textarea:focus {
-    border-color: #2e6da4;
-    box-shadow: 0 0 0 3px rgba(46,109,164,0.12);
-    background: #141009;
-  }
-  .ef-form-group input::placeholder,
-  .ef-form-group textarea::placeholder { color: #3a2e15; }
-  .ef-form-group select option { background: #141009; color: #e8d5b0; }
-  .ef-form-group textarea { resize: vertical; min-height: 130px; }
-  .ef-submit-btn {
-    font-family: var(--font-mono, 'Courier Prime', monospace);
-    font-size: .8rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #ffffff;
-    background: #2e6da4;
-    border: none;
-    border-radius: 3px;
-    padding: 14px 2.5rem;
-    cursor: pointer;
-    transition: all .2s;
-    width: 100%;
-    margin-top: 8px;
-  }
-  .ef-submit-btn:hover {
-    background: #4a8fc4;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(46,109,164,0.3);
-  }
-</style>
+<link rel="stylesheet" href="{% static 'css/design.css' %}?v={% now 'U' %}">
 {% endblock %}
 
 {% block content %}
 <div class="eter-breadcrumb">
   <a href="{% url 'works:works_home' %}" class="eter-back-link">← Etherflame Works</a>
 </div>
+
 <div class="ef-design-page section-design">
   <div class="container">
 
-    <!-- Header -->
     <div class="mb-5">
       <p class="ef-eyebrow">Etherflame Works</p>
       <h1 class="ef-page-title">EF DESIGN</h1>
       <p class="ef-page-subtitle">Creative Technology &amp; Design</p>
     </div>
 
-    <!-- Services -->
     <p class="ef-section-label">Services &amp; Pricing</p>
     <div class="ef-services-grid mb-5">
 
-      <div class="ef-service-card service-card">
+      <div class="ef-service-card">
         <span class="ef-service-icon">🌐</span>
         <div class="ef-service-name">Full Stack Web Development</div>
         <p class="ef-service-desc">
@@ -236,7 +32,7 @@
         <span class="ef-service-price">From $500</span>
       </div>
 
-      <div class="ef-service-card service-card">
+      <div class="ef-service-card">
         <span class="ef-service-icon">🎨</span>
         <div class="ef-service-name">UI/UX Design</div>
         <p class="ef-service-desc">
@@ -246,7 +42,7 @@
         <span class="ef-service-price">From $300</span>
       </div>
 
-      <div class="ef-service-card service-card">
+      <div class="ef-service-card">
         <span class="ef-service-icon">✦</span>
         <div class="ef-service-name">Branding &amp; Visual Identity</div>
         <p class="ef-service-desc">
@@ -256,7 +52,7 @@
         <span class="ef-service-price">From $400</span>
       </div>
 
-      <div class="ef-service-card service-card">
+      <div class="ef-service-card">
         <span class="ef-service-icon">📊</span>
         <div class="ef-service-name">Data Analysis &amp; Visualisation</div>
         <p class="ef-service-desc">
@@ -266,7 +62,7 @@
         <span class="ef-service-price">From $350</span>
       </div>
 
-      <div class="ef-service-card service-card">
+      <div class="ef-service-card">
         <span class="ef-service-icon">🛒</span>
         <div class="ef-service-name">E-commerce Solutions</div>
         <p class="ef-service-desc">
@@ -276,7 +72,7 @@
         <span class="ef-service-price">From $600</span>
       </div>
 
-      <div class="ef-service-card service-card">
+      <div class="ef-service-card">
         <span class="ef-service-icon">🔌</span>
         <div class="ef-service-name">API Development &amp; Integration</div>
         <p class="ef-service-desc">
@@ -286,7 +82,7 @@
         <span class="ef-service-price">From $400</span>
       </div>
 
-      <div class="ef-service-card service-card">
+      <div class="ef-service-card">
         <span class="ef-service-icon">🗄</span>
         <div class="ef-service-name">Database Design</div>
         <p class="ef-service-desc">
@@ -300,7 +96,6 @@
 
     <div class="ef-divider"></div>
 
-    <!-- Credentials -->
     <p class="ef-section-label">Credentials</p>
     <div class="ef-credentials mb-5">
       <h3>Diploma in Full Stack Software Development</h3>
@@ -318,13 +113,11 @@
 
     <div class="ef-divider"></div>
 
-    <!-- Contact -->
     <p class="ef-section-label">Start a Project</p>
     <div class="ef-contact-form">
       {% if messages %}
         {% for message in messages %}
-          <div class="mb-3" style="font-family:'DM Sans',sans-serif;font-size:.9rem;
-               color:{% if 'error' in message.tags %}#e07070{% else %}#7abf7a{% endif %};">
+          <div class="ef-form-message {% if 'error' in message.tags %}error{% else %}success{% endif %}">
             {{ message }}
           </div>
         {% endfor %}
@@ -335,16 +128,18 @@
         <div class="row g-4">
           <div class="col-12 col-md-6">
             <div class="ef-form-group">
-              <label for="id_name">Name <span style="color:#c49a40;">*</span></label>
+              <label for="id_name">Name <span class="ef-required">*</span></label>
               <input type="text" id="id_name" name="name" required placeholder="Your name">
             </div>
           </div>
+
           <div class="col-12 col-md-6">
             <div class="ef-form-group">
-              <label for="id_email">Email <span style="color:#c49a40;">*</span></label>
+              <label for="id_email">Email <span class="ef-required">*</span></label>
               <input type="email" id="id_email" name="email" required placeholder="your@email.com">
             </div>
           </div>
+
           <div class="col-12 col-md-6">
             <div class="ef-form-group">
               <label for="id_service">Service</label>
@@ -361,6 +156,7 @@
               </select>
             </div>
           </div>
+
           <div class="col-12 col-md-6">
             <div class="ef-form-group">
               <label for="id_budget">Budget Range</label>
@@ -374,6 +170,7 @@
               </select>
             </div>
           </div>
+
           <div class="col-12 col-md-6">
             <div class="ef-form-group">
               <label for="id_timeline">Timeline</label>
@@ -387,13 +184,19 @@
               </select>
             </div>
           </div>
+
           <div class="col-12">
             <div class="ef-form-group">
-              <label for="id_description">Project Description <span style="color:#c49a40;">*</span></label>
-              <textarea id="id_description" name="description" required
-                placeholder="Tell us about your project — goals, audience, scope..."></textarea>
+              <label for="id_description">Project Description <span class="ef-required">*</span></label>
+              <textarea
+                id="id_description"
+                name="description"
+                required
+                placeholder="Tell us about your project — goals, audience, scope..."
+              ></textarea>
             </div>
           </div>
+
           <div class="col-12">
             <button type="submit" class="ef-submit-btn">Send Enquiry</button>
           </div>

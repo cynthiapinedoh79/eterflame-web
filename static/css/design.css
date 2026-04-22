@@ -1,100 +1,360 @@
-{% extends "base.html" %}
-{% load static %}
+/* ================================================
+   EF DESIGN PAGE
+=================================================== */
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/design.css' %}?v={% now 'U' %}">
-{% endblock %}
+.ef-design-page {
+  background: var(--bg-body, #070708);
+  min-height: 100vh;
+  padding: 4rem 0 6rem;
+}
 
-{% block content %}
+/* ================================================
+   HEADER
+=================================================== */
 
-<div class="eter-breadcrumb">
-  <a href="{% url 'works:works_home' %}" class="eter-back-link">← Etherflame Works</a>
-</div>
+.ef-eyebrow {
+  display: block;
+  margin-bottom: 0.85rem;
+  font-family: var(--font-mono, "Courier Prime", monospace);
+  font-size: 0.72rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--design-primary);
+}
 
-<div class="ef-design-page section-design">
-  <div class="container">
+.ef-page-title {
+  font-family: var(--font-display, "Cormorant Garamond", serif);
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  font-weight: 300;
+  letter-spacing: 8px;
+  color: var(--design-light);
+  margin-bottom: 0.45rem;
+}
 
-    <!-- HEADER -->
-    <div class="mb-5">
-      <p class="ef-eyebrow">Etherflame Works</p>
-      <h1 class="ef-page-title">EF DESIGN</h1>
-      <p class="ef-page-subtitle">Creative Technology & Design</p>
-    </div>
+.ef-page-subtitle {
+  font-family: var(--font-mono, "Courier Prime", monospace);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--design-primary);
+  margin-bottom: 3rem;
+}
 
-    <!-- SERVICES -->
-    <p class="ef-section-label">Services & Pricing</p>
-    <div class="ef-services-grid mb-5">
+.ef-divider {
+  width: 34px;
+  height: 2px;
+  border: 0;
+  border-radius: 2px;
+  margin: 3rem 0 2rem;
+  background: linear-gradient(90deg, var(--design-primary), var(--design-light));
+}
 
-      <div class="ef-service-card">
-        <span class="ef-service-icon">🌐</span>
-        <div class="ef-service-name">Full Stack Web Development</div>
-        <p class="ef-service-desc">End-to-end web applications built with Python/Django or JavaScript frameworks.</p>
-        <span class="ef-service-price">From $500</span>
-      </div>
+.ef-section-label {
+  font-family: var(--font-mono, "Courier Prime", monospace);
+  font-size: 0.7rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--design-primary);
+  margin-bottom: 1.8rem;
+}
 
-      <div class="ef-service-card">
-        <span class="ef-service-icon">🎨</span>
-        <div class="ef-service-name">UI/UX Design</div>
-        <p class="ef-service-desc">User interface design, wireframes, prototypes, and design systems.</p>
-        <span class="ef-service-price">From $300</span>
-      </div>
+/* ================================================
+   SERVICES GRID
+=================================================== */
 
-      <div class="ef-service-card">
-        <span class="ef-service-icon">✦</span>
-        <div class="ef-service-name">Branding & Visual Identity</div>
-        <p class="ef-service-desc">Logos, color systems, typography and full brand kits.</p>
-        <span class="ef-service-price">From $400</span>
-      </div>
+.ef-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
 
-    </div>
+/* ================================================
+   SERVICE CARDS
+=================================================== */
 
-    <div class="ef-divider"></div>
+.ef-service-card {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 24px;
+  min-height: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(121, 183, 232, 0.24);
+  border-top: 2px solid var(--design-primary);
+  background:
+    linear-gradient(135deg, #061426 0%, #0a1f3a 40%, #0d2a4a 100%),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 40%);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
 
-    <!-- CREDENTIALS -->
-    <p class="ef-section-label">Credentials</p>
-    <div class="ef-credentials mb-5">
-      <h3>Diploma in Full Stack Software Development</h3>
-      <p class="ef-institution">Code Institute · Dublin</p>
+.ef-service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(59, 130, 196, 0.08) 0%, transparent 60%);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
 
-      <span class="ef-skill-pill">Python</span>
-      <span class="ef-skill-pill">Django</span>
-      <span class="ef-skill-pill">JavaScript</span>
-      <span class="ef-skill-pill">PostgreSQL</span>
-    </div>
+.ef-service-card:hover {
+  background:
+    linear-gradient(135deg, #6eaeea 0%, #3d8fe4 42%, #1c67b7 100%),
+    radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(0,0,0,0.14), transparent 18%);
+  border-color: rgba(255, 255, 255, 0.12);
+  border-top-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.55),
+    0 0 48px rgba(62, 143, 223, 0.38);
+}
 
-    <div class="ef-divider"></div>
+.ef-service-card:hover::before {
+  opacity: 0;
+}
 
-    <!-- CONTACT -->
-    <p class="ef-section-label">Start a Project</p>
-    <div class="ef-contact-form">
+.ef-service-icon {
+  display: block;
+  font-size: 1.45rem;
+  margin-bottom: 0.9rem;
+  transition: transform 0.25s ease;
+}
 
-      <form method="post">
-        {% csrf_token %}
+.ef-service-card:hover .ef-service-icon {
+  transform: scale(1.12) translateY(-1px);
+}
 
-        <div class="ef-form-group">
-          <label>Name</label>
-          <input type="text" name="name" required>
-        </div>
+.ef-service-name {
+  font-family: var(--font-display, "Cormorant Garamond", serif);
+  font-size: 1.22rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #f2f7fc;
+  margin-bottom: 0.45rem;
+  transition: color 0.25s ease;
+}
 
-        <div class="ef-form-group">
-          <label>Email</label>
-          <input type="email" name="email" required>
-        </div>
+.ef-service-desc {
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #b8cfe0;
+  margin-bottom: 0.9rem;
+  transition: color 0.25s ease;
+}
 
-        <div class="ef-form-group">
-          <label>Project</label>
-          <textarea name="description" required></textarea>
-        </div>
+.ef-service-price {
+  display: inline-block;
+  font-family: var(--font-mono, "Courier Prime", monospace);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--design-primary);
+  transition: color 0.25s ease;
+}
 
-        <button type="submit" class="ef-submit-btn">
-          Send Enquiry
-        </button>
+/* hover hierarchy */
+.ef-service-card:hover .ef-service-name {
+  color: #12365c;
+}
 
-      </form>
+.ef-service-card:hover .ef-service-desc {
+  color: #ffffff;
+}
 
-    </div>
+.ef-service-card:hover .ef-service-price {
+  color: #184a7d;
+}
 
-  </div>
-</div>
+/* ================================================
+   CREDENTIALS
+=================================================== */
 
-{% endblock %}
+.ef-credentials {
+  border: 1px solid rgba(121, 183, 232, 0.22);
+  border-radius: 8px;
+  padding: 2.5rem;
+  background:
+    linear-gradient(135deg, rgba(121, 183, 232, 0.04), rgba(255, 255, 255, 0.01)),
+    #141009;
+}
+
+.ef-credentials h3 {
+  font-family: var(--font-display, "Cormorant Garamond", serif);
+  font-size: 1.55rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #f5e6c8;
+  margin-bottom: 0.35rem;
+}
+
+.ef-institution {
+  font-family: var(--font-mono, "Courier Prime", monospace);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--design-primary);
+  margin-bottom: 1.4rem;
+}
+
+.ef-skill-pill {
+  display: inline-block;
+  font-family: var(--font-mono, "Courier Prime", monospace);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: #e8d5b0;
+  border: 1px solid rgba(121, 183, 232, 0.28);
+  padding: 0.32rem 0.75rem;
+  margin: 0.2rem 0.1rem;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.ef-skill-pill:hover {
+  background: rgba(59, 130, 196, 0.12);
+  color: var(--design-light);
+  border-color: rgba(121, 183, 232, 0.5);
+}
+
+/* ================================================
+   CONTACT FORM
+=================================================== */
+
+.ef-contact-form {
+  border: 1px solid rgba(121, 183, 232, 0.22);
+  border-radius: 8px;
+  padding: 3rem 2.5rem;
+  background:
+    linear-gradient(135deg, rgba(121, 183, 232, 0.04), rgba(255, 255, 255, 0.01)),
+    #141009;
+}
+
+.ef-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.ef-form-group label {
+  display: block;
+  font-family: var(--font-mono, "Courier Prime", monospace);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #7a6035;
+  margin-bottom: 0.5rem;
+}
+
+.ef-required {
+  color: #c49a40;
+}
+
+.ef-form-group input,
+.ef-form-group select,
+.ef-form-group textarea {
+  width: 100%;
+  background: #0f0b05;
+  border: 1px solid rgba(59, 130, 196, 0.2);
+  color: #f5e6c8;
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  font-size: 0.95rem;
+  padding: 12px 16px;
+  outline: none;
+  border-radius: 4px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  -webkit-appearance: none;
+}
+
+.ef-form-group input:hover,
+.ef-form-group select:hover,
+.ef-form-group textarea:hover {
+  border-color: rgba(59, 130, 196, 0.4);
+}
+
+.ef-form-group input:focus,
+.ef-form-group select:focus,
+.ef-form-group textarea:focus {
+  border-color: var(--design-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 196, 0.12);
+  background: #141009;
+}
+
+.ef-form-group input::placeholder,
+.ef-form-group textarea::placeholder {
+  color: #3a2e15;
+}
+
+.ef-form-group select option {
+  background: #141009;
+  color: #e8d5b0;
+}
+
+.ef-form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* messages */
+.ef-form-message {
+  margin-bottom: 1rem;
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  font-size: 0.92rem;
+}
+
+.ef-form-message.error {
+  color: #e07070;
+}
+
+.ef-form-message.success {
+  color: #7abf7a;
+}
+
+/* submit */
+.ef-submit-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px 2.5rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: var(--font-mono, "Courier Prime", monospace);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #2e6da4;
+  transition: all 0.2s ease;
+}
+
+.ef-submit-btn:hover {
+  background: #4a8fc4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(46, 109, 164, 0.3);
+}
+
+/* ================================================
+   RESPONSIVE
+=================================================== */
+
+@media (max-width: 767.98px) {
+  .ef-design-page {
+    padding: 2.5rem 0 4rem;
+  }
+
+  .ef-page-title {
+    letter-spacing: 4px;
+  }
+
+  .ef-contact-form,
+  .ef-credentials {
+    padding: 2rem 1.25rem;
+  }
+
+  .ef-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
