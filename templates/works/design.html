@@ -13,13 +13,59 @@
 <div class="ef-design-page section-design">
   <div class="container">
 
-    <div class="mb-5">
-      <p class="ef-eyebrow">Etherflame Works</p>
-      <h1 class="ef-page-title">EF DESIGN</h1>
-      <p class="ef-page-subtitle">Creative Technology &amp; Design</p>
-    </div>
+    <!-- HERO -->
+    <section class="ef-design-hero">
+      <div class="row align-items-end g-4">
+        <div class="col-12 col-lg-8">
+          <p class="ef-eyebrow">Etherflame Works</p>
+          <h1 class="ef-page-title">EF DESIGN</h1>
+          <p class="ef-page-subtitle">Creative Technology &amp; Design</p>
 
-    <p class="ef-section-label">Services &amp; Pricing</p>
+          <p class="ef-hero-lead">
+            Elegant digital experiences built with strategy, clarity, and visual precision.
+            From full-stack websites to brand systems, EF Design creates work that feels
+            refined, modern, and alive.
+          </p>
+
+          <div class="ef-hero-actions">
+            <a href="#design-services" class="ef-hero-btn ef-hero-btn-primary">Explore Services</a>
+            <a href="#design-contact" class="ef-hero-btn ef-hero-btn-secondary">Start a Project</a>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <div class="ef-hero-panel">
+            <div class="ef-hero-panel-item">
+              <span class="ef-hero-panel-label">Focus</span>
+              <span class="ef-hero-panel-value">Web · UI/UX · Branding</span>
+            </div>
+            <div class="ef-hero-panel-item">
+              <span class="ef-hero-panel-label">Approach</span>
+              <span class="ef-hero-panel-value">Strategic, polished, responsive</span>
+            </div>
+            <div class="ef-hero-panel-item">
+              <span class="ef-hero-panel-label">Built for</span>
+              <span class="ef-hero-panel-value">Brands, creators, premium projects</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ef-divider"></div>
+
+    <!-- SERVICES INTRO -->
+    <section id="design-services" class="ef-section-intro">
+      <p class="ef-section-label">Services &amp; Pricing</p>
+      <div class="ef-section-head">
+        <h2 class="ef-section-title">What EF Design can build</h2>
+        <p class="ef-section-copy">
+          A curated service suite for brands that need technical execution with a refined visual language.
+        </p>
+      </div>
+    </section>
+
+    <!-- SERVICES GRID -->
     <div class="ef-services-grid mb-5">
 
       <div class="ef-service-card">
@@ -96,24 +142,50 @@
 
     <div class="ef-divider"></div>
 
-    <p class="ef-section-label">Credentials</p>
+    <!-- CREDENTIALS -->
+    <section class="ef-section-intro">
+      <p class="ef-section-label">Credentials</p>
+      <div class="ef-section-head">
+        <h2 class="ef-section-title">Built on practice, not just aesthetics</h2>
+      </div>
+    </section>
+
     <div class="ef-credentials mb-5">
-      <h3>Diploma in Full Stack Software Development</h3>
-      <p class="ef-institution">Code Institute · Dublin, Ireland</p>
-      <div>
-        <span class="ef-skill-pill">Python</span>
-        <span class="ef-skill-pill">Django</span>
-        <span class="ef-skill-pill">JavaScript</span>
-        <span class="ef-skill-pill">PostgreSQL</span>
-        <span class="ef-skill-pill">HTML/CSS</span>
-        <span class="ef-skill-pill">Agile</span>
-        <span class="ef-skill-pill">Git</span>
+      <div class="row g-4 align-items-center">
+        <div class="col-12 col-lg-8">
+          <h3>Diploma in Full Stack Software Development</h3>
+          <p class="ef-institution">Code Institute · Dublin, Ireland</p>
+          <div>
+            <span class="ef-skill-pill">Python</span>
+            <span class="ef-skill-pill">Django</span>
+            <span class="ef-skill-pill">JavaScript</span>
+            <span class="ef-skill-pill">PostgreSQL</span>
+            <span class="ef-skill-pill">HTML/CSS</span>
+            <span class="ef-skill-pill">Agile</span>
+            <span class="ef-skill-pill">Git</span>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="ef-credentials-note">
+            Clean architecture, responsive systems, polished UI, and brand-aware implementation.
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="ef-divider"></div>
 
-    <p class="ef-section-label">Start a Project</p>
+    <!-- CONTACT -->
+    <section id="design-contact" class="ef-section-intro">
+      <p class="ef-section-label">Start a Project</p>
+      <div class="ef-section-head">
+        <h2 class="ef-section-title">Tell us what you want to build</h2>
+        <p class="ef-section-copy">
+          Share your goals, scope, and timeline. We’ll shape the right design direction from there.
+        </p>
+      </div>
+    </section>
+
     <div class="ef-contact-form">
       {% if messages %}
         {% for message in messages %}
