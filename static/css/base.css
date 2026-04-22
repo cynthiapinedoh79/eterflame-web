@@ -1358,8 +1358,8 @@ p.text-end.m-3 {
     radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 24%),
     radial-gradient(circle at bottom right, rgba(0,0,0,0.14), transparent 18%);
   
-  border-color: #d6ebff;
-  border-top-color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+border-top-color: #ffffff;
 
   transform: translateY(-6px) scale(1.01);
 
