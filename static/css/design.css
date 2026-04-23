@@ -838,6 +838,10 @@
   }
 }
 
+.ef-services-showcase .ef-service-feature:nth-child(5) .ef-service-feature-title {
+  max-width: 420px;
+}
+
 /* ================================================
    CREDENTIALS
 =================================================== */
