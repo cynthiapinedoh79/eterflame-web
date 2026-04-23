@@ -171,7 +171,7 @@
 
 .ef-hero-btn-primary {
   background: linear-gradient(135deg, #163a5c 0%, #1d4f7f 50%, #245f99 100%);
-  color: #dfefff;
+  color: #dfefff !important;
   border: 1px solid rgba(143, 193, 239, 0.20);
   box-shadow:
     0 10px 26px rgba(20, 53, 84, 0.28),
@@ -180,7 +180,7 @@
 
 .ef-hero-btn-primary:hover {
   background: linear-gradient(135deg, #67d9de 0%, #39c1cf 52%, #229fb1 100%);
-  color: #061923;
+  color: #061923 !important;
   transform: translateY(-2px);
   box-shadow:
     0 12px 34px rgba(47, 182, 196, 0.34),
