@@ -105,77 +105,88 @@
     </section>
 
     <!-- SERVICES GRID -->
-    <div class="ef-services-grid mb-5">
+    <!-- SERVICES SHOWCASE -->
+    <div class="ef-services-showcase mb-5">
 
-      <div class="ef-service-card">
-        <span class="ef-service-icon">🌐</span>
-        <div class="ef-service-name">Full Stack Web Development</div>
-        <p class="ef-service-desc">
-          End-to-end web applications built with Python/Django or JavaScript frameworks,
-          responsive design, deployment-ready.
-        </p>
-        <span class="ef-service-price">From $500</span>
-      </div>
+      <article class="ef-service-feature">
+        <div class="ef-service-feature-media">
+          <img src="{% static 'images/works/design/test.png' %}" alt="Website Design showcase">
+        </div>
+        <div class="ef-service-feature-content">
+          <span class="ef-service-feature-kicker">01</span>
+          <h3 class="ef-service-feature-title">Website Design</h3>
+          <p class="ef-service-feature-desc">
+            Modern, high-conversion websites designed with clarity, elegance, and strategic structure.
+            Built to elevate your brand presence and turn attention into trust.
+          </p>
+          <div class="ef-service-feature-tags">
+            <span>Responsive Layouts</span>
+            <span>Brand-aligned UI</span>
+            <span>Premium Frontend</span>
+          </div>
+          <a href="#design-contact" class="ef-service-feature-link">Start this service</a>
+        </div>
+      </article>
 
-      <div class="ef-service-card">
-        <span class="ef-service-icon">🎨</span>
-        <div class="ef-service-name">UI/UX Design</div>
-        <p class="ef-service-desc">
-          User interface design, wireframes, prototypes, and design systems
-          tailored to your brand and audience.
-        </p>
-        <span class="ef-service-price">From $300</span>
-      </div>
+      <article class="ef-service-feature ef-service-feature-reverse">
+        <div class="ef-service-feature-media">
+          <img src="{% static 'images/works/design/test.png' %}" alt="UI UX Design showcase">
+        </div>
+        <div class="ef-service-feature-content">
+          <span class="ef-service-feature-kicker">02</span>
+          <h3 class="ef-service-feature-title">UI / UX Design</h3>
+          <p class="ef-service-feature-desc">
+            Interfaces built for people. Clean flows, intuitive interactions, and thoughtful systems
+            that make digital experiences feel natural, polished, and memorable.
+          </p>
+          <div class="ef-service-feature-tags">
+            <span>User Flows</span>
+            <span>Wireframes</span>
+            <span>Interface Systems</span>
+          </div>
+          <a href="#design-contact" class="ef-service-feature-link">Discuss this service</a>
+        </div>
+      </article>
 
-      <div class="ef-service-card">
-        <span class="ef-service-icon">✦</span>
-        <div class="ef-service-name">Branding &amp; Visual Identity</div>
-        <p class="ef-service-desc">
-          Logo design, colour palettes, typography, brand guidelines —
-          everything your brand needs to speak with one voice.
-        </p>
-        <span class="ef-service-price">From $400</span>
-      </div>
+      <article class="ef-service-feature">
+        <div class="ef-service-feature-media">
+          <img src="{% static 'images/works/design/test.png' %}" alt="Branding and identity showcase">
+        </div>
+        <div class="ef-service-feature-content">
+          <span class="ef-service-feature-kicker">03</span>
+          <h3 class="ef-service-feature-title">Branding &amp; Visual Identity</h3>
+          <p class="ef-service-feature-desc">
+            Cohesive visual identities that communicate value, character, and distinction.
+            From logo direction to typography and colour systems, every detail is aligned.
+          </p>
+          <div class="ef-service-feature-tags">
+            <span>Logo Direction</span>
+            <span>Typography</span>
+            <span>Visual Systems</span>
+          </div>
+          <a href="#design-contact" class="ef-service-feature-link">Build your identity</a>
+        </div>
+      </article>
 
-      <div class="ef-service-card">
-        <span class="ef-service-icon">📊</span>
-        <div class="ef-service-name">Data Analysis &amp; Visualisation</div>
-        <p class="ef-service-desc">
-          Interactive dashboards, data pipelines, and visual reports that
-          turn raw data into strategic clarity.
-        </p>
-        <span class="ef-service-price">From $350</span>
-      </div>
-
-      <div class="ef-service-card">
-        <span class="ef-service-icon">🛒</span>
-        <div class="ef-service-name">E-commerce Solutions</div>
-        <p class="ef-service-desc">
-          Custom online stores, payment integration, product management,
-          and conversion-optimised checkout flows.
-        </p>
-        <span class="ef-service-price">From $600</span>
-      </div>
-
-      <div class="ef-service-card">
-        <span class="ef-service-icon">🔌</span>
-        <div class="ef-service-name">API Development &amp; Integration</div>
-        <p class="ef-service-desc">
-          RESTful APIs, third-party integrations (payment gateways, social,
-          CRMs), and backend service architecture.
-        </p>
-        <span class="ef-service-price">From $400</span>
-      </div>
-
-      <div class="ef-service-card">
-        <span class="ef-service-icon">🗄</span>
-        <div class="ef-service-name">Database Design</div>
-        <p class="ef-service-desc">
-          Schema design, query optimisation, PostgreSQL setup, and
-          migration strategy for scalable data storage.
-        </p>
-        <span class="ef-service-price">From $250</span>
-      </div>
+      <article class="ef-service-feature ef-service-feature-reverse">
+        <div class="ef-service-feature-media">
+          <img src="{% static 'images/works/design/test.png' %}" alt="Web systems showcase">
+        </div>
+        <div class="ef-service-feature-content">
+          <span class="ef-service-feature-kicker">04</span>
+          <h3 class="ef-service-feature-title">Web Systems &amp; Development</h3>
+          <p class="ef-service-feature-desc">
+            Elegant systems underneath. Structured builds, scalable architecture, and smart integrations
+            that support both the visual layer and the long-term performance of the product.
+          </p>
+          <div class="ef-service-feature-tags">
+            <span>Django / Web Apps</span>
+            <span>Integrations</span>
+            <span>Performance</span>
+          </div>
+          <a href="#design-contact" class="ef-service-feature-link">Plan your build</a>
+        </div>
+      </article>
 
     </div>
 
