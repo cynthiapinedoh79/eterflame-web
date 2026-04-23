@@ -1,5 +1,5 @@
 /* ================================================
-   EF DESIGN PAGE — CONSOLIDATED
+   EF DESIGN PAGE — CLEAN CONSOLIDATED VERSION
 =================================================== */
 
 .ef-design-page {
@@ -11,16 +11,6 @@
 /* ================================================
    GLOBAL DESIGN PAGE TEXT
 =================================================== */
-
-.ef-eyebrow {
-  display: block;
-  margin-bottom: 0.85rem;
-  font-family: var(--font-mono, "Courier Prime", monospace);
-  font-size: 0.72rem;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: #4f95d6;
-}
 
 .ef-divider {
   width: 34px;
@@ -101,15 +91,6 @@
 
 .ef-hero-title-wrap {
   margin-bottom: 1.4rem;
-}
-
-.ef-title-kicker {
-  margin: 0 0 0.55rem;
-  font-family: var(--font-mono, "Courier Prime", monospace);
-  font-size: 0.78rem;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: rgba(143, 193, 239, 0.72);
 }
 
 .ef-page-title-main {
@@ -342,107 +323,302 @@
 }
 
 /* ================================================
-   SERVICES
+   FULL-WIDTH DESIGN REEL
 =================================================== */
 
-.ef-services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
+.ef-design-reel {
+  margin: 1rem 0 3.5rem;
 }
 
-.ef-service-card {
+.ef-design-reel-media {
   position: relative;
   overflow: hidden;
-  min-height: 100%;
-  padding: 28px 24px;
-  border-radius: 8px;
+  border-radius: 24px;
   border: 1px solid rgba(121, 183, 232, 0.22);
-  border-top: 2px solid #3b82c4;
-  background: linear-gradient(135deg, #07182c 0%, #0a2340 50%, #12365c 100%);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease,
-    background 0.3s ease;
+  background: #08111c;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.45),
+    0 0 60px rgba(79, 149, 214, 0.18);
+  min-height: 420px;
 }
 
-.ef-service-card::before {
+.ef-design-reel-media::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
+  box-shadow: inset 0 0 60px rgba(0, 150, 255, 0.08);
   pointer-events: none;
-  background: linear-gradient(135deg, rgba(121, 183, 232, 0.06) 0%, transparent 60%);
-  opacity: 1;
-  transition: opacity 0.3s ease;
+  z-index: 1;
 }
 
-.ef-service-card:hover {
-  background: linear-gradient(135deg, #5fd0d6 0%, #2fb6c4 50%, #1c8fa3 100%);
-  border-color: rgba(255, 255, 255, 0.12);
-  border-top-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-5px);
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.45),
-    0 0 40px rgba(47, 182, 196, 0.35);
-}
-
-.ef-service-card:hover::before {
-  opacity: 0;
-}
-
-.ef-service-icon {
+.ef-design-reel-image,
+.ef-design-reel-video {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
   display: block;
-  font-size: 1.45rem;
-  margin-bottom: 0.9rem;
-  transition: transform 0.25s ease;
+  filter: contrast(1.05) brightness(0.88) saturate(1.05);
+  transition: transform 0.7s ease, filter 0.7s ease;
 }
 
-.ef-service-card:hover .ef-service-icon {
-  transform: scale(1.12) translateY(-1px);
+.ef-design-reel-media:hover .ef-design-reel-image,
+.ef-design-reel-media:hover .ef-design-reel-video {
+  transform: scale(1.03);
+  filter: contrast(1.08) brightness(0.94) saturate(1.08);
 }
 
-.ef-service-name {
-  font-family: var(--font-display, "Cormorant Garamond", serif);
-  font-size: 1.22rem;
-  font-weight: 500;
-  letter-spacing: 1px;
-  color: #8fc1ef;
-  margin-bottom: 0.45rem;
-  transition: color 0.25s ease;
+.ef-design-reel-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5, 11, 18, 0.12) 0%, rgba(5, 11, 18, 0.58) 100%),
+    linear-gradient(90deg, rgba(8, 28, 46, 0.52) 0%, rgba(8, 28, 46, 0.12) 52%, rgba(8, 28, 46, 0.42) 100%);
+  pointer-events: none;
 }
 
-.ef-service-desc {
-  font-family: var(--font-body, "DM Sans", sans-serif);
-  font-size: 0.92rem;
-  line-height: 1.65;
-  color: #c0d7ea;
-  margin-bottom: 0.9rem;
-  transition: color 0.25s ease;
+.ef-design-reel-overlay {
+  position: absolute;
+  left: 38px;
+  right: 38px;
+  bottom: 34px;
+  z-index: 2;
+  max-width: 720px;
 }
 
-.ef-service-price {
+.ef-design-reel-kicker {
   display: inline-block;
+  margin-bottom: 0.75rem;
   font-family: var(--font-mono, "Courier Prime", monospace);
   font-size: 0.72rem;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  color: #4f95d6;
-  transition: color 0.25s ease;
+  color: #5fd0d6;
 }
 
-.ef-service-card:hover .ef-service-name {
-  color: #083c44;
+.ef-design-reel-title {
+  margin: 0;
+  font-family: var(--font-display, "Cormorant Garamond", serif);
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 1px;
+  color: #f1f8ff;
 }
 
-.ef-service-card:hover .ef-service-desc {
+/* ================================================
+   SERVICES SHOWCASE — PREMIUM
+=================================================== */
+
+.ef-services-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.ef-service-feature {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 34px;
+  align-items: center;
+  padding: 26px;
+  border-radius: 18px;
+  border: 1px solid rgba(121, 183, 232, 0.12);
+  background:
+    linear-gradient(135deg, rgba(121, 183, 232, 0.03), rgba(255, 255, 255, 0.008)),
+    #0c1420;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.25),
+    0 0 25px rgba(79, 149, 214, 0.05);
+  overflow: hidden;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+/* glow debajo del contenido */
+.ef-service-feature::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(
+    circle at 20% 50%,
+    rgba(95, 208, 214, 0.16),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* borde glow sutil */
+.ef-service-feature::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  box-shadow: inset 0 0 0 1px rgba(95, 208, 214, 0.38);
+  pointer-events: none;
+}
+
+.ef-service-feature:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: rgba(95, 208, 214, 0.42);
+  background:
+    linear-gradient(135deg, rgba(95, 208, 214, 0.05), rgba(255, 255, 255, 0.01)),
+    #0c1420;
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.5),
+    0 0 55px rgba(95, 208, 214, 0.16);
+}
+
+.ef-service-feature:hover::before,
+.ef-service-feature:hover::after {
+  opacity: 1;
+}
+
+.ef-service-feature-reverse {
+  grid-template-columns: 0.92fr 1.08fr;
+}
+
+.ef-service-feature-reverse .ef-service-feature-media {
+  order: 2;
+}
+
+.ef-service-feature-reverse .ef-service-feature-content {
+  order: 1;
+}
+
+.ef-service-feature-media {
+  position: relative;
+  z-index: 3;
+}
+
+.ef-service-feature-content {
+  position: relative;
+  z-index: 3;
+  max-width: 520px;
+}
+
+.ef-service-feature-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 330px;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+  border: 1px solid rgba(121, 183, 232, 0.14);
+  transition: transform 0.45s ease, filter 0.45s ease;
+  filter: contrast(1.02) saturate(1.03);
+  position: relative;
+  z-index: 3;
+}
+
+.ef-service-feature:hover .ef-service-feature-media img {
+  transform: scale(1.045);
+  filter: contrast(1.08) saturate(1.12);
+}
+
+.ef-service-feature-kicker {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  font-family: var(--font-mono, "Courier Prime", monospace);
+  font-size: 0.72rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #5fd0d6;
+  transition: color 0.35s ease;
+}
+
+.ef-service-feature-title {
+  margin: 0 0 0.9rem;
+  font-family: var(--font-display, "Cormorant Garamond", serif);
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #e9f4ff;
+  transition: color 0.35s ease;
+}
+
+.ef-service-feature-desc {
+  margin: 0 0 1.25rem;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #c7dced;
+  transition: color 0.35s ease;
+}
+
+.ef-service-feature:hover .ef-service-feature-title {
   color: #ffffff;
 }
 
-.ef-service-card:hover .ef-service-price {
-  color: #0a4e57;
+.ef-service-feature:hover .ef-service-feature-desc {
+  color: #eaf8ff;
+}
+
+.ef-service-feature:hover .ef-service-feature-kicker {
+  color: #7ce7ee;
+}
+
+.ef-service-feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1.35rem;
+}
+
+.ef-service-feature-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(121, 183, 232, 0.18);
+  background: rgba(10, 22, 36, 0.72);
+  font-family: var(--font-mono, "Courier Prime", monospace);
+  font-size: 0.66rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #d8eaf9;
+  transition: all 0.3s ease;
+}
+
+.ef-service-feature:hover .ef-service-feature-tags span {
+  border-color: rgba(95, 208, 214, 0.3);
+  color: #e9fbff;
+  background: rgba(10, 22, 36, 0.86);
+}
+
+.ef-service-feature-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: var(--font-mono, "Courier Prime", monospace);
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #8fc1ef;
+  border: 1px solid rgba(121, 183, 232, 0.28);
+  transition: all 0.25s ease;
+}
+
+.ef-service-feature-link:hover {
+  background: linear-gradient(135deg, #2f78c4 0%, #3d8fe4 55%, #2a6fb8 100%);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 10px 28px rgba(61, 143, 228, 0.24);
 }
 
 /* ================================================
@@ -645,6 +821,21 @@
   .ef-hero-floating-one {
     right: 2%;
   }
+
+  .ef-service-feature,
+  .ef-service-feature-reverse {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .ef-service-feature-reverse .ef-service-feature-media,
+  .ef-service-feature-reverse .ef-service-feature-content {
+    order: initial;
+  }
+
+  .ef-service-feature-content {
+    max-width: none;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -698,183 +889,31 @@
     display: none;
   }
 
-  .ef-contact-form,
-  .ef-credentials {
-    padding: 2rem 1.25rem;
+  .ef-design-reel {
+    margin: 0.5rem 0 2.5rem;
   }
 
-  .ef-section-title {
-    font-size: 1.5rem;
+  .ef-design-reel-media {
+    min-height: 280px;
+    border-radius: 18px;
   }
 
-  .ef-section-copy {
-    font-size: 0.95rem;
-  }
-}
-
-/* ================================================
-   SERVICES SHOWCASE — PREMIUM
-=================================================== */
-
-.ef-services-showcase {
-  display: flex;
-  flex-direction: column;
-  gap: 42px;
-}
-
-.ef-service-feature {
-  display: grid;
-  grid-template-columns: 1.08fr 0.92fr;
-  gap: 34px;
-  align-items: center;
-  padding: 26px;
-  border-radius: 18px;
-  border: 1px solid rgba(121, 183, 232, 0.12);
-  background:
-    linear-gradient(135deg, rgba(121, 183, 232, 0.03), rgba(255,255,255,0.008)),
-    #0c1420;
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.25),
-    0 0 25px rgba(79, 149, 214, 0.05);
-  overflow: hidden;
-  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
-}
-
-.ef-service-feature:hover {
-  transform: translateY(-4px);
-  border-color: rgba(121, 183, 232, 0.35);
-  box-shadow:
-    0 25px 70px rgba(0, 0, 0, 0.35),
-    0 0 45px rgba(79, 149, 214, 0.18);
-}
-
-.ef-service-feature-reverse {
-  grid-template-columns: 0.92fr 1.08fr;
-}
-
-.ef-service-feature-reverse .ef-service-feature-media {
-  order: 2;
-}
-
-.ef-service-feature-reverse .ef-service-feature-content {
-  order: 1;
-}
-
-.ef-service-feature-media {
-  position: relative;
-}
-
-.ef-service-feature-media img {
-  width: 100%;
-  height: 100%;
-  min-height: 330px;
-  object-fit: cover;
-  display: block;
-  border-radius: 16px;
-  border: 1px solid rgba(121, 183, 232, 0.14);
-  transition: transform 0.45s ease, filter 0.45s ease;
-  filter: contrast(1.02) saturate(1.03);
-}
-
-.ef-service-feature:hover .ef-service-feature-media img {
-  transform: scale(1.02);
-  filter: contrast(1.08) saturate(1.08);
-}
-
-.ef-service-feature-content {
-  max-width: 520px;
-}
-
-.ef-service-feature-kicker {
-  display: inline-block;
-  margin-bottom: 0.9rem;
-  font-family: var(--font-mono, "Courier Prime", monospace);
-  font-size: 0.72rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: #5fd0d6;
-}
-
-.ef-service-feature-title {
-  margin: 0 0 0.9rem;
-  font-family: var(--font-display, "Cormorant Garamond", serif);
-  font-size: clamp(2rem, 3vw, 2.7rem);
-  font-weight: 400;
-  letter-spacing: 1px;
-  color: #e9f4ff;
-}
-
-.ef-service-feature-desc {
-  margin: 0 0 1.25rem;
-  font-size: 1rem;
-  line-height: 1.85;
-  color: #c7dced;
-}
-
-.ef-service-feature-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 1.35rem;
-}
-
-.ef-service-feature-tags span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 34px;
-  padding: 0 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(121, 183, 232, 0.18);
-  background: rgba(10, 22, 36, 0.72);
-  font-family: var(--font-mono, "Courier Prime", monospace);
-  font-size: 0.66rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #d8eaf9;
-}
-
-.ef-service-feature-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 0 18px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-family: var(--font-mono, "Courier Prime", monospace);
-  font-size: 0.72rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #8fc1ef;
-  border: 1px solid rgba(121, 183, 232, 0.28);
-  transition: all 0.25s ease;
-}
-
-.ef-service-feature-link:hover {
-  background: linear-gradient(135deg, #2f78c4 0%, #3d8fe4 55%, #2a6fb8 100%);
-  color: #ffffff;
-  border-color: transparent;
-  box-shadow: 0 10px 28px rgba(61, 143, 228, 0.24);
-}
-
-@media (max-width: 991.98px) {
-  .ef-service-feature,
-  .ef-service-feature-reverse {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  .ef-design-reel-image,
+  .ef-design-reel-video {
+    height: 280px;
   }
 
-  .ef-service-feature-reverse .ef-service-feature-media,
-  .ef-service-feature-reverse .ef-service-feature-content {
-    order: initial;
+  .ef-design-reel-overlay {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
   }
 
-  .ef-service-feature-content {
-    max-width: none;
+  .ef-design-reel-title {
+    font-size: 1.7rem;
+    line-height: 1.08;
   }
-}
 
-@media (max-width: 767.98px) {
   .ef-service-feature {
     padding: 18px;
     border-radius: 14px;
@@ -902,116 +941,17 @@
     font-size: 0.62rem;
     letter-spacing: 1.5px;
   }
-}
 
-/* ================================================
-   FULL-WIDTH DESIGN REEL
-=================================================== */
-
-.ef-design-reel {
-  margin: 1rem 0 3.5rem;
-}
-
-.ef-design-reel-media {
-  position: relative;
-  overflow: hidden;
-  border-radius: 24px;
-  border: 1px solid rgba(121, 183, 232, 0.22);
-  background: #08111c;
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.45),
-    0 0 60px rgba(79, 149, 214, 0.18);
-  min-height: 420px;
-}
-
-.ef-design-reel-media::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  box-shadow: inset 0 0 60px rgba(0, 150, 255, 0.08);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.ef-design-reel-image,
-.ef-design-reel-video {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  display: block;
-  filter: contrast(1.05) brightness(0.88) saturate(1.05);
-  transition: transform 0.7s ease, filter 0.7s ease;
-}
-
-.ef-design-reel-media:hover .ef-design-reel-image,
-.ef-design-reel-media:hover .ef-design-reel-video {
-  transform: scale(1.03);
-  filter: contrast(1.08) brightness(0.94) saturate(1.08);
-}
-
-.ef-design-reel-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(5, 11, 18, 0.12) 0%, rgba(5, 11, 18, 0.58) 100%),
-    linear-gradient(90deg, rgba(8, 28, 46, 0.52) 0%, rgba(8, 28, 46, 0.12) 52%, rgba(8, 28, 46, 0.42) 100%);
-  pointer-events: none;
-}
-
-.ef-design-reel-overlay {
-  position: absolute;
-  left: 38px;
-  right: 38px;
-  bottom: 34px;
-  z-index: 2;
-  max-width: 720px;
-}
-
-.ef-design-reel-kicker {
-  display: inline-block;
-  margin-bottom: 0.75rem;
-  font-family: var(--font-mono, "Courier Prime", monospace);
-  font-size: 0.72rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: #5fd0d6;
-}
-
-.ef-design-reel-title {
-  margin: 0;
-  font-family: var(--font-display, "Cormorant Garamond", serif);
-  font-size: clamp(2rem, 4vw, 3.6rem);
-  font-weight: 400;
-  line-height: 1.02;
-  letter-spacing: 1px;
-  color: #f1f8ff;
-}
-
-@media (max-width: 767.98px) {
-  .ef-design-reel {
-    margin: 0.5rem 0 2.5rem;
+  .ef-contact-form,
+  .ef-credentials {
+    padding: 2rem 1.25rem;
   }
 
-  .ef-design-reel-media {
-    min-height: 280px;
-    border-radius: 18px;
+  .ef-section-title {
+    font-size: 1.5rem;
   }
 
-  .ef-design-reel-image,
-  .ef-design-reel-video {
-    height: 280px;
-  }
-
-  .ef-design-reel-overlay {
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-  }
-
-  .ef-design-reel-title {
-    font-size: 1.7rem;
-    line-height: 1.08;
+  .ef-section-copy {
+    font-size: 0.95rem;
   }
 }
