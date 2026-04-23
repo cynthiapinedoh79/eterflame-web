@@ -327,6 +327,23 @@
   left: 6%;
 }
 
+.ef-eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    120deg,
+    #bcdcff,
+    #8fc1ef,
+    #5fa6e0
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  opacity: 0.9;
+}
+
 /* ================================================
    FULL-WIDTH DESIGN REEL
 =================================================== */
@@ -433,6 +450,32 @@
   justify-content: center;
 }
 
+.ef-hero-btn-primary:hover,
+.ef-hero-btn-primary:hover:link,
+.ef-hero-btn-primary:hover:visited {
+  color: #04141c !important;
+}
+
+.ef-hero-btn-secondary,
+.ef-hero-btn-secondary:link,
+.ef-hero-btn-secondary:visited {
+  color: #8fc1ef !important;
+}
+
+.ef-hero-btn-primary {
+  background: linear-gradient(135deg, #163a5c 0%, #1d4f7f 50%, #245f99 100%);
+  color: #dfefff !important;
+  border: 1px solid rgba(143, 193, 239, 0.20);
+  box-shadow:
+    0 10px 26px rgba(20, 53, 84, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.ef-hero-btn-primary:hover {
+  background: linear-gradient(135deg, #67d9de 0%, #39c1cf 52%, #229fb1 100%);
+  color: #061923 !important;
+}
+
 /* ================================================
    SERVICES SHOWCASE — PREMIUM
 =================================================== */
@@ -456,8 +499,8 @@
     linear-gradient(135deg, rgba(18, 30, 46, 0.7), rgba(8, 16, 26, 0.9)),
     #0b1622;
   box-shadow:
-    0 18px 44px rgba(0, 0, 0, 0.22),
-  0 0 18px rgba(79, 149, 214, 0.03);
+    0 18px 44px rgba(0, 0, 0, 0.28),
+    0 0 40px rgba(79, 149, 214, 0.04);
   overflow: hidden;
   transition:
     transform 0.35s ease,
@@ -495,37 +538,47 @@
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: inherit;
   z-index: 1;
+
+  background: radial-gradient(
+    circle at 70% 40%,
+    rgba(95, 208, 214, 0.18),
+    transparent 60%
+  );
+
   opacity: 0;
-  transition: opacity 0.35s ease;
-  box-shadow:
-    inset 0 0 0 1px rgba(95, 208, 214, 0.65),
-    inset 0 0 55px rgba(95, 208, 214, 0.08);
+  transition: opacity 0.4s ease;
   pointer-events: none;
 }
 
+.ef-service-feature img {
+  position: relative;
+  z-index: 2;
+}
+
+.ef-service-content {
+  position: relative;
+  z-index: 2;
+}
+
 .ef-service-feature:hover {
-  transform: translateY(-8px) scale(1.012);
+  transform: translateY(-6px) scale(1.01);
 
-  /* borde más visible */
-  border-color: rgba(95, 208, 214, 0.85);
+  background: linear-gradient(
+    135deg,
+    #0a1118,
+    #0c1420
+  );
 
-  /* 🔥 AQUÍ está la diferencia */
-  background:
-    linear-gradient(
-      135deg,
-      rgba(95, 208, 214, 0.16),   /* más fuerte */
-      rgba(95, 208, 214, 0.06),
-      rgba(255, 255, 255, 0.02)
-    ),
-    #0c1420;
+  border: none;
 
-  /* glow más notorio */
   box-shadow:
-    0 40px 120px rgba(0, 0, 0, 0.65),
-    0 0 90px rgba(95, 208, 214, 0.35),
-    0 0 25px rgba(95, 208, 214, 0.22);
+    0 18px 48px rgba(6, 12, 18, 0.8),
+    0 0 24px rgba(95, 208, 214, 0.12);
+}
+
+.ef-service-feature:hover::after {
+  opacity: 1;
 }
 
 .ef-service-feature:hover::before,
@@ -695,32 +748,6 @@
   transform: translateY(-2px);
 }
 
-.ef-hero-btn-primary:hover,
-.ef-hero-btn-primary:hover:link,
-.ef-hero-btn-primary:hover:visited {
-  color: #04141c !important;
-}
-
-.ef-hero-btn-secondary,
-.ef-hero-btn-secondary:link,
-.ef-hero-btn-secondary:visited {
-  color: #8fc1ef !important;
-}
-
-.ef-hero-btn-primary {
-  background: linear-gradient(135deg, #163a5c 0%, #1d4f7f 50%, #245f99 100%);
-  color: #dfefff !important;
-  border: 1px solid rgba(143, 193, 239, 0.20);
-  box-shadow:
-    0 10px 26px rgba(20, 53, 84, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
-}
-
-.ef-hero-btn-primary:hover {
-  background: linear-gradient(135deg, #67d9de 0%, #39c1cf 52%, #229fb1 100%);
-  color: #061923 !important;
-}
-
 /* ================================================
    PORTFOLIO SECTION — IRREGULAR GRID
 =================================================== */
@@ -862,6 +889,89 @@
 
 .ef-services-showcase .ef-service-feature:nth-child(5) .ef-service-feature-title {
   max-width: 420px;
+}
+
+/* CARD BASE */
+.ef-portfolio-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+/* IMAGEN */
+.ef-portfolio-card img {
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+/* OVERLAY */
+.ef-portfolio-overlay {
+  transition: background 0.45s ease, backdrop-filter 0.45s ease;
+}
+
+/* 🔥 HOVER */
+.ef-portfolio-card:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(95, 208, 214, 0.18); /* glow turquesa */
+}
+
+/* ZOOM IMAGEN */
+.ef-portfolio-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.1) saturate(1.1);
+}
+
+/* OVERLAY MÁS INTENSO */
+.ef-portfolio-card:hover .ef-portfolio-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(3, 18, 30, 0.85),
+    rgba(3, 18, 30, 0.55),
+    rgba(3, 18, 30, 0.15)
+  );
+
+  backdrop-filter: blur(6px);
+}
+
+/* DATA CARD ESPECIAL */
+.ef-portfolio-card:nth-child(5):hover {
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    0 0 60px rgba(80, 200, 255, 0.35); /* azul eléctrico */
+}
+
+/* PORTFOLIO TITLES — MATCH SERVICES */
+.ef-portfolio-overlay h4 {
+  font-family: var(--font-display, "Cormorant Garamond", serif);
+  font-weight: 400;
+  letter-spacing: 1px;
+
+  background: linear-gradient(
+    135deg,
+    #a9cfff 0%,
+    #6fa8dc 50%,
+    #3e7db8 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transition: all 0.4s ease;
+}
+
+.ef-portfolio-card:hover .ef-portfolio-overlay h4 {
+  background: linear-gradient(
+    135deg,
+    #c6e6ff 0%,
+    #7fd8e2 50%,
+    #4bbbd1 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* ================================================
