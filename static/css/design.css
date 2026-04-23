@@ -592,8 +592,19 @@
   font-size: clamp(2rem, 3vw, 2.7rem);
   font-weight: 400;
   letter-spacing: 1px;
-  color: #e9f4ff;
-  transition: color 0.35s ease;
+
+  background: linear-gradient(
+    135deg,
+    #8fbdef 0%,
+    #5f9ed6 35%,
+    #3c7bb5 65%,
+    #1d4f7f 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  color: #8fbdef;
+  transition: filter 0.35s ease, transform 0.35s ease;
 }
 
 .ef-service-feature-desc {
@@ -605,8 +616,8 @@
 }
 
 .ef-service-feature:hover .ef-service-feature-title {
-  color: #ffffff;
-  text-shadow: 0 0 14px rgba(255, 255, 255, 0.08);
+  filter: brightness(1.22) saturate(1.15);
+  transform: translateX(2px);
 }
 
 .ef-service-feature:hover .ef-service-feature-desc {
@@ -654,12 +665,22 @@
   padding: 0 18px;
   border-radius: 999px;
   text-decoration: none;
+
   font-family: var(--font-mono, "Courier Prime", monospace);
   font-size: 0.72rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #8fc1ef;
-  border: 1px solid rgba(121, 183, 232, 0.28);
+
+  /* 🔥 MISMO ESTILO QUE HERO (sin hover) */
+  background: linear-gradient(135deg, #163a5c 0%, #1d4f7f 50%, #245f99 100%);
+  color: #dfefff !important;
+
+  border: 1px solid rgba(143, 193, 239, 0.20);
+
+  box-shadow:
+    0 10px 26px rgba(20, 53, 84, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
   transition: all 0.25s ease;
 }
 
@@ -671,6 +692,7 @@
     0 12px 32px rgba(47, 182, 196, 0.32),
     0 0 14px rgba(95, 208, 214, 0.14);
   text-shadow: none;
+  transform: translateY(-2px);
 }
 
 .ef-hero-btn-primary:hover,
