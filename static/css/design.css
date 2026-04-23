@@ -81,7 +81,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .ef-hero-logo {
@@ -93,10 +93,10 @@
 
 .ef-hero-division {
   font-family: var(--font-display, "Cormorant Garamond", serif);
-  font-size: 0.9rem;
-  letter-spacing: 4px;
+  font-size: 1rem;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  color: rgba(143, 193, 239, 0.72);
+  color: rgba(143, 193, 239, 0.78);
 }
 
 .ef-hero-title-wrap {
