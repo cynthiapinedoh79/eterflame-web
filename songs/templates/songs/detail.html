@@ -67,57 +67,37 @@
 {% if song.instagram_url or song.tiktok_url or song.facebook_url %}
 <section class="sd-section">
   <p class="sd-label">Síguenos</p>
-  <div class="sd-hooks-row">
 
-    {% if song.instagram_url %}
-    <a href="{{ song.instagram_url }}" target="_blank" rel="noopener"
-       class="sd-hook-card">
-      {% if song.reel_thumbnail %}
-      <div class="sd-hook-thumb"
-           style="background-image:url('{{ song.reel_thumbnail.url }}')"></div>
-      {% else %}
-      <div class="sd-hook-thumb sd-hook-nothumb"></div>
-      {% endif %}
-      <div class="sd-hook-info">
-        <p class="sd-hook-net">Instagram</p>
-        <p class="sd-hook-cta">Ver reel →</p>
-      </div>
-    </a>
+  <div class="sd-reel-block">
+    {% if song.reel_thumbnail %}
+    <div class="sd-reel-image"
+         style="background-image:url('{{ song.reel_thumbnail.url }}')"></div>
+    {% else %}
+    <div class="sd-reel-image sd-reel-nothumb"></div>
     {% endif %}
 
-    {% if song.tiktok_url %}
-    <a href="{{ song.tiktok_url }}" target="_blank" rel="noopener"
-       class="sd-hook-card">
-      {% if song.reel_thumbnail %}
-      <div class="sd-hook-thumb"
-           style="background-image:url('{{ song.reel_thumbnail.url }}')"></div>
-      {% else %}
-      <div class="sd-hook-thumb sd-hook-nothumb"></div>
+    <div class="sd-reel-platforms">
+      {% if song.instagram_url %}
+      <a href="{{ song.instagram_url }}" target="_blank" rel="noopener"
+         class="sd-reel-btn sd-reel-btn--instagram">
+        Instagram — Ver reel →
+      </a>
       {% endif %}
-      <div class="sd-hook-info">
-        <p class="sd-hook-net">TikTok</p>
-        <p class="sd-hook-cta">Ver hook →</p>
-      </div>
-    </a>
-    {% endif %}
-
-    {% if song.facebook_url %}
-    <a href="{{ song.facebook_url }}" target="_blank" rel="noopener"
-       class="sd-hook-card">
-      {% if song.reel_thumbnail %}
-      <div class="sd-hook-thumb"
-           style="background-image:url('{{ song.reel_thumbnail.url }}')"></div>
-      {% else %}
-      <div class="sd-hook-thumb sd-hook-nothumb"></div>
+      {% if song.tiktok_url %}
+      <a href="{{ song.tiktok_url }}" target="_blank" rel="noopener"
+         class="sd-reel-btn sd-reel-btn--tiktok">
+        TikTok — Ver hook →
+      </a>
       {% endif %}
-      <div class="sd-hook-info">
-        <p class="sd-hook-net">Facebook</p>
-        <p class="sd-hook-cta">Ver reel →</p>
-      </div>
-    </a>
-    {% endif %}
-
+      {% if song.facebook_url %}
+      <a href="{{ song.facebook_url }}" target="_blank" rel="noopener"
+         class="sd-reel-btn sd-reel-btn--facebook">
+        Facebook — Ver reel →
+      </a>
+      {% endif %}
+    </div>
   </div>
+
 </section>
 {% endif %}
 
