@@ -501,25 +501,76 @@
 .wh-aythnyk__link:hover { border-color: #fff; }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+
+  /* WHY GRID — 2 columnas en tablet */
+  .wh-why__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+
+  /* HERO */
+  .wh-hero { padding: 5rem 1.25rem 3rem; }
   .wh-hero__line1,
-  .wh-hero__line2 { font-size: clamp(3rem, 15vw, 5rem); }
-  .wh-hero__line3  { font-size: clamp(1.5rem, 8vw, 3rem); }
+  .wh-hero__line2 { font-size: clamp(3rem, 18vw, 5rem); letter-spacing: 6px; }
+  .wh-hero__line3  { font-size: clamp(1.5rem, 10vw, 3rem); letter-spacing: 10px; }
+  .wh-hero__ctas   { flex-direction: column; align-items: center; }
+
+  /* WHY GRID — 1 columna en mobile, sin fondo visible entre celdas */
+  .wh-why {
+    padding: 4rem 0;
+    background: var(--w-bg);
+  }
+  .wh-why__grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    background: var(--w-bg);
+  }
+  .wh-why__item {
+    background: var(--w-bg);
+    border-bottom: 1px solid var(--w-border);
+    padding: 2rem 1.5rem;
+  }
+  .wh-why__item:last-child { border-bottom: none; }
+
+  /* DIVISIONS GRID — 1 columna en mobile */
+  .wh-divisions {
+    padding: 4rem 0;
+    background: var(--w-bg2);
+  }
+  .wh-divisions__grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    background: var(--w-bg2);
+  }
+  .wh-div-card {
+    min-height: auto;
+    padding: 2.5rem 1.5rem 2rem;
+    border-bottom: 1px solid var(--w-border);
+    background: var(--w-bg);
+  }
+  .wh-div-card:last-child { border-bottom: none; }
+
+  /* MISSION / VISION */
   .wh-mv {
     grid-template-columns: 1fr;
   }
-  .wh-mv__divider { height: 1px; width: 100%; }
-  .wh-mv__card { padding: 3rem 1.5rem; }
-  .wh-divisions__grid { grid-template-columns: 1fr; }
-  .wh-why__grid { grid-template-columns: 1fr; }
-  .wh-statement { padding: 5rem 1.25rem; }
-  .wh-div-card { min-height: auto; }
+  .wh-mv__divider { height: 1px; width: 100%; background: var(--w-border); }
+  .wh-mv__card    { padding: 3rem 1.5rem; }
+
+  /* STATEMENT */
+  .wh-statement   { padding: 5rem 1.25rem; }
+
+  /* CTA / AYTHNYK */
+  .wh-cta-bold    { padding: 4rem 1.25rem; }
+  .wh-aythnyk     { padding: 4rem 1.25rem; }
 }
-@media (max-width: 480px) {
-  .wh-hero { padding: 5rem 1.25rem 3rem; }
-  .wh-hero__ctas { flex-direction: column; align-items: center; }
-  .wh-cta-bold { padding: 4rem 1.25rem; }
-  .wh-aythnyk { padding: 4rem 1.25rem; }
+
+@media (max-width: 420px) {
+  .wh-why__grid       { background: var(--w-bg); }
+  .wh-divisions__grid { background: var(--w-bg); }
 }
 
 /* ═══════════════════════════════════════════════
