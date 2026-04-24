@@ -689,3 +689,68 @@
   .res-section { padding: 1.5rem 1rem; }
   .res-hero { padding: 4rem 1rem 2rem; }
 }
+
+/* ── INTERMEDIATE BREAKPOINTS FIX ── */
+
+/* 601px–900px: tablet portrait */
+@media (min-width: 601px) and (max-width: 900px) {
+
+  /* WHY — 2 columnas exactas, sin celda suelta */
+  .wh-why__grid {
+    grid-template-columns: 1fr 1fr;
+    background: var(--w-border);
+    gap: 1px;
+  }
+  .wh-why__item {
+    background: var(--w-bg);
+  }
+
+  /* DIVISIONS — 1 columna en tablet portrait, sin huecos */
+  .wh-divisions__grid {
+    grid-template-columns: 1fr;
+    background: var(--w-bg);
+    gap: 0;
+  }
+  .wh-div-card {
+    background: var(--w-bg);
+    border-bottom: 1px solid var(--w-border);
+    min-height: auto;
+  }
+  .wh-div-card:last-child {
+    border-bottom: none;
+  }
+}
+
+/* 901px–1100px: tablet landscape — el rango problemático */
+@media (min-width: 901px) and (max-width: 1100px) {
+
+  /* WHY — 4 columnas pero más pequeñas, sin hueco */
+  .wh-why__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* DIVISIONS — 3 columnas forzado, sin celda suelta */
+  .wh-divisions__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .wh-div-card {
+    min-height: 320px;
+  }
+}
+
+/* Asegurar que el fondo del grid nunca sea visible
+   como color diferente al de la página */
+.wh-why {
+  background: var(--w-bg);
+}
+.wh-divisions {
+  background: var(--w-bg2);
+}
+
+/* Si auto-fill genera celda vacía visible,
+   el ::after del grid la neutraliza */
+.wh-why__grid::after,
+.wh-divisions__grid::after {
+  content: '';
+  background: var(--w-bg);
+}
