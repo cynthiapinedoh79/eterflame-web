@@ -790,23 +790,22 @@ a.page-link {
   font-weight: 700 !important;
   color: #2a0e00 !important;
   letter-spacing: 3px !important;
-  margin-bottom: 40px !important;
+  margin-bottom: 1.5rem !important;
   display: block !important;
   text-transform: uppercase !important;
 }
 
 .poem-body {
-  white-space: pre-wrap !important;
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
   font-family: 'Cormorant Garamond', serif !important;
-  font-size: 1.3rem !important;
-  font-weight: 600 !important;
-  line-height: 2 !important;
+  font-size: 1.15rem !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
   color: #0a0804 !important;
   max-width: 100% !important;
   margin: 0 auto !important;
-  letter-spacing: 0.03em !important;
+  letter-spacing: 0.01em !important;
   width: 100% !important;
   padding: 0 20px !important;
   box-sizing: border-box !important;
@@ -819,29 +818,32 @@ a.page-link {
   width: 40px !important;
   height: 2px !important;
   background: rgba(10,8,4,0.25) !important;
-  margin: 0 auto 48px !important;
+  margin: 0 auto 1.5rem !important;
 }
 
 .poem-body p {
-  margin-bottom: 0 !important;
+  margin-bottom: 1.5rem !important;
   margin-top: 0 !important;
-  line-height: 1.85 !important;
+  line-height: 1.65 !important;
   padding: 0 !important;
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
-  white-space: pre-wrap !important;
   color: #0a0804 !important;
-  font-size: 1.3rem !important;
-  font-weight: 600 !important;
+  font-size: 1.15rem !important;
+  font-weight: 400 !important;
   max-width: 100% !important;
   width: 100% !important;
   box-sizing: border-box !important;
   text-align: left !important;
 }
 
+.poem-body p:last-child {
+  margin-bottom: 0 !important;
+}
+
 .poem-body p:empty {
   display: block !important;
-  height: 1.5em !important;
+  height: 1rem !important;
   margin: 0 !important;
 }
 
