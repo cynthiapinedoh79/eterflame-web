@@ -230,6 +230,15 @@
     }
   }
 
+  function parseMarkdown(text) {
+    return text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>')
+      .replace(/`(.*?)`/g, '<code>$1</code>')
+      .replace(/\n/g, '<br>');
+  }
+
   function sendMessage(text) {
     addMsg(text, 'user');
     history.push({ role: 'user', content: text });
@@ -260,7 +269,7 @@
       typing.remove();
       if (data.response) {
         aiTurns++;
-        addMsg(data.response, 'bot');
+        addMsg(parseMarkdown(data.response), 'bot');
         history.push({ role: 'assistant', content: data.response });
 
         if (aiTurns >= MAX_AI_TURNS) {
