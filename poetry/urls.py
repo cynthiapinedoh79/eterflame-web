@@ -4,7 +4,9 @@ from . import views
 app_name = "poetry"
 
 urlpatterns = [
-    path("", views.poetry_home, name="poetry_home"),  # render poetry/home.html
+    # Home URL kept as an alias so existing references resolve to /aythnyk/.
+    # The aythnyk app (mounted first) handles the actual request.
+    path("", views.poetry_home, name="poetry_home"),
     path("poems/", views.poem_list, name="poem_list"),     # list moved here
     # IMPORTANT: prefix detail so it doesn't match /about/ or /blog/
     path("poem/<slug:slug>/", views.poem_detail, name="poem_detail"),

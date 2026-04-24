@@ -90,6 +90,7 @@ INSTALLED_APPS = [
     'about',
     'poetry',
     'works',
+    'aythnyk',
 ]
 
 SITE_ID = 1

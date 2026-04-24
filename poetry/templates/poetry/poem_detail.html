@@ -9,7 +9,7 @@
 
 {% block content %}
 <div class="eter-breadcrumb">
-  <a href="{% url 'poetry:poetry_home' %}" class="eter-back-link">← Aythnyk</a>
+  <a href="{% url 'aythnyk:aythnyk_home' %}" class="eter-back-link">← Aythnyk</a>
 </div>
 <div class="container my-5">
 
@@ -19,7 +19,7 @@
         <i class="fas fa-arrow-left me-2"></i>Back to {{ poem.collection.name_en }}
       </a>
     {% else %}
-      <a href="{% url 'poetry:poetry_home' %}#poems-search" class="text-decoration-none">
+      <a href="{% url 'aythnyk:aythnyk_home' %}#poems-search" class="text-decoration-none">
         <i class="fas fa-arrow-left me-2"></i>Back to Poem List
       </a>
     {% endif %}

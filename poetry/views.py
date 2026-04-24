@@ -207,7 +207,7 @@ def toggle_favorite(request, poem_id):
     return redirect(
         request.META.get(
             "HTTP_REFERER",
-            "poetry:poetry_home"
+            "aythnyk:aythnyk_home"
         )
     )
 
