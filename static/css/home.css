@@ -1,0 +1,222 @@
+  .ef-hero {
+    padding: 5rem 0 4rem;
+    text-align: center;
+    background: linear-gradient(180deg, var(--bg-dark, #130e05) 0%, var(--bg-body, #0a0804) 100%);
+  }
+  .ef-eyebrow {
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .75rem;
+    letter-spacing: 5px;
+    color: #c8102e;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .ef-headline {
+    font-family: var(--font-display, 'Cormorant Garamond', serif);
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 300;
+    color: var(--color-gold, #c49a40);
+    letter-spacing: 6px;
+    line-height: 1.1;
+    margin-bottom: .5rem;
+  }
+  .ef-tagline {
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .85rem;
+    letter-spacing: 3px;
+    color: var(--color-text-muted, #7a5c2e);
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+  }
+  .ef-divider {
+    width: 60px;
+    height: 1px;
+    background: rgba(200,16,46,0.4);
+    margin: 2.5rem auto;
+  }
+  .ef-section-label {
+    font-family: var(--font-mono);
+    font-size: .7rem;
+    letter-spacing: 4px;
+    color: var(--text-subtle);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .ef-body-text {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--text-body);
+    line-height: 1.8;
+    max-width: 680px;
+    margin: 0 auto 1.2rem;
+  }
+  .ef-card-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 3rem 0;
+  }
+  .ef-info-card {
+    padding: 24px 28px;
+    background: #141009;
+    border-left: 2px solid #c8102e;
+    border-radius: 0 6px 6px 0;
+  }
+  .ef-info-card h4 {
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #c8102e;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .ef-info-card p {
+    font-family: var(--font-body);
+    font-size: .95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+  .ef-division-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(196,154,64,.18);
+    text-decoration: none;
+    transition: border-color .25s, background .25s;
+    background: transparent;
+  }
+  .ef-division-card:hover {
+    border-color: rgba(196,154,64,.6);
+    background: rgba(196,154,64,.05);
+    text-decoration: none;
+  }
+  .ef-division-accent {
+    width: 28px;
+    height: 2px;
+    margin-bottom: 1.4rem;
+  }
+  .ef-division-name {
+    font-family: var(--font-display, 'Cormorant Garamond', serif);
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--color-gold, #c49a40);
+    margin-bottom: .4rem;
+  }
+  .ef-division-subtitle {
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .72rem;
+    letter-spacing: 2px;
+    color: var(--color-text-muted, #7a5c2e);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .ef-division-desc {
+    font-family: var(--font-body, 'DM Sans', sans-serif);
+    font-size: .9rem;
+    color: var(--color-text-dark, #f5e0b0);
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+  .ef-badge-soon {
+    display: inline-block;
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .65rem;
+    letter-spacing: 2px;
+    color: var(--color-text-muted, #7a5c2e);
+    border: 1px solid rgba(122,92,46,.4);
+    padding: .2rem .6rem;
+    margin-top: 1.2rem;
+    text-transform: uppercase;
+  }
+  .ef-cta-link {
+    font-family: var(--font-mono, 'Courier Prime', monospace);
+    font-size: .8rem;
+    letter-spacing: 3px;
+    color: var(--color-text-muted, #7a5c2e);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .ef-cta-link:hover { color: var(--color-gold, #c49a40); }
+  .ef-aythnyk-banner {
+    border-top: 1px solid rgba(196,154,64,.15);
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+.ef-story-title {
+  max-width: 760px;
+  margin: 0 auto 1.4rem;
+  font-family: var(--font-display, "Cormorant Garamond", serif);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--color-gold, #c49a40);
+}
+
+.ef-why-section {
+  padding: 3rem 0 1rem;
+}
+
+.ef-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 2.5rem 0 3rem;
+}
+
+.ef-why-card {
+  padding: 28px 24px;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(212, 168, 67, 0.06), rgba(255, 255, 255, 0.01)),
+    #11100c;
+  border: 1px solid rgba(212, 168, 67, 0.12);
+  transition: all 0.28s ease;
+}
+
+.ef-why-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 168, 67, 0.36);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.34),
+    0 0 28px rgba(212, 168, 67, 0.08);
+}
+
+.ef-why-card span {
+  display: block;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono, "Courier Prime", monospace);
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  color: #c8102e;
+}
+
+.ef-why-card h4 {
+  margin-bottom: 0.7rem;
+  font-family: var(--font-display, "Cormorant Garamond", serif);
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--color-gold, #c49a40);
+}
+
+.ef-why-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 991.98px) {
+  .ef-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .ef-why-grid {
+    grid-template-columns: 1fr;
+  }
+}
