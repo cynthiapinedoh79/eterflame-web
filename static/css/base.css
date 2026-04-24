@@ -2344,7 +2344,7 @@ p.text-end.m-3 {
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 3rem;
 }
 
@@ -2399,24 +2399,27 @@ p.text-end.m-3 {
 }
 .footer-links a:hover { color: #c49a40; }
 
-/* Social icons */
-.footer-social {
+/* Social bar — centered between top and bottom */
+.footer-social-bar {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #1a1510;
 }
-.footer-social a {
-  color: #3a3228;
-  font-size: 1rem;
+.footer-social-bar a {
+  color: #4a4030;
+  font-size: 1.1rem;
   text-decoration: none;
-  transition: color .2s ease;
+  transition: color .2s ease, transform .2s ease;
 }
-.footer-social a:hover                { color: #c49a40; }
-.footer-social a:has(.fa-instagram):hover { color: #E1306C; }
-.footer-social a:has(.fa-tiktok):hover    { color: #69C9D0; }
-.footer-social a:has(.fa-facebook):hover  { color: #1877F2; }
-.footer-social a:has(.fa-spotify):hover   { color: #1DB954; }
-.footer-social a:has(.fa-youtube):hover   { color: #FF0000; }
+.footer-social-bar a:hover                        { transform: translateY(-2px); }
+.footer-social-bar a:has(.fa-instagram):hover     { color: #E1306C; }
+.footer-social-bar a:has(.fa-tiktok):hover        { color: #69C9D0; }
+.footer-social-bar a:has(.fa-facebook):hover      { color: #1877F2; }
+.footer-social-bar a:has(.fa-spotify):hover       { color: #1DB954; }
+.footer-social-bar a:has(.fa-youtube):hover       { color: #FF0000; }
 
 /* Bottom bar */
 .footer-bottom {
