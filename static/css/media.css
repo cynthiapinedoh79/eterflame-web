@@ -1,0 +1,80 @@
+/* ================================================
+   EF MEDIA — CSS
+   ================================================ */
+:root {
+  --media-primary: #b86b43;
+  --media-light: #d79470;
+  --media-dark: #6e3d25;
+  --media-hover: #a8e63d;
+  --media-hover-text: #0a0a0a;
+}
+
+.ef-coming-soon {
+  background: var(--bg-body, #0a0804);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ef-eyebrow {
+  font-family: var(--font-mono, 'Courier Prime', monospace);
+  font-size: .72rem;
+  letter-spacing: 4px;
+  color: #8a8fa8;
+  text-transform: uppercase;
+  margin-bottom: .8rem;
+}
+
+.ef-page-title {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 300;
+  color: #b0b5cc;
+  letter-spacing: 6px;
+  margin-bottom: .5rem;
+}
+
+.ef-subtitle {
+  font-family: var(--font-mono, 'Courier Prime', monospace);
+  font-size: .8rem;
+  letter-spacing: 3px;
+  color: #8a8fa8;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.ef-body-text {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 1rem;
+  color: #c8ccd8;
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.ef-badge-soon {
+  display: inline-block;
+  font-family: var(--font-mono, 'Courier Prime', monospace);
+  font-size: .72rem;
+  letter-spacing: 3px;
+  color: #4a4f62;
+  border: 0.5px solid rgba(138,143,168,0.2);
+  padding: .4rem 1.2rem;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-bottom: 2rem;
+}
+
+.ef-back-link {
+  font-family: var(--font-mono, 'Courier Prime', monospace);
+  font-size: .75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #4a4f62;
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.ef-back-link:hover { color: #b0b5cc; }

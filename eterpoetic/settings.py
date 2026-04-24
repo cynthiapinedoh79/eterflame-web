@@ -91,6 +91,9 @@ INSTALLED_APPS = [
     'poetry',
     'works',
     'aythnyk',
+    'design_app',
+    'media_app',
+    'studio_app',
 ]
 
 SITE_ID = 1

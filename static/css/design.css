@@ -1,4 +1,15 @@
 /* ================================================
+   EF DESIGN — CSS
+   ================================================ */
+:root {
+  --design-primary: #2d6a9f;
+  --design-light: #4ecdc4;
+  --design-dark: #0d1f2e;
+  --design-hover: #4ecdc4;
+  --design-hover-text: #0d1f2e;
+}
+
+/* ================================================
    EF DESIGN PAGE — CLEAN CONSOLIDATED VERSION
 =================================================== */
 
