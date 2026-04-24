@@ -26,3 +26,17 @@ class SongDetailView(DetailView):
     template_name = 'songs/detail.html'
     context_object_name = 'song'
     queryset = Song.objects.filter(active=True)
+
+    def get_context_data(self, **kwargs):
+        import re
+        ctx = super().get_context_data(**kwargs)
+        yt_embed = ''
+        if self.object.youtube_url:
+            match = re.search(
+                r'(?:youtube\.com/watch\?v=|youtu\.be/)([A-Za-z0-9_-]{11})',
+                self.object.youtube_url
+            )
+            if match:
+                yt_embed = f'https://www.youtube.com/embed/{match.group(1)}?rel=0'
+        ctx['yt_embed'] = yt_embed
+        return ctx
