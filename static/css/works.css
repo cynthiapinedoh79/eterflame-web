@@ -452,9 +452,12 @@
 .wh-cta-bold .wh-btn-primary {
   background: #0a0804;
   color: var(--w-gold);
+  border: 2px solid #0a0804;
 }
 .wh-cta-bold .wh-btn-primary:hover {
-  background: #1e1508;
+  background: transparent;
+  color: #0a0804;
+  border-color: #0a0804;
 }
 
 /* ── 8. AYTHNYK ── */
@@ -806,6 +809,7 @@
   transition: background .3s ease, color .3s ease;
 }
 .wh-aythnyk__btn:hover {
-  background: transparent;
-  color: #fff;
+  background: transparent !important;
+  color: #fff !important;
+  border-color: #fff !important;
 }
