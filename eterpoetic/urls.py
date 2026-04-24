@@ -21,7 +21,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns   # i18n
 
-urlpatterns = []
+urlpatterns = [
+    path("api/chat/", include(("chat.urls", "chat"), namespace="chat")),
+]
 
 # Translatable, language-prefixed routes
 # (prefix_default_language=False keeps / not /en/)

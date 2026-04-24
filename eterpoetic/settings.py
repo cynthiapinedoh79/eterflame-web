@@ -40,6 +40,7 @@ def env_required(name: str) -> str:
 # SECRET_KEY must be read from environment variable
 #SECRET_KEY = os.environ.get('SECRET_KEY')
 SECRET_KEY = env_required("SECRET_KEY")
+ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower() in ("true", "1", "yes")
@@ -95,6 +96,7 @@ INSTALLED_APPS = [
     'media_app',
     'studio_app',
     'songs',
+    'chat',
 ]
 
 SITE_ID = 1
