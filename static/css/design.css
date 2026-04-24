@@ -1121,65 +1121,81 @@
 }
 
 /* ================================================
-   CONTACT FORM
+   CONTACT FORM — PREMIUM
 =================================================== */
 
 .ef-contact-form {
-  border: 1px solid rgba(121, 183, 232, 0.22);
-  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
   padding: 3rem 2.5rem;
+  border: 1px solid rgba(121, 183, 232, 0.06);
+
   background:
-    linear-gradient(135deg, rgba(121, 183, 232, 0.04), rgba(255, 255, 255, 0.01)),
-    #0f1722;
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+    radial-gradient(circle at 18% 18%, rgba(95, 208, 214, 0.08), transparent 42%),
+    linear-gradient(135deg, rgba(18, 30, 46, 0.82), rgba(8, 16, 26, 0.95)),
+    #0b1622;
+
+  box-shadow:
+    0 22px 60px rgba(0, 0, 0, 0.38),
+    0 0 40px rgba(79, 149, 214, 0.04);
 }
 
 .ef-form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.35rem;
 }
 
 .ef-form-group label {
   display: block;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.65rem;
   font-family: var(--font-mono, "Courier Prime", monospace);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: #8fc1ef;
 }
 
 .ef-required {
-  color: #4f95d6;
+  color: #5fd0d6;
 }
 
 .ef-form-group input,
 .ef-form-group select,
 .ef-form-group textarea {
   width: 100%;
-  background: #0b1118;
-  border: 1px solid rgba(59, 130, 196, 0.2);
+  min-height: 48px;
+  padding: 13px 16px;
+  border-radius: 10px;
+
+  background: rgba(6, 14, 22, 0.82);
+  border: 1px solid rgba(121, 183, 232, 0.12);
+
   color: #eaf4fd;
   font-family: var(--font-body, "DM Sans", sans-serif);
   font-size: 0.95rem;
-  padding: 12px 16px;
+
   outline: none;
-  border-radius: 4px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  -webkit-appearance: none;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
 .ef-form-group input:hover,
 .ef-form-group select:hover,
 .ef-form-group textarea:hover {
-  border-color: rgba(79, 149, 214, 0.4);
+  border-color: rgba(121, 183, 232, 0.28);
+  background: rgba(8, 18, 30, 0.95);
 }
 
 .ef-form-group input:focus,
 .ef-form-group select:focus,
 .ef-form-group textarea:focus {
-  border-color: #4f95d6;
-  box-shadow: 0 0 0 3px rgba(79, 149, 214, 0.12);
-  background: #101927;
+  border-color: rgba(95, 208, 214, 0.55);
+  background: rgba(9, 22, 36, 0.98);
+  box-shadow:
+    0 0 0 3px rgba(95, 208, 214, 0.08),
+    0 0 22px rgba(95, 208, 214, 0.10);
 }
 
 .ef-form-group input::placeholder,
@@ -1193,45 +1209,70 @@
 }
 
 .ef-form-group textarea {
+  min-height: 150px;
   resize: vertical;
-  min-height: 130px;
 }
 
 .ef-form-message {
-  margin-bottom: 1rem;
-  font-family: var(--font-body, "DM Sans", sans-serif);
+  margin-bottom: 1.2rem;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
   font-size: 0.92rem;
 }
 
 .ef-form-message.error {
-  color: #e07070;
+  color: #ffdada;
+  background: rgba(224, 112, 112, 0.10);
+  border: 1px solid rgba(224, 112, 112, 0.22);
 }
 
 .ef-form-message.success {
-  color: #7abf7a;
+  color: #d8ffe0;
+  background: rgba(122, 191, 122, 0.10);
+  border: 1px solid rgba(122, 191, 122, 0.22);
 }
 
 .ef-submit-btn {
   width: 100%;
+  min-height: 52px;
   margin-top: 8px;
   padding: 14px 2.5rem;
   border: none;
-  border-radius: 3px;
+  border-radius: 999px;
   cursor: pointer;
+
   font-family: var(--font-mono, "Courier Prime", monospace);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #ffffff;
-  background: linear-gradient(135deg, #2f78c4 0%, #3d8fe4 55%, #2a6fb8 100%);
-  transition: all 0.2s ease;
+
+  color: #dfefff;
+  background: linear-gradient(135deg, #163a5c 0%, #1d4f7f 50%, #245f99 100%);
+
+  box-shadow:
+    0 10px 26px rgba(20, 53, 84, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
 }
 
 .ef-submit-btn:hover {
-  background: linear-gradient(135deg, #5fd0d6 0%, #2fb6c4 50%, #1c8fa3 100%);
-  color: #083c44;
+  background: linear-gradient(135deg, #67d9de 0%, #39c1cf 52%, #229fb1 100%);
+  color: #061923;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(47, 182, 196, 0.28);
+  box-shadow:
+    0 12px 34px rgba(47, 182, 196, 0.34),
+    0 0 18px rgba(95, 208, 214, 0.18);
+}
+
+@media (max-width: 767.98px) {
+  .ef-contact-form {
+    padding: 2rem 1.25rem;
+  }
 }
 
 /* ================================================
