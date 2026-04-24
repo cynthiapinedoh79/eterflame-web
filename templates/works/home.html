@@ -1,168 +1,182 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}
-<div class="section-works" style="background:var(--bg-body,#0a0804);min-height:100vh;">
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/works.css' %}">
+{% endblock %}
 
-  <!-- Hero -->
-  <section class="ef-hero">
-    <div class="container">
-      <p class="ef-eyebrow">Creative &amp; Digital Production</p>
-      <h1 class="ef-headline">ETHERFLAME<br><span style="font-weight:600;">WORKS</span></h1>
-      <div style="width:60px;height:2px;background:#c8102e;margin:16px auto 20px;"></div>
-      <p class="ef-tagline">Design · Media · Studio</p>
-      <a href="{% url 'works:design' %}" class="works-explore-btn me-3">Explore Services</a>
-      <a href="{% url 'aythnyk:aythnyk_home' %}" class="ef-cta-link">Meet Aythnyk →</a>
+{% block content %}
+<div class="wh-page">
+
+  <!-- ══════════════════════════════════════
+       1. HERO — full viewport, texto gigante
+  ══════════════════════════════════════ -->
+  <section class="wh-hero">
+    <div class="wh-hero__bg-text" aria-hidden="true">WORKS</div>
+    <div class="wh-hero__inner">
+      <p class="wh-hero__eyebrow">Creative &amp; Digital Production</p>
+      <h1 class="wh-hero__headline">
+        <span class="wh-hero__line1">ETHER</span>
+        <span class="wh-hero__line2">FLAME</span>
+        <span class="wh-hero__line3">WORKS</span>
+      </h1>
+      <p class="wh-hero__sub">Design · Media · Studio</p>
+      <div class="wh-hero__ctas">
+        <a href="{% url 'works:design' %}" class="wh-btn-primary">Explore Services</a>
+        <a href="{% url 'aythnyk:aythnyk_home' %}" class="wh-btn-ghost">Meet Aythnyk →</a>
+      </div>
+    </div>
+    <div class="wh-hero__scroll-hint" aria-hidden="true">
+      <span></span>
     </div>
   </section>
 
-  <div class="container">
-
-    <div class="ef-divider"></div>
-
-    <!-- Who We Are -->
-    <section class="text-center py-4">
-      <p class="ef-section-label">Who We Are</p>
-
-      <h2 class="ef-story-title">A creative studio for brands that need more than a website.</h2>
-
-      <p class="ef-body-text">
-        Etherflame Works builds digital experiences where technology, design, and storytelling
-        move together. We create the structure behind a brand’s presence — from full-stack web
-        systems and visual identities to content, media, and data-driven experiences.
-      </p>
-
-      <p class="ef-body-text">
-        Our work is intentional, refined, and personal. Every project is shaped around the voice,
-        goals, and emotional direction of the brand behind it.
-      </p>
-    </section>
-
-    <!-- Mission & Vision -->
-    <div class="ef-card-group">
-      <div class="ef-info-card">
-        <h4>Mission</h4>
-        <p>
-          To design and build digital work that feels intentional, elegant, and alive —
-          combining technical structure with visual identity and emotional clarity.
-        </p>
-      </div>
-
-      <div class="ef-info-card">
-        <h4>Vision</h4>
-        <p>
-          To become a trusted creative technology studio for founders, creators, and businesses
-          who want a brand presence that feels premium, memorable, and built to grow.
-        </p>
-      </div>
+  <!-- ══════════════════════════════════════
+       2. TICKER — texto en movimiento
+  ══════════════════════════════════════ -->
+  <div class="wh-ticker" aria-hidden="true">
+    <div class="wh-ticker__track">
+      <span>Design</span><span class="wh-ticker__dot">◆</span>
+      <span>Branding</span><span class="wh-ticker__dot">◆</span>
+      <span>Web Development</span><span class="wh-ticker__dot">◆</span>
+      <span>UI/UX</span><span class="wh-ticker__dot">◆</span>
+      <span>Media Production</span><span class="wh-ticker__dot">◆</span>
+      <span>Creative Direction</span><span class="wh-ticker__dot">◆</span>
+      <span>Storytelling</span><span class="wh-ticker__dot">◆</span>
+      <span>E-commerce</span><span class="wh-ticker__dot">◆</span>
+      <span>Design</span><span class="wh-ticker__dot">◆</span>
+      <span>Branding</span><span class="wh-ticker__dot">◆</span>
+      <span>Web Development</span><span class="wh-ticker__dot">◆</span>
+      <span>UI/UX</span><span class="wh-ticker__dot">◆</span>
+      <span>Media Production</span><span class="wh-ticker__dot">◆</span>
+      <span>Creative Direction</span><span class="wh-ticker__dot">◆</span>
+      <span>Storytelling</span><span class="wh-ticker__dot">◆</span>
+      <span>E-commerce</span><span class="wh-ticker__dot">◆</span>
     </div>
-
-    <div class="ef-divider"></div>
-
-    <!-- Why Us -->
-    <section class="ef-why-section">
-      <p class="ef-section-label text-center">Why Etherflame</p>
-
-      <div class="ef-why-grid">
-        <div class="ef-why-card">
-          <span>01</span>
-          <h4>Design with direction</h4>
-          <p>Every visual choice is connected to purpose, positioning, and brand perception.</p>
-        </div>
-
-        <div class="ef-why-card">
-          <span>02</span>
-          <h4>Technical execution</h4>
-          <p>We do not only make things look good — we build systems that work underneath.</p>
-        </div>
-
-        <div class="ef-why-card">
-          <span>03</span>
-          <h4>Story-first thinking</h4>
-          <p>Your brand should not feel generic. It should communicate voice, identity, and emotion.</p>
-        </div>
-
-        <div class="ef-why-card">
-          <span>04</span>
-          <h4>Small studio focus</h4>
-          <p>Intentional collaboration, refined detail, and work shaped around each project.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="ef-divider"></div>
-
-    <!-- Divisions -->
-    <section class="py-4">
-      <p class="ef-section-label text-center">Our Divisions</p>
-      <div class="row g-3">
-
-        <!-- EF Design -->
-        <div class="col-12 col-md-4">
-          <a href="{% url 'works:design' %}" class="ef-division-card works-division-card division-card design-card h-100 d-flex">
-            <div class="works-division-accent"></div>
-            <div class="ef-division-name works-division-title">EF Design</div>
-            <div class="ef-division-subtitle works-division-subtitle">Creative Technology &amp; Design</div>
-            <p class="ef-division-desc works-division-desc">
-              Full-stack web development, UI/UX, branding, data visualisation,
-              e-commerce, API integration, and database architecture.
-            </p>
-            <span class="works-division-link">View Services →</span>
-          </a>
-        </div>
-
-        <!-- EF Media -->
-        <div class="col-12 col-md-4">
-          <a href="{% url 'works:media' %}" class="ef-division-card works-division-card division-card media-card h-100 d-flex">
-            <div class="works-division-accent"></div>
-            <div class="ef-division-name works-division-title">EF Media</div>
-            <div class="ef-division-subtitle works-division-subtitle">Video · Audio · Content</div>
-            <p class="ef-division-desc works-division-desc">
-              Photography, video production, podcast, and digital content
-              strategy built to move audiences.
-            </p>
-            <span class="works-coming-soon">Coming Soon</span>
-          </a>
-        </div>
-
-        <!-- EF Studio -->
-        <div class="col-12 col-md-4">
-          <a href="{% url 'works:studio' %}" class="ef-division-card works-division-card division-card studio-card h-100 d-flex">
-            <div class="works-division-accent"></div>
-            <div class="ef-division-name works-division-title">EF Studio</div>
-            <div class="ef-division-subtitle works-division-subtitle">Creative Writing &amp; Storytelling</div>
-            <p class="ef-division-desc works-division-desc">
-              Copywriting, editorial, ghostwriting, and narrative brand voice
-              for projects that need a soul.
-            </p>
-            <span class="works-coming-soon">Coming Soon</span>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <div class="ef-divider"></div>
-
   </div>
 
-  <!-- Aythnyk featured section -->
-  <section class="works-aythnyk-section">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6">
-          <a href="{% url 'aythnyk:aythnyk_home' %}" class="works-aythnyk-card">
-            <p class="works-aythnyk-eyebrow">The Artist Behind the Work</p>
-            <h2 class="works-aythnyk-name">Aythnyk</h2>
-            <p class="works-aythnyk-desc">
-              Alongside our studio work lives a poetic universe —
-              a space of verses, silence, and stories in Spanish.
-              Etherflame Works is the structure; Aythnyk is the spirit.
-            </p>
-            <span class="works-aythnyk-link">Visitar →</span>
-          </a>
-        </div>
+  <!-- ══════════════════════════════════════
+       3. STATEMENT — una frase que golpea
+  ══════════════════════════════════════ -->
+  <section class="wh-statement">
+    <div class="wh-statement__inner">
+      <p class="wh-statement__label">Who We Are</p>
+      <h2 class="wh-statement__text">
+        A creative studio for brands<br>
+        that need more than<br>
+        <em>a website.</em>
+      </h2>
+      <div class="wh-statement__body">
+        <p>Etherflame Works builds digital experiences where technology, design, and storytelling move together. We create the structure behind a brand's presence — from full-stack web systems and visual identities to content, media, and data-driven experiences.</p>
+        <p>Our work is intentional, refined, and personal. Every project is shaped around the voice, goals, and emotional direction of the brand behind it.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       4. WHY US — 4 razones en grid
+  ══════════════════════════════════════ -->
+  <section class="wh-why">
+    <p class="wh-section-label">Why Etherflame</p>
+    <div class="wh-why__grid">
+      <div class="wh-why__item">
+        <span class="wh-why__num">01</span>
+        <h3>Design with direction</h3>
+        <p>Every visual choice is connected to purpose, positioning, and brand perception.</p>
+      </div>
+      <div class="wh-why__item">
+        <span class="wh-why__num">02</span>
+        <h3>Technical execution</h3>
+        <p>We do not only make things look good — we build systems that work underneath.</p>
+      </div>
+      <div class="wh-why__item">
+        <span class="wh-why__num">03</span>
+        <h3>Story-first thinking</h3>
+        <p>Your brand should not feel generic. It should communicate voice, identity, and emotion.</p>
+      </div>
+      <div class="wh-why__item">
+        <span class="wh-why__num">04</span>
+        <h3>Small studio focus</h3>
+        <p>Intentional collaboration, refined detail, and work shaped around each project.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       5. DIVISIONS — 3 cards grandes
+  ══════════════════════════════════════ -->
+  <section class="wh-divisions">
+    <p class="wh-section-label">Our Divisions</p>
+    <div class="wh-divisions__grid">
+
+      <a href="{% url 'works:design' %}" class="wh-div-card wh-div-card--design">
+        <div class="wh-div-card__num">01</div>
+        <div class="wh-div-card__body">
+          <h3 class="wh-div-card__name">EF Design</h3>
+          <p class="wh-div-card__sub">Creative Technology &amp; Design</p>
+          <p class="wh-div-card__desc">Full-stack web development, UI/UX, branding, data visualisation, e-commerce, API integration, and database architecture.</p>
+        </div>
+        <span class="wh-div-card__cta">View Services →</span>
+      </a>
+
+      <a href="{% url 'works:media' %}" class="wh-div-card wh-div-card--media">
+        <div class="wh-div-card__num">02</div>
+        <div class="wh-div-card__body">
+          <h3 class="wh-div-card__name">EF Media</h3>
+          <p class="wh-div-card__sub">Video · Audio · Content</p>
+          <p class="wh-div-card__desc">Photography, video production, podcast, and digital content strategy built to move audiences.</p>
+        </div>
+        <span class="wh-div-card__badge">Coming Soon</span>
+      </a>
+
+      <a href="{% url 'works:studio' %}" class="wh-div-card wh-div-card--studio">
+        <div class="wh-div-card__num">03</div>
+        <div class="wh-div-card__body">
+          <h3 class="wh-div-card__name">EF Studio</h3>
+          <p class="wh-div-card__sub">Creative Writing &amp; Storytelling</p>
+          <p class="wh-div-card__desc">Copywriting, editorial, ghostwriting, and narrative brand voice for projects that need a soul.</p>
+        </div>
+        <span class="wh-div-card__badge">Coming Soon</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       6. MISSION / VISION — lado a lado
+  ══════════════════════════════════════ -->
+  <section class="wh-mv">
+    <div class="wh-mv__card">
+      <p class="wh-mv__label">Mission</p>
+      <p class="wh-mv__text">To design and build digital work that feels intentional, elegant, and alive — combining technical structure with visual identity and emotional clarity.</p>
+    </div>
+    <div class="wh-mv__divider"></div>
+    <div class="wh-mv__card">
+      <p class="wh-mv__label">Vision</p>
+      <p class="wh-mv__text">To become a trusted creative technology studio for founders, creators, and businesses who want a brand presence that feels premium, memorable, and built to grow.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       7. CTA BOLD — una frase + botón
+  ══════════════════════════════════════ -->
+  <section class="wh-cta-bold">
+    <h2 class="wh-cta-bold__text">
+      Ready to build<br>something that lasts?
+    </h2>
+    <a href="{% url 'works:design' %}" class="wh-btn-primary">Start with EF Design</a>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       8. AYTHNYK — sección de cierre
+  ══════════════════════════════════════ -->
+  <section class="wh-aythnyk">
+    <div class="wh-aythnyk__inner">
+      <p class="wh-aythnyk__eyebrow">The Artist Behind the Work</p>
+      <h2 class="wh-aythnyk__name">Aythnyk</h2>
+      <p class="wh-aythnyk__desc">Alongside our studio work lives a poetic universe — a space of verses, silence, and stories in Spanish. Etherflame Works is the structure; Aythnyk is the spirit.</p>
+      <a href="{% url 'aythnyk:aythnyk_home' %}" class="wh-aythnyk__link">Visitar →</a>
     </div>
   </section>
 
