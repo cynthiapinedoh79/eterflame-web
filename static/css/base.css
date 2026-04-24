@@ -321,20 +321,20 @@ pre {
    5. NAVBAR
 =================================================== */
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1030;
+  position: relative;
+  z-index: 1050;
   height: 64px;
   display: flex;
   align-items: center;
   padding: 0;
-  background: rgba(10, 8, 4, 0.97) !important;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(212, 168, 67, 0.12);
+  background: #0a0804 !important;
+  border-bottom: 1px solid #1e1a10;
 }
+
+/* Ensure hero never covers the navbar */
+.wh-hero        { position: relative; z-index: 1; }
+.wh-hero__bg-text { z-index: 0; }
+.wh-hero__inner { z-index: 2; }
 
 .navbar .container-fluid {
   height: 64px;
@@ -2329,4 +2329,48 @@ p.text-end.m-3 {
   transition: color .2s ease;
 }
 .page-back:hover { color: #c49a40; }
+
+/* ── FOOTER ── */
+.footer {
+  background: #0a0804;
+  border-top: 1px solid #1e1a10;
+}
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  letter-spacing: 4px;
+  color: #c49a40;
+  margin: 0;
+}
+.footer-social {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.footer-social a {
+  color: #6b5f45;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.footer-social a:hover             { color: #c49a40; }
+.footer-social a:hover .fa-instagram { color: #E1306C; }
+.footer-social a:hover .fa-tiktok    { color: #69C9D0; }
+.footer-social a:hover .fa-facebook  { color: #1877F2; }
+.footer-social a:hover .fa-spotify   { color: #1DB954; }
+.footer-social a:hover .fa-youtube   { color: #FF0000; }
+.footer-copy {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .72rem;
+  letter-spacing: 2px;
+  color: #3a3228;
+  margin: 0;
+}
 

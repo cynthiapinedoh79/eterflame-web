@@ -119,13 +119,43 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer py-3 dark-bg">
-        <p class="m-0 text-center text-white">
-    {% block copyright %}
-    ETER FLAME &copy; 2025 · Aythnyk
-    {% endblock copyright %}
-        </p>
+    <footer class="footer py-4 dark-bg">
+      <div class="container">
+        <div class="footer-inner">
 
+          <p class="footer-brand">ETER FLAME</p>
+
+          <div class="footer-social">
+            <a href="https://instagram.com/aythnyk" target="_blank"
+               rel="noopener" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://tiktok.com/@aythnyk" target="_blank"
+               rel="noopener" aria-label="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://facebook.com/aythnyk" target="_blank"
+               rel="noopener" aria-label="Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://open.spotify.com" target="_blank"
+               rel="noopener" aria-label="Spotify">
+              <i class="fab fa-spotify"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank"
+               rel="noopener" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+
+          <p class="footer-copy">
+            {% block copyright %}
+            ETER FLAME &copy; 2025 · Aythnyk
+            {% endblock copyright %}
+          </p>
+
+        </div>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
