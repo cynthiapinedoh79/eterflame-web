@@ -77,7 +77,7 @@
     <div class="container">
       <p class="ah-section-label">Explora</p>
       <div class="row g-3 justify-content-center">
-        <div class="col-12 col-sm-6 col-lg-3">
+        <div class="col-12 col-sm-6 col-lg-4">
           <a href="{% url 'poetry:poem_list' %}" class="aythnyk-nav-card">
             <span class="aythnyk-nav-num">01</span>
             <h3 class="aythnyk-nav-title">Poemas</h3>
@@ -85,7 +85,7 @@
             <span class="aythnyk-nav-cta">Explorar →</span>
           </a>
         </div>
-        <div class="col-12 col-sm-6 col-lg-3">
+        <div class="col-12 col-sm-6 col-lg-4">
           <a href="{% url 'blog:bloghome' %}" class="aythnyk-nav-card">
             <span class="aythnyk-nav-num">02</span>
             <h3 class="aythnyk-nav-title">Blog</h3>
@@ -93,7 +93,7 @@
             <span class="aythnyk-nav-cta">Leer →</span>
           </a>
         </div>
-        <div class="col-12 col-sm-6 col-lg-3">
+        <div class="col-12 col-sm-6 col-lg-4">
           <a href="{% url 'songs:song_list' %}" class="aythnyk-nav-card">
             <span class="aythnyk-nav-num">03</span>
             <h3 class="aythnyk-nav-title">Canciones</h3>
@@ -101,15 +101,24 @@
             <span class="aythnyk-nav-cta">Escuchar →</span>
           </a>
         </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-          <a href="{% url 'poetry:tools' %}" class="aythnyk-nav-card">
-            <span class="aythnyk-nav-num">04</span>
-            <h3 class="aythnyk-nav-title">Herramientas</h3>
-            <p class="aythnyk-nav-desc">Las apps que uso para crear</p>
-            <span class="aythnyk-nav-cta">Ver →</span>
-          </a>
-        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- TOOLS STRIP -->
+  <section class="ah-tools-strip">
+    <div class="ah-tools-strip__inner">
+      <div class="ah-tools-strip__text">
+        <p class="ah-tools-strip__label">Aythnyk · Creatividad</p>
+        <h3 class="ah-tools-strip__title">Las herramientas que uso para crear</h3>
+        <p class="ah-tools-strip__desc">
+          ElevenLabs para la voz, DistroKid para la música,
+          Canva para el diseño. Todo lo que hay detrás.
+        </p>
+      </div>
+      <a href="{% url 'poetry:tools' %}" class="aythnyk-cta-secondary ah-tools-strip__btn">
+        Ver herramientas →
+      </a>
     </div>
   </section>
 

@@ -510,3 +510,51 @@
   .ah-series__grid { grid-template-columns: 1fr; }
   .ah-works-cta { padding: 4rem 1.25rem; }
 }
+
+/* ── TOOLS STRIP ── */
+.ah-tools-strip {
+  background: #080604;
+  border-top: 1px solid #1a1008;
+  border-bottom: 1px solid #1a1008;
+  padding: 2.5rem 2rem;
+}
+.ah-tools-strip__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.ah-tools-strip__label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .6rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #c49a40;
+  margin-bottom: .4rem;
+}
+.ah-tools-strip__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #f5e0b0;
+  margin: 0 0 .4rem;
+}
+.ah-tools-strip__desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .78rem;
+  color: #6b5f45;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 480px;
+}
+.ah-tools-strip__btn {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .ah-tools-strip__inner { flex-direction: column; align-items: flex-start; }
+  .ah-tools-strip { padding: 2rem 1.25rem; }
+}
