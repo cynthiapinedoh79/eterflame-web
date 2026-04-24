@@ -72,9 +72,9 @@
     {% if song.instagram_url %}
     <a href="{{ song.instagram_url }}" target="_blank" rel="noopener"
        class="sd-hook-card">
-      {% if song.instagram_thumbnail %}
+      {% if song.reel_thumbnail %}
       <div class="sd-hook-thumb"
-           style="background-image:url('{{ song.instagram_thumbnail.url }}')"></div>
+           style="background-image:url('{{ song.reel_thumbnail.url }}')"></div>
       {% else %}
       <div class="sd-hook-thumb sd-hook-nothumb"></div>
       {% endif %}
@@ -88,9 +88,9 @@
     {% if song.tiktok_url %}
     <a href="{{ song.tiktok_url }}" target="_blank" rel="noopener"
        class="sd-hook-card">
-      {% if song.tiktok_thumbnail %}
+      {% if song.reel_thumbnail %}
       <div class="sd-hook-thumb"
-           style="background-image:url('{{ song.tiktok_thumbnail.url }}')"></div>
+           style="background-image:url('{{ song.reel_thumbnail.url }}')"></div>
       {% else %}
       <div class="sd-hook-thumb sd-hook-nothumb"></div>
       {% endif %}
@@ -104,9 +104,9 @@
     {% if song.facebook_url %}
     <a href="{{ song.facebook_url }}" target="_blank" rel="noopener"
        class="sd-hook-card">
-      {% if song.facebook_thumbnail %}
+      {% if song.reel_thumbnail %}
       <div class="sd-hook-thumb"
-           style="background-image:url('{{ song.facebook_thumbnail.url }}')"></div>
+           style="background-image:url('{{ song.reel_thumbnail.url }}')"></div>
       {% else %}
       <div class="sd-hook-thumb sd-hook-nothumb"></div>
       {% endif %}

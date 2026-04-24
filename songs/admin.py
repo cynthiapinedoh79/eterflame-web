@@ -25,9 +25,8 @@ class SongAdmin(admin.ModelAdmin):
         ('Social hooks', {
             'description': 'Thumbnails + links shown on the song page',
             'fields': (
-                'instagram_url', 'instagram_thumbnail',
-                'tiktok_url', 'tiktok_thumbnail',
-                'facebook_url', 'facebook_thumbnail',
+                'instagram_url', 'tiktok_url', 'facebook_url',
+                'reel_thumbnail',
             )
         }),
         ('PDF download', {

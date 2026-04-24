@@ -29,19 +29,11 @@ class Song(models.Model):
                         help_text="YouTube video URL (poem image + voice + music) — shown on page"
                       )
     instagram_url   = models.URLField(blank=True, help_text="Instagram reel URL")
-    instagram_thumbnail = CloudinaryField(
-                        'instagram_thumb', blank=True,
-                        help_text="Instagram reel thumbnail"
-                      )
     tiktok_url      = models.URLField(blank=True, help_text="TikTok hook URL")
-    tiktok_thumbnail = CloudinaryField(
-                        'tiktok_thumb', blank=True,
-                        help_text="TikTok hook thumbnail"
-                      )
     facebook_url    = models.URLField(blank=True, help_text="Facebook reel URL")
-    facebook_thumbnail = CloudinaryField(
-                        'facebook_thumb', blank=True,
-                        help_text="Facebook reel thumbnail"
+    reel_thumbnail  = CloudinaryField(
+                        'reel_thumb', blank=True,
+                        help_text="Shared thumbnail for all social hooks (Instagram, TikTok, Facebook)"
                       )
     cover_image     = CloudinaryField('image', blank=True)
     pdf_price       = models.DecimalField(max_digits=6, decimal_places=2,
