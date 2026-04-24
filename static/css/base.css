@@ -2316,3 +2316,17 @@ p.text-end.m-3 {
   }
 }
 
+/* ── BACK LINK — universal ── */
+.page-back {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .68rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #666;
+  text-decoration: none;
+  padding: 1.25rem 2rem 0;
+  display: block;
+  transition: color .2s ease;
+}
+.page-back:hover { color: #c49a40; }
+
