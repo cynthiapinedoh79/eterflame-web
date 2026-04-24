@@ -246,36 +246,42 @@ pre {
 /* ================================================
    4. BUTTONS / LINKS
 =================================================== */
-.btn-signup,
-.btn-edit {
-  background-color: var(--bg-dark);
-  color: var(--color-primary-text);
-}
-
-.btn-signup,
 .btn-edit,
 .btn-delete,
 .btn-like {
   transition: all 0.2s ease;
 }
 
-.btn-signup {
-  border-radius: 999px;
-  padding: 8px 18px;
+/* Main gold CTA button — used on auth, about, profile pages */
+.btn-signup,
+.btn.btn-signup {
+  display: inline-block;
+  padding: .9rem 2rem;
+  background: #c49a40;
+  color: #0a0804;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .72rem;
   font-weight: 700;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background .25s ease;
 }
-
 .btn-signup:hover,
-.btn-signup:active {
-  background-color: var(--color-danger);
-  color: var(--color-danger-text);
-  transform: translateY(-1px);
+.btn.btn-signup:hover {
+  background: #e8c06a;
+  color: #0a0804;
+  text-decoration: none;
+  transform: none;
 }
-
-.btn-signup:active {
-  transform: translateY(0);
+.btn-signup.btn-block,
+.btn-signup.d-block {
+  display: block;
+  width: 100%;
 }
 
 .btn-edit:hover {
@@ -505,49 +511,62 @@ pre {
 /* ================================================
    7. SOCIAL LOGIN
 =================================================== */
-.social-login-section {
-  margin-top: 28px;
-  padding: 12px 0 4px;
+.social-login-section { margin-top: 1rem; }
+.social-login-section h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .65rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #6b5f45;
+  margin-bottom: 1rem;
+  text-align: center;
 }
-
-.social-login-section .socialaccount_providers {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-  display: block;
-  width: 100%;
-  max-width: 520px;
-}
-
-.social-login-section .socialaccount_providers li {
-  margin-bottom: 12px;
-}
-
-.social-login-section .socialaccount_providers a {
+.socialaccount_providers { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .75rem; }
+.socialaccount_providers li a,
+.social-auth-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  gap: .85rem;
   width: 100%;
-  min-height: 44px;
-  padding: 10px 16px 10px 54px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 1rem;
-  line-height: 1.2;
+  padding: .75rem 1.25rem;
+  border-radius: 2px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .82rem;
+  font-weight: 500;
   text-decoration: none;
-  position: relative;
-  isolation: isolate;
-  color: #fff !important;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.06);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.2s ease, color 0.2s ease;
+  transition: opacity .2s ease, transform .15s ease;
+  cursor: pointer;
+  border: none;
 }
+.socialaccount_providers li a:hover,
+.social-auth-btn:hover { opacity: .88; transform: translateY(-1px); text-decoration: none; }
 
-.social-login-section .socialaccount_providers a::before {
-  content: none;
+.socialaccount_providers li:has([href*="google"]) a,
+a[href*="google"].social-auth-btn {
+  background: #fff;
+  color: #1f1f1f;
+  border: 1px solid #dadce0;
 }
-
+.socialaccount_providers li:has([href*="facebook"]) a,
+a[href*="facebook"].social-auth-btn {
+  background: #1877F2;
+  color: #fff;
+}
+.socialaccount_providers li a::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.socialaccount_providers li:has([href*="google"]) a::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z'/%3E%3Cpath fill='%2334A853' d='M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z'/%3E%3Cpath fill='%23FBBC05' d='M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z'/%3E%3Cpath fill='%23EA4335' d='M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z'/%3E%3C/svg%3E");
+}
+.socialaccount_providers li:has([href*="facebook"]) a::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z'/%3E%3C/svg%3E");
+}
 .social-login-section .social-icon {
   position: absolute;
   left: 10px;
@@ -555,128 +574,121 @@ pre {
   height: 36px;
   padding: 6px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.75), 0 2px 6px rgba(0, 0, 0, 0.08);
-}
-
-.social-login-section .google a,
-.social-login-section .facebook a {
-  background: linear-gradient(180deg, #5e4a66 0%, var(--bg-dark) 100%);
-  color: var(--color-primary-text) !important;
-}
-
-.social-login-section .socialaccount_providers a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-  background: var(--color-danger);
-}
-
-.social-login-section .socialaccount_providers a:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08);
-}
-
-.social-login-section .facebook a:hover::after,
-.social-login-section .google a:hover::after {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border-radius: inherit;
-  background: radial-gradient(120px 60px at center, rgba(255, 255, 255, 0.22), transparent 60%);
-  z-index: -1;
-  filter: blur(6px);
-}
-
-@media (max-width: 480px) {
-  .social-login-section .socialaccount_providers a {
-    font-size: 0.95rem;
-    padding: 10px 14px 10px 52px;
-  }
-
-  .social-login-section .social-icon {
-    width: 32px;
-    height: 32px;
-    padding: 7px;
-  }
-}
-
-@media (min-width: 992px) {
-  .social-login-section .socialaccount_providers {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    max-width: 720px;
-  }
-
-  .social-login-section .socialaccount_providers li {
-    margin-bottom: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .social-login-section .socialaccount_providers a {
-    transition: none;
-  }
+  background: rgba(255,255,255,.92);
 }
 
 /* ================================================
    8. LOGIN PAGE
 =================================================== */
 .login-page {
-  background: var(--bg-base);
   min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 20px;
+  padding: 3rem 1.5rem;
+  background: #0a0804;
 }
-
 .login-card {
-  background: var(--bg-card);
-  border: 1px solid rgba(212, 168, 67, 0.2);
-  border-radius: 10px;
-  padding: 52px 56px;
-  max-width: 480px;
+  background: #111008;
+  border: 1px solid #1e1a10;
+  border-radius: 4px;
+  padding: 2.5rem 2rem;
   width: 100%;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(212, 168, 67, 0.05);
+  max-width: 480px;
 }
-
 .login-title {
-  font-family: var(--font-display);
+  font-family: 'Cormorant Garamond', serif;
   font-size: 2.2rem;
-  font-weight: 400;
-  letter-spacing: 4px;
-  color: var(--text-primary);
-  margin-bottom: 6px;
+  font-weight: 300;
+  color: #f5e0b0;
+  letter-spacing: 2px;
+  margin: 0 0 .5rem;
 }
-
 .login-subtitle {
-  color: var(--text-subtle);
-  font-size: 14px;
-  margin-bottom: 36px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .85rem;
+  color: #6b5f45;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.login-subtitle a,
+.login-subtitle .link,
+a.link { color: #c49a40; text-decoration: none; }
+.login-subtitle a:hover,
+a.link:hover { color: #e8c06a; }
+
+.login-card label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #6b5f45;
+  display: block;
+  margin-bottom: .4rem;
+}
+.login-card input[type="text"],
+.login-card input[type="email"],
+.login-card input[type="password"] {
+  width: 100%;
+  background: #0a0804;
+  border: 1px solid #2a2010;
+  color: #f5e0b0;
+  padding: .75rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .88rem;
+  border-radius: 2px;
+  outline: none;
+  transition: border-color .2s ease;
+  margin-bottom: 1rem;
+}
+.login-card input[type="text"]:focus,
+.login-card input[type="email"]:focus,
+.login-card input[type="password"]:focus { border-color: #c49a40; }
+.login-card input[type="text"]::placeholder,
+.login-card input[type="email"]::placeholder,
+.login-card input[type="password"]::placeholder { color: #3a3020; }
+.login-card input[type="checkbox"] { accent-color: #c49a40; margin-right: .5rem; }
+.login-card hr { border-color: #1e1a10; margin: 1.25rem 0; }
+
+.forgot-password {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .78rem;
+  margin-bottom: 1rem;
+}
+.forgot-password a { color: #6b5f45; text-decoration: none; transition: color .2s; }
+.forgot-password a:hover { color: #c49a40; }
+
+.field-error {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .75rem;
+  color: #e05070;
+  margin-top: -.75rem;
+  margin-bottom: .75rem;
 }
 
 .login-card form .btn {
-  background: var(--ew-primary);
-  color: var(--text-on-gold) !important;
-  font-family: var(--font-mono);
-  font-size: 11px;
+  display: block;
+  width: 100%;
+  padding: .9rem;
+  background: #c49a40;
+  color: #0a0804 !important;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  font-weight: 700;
-  border-radius: 4px;
-  padding: 14px;
-  width: 100%;
   border: none;
-  transition: all 0.2s;
-  margin-top: 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  text-align: center;
+  transition: background .25s ease;
+  margin-top: .5rem;
 }
-
 .login-card form .btn:hover {
-  background: var(--ew-light);
-  color: var(--text-on-gold) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(212, 168, 67, 0.3);
+  background: #e8c06a;
+  color: #0a0804 !important;
+  transform: none;
+  box-shadow: none;
 }
 
 /* ================================================

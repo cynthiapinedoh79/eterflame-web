@@ -1,29 +1,25 @@
 {% extends "base.html" %}
-
 {% load i18n %}
 
-{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+{% block head_title %}Sign Out{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign Out" %}</h3>
-
-            <p>{% trans 'Are you sure you want to sign out?' %}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-
-            <form method="post" action="{% url 'account_logout' %}">
-                {% csrf_token %}
-                {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                {% endif %}
-                <button class="btn btn-signup right" type="submit">{% trans 'Sign Out' %}</button>
-            </form>
-        </div>
-    </div>
+<div class="login-page">
+  <div class="login-card" style="text-align:center">
+    <h3 class="login-title">Sign Out</h3>
+    <p class="login-subtitle" style="text-align:center;margin-bottom:2rem">
+      Are you sure you want to sign out?
+    </p>
+    <form method="post" action="{% url 'account_logout' %}">
+      {% csrf_token %}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <button class="btn btn-signup" type="submit" style="display:block;width:100%">Sign Out</button>
+    </form>
+    <p style="margin-top:1rem;font-family:'DM Sans',sans-serif;font-size:.78rem;color:#6b5f45">
+      <a href="{% url 'works:works_home' %}" style="color:#6b5f45;text-decoration:none">← Back to home</a>
+    </p>
+  </div>
 </div>
 {% endblock %}
