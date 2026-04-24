@@ -119,41 +119,77 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer py-4 dark-bg">
-      <div class="container">
-        <div class="footer-inner">
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-top__inner">
 
-          <p class="footer-brand">ETER FLAME</p>
-
-          <div class="footer-social">
-            <a href="https://instagram.com/aythnyk" target="_blank"
-               rel="noopener" aria-label="Instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://tiktok.com/@aythnyk" target="_blank"
-               rel="noopener" aria-label="TikTok">
-              <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="https://facebook.com/aythnyk" target="_blank"
-               rel="noopener" aria-label="Facebook">
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://open.spotify.com" target="_blank"
-               rel="noopener" aria-label="Spotify">
-              <i class="fab fa-spotify"></i>
-            </a>
-            <a href="https://youtube.com" target="_blank"
-               rel="noopener" aria-label="YouTube">
-              <i class="fab fa-youtube"></i>
-            </a>
+          <!-- Brand + tagline -->
+          <div class="footer-col footer-col--brand">
+            <p class="footer-logo">ETERFLAME</p>
+            <p class="footer-tagline">Creative &amp; Digital Production</p>
+            <p class="footer-tagline-sub">Design · Media · Studio</p>
           </div>
 
+          <!-- Navigation -->
+          <div class="footer-col">
+            <p class="footer-col__title">Navigate</p>
+            <ul class="footer-links">
+              <li><a href="{% url 'works:works_home' %}">Etherflame Works</a></li>
+              <li><a href="{% url 'works:design' %}">EF Design</a></li>
+              <li><a href="{% url 'works:media' %}">EF Media</a></li>
+              <li><a href="{% url 'works:studio' %}">EF Studio</a></li>
+              <li><a href="{% url 'works:resources' %}">Resources</a></li>
+            </ul>
+          </div>
+
+          <!-- Aythnyk -->
+          <div class="footer-col">
+            <p class="footer-col__title">Aythnyk</p>
+            <ul class="footer-links">
+              <li><a href="{% url 'aythnyk:aythnyk_home' %}">Inicio</a></li>
+              <li><a href="{% url 'poetry:poem_list' %}">Poemas</a></li>
+              <li><a href="{% url 'songs:song_list' %}">Canciones</a></li>
+              <li><a href="{% url 'blog:bloghome' %}">Blog</a></li>
+              <li><a href="{% url 'poetry:tools' %}">Herramientas</a></li>
+            </ul>
+          </div>
+
+          <!-- Social -->
+          <div class="footer-col">
+            <p class="footer-col__title">Follow</p>
+            <div class="footer-social">
+              <a href="https://instagram.com/aythnyk" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://tiktok.com/@aythnyk" target="_blank" rel="noopener" aria-label="TikTok">
+                <i class="fab fa-tiktok"></i>
+              </a>
+              <a href="https://facebook.com/aythnyk" target="_blank" rel="noopener" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="https://open.spotify.com" target="_blank" rel="noopener" aria-label="Spotify">
+                <i class="fab fa-spotify"></i>
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <div class="footer-bottom__inner">
           <p class="footer-copy">
             {% block copyright %}
-            ETER FLAME &copy; 2025 · Aythnyk
+            ETERFLAME &copy; 2025 · All rights reserved
             {% endblock copyright %}
           </p>
-
+          <p class="footer-copy footer-copy--right">
+            Etherflame Works · Aythnyk
+          </p>
         </div>
       </div>
     </footer>
