@@ -94,6 +94,7 @@ INSTALLED_APPS = [
     'design_app',
     'media_app',
     'studio_app',
+    'songs',
 ]
 
 SITE_ID = 1

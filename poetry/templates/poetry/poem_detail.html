@@ -3,7 +3,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/poetry.css' %}?v={% now 'U' %}">
-
+<link rel="stylesheet" href="{% static 'css/songs.css' %}">
 {% endblock %}
 {# No longer need PLACEHOLDER_IMG_URL since we're hardcoding the path below #}
 
@@ -11,6 +11,8 @@
 <div class="eter-breadcrumb">
   <a href="{% url 'aythnyk:aythnyk_home' %}" class="eter-back-link">← Aythnyk</a>
 </div>
+<div class="poem-with-panel">
+<div class="poem-main-col">
 <div class="container my-5">
 
   <div class="text-center mb-4">
@@ -127,6 +129,62 @@
     </div>
   </div>
 </div>
+</div><!-- /poem-main-col -->
+
+{% if related_songs %}
+{% with song=related_songs.first %}
+<aside class="song-panel">
+
+  {% if song.spotify_url or song.apple_music_url or song.pandora_url or song.youtube_music_url %}
+  <p class="song-panel__section-label">Escuchar canción</p>
+  <div class="song-panel__links">
+    {% if song.spotify_url %}
+    <a href="{{ song.spotify_url }}" target="_blank" rel="noopener"
+       class="song-panel__link song-panel__link--spotify">
+      Spotify
+    </a>
+    {% endif %}
+    {% if song.apple_music_url %}
+    <a href="{{ song.apple_music_url }}" target="_blank" rel="noopener"
+       class="song-panel__link song-panel__link--apple">
+      Apple Music
+    </a>
+    {% endif %}
+    {% if song.pandora_url %}
+    <a href="{{ song.pandora_url }}" target="_blank" rel="noopener"
+       class="song-panel__link song-panel__link--pandora">
+      Pandora
+    </a>
+    {% endif %}
+    {% if song.youtube_music_url %}
+    <a href="{{ song.youtube_music_url }}" target="_blank" rel="noopener"
+       class="song-panel__link song-panel__link--ytmusic">
+      YouTube Music
+    </a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if song.pdf_price and song.pdf_buy_url %}
+  <hr class="song-panel__divider">
+  <button class="song-panel__pdf-btn" onclick="openPdfModal()">
+    Descargar PDF — ${{ song.pdf_price }}
+  </button>
+  {% endif %}
+
+  <div class="song-panel__linked-poem" style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid #1e1e1e;">
+    <p class="song-panel__section-label">Canción</p>
+    <a href="{{ song.get_absolute_url }}" class="song-panel__poem-link">
+      <p class="song-panel__poem-label">Ver canción completa</p>
+      <p class="song-panel__poem-title">{{ song.title }}</p>
+    </a>
+  </div>
+
+</aside>
+{% endwith %}
+{% endif %}
+
+</div><!-- /poem-with-panel -->
 
 
 {# show the red banner above the footer #}
@@ -138,7 +196,34 @@
   </div>
 </div>
 
-{% endblock %} ```
+{% if related_songs %}
+{% with song=related_songs.first %}
+{% if song.pdf_price and song.pdf_buy_url %}
+<div class="pdf-modal-overlay" id="pdfModal">
+  <div class="pdf-modal">
+    <p class="pdf-modal__eyebrow">Descarga</p>
+    <h2 class="pdf-modal__title">{{ poem.title }}</h2>
+    <p class="pdf-modal__desc">PDF del poema · edición digital</p>
+    <p class="pdf-modal__price">${{ song.pdf_price }} USD</p>
+    <a href="{{ song.pdf_buy_url }}" target="_blank" rel="noopener"
+       class="pdf-modal__buy-btn">
+      Comprar y descargar
+    </a>
+    <button class="pdf-modal__close" onclick="closePdfModal()">Cancelar</button>
+  </div>
+</div>
+<script>
+function openPdfModal()  { document.getElementById('pdfModal').classList.add('is-open'); }
+function closePdfModal() { document.getElementById('pdfModal').classList.remove('is-open'); }
+document.getElementById('pdfModal').addEventListener('click', function(e){
+  if (e.target === this) closePdfModal();
+});
+</script>
+{% endif %}
+{% endwith %}
+{% endif %}
+
+{% endblock %}
 
 {% block extras %}
 <script src="{% static 'js/quote_banner.js' %}"></script>

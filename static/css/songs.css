@@ -1,0 +1,424 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SONGS · App Sonic — ETER FLAME
+   Accent: crimson #e0163a · gold #c49a40
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+:root {
+  --s-bg:        #0a0a0a;
+  --s-surface:   #111111;
+  --s-card:      #161616;
+  --s-border:    #1e1e1e;
+  --s-crimson:   #e0163a;
+  --s-crimson-bg:rgba(224,22,58,.12);
+  --s-gold:      #c49a40;
+  --s-gold-bg:   rgba(196,154,64,.1);
+  --s-white:     #f5f5f5;
+  --s-muted:     #666666;
+  --s-serif:     'Cormorant Garamond', serif;
+  --s-sans:      'DM Sans', sans-serif;
+  --s-ease:      0.28s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── SONG LIST PAGE ── */
+.songs-hero {
+  padding: 5rem 2rem 2.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--s-border);
+}
+.songs-hero__eyebrow {
+  font-family: var(--s-sans);
+  font-size: .7rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--s-crimson);
+  margin-bottom: 1rem;
+}
+.songs-hero__title {
+  font-family: var(--s-serif);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 300;
+  color: var(--s-white);
+  margin: 0 0 .75rem;
+}
+.songs-hero__title span { color: var(--s-gold); }
+.songs-hero__sub {
+  font-family: var(--s-sans);
+  font-size: .95rem;
+  color: var(--s-muted);
+}
+
+/* Filter tabs */
+.songs-filter {
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  flex-wrap: wrap;
+}
+.songs-filter__btn {
+  font-family: var(--s-sans);
+  font-size: .7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: .55rem 1.6rem;
+  border: 1px solid var(--s-border);
+  background: transparent;
+  color: var(--s-muted);
+  cursor: pointer;
+  border-radius: 3px;
+  transition: var(--s-ease);
+  text-decoration: none;
+  display: inline-block;
+}
+.songs-filter__btn:hover,
+.songs-filter__btn.is-active {
+  border-color: var(--s-crimson);
+  color: var(--s-crimson);
+  background: var(--s-crimson-bg);
+}
+
+/* Grid */
+.songs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5px;
+  background: var(--s-border);
+}
+.songs-grid__cell { background: var(--s-bg); }
+
+/* Card */
+.song-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  text-decoration: none;
+}
+.song-card__img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform .6s ease;
+}
+.song-card__fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(0,0,0,.94) 0%,
+    rgba(0,0,0,.35) 55%,
+    transparent 100%);
+}
+.song-card:hover .song-card__img { transform: scale(1.04); }
+.song-card__body { position: relative; z-index: 2; }
+.song-card__series {
+  font-family: var(--s-sans);
+  font-size: .62rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--s-crimson);
+  margin-bottom: .4rem;
+}
+.song-card__title {
+  font-family: var(--s-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--s-white);
+  margin: 0 0 .6rem;
+  line-height: 1.15;
+}
+.song-card__cta {
+  font-family: var(--s-sans);
+  font-size: .7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--s-gold);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: var(--s-ease);
+}
+.song-card:hover .song-card__cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── SONG DETAIL PAGE ── */
+.song-detail {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 2rem 4rem;
+  align-items: start;
+}
+.song-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--s-sans);
+  font-size: .7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--s-muted);
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+  transition: color var(--s-ease);
+}
+.song-detail__back:hover { color: var(--s-crimson); }
+.song-detail__series-tag {
+  font-family: var(--s-sans);
+  font-size: .65rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--s-crimson);
+  margin-bottom: .75rem;
+}
+.song-detail__title {
+  font-family: var(--s-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  color: var(--s-white);
+  margin: 0 0 2.5rem;
+}
+.song-player {
+  background: var(--s-card);
+  border: 1px solid var(--s-border);
+  border-radius: 3px;
+  padding: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+.song-player__label {
+  font-family: var(--s-sans);
+  font-size: .62rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--s-muted);
+  margin-bottom: .75rem;
+}
+.song-player iframe { width: 100%; border: none; }
+.song-lyrics__label {
+  font-family: var(--s-sans);
+  font-size: .62rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--s-muted);
+  margin-bottom: 1.25rem;
+}
+.song-lyrics__body {
+  font-family: var(--s-serif);
+  font-size: 1.2rem;
+  line-height: 2;
+  color: var(--s-white);
+  border-left: 2px solid var(--s-crimson);
+  padding-left: 1.75rem;
+  white-space: pre-line;
+}
+
+/* ── STICKY SIDE PANEL ── */
+.song-panel {
+  position: sticky;
+  top: 5rem;
+  background: var(--s-card);
+  border: 1px solid var(--s-border);
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+.song-panel__section-label {
+  font-family: var(--s-sans);
+  font-size: .6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--s-muted);
+  margin-bottom: 1rem;
+}
+.song-panel__links {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-bottom: 1.5rem;
+}
+.song-panel__link {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .65rem .9rem;
+  border: 1px solid var(--s-border);
+  border-radius: 3px;
+  text-decoration: none;
+  font-family: var(--s-sans);
+  font-size: .78rem;
+  color: var(--s-muted);
+  transition: var(--s-ease);
+}
+.song-panel__link:hover { color: var(--s-white); border-color: var(--s-muted); }
+.song-panel__link--spotify:hover  { border-color:#1DB954; color:#1DB954; }
+.song-panel__link--apple:hover    { border-color:#fc3c44; color:#fc3c44; }
+.song-panel__link--pandora:hover  { border-color:#3668FF; color:#3668FF; }
+.song-panel__link--ytmusic:hover  { border-color:#FF0000; color:#FF0000; }
+.song-panel__divider {
+  border: none;
+  border-top: 1px solid var(--s-border);
+  margin: 1.25rem 0;
+}
+.song-panel__pdf-btn {
+  width: 100%;
+  padding: .85rem;
+  background: var(--s-gold);
+  color: #0a0a0a;
+  border: none;
+  border-radius: 3px;
+  font-family: var(--s-sans);
+  font-size: .72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--s-ease);
+}
+.song-panel__pdf-btn:hover { background: #d4a844; }
+.song-panel__linked-poem {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--s-border);
+}
+.song-panel__poem-link {
+  display: block;
+  text-decoration: none;
+  padding: .75rem;
+  border: 1px solid var(--s-border);
+  border-radius: 3px;
+  transition: border-color var(--s-ease);
+}
+.song-panel__poem-link:hover { border-color: var(--s-gold); }
+.song-panel__poem-label {
+  font-family: var(--s-sans);
+  font-size: .6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--s-muted);
+  margin-bottom: .3rem;
+}
+.song-panel__poem-title {
+  font-family: var(--s-serif);
+  font-size: 1.05rem;
+  color: var(--s-white);
+}
+
+/* ── PDF MODAL ── */
+.pdf-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.pdf-modal-overlay.is-open { display: flex; }
+.pdf-modal {
+  background: var(--s-surface);
+  border: 1px solid var(--s-border);
+  border-radius: 6px;
+  padding: 2.5rem;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+}
+.pdf-modal__eyebrow {
+  font-family: var(--s-sans);
+  font-size: .65rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--s-crimson);
+  margin-bottom: .75rem;
+}
+.pdf-modal__title {
+  font-family: var(--s-serif);
+  font-size: 1.6rem;
+  color: var(--s-white);
+  margin-bottom: .5rem;
+}
+.pdf-modal__price {
+  font-family: var(--s-sans);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--s-gold);
+  margin: 1rem 0;
+}
+.pdf-modal__desc {
+  font-family: var(--s-sans);
+  font-size: .85rem;
+  color: var(--s-muted);
+  margin-bottom: 1.5rem;
+}
+.pdf-modal__buy-btn {
+  display: block;
+  width: 100%;
+  padding: .9rem;
+  background: var(--s-crimson);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+  font-family: var(--s-sans);
+  font-size: .75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: .75rem;
+  transition: background var(--s-ease);
+}
+.pdf-modal__buy-btn:hover { background: #c4112f; }
+.pdf-modal__close {
+  background: none;
+  border: none;
+  font-family: var(--s-sans);
+  font-size: .75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--s-muted);
+  cursor: pointer;
+  transition: color var(--s-ease);
+}
+.pdf-modal__close:hover { color: var(--s-white); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .song-detail {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 4rem 1.25rem 3rem;
+  }
+  .song-panel { position: static; }
+}
+@media (max-width: 600px) {
+  .songs-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 420px) {
+  .songs-grid { grid-template-columns: 1fr; }
+}
+
+/* ── POEM DETAIL integration ── */
+.poem-with-panel {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  align-items: start;
+}
+.poem-main-col {
+  min-width: 0;
+}
+@media (max-width: 960px) {
+  .poem-with-panel {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  .poem-with-panel .song-panel {
+    position: static;
+  }
+}

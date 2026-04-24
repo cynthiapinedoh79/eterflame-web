@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/songs.css' %}">
+{% endblock %}
+{% block content %}
+
+<section class="songs-hero">
+  <p class="songs-hero__eyebrow">Aythnyk · Música</p>
+  <h1 class="songs-hero__title">App <span>Sonic</span></h1>
+  <p class="songs-hero__sub">Poemas convertidos en sonido.</p>
+</section>
+
+<div class="songs-filter">
+  <a href="{% url 'songs:song_list' %}"
+     class="songs-filter__btn {% if not active_series %}is-active{% endif %}">
+    Todas
+  </a>
+  {% for val, label in series_choices %}
+  <a href="{% url 'songs:song_list' %}?series={{ val }}"
+     class="songs-filter__btn {% if active_series == val %}is-active{% endif %}">
+    {{ label }}
+  </a>
+  {% endfor %}
+</div>
+
+<div class="songs-grid">
+  {% for song in songs %}
+  <div class="songs-grid__cell">
+    <a href="{{ song.get_absolute_url }}" class="song-card">
+      <div class="song-card__img"
+           {% if song.cover_image %}
+           style="background-image:url('{{ song.cover_image.url }}')"
+           {% else %}
+           style="background:linear-gradient(135deg,#160007,#0a0a0a)"
+           {% endif %}></div>
+      <div class="song-card__fade"></div>
+      <div class="song-card__body">
+        <p class="song-card__series">{{ song.get_series_display }}</p>
+        <h2 class="song-card__title">{{ song.title }}</h2>
+        <span class="song-card__cta">▶ Escuchar</span>
+      </div>
+    </a>
+  </div>
+  {% empty %}
+  <div style="padding:4rem;text-align:center;color:#444;grid-column:1/-1">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#666">
+      Las canciones llegan pronto.
+    </p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

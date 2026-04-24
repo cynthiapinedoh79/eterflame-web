@@ -7,6 +7,7 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 
 from .models import Poem, Collection, Author
+from songs.models import Song
 
 
 def _build_poem_list_context(request):
@@ -80,6 +81,7 @@ def _build_poem_list_context(request):
         "current_author_slug": author_slug,
         "current_author": current_author,
         "favorite_poem_ids": favorite_poem_ids,
+        "series_list": Song.SERIES_CHOICES,
     }
 
 
@@ -96,6 +98,7 @@ def poem_detail(request, slug):
     context = {
         "poem": poem,
         "is_favorite": is_favorite,
+        "related_songs": poem.songs.filter(active=True),
     }
     return render(request, "poetry/poem_detail.html", context)
 
