@@ -58,6 +58,44 @@ def design(request):
     return render(request, 'works/design.html')
 
 
+def contact(request):
+    if request.method == 'POST':
+        name        = request.POST.get('name', '').strip()
+        email       = request.POST.get('email', '').strip()
+        service     = request.POST.get('service', '').strip()
+        budget      = request.POST.get('budget', '').strip()
+        timeline    = request.POST.get('timeline', '').strip()
+        description = request.POST.get('description', '').strip()
+
+        if name and email and description:
+            try:
+                send_mail(
+                    subject=f'[ETER FLAME] New inquiry from {name}',
+                    message=(
+                        f"Name: {name}\n"
+                        f"Email: {email}\n"
+                        f"Service: {service}\n"
+                        f"Budget: {budget}\n"
+                        f"Timeline: {timeline}\n\n"
+                        f"Message:\n{description}"
+                    ),
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    recipient_list=[settings.EMAIL_HOST_USER],
+                    fail_silently=False,
+                )
+                messages.success(request,
+                    'Your message has been sent. We will be in touch shortly.')
+            except Exception:
+                messages.error(request,
+                    'Something went wrong. Please try again.')
+        else:
+            messages.error(request, 'Please fill in all required fields.')
+
+        return redirect('works:contact')
+
+    return render(request, 'works/contact.html')
+
+
 def media(request):
     return render(request, 'works/media.html')
 
