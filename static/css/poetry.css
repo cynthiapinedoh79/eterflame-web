@@ -1948,3 +1948,135 @@ a.text-decoration-none:hover {
   transform: scale(1.06) !important;
   filter: brightness(1.03) !important;
 }
+
+/* ================================================
+   AYTHNYK HOME PAGE — hero, nav cards, CTA
+   ================================================ */
+.aythnyk-hero {
+  padding: 5rem 0 3rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--bg-dark, #130e05) 0%, var(--bg-body, #0a0804) 100%);
+}
+.aythnyk-eyebrow {
+  font-family: 'Courier Prime', monospace;
+  font-size: .72rem;
+  letter-spacing: 4px;
+  color: var(--color-text-muted, #7a5c2e);
+  text-transform: uppercase;
+  margin-bottom: .8rem;
+}
+.aythnyk-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 300;
+  color: var(--color-gold, #c49a40);
+  letter-spacing: 8px;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.aythnyk-phrase {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  color: var(--color-text-dark, #f5e0b0);
+  max-width: 620px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+.aythnyk-cta-primary {
+  font-family: 'Courier Prime', monospace;
+  font-size: .78rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-gold, #c49a40);
+  border: 1px solid var(--color-gold, #c49a40);
+  background: transparent;
+  padding: .65rem 2rem;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+  display: inline-block;
+  margin: .3rem;
+}
+.aythnyk-cta-primary:hover {
+  background: var(--color-gold, #c49a40);
+  color: var(--bg-dark, #130e05);
+  text-decoration: none;
+}
+.aythnyk-cta-secondary {
+  font-family: 'Courier Prime', monospace;
+  font-size: .78rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #7a5c2e);
+  background: transparent;
+  border: 1px solid rgba(122,92,46,.4);
+  padding: .65rem 2rem;
+  text-decoration: none;
+  transition: color .2s, border-color .2s;
+  display: inline-block;
+  margin: .3rem;
+}
+.aythnyk-cta-secondary:hover {
+  color: var(--color-gold, #c49a40);
+  border-color: rgba(196,154,64,.5);
+  text-decoration: none;
+}
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1px;
+  border: 1px solid rgba(196,154,64,.1);
+}
+.collection-card {
+  display: block;
+  text-decoration: none;
+  background: var(--bg-dark, #130e05);
+  overflow: hidden;
+  transition: background .2s;
+}
+.collection-card:hover { background: rgba(196,154,64,.05); text-decoration: none; }
+.collection-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  opacity: .75;
+  transition: opacity .25s;
+}
+.collection-card:hover img { opacity: 1; }
+.collection-card-body { padding: 1rem 1.2rem 1.4rem; }
+.collection-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+  color: var(--color-gold, #c49a40);
+  margin-bottom: .3rem;
+}
+.collection-card-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .82rem;
+  color: var(--color-text-muted, #7a5c2e);
+  line-height: 1.5;
+  margin: 0;
+}
+.ef-works-cta {
+  border-top: 1px solid rgba(196,154,64,.12);
+  padding: 4rem 0;
+  text-align: center;
+}
+.ef-works-cta h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 4px;
+  color: var(--color-gold, #c49a40);
+  margin-bottom: .5rem;
+}
+.ef-works-cta p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .92rem;
+  color: var(--color-text-dark, #f5e0b0);
+  max-width: 480px;
+  margin: 0 auto 1.8rem;
+  line-height: 1.7;
+}
