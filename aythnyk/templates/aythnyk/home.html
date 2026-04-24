@@ -6,33 +6,77 @@
 {% endblock %}
 
 {% block content %}
-<div class="section-aythnyk" style="background:var(--bg-body,#0a0804);">
+<div class="section-aythnyk ah-page">
 
-  <!-- Hero -->
-  <section class="aythnyk-hero">
-    <div class="container">
-      <p class="aythnyk-eyebrow">Arte · Poesía · Alma</p>
-      <h1 class="aythnyk-title">AYTHNYK</h1>
-      <p class="aythnyk-phrase">
-        El arte de expresar emociones, pensamientos y sentimientos es un don.
-        Abre ante nosotros un camino de posibilidades — un espacio para reflexionar,
-        para transformar.
+  <!-- HERO -->
+  <section class="ah-hero">
+    <div class="ah-hero__bg-text" aria-hidden="true">AYTHNYK</div>
+    <div class="ah-hero__inner">
+      <p class="ah-hero__eyebrow">ETER FLAME · Arte &amp; Poesía</p>
+      <h1 class="ah-hero__name">
+        <span class="ah-hero__line">AYTH</span>
+        <span class="ah-hero__line ah-hero__line--gold">NYK</span>
+      </h1>
+      <p class="ah-hero__subtitle">Poeta · Creadora · Artista</p>
+      <p class="ah-hero__phrase">
+        "Las palabras que no caben en el silencio,<br>
+        las escribo aquí."
       </p>
-      <div>
-        <a href="{% url 'poetry:poem_list' %}" class="eter-btn-primary">Explorar Poemas</a>
-        <a href="{% url 'poetry:poem_list' %}?collection=all-poems" class="eter-btn-secondary">Ver Todo</a>
+      <div class="ah-hero__ctas">
+        <a href="{% url 'poetry:poem_list' %}" class="aythnyk-cta-primary">Leer poemas</a>
+        <a href="{% url 'songs:song_list' %}" class="aythnyk-cta-secondary">Escuchar canciones →</a>
       </div>
+    </div>
+    <div class="ah-scroll-hint" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ah-ticker" aria-hidden="true">
+    <div class="ah-ticker__track">
+      <span>Poesía</span><em>·</em>
+      <span>Música</span><em>·</em>
+      <span>Palabras</span><em>·</em>
+      <span>Emociones</span><em>·</em>
+      <span>Colecciones</span><em>·</em>
+      <span>Series</span><em>·</em>
+      <span>Arte</span><em>·</em>
+      <span>Silencio</span><em>·</em>
+      <span>Poesía</span><em>·</em>
+      <span>Música</span><em>·</em>
+      <span>Palabras</span><em>·</em>
+      <span>Emociones</span><em>·</em>
+      <span>Colecciones</span><em>·</em>
+      <span>Series</span><em>·</em>
+      <span>Arte</span><em>·</em>
+      <span>Silencio</span><em>·</em>
+    </div>
+  </div>
+
+  <!-- QUOTE BANNER -->
+  {% include "poetry/_quote_banner.html" with theme="banner--black" %}
+
+  <!-- STATEMENT -->
+  <section class="ah-statement">
+    <div class="ah-statement__inner">
+      <p class="ah-statement__label">La artista</p>
+      <h2 class="ah-statement__text">
+        No escribo para ser leída.<br>
+        Escribo para que alguien<br>
+        <em>se sienta menos solo.</em>
+      </h2>
+      <p class="ah-statement__body">
+        Aythnyk es la voz poética detrás de ETER FLAME —
+        un universo de versos en español donde cada poema
+        nace de una emoción real y termina siendo una canción.
+      </p>
     </div>
   </section>
 
-  <!-- Quote banner -->
-  {% include "poetry/_quote_banner.html" with theme="banner--black" %}
-
-  <!-- Navigation cards -->
+  <!-- NAV CARDS -->
   <section class="aythnyk-nav-sections">
     <div class="container">
-      <div class="row g-4 justify-content-center">
-
+      <p class="ah-section-label">Explora</p>
+      <div class="row g-3 justify-content-center">
         <div class="col-12 col-sm-6 col-lg-3">
           <a href="{% url 'poetry:poem_list' %}" class="aythnyk-nav-card">
             <span class="aythnyk-nav-icon">✦</span>
@@ -40,7 +84,6 @@
             <p class="aythnyk-nav-desc">Colecciones y escritos</p>
           </a>
         </div>
-
         <div class="col-12 col-sm-6 col-lg-3">
           <a href="{% url 'blog:bloghome' %}" class="aythnyk-nav-card">
             <span class="aythnyk-nav-icon">✦</span>
@@ -48,40 +91,71 @@
             <p class="aythnyk-nav-desc">Reflexiones y proceso creativo</p>
           </a>
         </div>
-
         <div class="col-12 col-sm-6 col-lg-3">
-          <a href="#" class="aythnyk-nav-card aythnyk-nav-card--soon">
+          <a href="{% url 'songs:song_list' %}" class="aythnyk-nav-card">
             <span class="aythnyk-nav-icon">✦</span>
             <h3 class="aythnyk-nav-title">Canciones</h3>
             <p class="aythnyk-nav-desc">Música y letras</p>
-            <span class="aythnyk-coming-soon">Próximamente</span>
           </a>
         </div>
-
         <div class="col-12 col-sm-6 col-lg-3">
-          <a href="#" class="aythnyk-nav-card aythnyk-nav-card--soon">
+          <a href="{% url 'poetry:tools' %}" class="aythnyk-nav-card">
             <span class="aythnyk-nav-icon">✦</span>
-            <h3 class="aythnyk-nav-title">Tienda</h3>
-            <p class="aythnyk-nav-desc">Productos y descargas</p>
-            <span class="aythnyk-coming-soon">Próximamente</span>
+            <h3 class="aythnyk-nav-title">Herramientas</h3>
+            <p class="aythnyk-nav-desc">Las apps que uso para crear</p>
           </a>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Etherflame Works CTA -->
-  <div class="ef-works-cta">
-    <h3>ETHERFLAME WORKS</h3>
-    <p>
-      Detrás de Aythnyk hay un estudio creativo y digital. Tecnología, diseño
-      y producción para marcas con alma.
-    </p>
-    <a href="{% url 'works:works_home' %}" class="eter-btn-secondary">
-      Conocer Etherflame Works →
-    </a>
-  </div>
+  <!-- SERIES MUSICALES -->
+  <section class="ah-series">
+    <div class="container">
+      <p class="ah-section-label">Series musicales</p>
+      <div class="ah-series__grid">
+        <a href="{% url 'songs:song_list' %}?series=emotional" class="ah-series-card">
+          <span class="ah-series-card__num">01</span>
+          <h3 class="ah-series-card__name">Emotional Series</h3>
+          <p class="ah-series-card__desc">Canciones que nacen del corazón</p>
+          <span class="ah-series-card__cta">Escuchar →</span>
+        </a>
+        <a href="{% url 'songs:song_list' %}?series=lyric" class="ah-series-card">
+          <span class="ah-series-card__num">02</span>
+          <h3 class="ah-series-card__name">Lyric Series</h3>
+          <p class="ah-series-card__desc">Poemas hechos melodía</p>
+          <span class="ah-series-card__cta">Escuchar →</span>
+        </a>
+        <a href="{% url 'songs:song_list' %}?series=dramatic" class="ah-series-card">
+          <span class="ah-series-card__num">03</span>
+          <h3 class="ah-series-card__name">Dramatic Series</h3>
+          <p class="ah-series-card__desc">Intensidad en cada verso</p>
+          <span class="ah-series-card__cta">Escuchar →</span>
+        </a>
+        <a href="{% url 'songs:song_list' %}?series=cinematic" class="ah-series-card">
+          <span class="ah-series-card__num">04</span>
+          <h3 class="ah-series-card__name">Cinematic Series</h3>
+          <p class="ah-series-card__desc">Arte que se ve y se siente</p>
+          <span class="ah-series-card__cta">Escuchar →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS CTA -->
+  <section class="ah-works-cta">
+    <div class="ah-works-cta__inner">
+      <p class="ah-works-cta__eyebrow">El estudio detrás del arte</p>
+      <h2 class="ah-works-cta__name">Etherflame Works</h2>
+      <p class="ah-works-cta__desc">
+        Diseño web, producción creativa y tecnología digital.
+        La estructura que hace posible el arte.
+      </p>
+      <a href="{% url 'works:works_home' %}" class="aythnyk-cta-primary ah-works-btn">
+        Ver servicios →
+      </a>
+    </div>
+  </section>
 
 </div>
 {% endblock %}
