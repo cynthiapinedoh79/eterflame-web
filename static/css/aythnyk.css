@@ -503,8 +503,17 @@
   font-family: 'DM Sans', sans-serif; font-size: .88rem;
   color: rgba(255,255,255,.7); line-height: 1.8; margin-bottom: 2rem;
 }
-.ah-works-btn { background: #fff !important; color: #c8102e !important; border-color: #fff !important; }
-.ah-works-btn:hover { background: #f5e0b0 !important; color: #c8102e !important; }
+.ah-works-btn {
+  background: #fff !important;
+  color: #c8102e !important;
+  border: 2px solid #fff !important;
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
+}
+.ah-works-btn:hover {
+  background: transparent !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
 @media (max-width: 900px) { .ah-series__grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) {
   .ah-hero { padding: 5rem 1.25rem 3rem; }
