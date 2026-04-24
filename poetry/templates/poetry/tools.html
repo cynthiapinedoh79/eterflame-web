@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/poetry.css' %}">
+<link rel="stylesheet" href="{% static 'css/works.css' %}">
+{% endblock %}
+{% block content %}
+
+<header class="res-hero">
+  <p class="res-eyebrow" style="color:#e0163a">Aythnyk · Herramientas</p>
+  <h1 class="res-title">Lo que uso para crear</h1>
+  <p class="res-sub">Las herramientas detrás de la poesía, la música y el arte de Aythnyk.</p>
+</header>
+
+{% if featured %}
+<section class="res-section">
+  <p class="res-label">Destacados</p>
+  <div class="res-grid res-grid--featured">
+    {% for link in featured %}
+    <a href="{{ link.affiliate_url }}" target="_blank" rel="noopener sponsored"
+       class="res-card res-card--featured">
+      {% if link.logo %}
+      <img src="{{ link.logo.url }}" alt="{{ link.name }}" class="res-card__logo">
+      {% else %}
+      <div class="res-card__logo-placeholder">{{ link.name|slice:":2"|upper }}</div>
+      {% endif %}
+      <div class="res-card__body">
+        <h3 class="res-card__name">{{ link.name }}</h3>
+        <p class="res-card__tagline">{{ link.tagline }}</p>
+      </div>
+      <span class="res-card__cta">Ver →</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% for category, links in categories.items %}
+<section class="res-section">
+  <p class="res-label">{{ category }}</p>
+  <div class="res-grid">
+    {% for link in links %}
+    <a href="{{ link.affiliate_url }}" target="_blank" rel="noopener sponsored"
+       class="res-card">
+      {% if link.logo %}
+      <img src="{{ link.logo.url }}" alt="{{ link.name }}" class="res-card__logo">
+      {% else %}
+      <div class="res-card__logo-placeholder">{{ link.name|slice:":2"|upper }}</div>
+      {% endif %}
+      <div class="res-card__body">
+        <h3 class="res-card__name">{{ link.name }}</h3>
+        <p class="res-card__tagline">{{ link.tagline }}</p>
+      </div>
+      <span class="res-card__cta">Ver →</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+{% endblock %}

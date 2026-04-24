@@ -3,9 +3,26 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
 
+from .models import AffiliateLink
+
 
 def works_home(request):
     return render(request, 'works/home.html')
+
+
+def resources(request):
+    links = AffiliateLink.objects.filter(
+        active=True,
+        channel__in=['b2b', 'both']
+    )
+    categories = {}
+    for link in links:
+        cat = link.get_category_display()
+        categories.setdefault(cat, []).append(link)
+    return render(request, 'works/resources.html', {
+        'categories': categories,
+        'featured': links.filter(featured=True),
+    })
 
 
 def design(request):

@@ -8,6 +8,7 @@ from django.contrib import messages
 
 from .models import Poem, Collection, Author
 from songs.models import Song
+from works.models import AffiliateLink
 
 
 def _build_poem_list_context(request):
@@ -267,3 +268,18 @@ def author_detail(request, slug):
         "favorite_poem_ids": favorite_poem_ids,
     }
     return render(request, "poetry/author_detail.html", context)
+
+
+def aythnyk_tools(request):
+    links = AffiliateLink.objects.filter(
+        active=True,
+        channel__in=['aythnyk', 'both']
+    )
+    categories = {}
+    for link in links:
+        cat = link.get_category_display()
+        categories.setdefault(cat, []).append(link)
+    return render(request, 'poetry/tools.html', {
+        'categories': categories,
+        'featured': links.filter(featured=True),
+    })

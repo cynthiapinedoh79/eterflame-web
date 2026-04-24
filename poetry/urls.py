@@ -16,4 +16,5 @@ urlpatterns = [
     path("favorites/", views.favorites_list, name="favorites_list"),
     path("poem/<int:poem_id>/favorite/", views.toggle_favorite,
          name="toggle_favorite"),
+    path("tools/", views.aythnyk_tools, name="tools"),
 ]

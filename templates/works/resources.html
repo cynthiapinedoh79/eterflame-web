@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/works.css' %}">
+{% endblock %}
+{% block content %}
+
+<header class="res-hero">
+  <p class="res-eyebrow">Etherflame Works</p>
+  <h1 class="res-title">Tools We Use</h1>
+  <p class="res-sub">The stack behind our work. Every link is an affiliate link — we earn a commission at no extra cost to you.</p>
+</header>
+
+{% if featured %}
+<section class="res-section">
+  <p class="res-label">Featured</p>
+  <div class="res-grid res-grid--featured">
+    {% for link in featured %}
+    <a href="{{ link.affiliate_url }}" target="_blank" rel="noopener sponsored"
+       class="res-card res-card--featured">
+      {% if link.logo %}
+      <img src="{{ link.logo.url }}" alt="{{ link.name }}" class="res-card__logo">
+      {% else %}
+      <div class="res-card__logo-placeholder">{{ link.name|slice:":2"|upper }}</div>
+      {% endif %}
+      <div class="res-card__body">
+        <h3 class="res-card__name">{{ link.name }}</h3>
+        <p class="res-card__tagline">{{ link.tagline }}</p>
+        {% if link.commission %}
+        <p class="res-card__commission">{{ link.commission }}</p>
+        {% endif %}
+      </div>
+      <span class="res-card__cta">Try it →</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% for category, links in categories.items %}
+<section class="res-section">
+  <p class="res-label">{{ category }}</p>
+  <div class="res-grid">
+    {% for link in links %}
+    <a href="{{ link.affiliate_url }}" target="_blank" rel="noopener sponsored"
+       class="res-card">
+      {% if link.logo %}
+      <img src="{{ link.logo.url }}" alt="{{ link.name }}" class="res-card__logo">
+      {% else %}
+      <div class="res-card__logo-placeholder">{{ link.name|slice:":2"|upper }}</div>
+      {% endif %}
+      <div class="res-card__body">
+        <h3 class="res-card__name">{{ link.name }}</h3>
+        <p class="res-card__tagline">{{ link.tagline }}</p>
+        {% if link.commission %}
+        <p class="res-card__commission">{{ link.commission }}</p>
+        {% endif %}
+      </div>
+      <span class="res-card__cta">Try it →</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+{% endblock %}

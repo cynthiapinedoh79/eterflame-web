@@ -8,6 +8,7 @@ app_name = 'works'
 
 urlpatterns = [
     path('', views.works_home, name='works_home'),
+    path('works/resources/', views.resources, name='resources'),
     path('works/design/', design_views.design_home, name='design'),
     path('works/media/', media_views.media_home, name='media'),
     path('works/studio/', studio_views.studio_home, name='studio'),
