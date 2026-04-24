@@ -7,7 +7,7 @@
     font-family: var(--font-mono, 'Courier Prime', monospace);
     font-size: .75rem;
     letter-spacing: 5px;
-    color: #c8102e;
+    color: #d89a7a;
     text-transform: uppercase;
     margin-bottom: 1rem;
   }
@@ -29,11 +29,12 @@
     margin-bottom: 3rem;
   }
   .ef-divider {
-    width: 60px;
-    height: 1px;
-    background: rgba(200,16,46,0.4);
-    margin: 2.5rem auto;
-  }
+  width: 60px;
+  height: 1px;
+  background: rgba(216, 154, 122, 0.55);
+  margin: 2.5rem auto;
+}
+
   .ef-section-label {
     font-family: var(--font-mono);
     font-size: .7rem;
@@ -42,6 +43,7 @@
     text-transform: uppercase;
     margin-bottom: 1.5rem;
   }
+
   .ef-body-text {
     font-family: var(--font-body);
     font-size: 1.05rem;
@@ -56,20 +58,23 @@
     gap: 16px;
     margin: 3rem 0;
   }
+
   .ef-info-card {
     padding: 24px 28px;
     background: #141009;
-    border-left: 2px solid #c8102e;
+    border-left: 2px solid rgba(196, 154, 64, 0.75);
     border-radius: 0 6px 6px 0;
   }
+
   .ef-info-card h4 {
-    font-family: var(--font-mono, 'Courier Prime', monospace);
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: #c8102e;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
+  font-family: var(--font-mono, 'Courier Prime', monospace);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--color-gold, #c49a40);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
   .ef-info-card p {
     font-family: var(--font-body);
     font-size: .95rem;
@@ -214,7 +219,7 @@
 }
 
 .ef-why-card:hover span {
-  color: rgba(10, 8, 4, 0.6); /* número más sutil */
+  color: #d89a7a;
 }
 
 .ef-why-card span {
