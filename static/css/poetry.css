@@ -76,6 +76,7 @@ section.py-4 {
   letter-spacing: 6px !important;
   color: #f5e6c8 !important;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .poetry-list h2 {
@@ -1666,6 +1667,7 @@ a.text-decoration-none:hover {
   letter-spacing: 6px !important;
   color: #f5e6c8 !important;
   text-transform: uppercase;
+  text-align: center;
 }
 
 /* ================================================
