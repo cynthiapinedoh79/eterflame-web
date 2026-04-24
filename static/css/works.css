@@ -754,3 +754,58 @@
   content: '';
   background: var(--w-bg);
 }
+
+/* ── RESOURCES CTA ── */
+.wh-resources-cta {
+  padding: 4rem 2rem;
+  background: var(--w-bg2);
+  border-top: 1px solid var(--w-border);
+  text-align: center;
+}
+.wh-resources-cta__inner {
+  max-width: 560px;
+  margin: 0 auto;
+}
+.wh-resources-cta__label {
+  font-family: var(--w-sans);
+  font-size: .62rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--w-gold);
+  margin-bottom: .75rem;
+}
+.wh-resources-cta__title {
+  font-family: var(--w-serif);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 300;
+  color: var(--w-text);
+  margin: 0 0 .75rem;
+}
+.wh-resources-cta__desc {
+  font-family: var(--w-sans);
+  font-size: .85rem;
+  color: var(--w-muted);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* ── AYTHNYK BTN — white on crimson ── */
+.wh-aythnyk__btn {
+  display: inline-block;
+  padding: .85rem 2.25rem;
+  background: #fff;
+  color: #c8102e;
+  font-family: var(--w-sans);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 2px solid #fff;
+  transition: background .3s ease, color .3s ease;
+}
+.wh-aythnyk__btn:hover {
+  background: transparent;
+  color: #fff;
+}
