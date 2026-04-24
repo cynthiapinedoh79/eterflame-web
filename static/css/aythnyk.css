@@ -522,10 +522,15 @@
   max-width: 900px;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
+  text-align: center;
+  gap: 1.5rem;
+}
+.ah-tools-strip__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .ah-tools-strip__label {
   font-family: 'DM Sans', sans-serif;
@@ -547,8 +552,9 @@
   font-size: .9rem;
   color: rgba(10,8,4,.7);
   line-height: 1.7;
-  margin: 0;
-  max-width: 520px;
+  margin: 0 auto;
+  max-width: 560px;
+  text-align: center;
 }
 .ah-tools-strip__btn {
   flex-shrink: 0;
@@ -572,6 +578,5 @@
   text-decoration: none;
 }
 @media (max-width: 600px) {
-  .ah-tools-strip__inner { flex-direction: column; align-items: flex-start; }
   .ah-tools-strip { padding: 2rem 1.25rem; }
 }
