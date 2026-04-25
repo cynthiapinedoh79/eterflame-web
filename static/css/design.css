@@ -1500,3 +1500,82 @@
 @media (max-width: 600px) {
   .ef-design-cta { padding: 4rem 1.25rem; }
 }
+
+/* ── DESIGN STYLE UPGRADE ── */
+
+/* Section labels — brighter blue */
+.ef-section-label {
+  color: #5fd0d6 !important;
+}
+
+/* Service feature cards — darker, richer bg */
+.ef-service-feature {
+  background:
+    linear-gradient(135deg, rgba(10,20,34,.9), rgba(5,12,22,.98)),
+    #060e18 !important;
+  border: 1px solid rgba(95,208,214,.1) !important;
+}
+.ef-service-feature:hover {
+  border-color: rgba(95,208,214,.3) !important;
+  transform: translateY(-6px) scale(1.01) !important;
+}
+
+/* Portfolio cards — richer shadows */
+.ef-portfolio-card:hover {
+  box-shadow:
+    0 35px 90px rgba(0,0,0,.6),
+    0 0 40px rgba(95,208,214,.2) !important;
+}
+
+/* Credentials block */
+.ef-credentials {
+  border: 1px solid rgba(95,208,214,.1) !important;
+}
+
+/* Skill pills hover — turquoise */
+.ef-skill-pill:hover {
+  background: linear-gradient(135deg, #00BCD4, #0097a7) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+
+/* Hero buttons — solid dark blue */
+.ef-hero-btn-primary {
+  background: #1B3A5C !important;
+  color: #dfefff !important;
+  border: 1px solid rgba(95,208,214,.25) !important;
+}
+.ef-hero-btn-primary:hover {
+  background: #00BCD4 !important;
+  color: #02181c !important;
+  border-color: transparent !important;
+}
+
+/* Service links — solid dark blue */
+.ef-service-feature-link {
+  background: #1B3A5C !important;
+  color: #dfefff !important;
+  border: 1px solid rgba(95,208,214,.2) !important;
+}
+.ef-service-feature-link:hover {
+  background: #00BCD4 !important;
+  color: #02181c !important;
+  border-color: transparent !important;
+}
+
+/* Submit button */
+.ef-submit-btn {
+  background: #1B3A5C !important;
+  color: #dfefff !important;
+}
+.ef-submit-btn:hover {
+  background: #00BCD4 !important;
+  color: #02181c !important;
+}
+
+/* Reel image section — richer overlay */
+.ef-design-reel-media {
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.5),
+    0 0 60px rgba(0,188,212,.1) !important;
+}

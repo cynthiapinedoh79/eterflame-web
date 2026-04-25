@@ -405,8 +405,11 @@
   100% { transform: scaleY(0); transform-origin: bottom; }
 }
 .ah-ticker {
-  overflow: hidden; background: #0a0804;
-  border-top: 1px solid #160a06; border-bottom: 1px solid #160a06; padding: .65rem 0;
+  overflow: hidden;
+  background: #c8102e;
+  border-top: none;
+  border-bottom: none;
+  padding: .75rem 0;
 }
 .ah-ticker__track {
   display: inline-flex; gap: 2rem; white-space: nowrap;
@@ -414,9 +417,12 @@
 }
 .ah-ticker__track span {
   font-family: 'Cormorant Garamond', serif;
-  font-size: .95rem; font-style: italic; letter-spacing: 2px; color: #2a1c10;
+  font-size: .95rem;
+  font-style: italic;
+  letter-spacing: 2px;
+  color: #fff;
 }
-.ah-ticker__track em { color: #c8102e; font-style: normal; font-size: .7rem; }
+.ah-ticker__track em { color: rgba(255,255,255,.5); font-style: normal; font-size: .7rem; }
 @keyframes ahTicker {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
