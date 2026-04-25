@@ -476,105 +476,139 @@ pre {
 }
 
 .alert {
-  border-radius: 6px;
-  font-size: 14px;
-  padding: 14px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .82rem;
+  padding: .85rem 1.1rem;
+  border-radius: 3px;
+  margin-bottom: 1.25rem;
+  border: 1px solid;
 }
-
 .alert-success {
-  background: rgba(74, 138, 90, 0.12);
-  border: 1px solid rgba(74, 138, 90, 0.35);
-  color: #b8e0c0;
+  background: rgba(30,100,50,.1);
+  border-color: rgba(30,100,50,.25);
+  color: #6fba8a;
 }
-
-.alert-success a {
-  color: #6abf7a;
-  font-weight: 600;
-}
-
+.alert-success a { color: #6fba8a; font-weight: 600; }
 .alert-info {
-  background: rgba(212, 168, 67, 0.1) !important;
-  border: 1px solid rgba(212, 168, 67, 0.28) !important;
-  color: #f5e6c8 !important;
+  background: rgba(196,154,64,.08) !important;
+  border-color: rgba(196,154,64,.2) !important;
+  color: #c49a40 !important;
 }
-
 .alert-warning {
-  background: rgba(184, 115, 51, 0.12);
-  border: 1px solid rgba(184, 115, 51, 0.35);
-  color: #e8c090;
+  background: rgba(200,120,0,.1);
+  border-color: rgba(200,120,0,.25);
+  color: #e8a030;
+}
+.alert-danger {
+  background: rgba(200,16,46,.08);
+  border-color: rgba(200,16,46,.2);
+  color: #e05070;
 }
 
-.btn-close {
-  filter: invert(0.7);
+.btn-close { filter: invert(0.7); }
+
+/* Remember Me / form-check inside login card */
+.login-card .form-check {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: 1.25rem;
+}
+.login-card .form-check input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: #c49a40;
+  cursor: pointer;
+}
+.login-card .form-check label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .82rem;
+  letter-spacing: 1px;
+  text-transform: none;
+  color: #6b5f45;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Logout / auth page paragraph message */
+.logout-message {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .85rem;
+  color: #6b5f45;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 
 /* ================================================
    7. SOCIAL LOGIN
 =================================================== */
-.social-login-section { margin-top: 1rem; }
+.social-login-section { margin-top: 1.25rem; }
 .social-login-section h4 {
   font-family: 'DM Sans', sans-serif;
-  font-size: .65rem;
-  letter-spacing: 4px;
+  font-size: .6rem;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  color: #6b5f45;
-  margin-bottom: 1rem;
+  color: #3a3020;
+  margin-bottom: 1.25rem;
   text-align: center;
 }
-.socialaccount_providers { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .75rem; }
-.socialaccount_providers li a,
-.social-auth-btn {
+.socialaccount_providers {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.socialaccount_providers li a {
   display: flex;
   align-items: center;
-  gap: .85rem;
+  gap: 1rem;
   width: 100%;
-  padding: .75rem 1.25rem;
-  border-radius: 2px;
+  padding: .85rem 1.25rem;
+  border-radius: 3px;
   font-family: 'DM Sans', sans-serif;
-  font-size: .82rem;
+  font-size: .85rem;
   font-weight: 500;
+  letter-spacing: .5px;
   text-decoration: none;
-  transition: opacity .2s ease, transform .15s ease;
+  transition: filter .2s ease, transform .15s ease;
   cursor: pointer;
-  border: none;
+  position: relative;
 }
-.socialaccount_providers li a:hover,
-.social-auth-btn:hover { opacity: .88; transform: translateY(-1px); text-decoration: none; }
-
-.socialaccount_providers li:has([href*="google"]) a,
-a[href*="google"].social-auth-btn {
+.socialaccount_providers li a:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+.socialaccount_providers li a[href*="google"] {
   background: #fff;
-  color: #1f1f1f;
+  color: #3c4043;
   border: 1px solid #dadce0;
 }
-.socialaccount_providers li:has([href*="facebook"]) a,
-a[href*="facebook"].social-auth-btn {
-  background: #1877F2;
-  color: #fff;
-}
-.socialaccount_providers li a::before {
+.socialaccount_providers li a[href*="google"]::before {
   content: '';
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
+  width: 20px; height: 20px; flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z'/%3E%3Cpath fill='%2334A853' d='M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z'/%3E%3Cpath fill='%23FBBC05' d='M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z'/%3E%3Cpath fill='%23EA4335' d='M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
-.socialaccount_providers li:has([href*="google"]) a::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z'/%3E%3Cpath fill='%2334A853' d='M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z'/%3E%3Cpath fill='%23FBBC05' d='M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z'/%3E%3Cpath fill='%23EA4335' d='M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z'/%3E%3C/svg%3E");
+.socialaccount_providers li a[href*="facebook"] {
+  background: #1877F2;
+  color: #fff;
+  border: none;
 }
-.socialaccount_providers li:has([href*="facebook"]) a::before {
+.socialaccount_providers li a[href*="facebook"]::before {
+  content: '';
+  width: 20px; height: 20px; flex-shrink: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z'/%3E%3C/svg%3E");
-}
-.social-login-section .social-icon {
-  position: absolute;
-  left: 10px;
-  width: 36px;
-  height: 36px;
-  padding: 6px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.92);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* ================================================
