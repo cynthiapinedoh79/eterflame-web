@@ -475,7 +475,7 @@
 }
 .ah-series-card:hover { background: rgba(200,16,46,.18) !important; text-decoration: none; }
 .ah-series-card:hover::before { transform: scaleX(1); }
-.ah-series-card:hover::after { background: rgba(200,16,46,.15); }
+.ah-series-card:hover::after { background: rgba(200,16,46,.08); }
 .ah-series-card__num,
 .ah-series-card__name,
 .ah-series-card__desc,
