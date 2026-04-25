@@ -8,45 +8,32 @@
 {% block content %}
 <div class="ef-design-page">
 
-  <!-- 1. HERO FULL WIDTH — igual que Media/Studio -->
+  <!-- HERO — full width -->
   <section class="ef-design-fw-hero">
     <div class="ef-design-fw-hero__bg-text" aria-hidden="true">DESIGN</div>
     <div class="ef-design-fw-hero__inner">
-      <a href="{% url 'works:works_home' %}" class="ef-design-fw-hero__back">
-        ← Etherflame Works
-      </a>
+      <a href="{% url 'works:works_home' %}" class="ef-design-fw-hero__back">← Etherflame Works</a>
       <p class="ef-design-fw-hero__eyebrow">Etherflame Works · División</p>
       <h1 class="ef-design-fw-hero__title">EF Design</h1>
       <p class="ef-design-fw-hero__subtitle">Creative Technology · Design</p>
-      <p class="ef-design-fw-hero__desc">
-        Elegant digital experiences built with strategy,
-        clarity, and visual precision.
-      </p>
+      <p class="ef-design-fw-hero__desc">Elegant digital experiences built with strategy, clarity, and visual precision.</p>
     </div>
   </section>
 
-  <!-- 2. REEL FULL WIDTH — igual que Media/Studio -->
-  <section class="ef-design-reel ef-design-reel--fw">
+  <!-- REEL — full width -->
+  <div class="ef-design-reel--fw">
     <div class="ef-design-reel-media">
-      <img
-        src="{% static 'images/works/design/hero_design4.png' %}"
-        alt="Etherflame Design visual"
-        class="ef-design-reel-image"
-      >
+      <img src="{% static 'images/works/design/hero_design4.png' %}" alt="Design Direction" class="ef-design-reel-image">
       <div class="ef-design-reel-overlay">
         <span class="ef-design-reel-kicker">Design Direction</span>
-        <h2 class="ef-design-reel-title">
-          Systems, interfaces, and visuals that feel alive.
-        </h2>
+        <h2 class="ef-design-reel-title">Systems, interfaces, and visuals that feel alive.</h2>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- 3. SERVICES — igual que Media/Studio -->
+  <!-- SERVICES — contenido centrado -->
   <section class="ed-services">
-    <p class="ef-design-fw-hero__eyebrow" style="text-align:center;margin-bottom:3rem">
-      What We Do
-    </p>
+    <p class="ed-label">What We Do</p>
     <div class="ed-services-clean">
       <div class="ed-card">
         <span class="ed-card__num">01</span>
@@ -76,14 +63,12 @@
     </div>
   </section>
 
-  <!-- 4. PORTFOLIO -->
+  <!-- PORTFOLIO — contenido centrado -->
   <section class="ed-portfolio">
-    <p class="ef-design-fw-hero__eyebrow" style="text-align:center;margin-bottom:3rem">
-      Selected Work
-    </p>
+    <p class="ed-label">Selected Work</p>
     <div class="ef-portfolio-grid">
       <article class="ef-portfolio-card ef-portfolio-card-featured">
-        <img src="{% static 'images/works/design/portfolio-1.png' %}" alt="Brand identity project">
+        <img src="{% static 'images/works/design/portfolio-1.png' %}" alt="Brand identity">
         <div class="ef-portfolio-overlay">
           <span class="ef-portfolio-kicker">Featured Project</span>
           <h4>Brand Identity &amp; Digital Presence</h4>
@@ -91,7 +76,7 @@
         </div>
       </article>
       <article class="ef-portfolio-card">
-        <img src="{% static 'images/works/design/portfolio-2.png' %}" alt="Immersive web">
+        <img src="{% static 'images/works/design/portfolio-2.png' %}" alt="Web experience">
         <div class="ef-portfolio-overlay">
           <span class="ef-portfolio-kicker">Web</span>
           <h4>Immersive Web Experience</h4>
@@ -125,20 +110,14 @@
     </div>
   </section>
 
-  <!-- 5. CREDENTIALS -->
+  <!-- CREDENTIALS — contenido centrado -->
   <section class="ed-credentials-section">
-    <p class="ef-design-fw-hero__eyebrow" style="text-align:center;margin-bottom:3rem">
-      Credentials
-    </p>
+    <p class="ed-label">Credentials</p>
     <div class="ef-credentials">
       <div class="ef-credentials-main">
         <h3>Diploma in Full Stack Software Development</h3>
         <p class="ef-credential-kicker">Code Institute · Dublin, Ireland</p>
-        <p class="ef-credential-desc">
-          Comprehensive training in full-stack development — front-end systems,
-          Django back-end architecture, databases, APIs, agile workflows,
-          and predictive analytics including machine learning.
-        </p>
+        <p class="ef-credential-desc">Comprehensive training in full-stack development — front-end systems, Django back-end architecture, databases, APIs, agile workflows, and predictive analytics including machine learning.</p>
         <div class="ef-skills-wrap">
           <span class="ef-skill-pill">Python</span>
           <span class="ef-skill-pill">Django</span>
@@ -171,15 +150,11 @@
     </div>
   </section>
 
-  <!-- 6. CTA FULL WIDTH -->
+  <!-- CTA — full width -->
   <section class="ef-design-cta">
     <p class="ef-design-cta__eyebrow">Ready to start?</p>
-    <h2 class="ef-design-cta__title">
-      Let's build something<br>that lasts.
-    </h2>
-    <a href="{% url 'works:contact' %}" class="ef-design-cta__btn">
-      Get in touch →
-    </a>
+    <h2 class="ef-design-cta__title">Let's build something<br>that lasts.</h2>
+    <a href="{% url 'works:contact' %}" class="ef-design-cta__btn">Get in touch →</a>
   </section>
 
 </div>
