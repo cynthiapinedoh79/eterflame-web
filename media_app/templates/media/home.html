@@ -1,27 +1,62 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/media.css' %}?v={% now 'U' %}">
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/media.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="eter-breadcrumb">
-  <a href="{% url 'works:works_home' %}" class="eter-back-link">← Etherflame Works</a>
-</div>
-<div class="ef-coming-soon section-media">
-  <div class="container">
-    <p class="ef-eyebrow">Etherflame Works</p>
-    <h1 class="ef-page-title">EF MEDIA</h1>
-    <p class="ef-subtitle">Video · Audio · Content</p>
-    <div style="width:40px;height:1px;background:rgba(138,143,168,0.4);margin:0 auto 2rem;"></div>
-    <p class="ef-body-text">
-      Photography, video production, podcast, and digital content strategy
-      built to move audiences. Currently in development — launching soon.
-    </p>
-    <div class="ef-badge-soon">Próximamente</div>
-    <br>
-    <a href="{% url 'works:works_home' %}" class="ef-back-link">← Back to Etherflame Works</a>
-  </div>
+<div class="em-page">
+
+  <!-- HERO -->
+  <section class="em-hero">
+    <div class="em-hero__bg-text" aria-hidden="true">MEDIA</div>
+    <div class="em-hero__inner">
+      <a href="{% url 'works:works_home' %}" class="em-back">← Etherflame Works</a>
+      <p class="em-eyebrow">Etherflame Works · División</p>
+      <h1 class="em-title">EF Media</h1>
+      <p class="em-subtitle">Video · Audio · Content</p>
+      <p class="em-desc">
+        Photography, video production, podcast, and digital content
+        strategy built to move audiences.
+      </p>
+      <span class="em-badge">Coming Soon</span>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section class="em-services">
+    <p class="em-section-label">What We Do</p>
+    <div class="em-grid">
+      <div class="em-card">
+        <span class="em-card__num">01</span>
+        <h3 class="em-card__title">Video Production</h3>
+        <p class="em-card__desc">Brand films, reels, documentary-style content, and social video that stops the scroll.</p>
+      </div>
+      <div class="em-card">
+        <span class="em-card__num">02</span>
+        <h3 class="em-card__title">Photography</h3>
+        <p class="em-card__desc">Editorial, product, and brand photography that communicates identity at first glance.</p>
+      </div>
+      <div class="em-card">
+        <span class="em-card__num">03</span>
+        <h3 class="em-card__title">Podcast Production</h3>
+        <p class="em-card__desc">End-to-end podcast creation — recording, editing, distribution, and audience strategy.</p>
+      </div>
+      <div class="em-card">
+        <span class="em-card__num">04</span>
+        <h3 class="em-card__title">Content Strategy</h3>
+        <p class="em-card__desc">Digital content systems that build audiences, generate leads, and sustain brand presence.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="em-cta">
+    <p class="em-cta__eyebrow">Interested?</p>
+    <h2 class="em-cta__title">Join the waitlist.<br>Be first when we launch.</h2>
+    <a href="{% url 'works:contact' %}" class="em-cta__btn">Get in touch →</a>
+  </section>
+
 </div>
 {% endblock %}

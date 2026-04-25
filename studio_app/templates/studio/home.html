@@ -1,27 +1,62 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/studio.css' %}?v={% now 'U' %}">
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/studio.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="eter-breadcrumb">
-  <a href="{% url 'works:works_home' %}" class="eter-back-link">← Etherflame Works</a>
-</div>
-<div class="ef-coming-soon section-studio">
-  <div class="container">
-    <p class="ef-eyebrow">Etherflame Works</p>
-    <h1 class="ef-page-title">EF STUDIO</h1>
-    <p class="ef-subtitle">Creative Writing &amp; Storytelling</p>
-    <div style="width:40px;height:1px;background:rgba(184,115,51,0.4);margin:0 auto 2rem;"></div>
-    <p class="ef-body-text">
-      Copywriting, editorial, ghostwriting, and narrative brand voice for
-      projects that need a soul. Currently in development — launching soon.
-    </p>
-    <div class="ef-badge-soon">Próximamente</div>
-    <br>
-    <a href="{% url 'works:works_home' %}" class="ef-back-link">← Back to Etherflame Works</a>
-  </div>
+<div class="es-page">
+
+  <!-- HERO -->
+  <section class="es-hero">
+    <div class="es-hero__bg-text" aria-hidden="true">STUDIO</div>
+    <div class="es-hero__inner">
+      <a href="{% url 'works:works_home' %}" class="es-back">← Etherflame Works</a>
+      <p class="es-eyebrow">Etherflame Works · División</p>
+      <h1 class="es-title">EF Studio</h1>
+      <p class="es-subtitle">Creative Writing · Storytelling</p>
+      <p class="es-desc">
+        Copywriting, editorial, ghostwriting, and narrative brand voice
+        for projects that need a soul.
+      </p>
+      <span class="es-badge">Coming Soon</span>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section class="es-services">
+    <p class="es-section-label">What We Do</p>
+    <div class="es-grid">
+      <div class="es-card">
+        <span class="es-card__num">01</span>
+        <h3 class="es-card__title">Copywriting</h3>
+        <p class="es-card__desc">Website copy, landing pages, email sequences, and ad creative that converts and resonates.</p>
+      </div>
+      <div class="es-card">
+        <span class="es-card__num">02</span>
+        <h3 class="es-card__title">Editorial</h3>
+        <p class="es-card__desc">Long-form articles, thought leadership, and editorial content that positions you as an authority.</p>
+      </div>
+      <div class="es-card">
+        <span class="es-card__num">03</span>
+        <h3 class="es-card__title">Ghostwriting</h3>
+        <p class="es-card__desc">Books, memoirs, essays, and scripts — your voice, your story, crafted with precision.</p>
+      </div>
+      <div class="es-card">
+        <span class="es-card__num">04</span>
+        <h3 class="es-card__title">Brand Narrative</h3>
+        <p class="es-card__desc">The story behind your brand — tone of voice, messaging framework, and brand bible.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="es-cta">
+    <p class="es-cta__eyebrow">Interested?</p>
+    <h2 class="es-cta__title">Your story deserves<br>to be told well.</h2>
+    <a href="{% url 'works:contact' %}" class="es-cta__btn">Get in touch →</a>
+  </section>
+
 </div>
 {% endblock %}
