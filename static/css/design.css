@@ -1090,15 +1090,28 @@
 .ef-credential-mini-card {
   padding: 1.1rem 1.2rem;
   border-radius: 14px;
-  background: rgba(7, 24, 44, 0.48);
-  border: 1px solid rgba(121, 183, 232, 0.10);
-  transition: all 0.3s ease;
+  background: rgba(7,24,44,.48);
+  border: 1px solid rgba(0,188,212,.1);
+  transition: all .3s ease;
+  position: relative;
+  overflow: hidden;
 }
-
+.ef-credential-mini-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(27,58,92,.0);
+  transition: background .3s ease;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.ef-credential-mini-card:hover::before {
+  background: rgba(27,58,92,.45);
+}
 .ef-credential-mini-card:hover {
   transform: translateY(-3px);
-  background: rgba(12, 31, 48, 0.72);
-  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.28);
+  border-color: rgba(0,188,212,.3);
+  box-shadow: 0 16px 42px rgba(0,0,0,.3);
 }
 
 .ef-credential-mini-card span {

@@ -456,12 +456,33 @@
   position: relative; overflow: hidden;
 }
 .ah-series-card::before {
-  content: ''; position: absolute; bottom: 0; left: 0;
-  width: 100%; height: 2px; background: #c8102e;
-  transform: scaleX(0); transform-origin: left; transition: transform .3s ease;
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: #c8102e;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s ease;
 }
-.ah-series-card:hover { background: #0f0806; text-decoration: none; }
+.ah-series-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(200,16,46,.0);
+  transition: background .3s ease;
+  pointer-events: none;
+}
+.ah-series-card:hover { background: rgba(200,16,46,.18) !important; text-decoration: none; }
 .ah-series-card:hover::before { transform: scaleX(1); }
+.ah-series-card:hover::after { background: rgba(200,16,46,.15); }
+.ah-series-card__num,
+.ah-series-card__name,
+.ah-series-card__desc,
+.ah-series-card__cta {
+  position: relative;
+  z-index: 2;
+}
 .ah-series-card__num {
   font-family: 'DM Sans', sans-serif; font-size: .58rem;
   letter-spacing: 4px; color: #c8102e; margin-bottom: 1rem;
