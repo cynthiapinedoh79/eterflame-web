@@ -6,13 +6,9 @@
 {% endblock %}
 
 {% block content %}
-<div class="eter-breadcrumb">
-  <a href="{% url 'works:works_home' %}" class="eter-back-link">← Eterflame Works</a>
-</div>
+<div class="ef-design-page">
 
-<div class="ef-design-page section-design">
-
-  <!-- FULL WIDTH HERO — like Media/Studio -->
+  <!-- 1. HERO FULL WIDTH — igual que Media/Studio -->
   <section class="ef-design-fw-hero">
     <div class="ef-design-fw-hero__bg-text" aria-hidden="true">DESIGN</div>
     <div class="ef-design-fw-hero__inner">
@@ -23,311 +19,126 @@
       <h1 class="ef-design-fw-hero__title">EF Design</h1>
       <p class="ef-design-fw-hero__subtitle">Creative Technology · Design</p>
       <p class="ef-design-fw-hero__desc">
-        Elegant digital experiences built with strategy, clarity, and visual precision.
+        Elegant digital experiences built with strategy,
+        clarity, and visual precision.
       </p>
     </div>
   </section>
 
-  <div class="container">
-
-    <!-- HERO -->
-    <section class="ef-design-hero">
-      <div class="row align-items-center g-5">
-        <div class="col-12 col-lg-6">
-
-          <p class="ef-eyebrow">Eterflame</p>
-
-          <div class="ef-hero-brand">
-            <img
-              src="{% static 'images/works/design/design_logo.png' %}"
-              alt="Etherflame Design logo"
-              class="ef-hero-logo"
-            >
-            <span class="ef-hero-division">Design</span>
-          </div>
-          <br>
-
-          <div class="ef-hero-title-wrap">
-            <h1 class="ef-page-title-main">Design</h1>
-
-            <h2 class="ef-page-title-support">
-              that builds <span>presence</span>
-            </h2>
-
-            <p class="ef-hero-tagline">
-              Creative Technology &amp; Design
-            </p>
-          </div>
-
-          <p class="ef-hero-lead">
-            Elegant digital experiences built with strategy, clarity, and visual precision.
-            From websites and interface systems to brand identity and intelligent features,
-            Etherflame Design creates work that feels refined, modern, and alive.
-          </p>
-
-          <div class="ef-hero-actions">
-            <a href="#design-services" class="btn ef-hero-btn ef-hero-btn-primary">Explore Services</a>
-            <a href="#design-contact" class="btn ef-hero-btn ef-hero-btn-secondary">Start a Project</a>
-          </div>
-
-          <div class="ef-hero-mini-stats">
-            <div class="ef-hero-stat">
-              <span class="ef-hero-stat-number">UI</span>
-              <span class="ef-hero-stat-label">Interfaces with clarity</span>
-            </div>
-            <div class="ef-hero-stat">
-              <span class="ef-hero-stat-number">UX</span>
-              <span class="ef-hero-stat-label">Flow built for people</span>
-            </div>
-            <div class="ef-hero-stat">
-              <span class="ef-hero-stat-number">DEV</span>
-              <span class="ef-hero-stat-label">Elegant systems underneath</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-lg-6">
-          <div class="ef-hero-visual">
-            <div class="ef-hero-image-wrap">
-              <img
-                src="{% static 'images/works/design/hero_design.png' %}"
-                alt="Etherflame Design visual showcase"
-                class="ef-hero-image"
-              >
-            </div>
-
-            <div class="ef-hero-floating ef-hero-floating-one">
-              UI / UX
-            </div>
-
-            <div class="ef-hero-floating ef-hero-floating-two">
-              Web Systems
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="ef-divider"></div>
-
-  </div>
-
-  <!-- REEL FULL WIDTH — outside container -->
+  <!-- 2. REEL FULL WIDTH — igual que Media/Studio -->
   <section class="ef-design-reel ef-design-reel--fw">
     <div class="ef-design-reel-media">
       <img
         src="{% static 'images/works/design/hero_design4.png' %}"
-        alt="Etherflame Design featured visual"
+        alt="Etherflame Design visual"
         class="ef-design-reel-image"
       >
       <div class="ef-design-reel-overlay">
         <span class="ef-design-reel-kicker">Design Direction</span>
-        <h2 class="ef-design-reel-title">Systems, interfaces, and visuals that feel alive.</h2>
+        <h2 class="ef-design-reel-title">
+          Systems, interfaces, and visuals that feel alive.
+        </h2>
       </div>
     </div>
   </section>
 
-  <div class="container">
-
-    <!-- SERVICES INTRO -->
-    <section id="design-services" class="ef-section-intro">
-      <p class="ef-section-label">Services &amp; Pricing</p>
-      <div class="ef-section-head">
-        <h2 class="ef-section-title">What Etherflame Design can build</h2>
-        <p class="ef-section-copy">
-          A curated service suite for brands that need technical execution with a refined visual language.
-        </p>
+  <!-- 3. SERVICES — igual que Media/Studio -->
+  <section class="ed-services">
+    <p class="ef-design-fw-hero__eyebrow" style="text-align:center;margin-bottom:3rem">
+      What We Do
+    </p>
+    <div class="ed-grid">
+      <div class="ed-card">
+        <span class="ed-card__num">01</span>
+        <h3 class="ed-card__title">Website Design</h3>
+        <p class="ed-card__desc">Strategic, high-conversion websites that elevate brand presence. Responsive structure and refined execution from concept to launch.</p>
       </div>
-    </section>
-
-    <!-- SERVICES SHOWCASE -->
-    <div class="ef-services-showcase mb-5">
-
-      <article class="ef-service-feature">
-        <div class="ef-service-feature-media">
-          <img src="{% static 'images/works/design/test.png' %}" alt="Website Design showcase">
-        </div>
-        <div class="ef-service-feature-content">
-          <span class="ef-service-feature-kicker">01</span>
-          <h3 class="ef-service-feature-title">Website Design</h3>
-          <p class="ef-service-feature-desc">
-            Strategic, high-conversion websites designed to elevate your brand presence.
-            Combining visual clarity, responsive structure, and refined execution from concept to launch.
-          </p>
-          <div class="ef-service-feature-tags">
-            <span>Responsive Layouts</span>
-            <span>Brand-aligned UI</span>
-            <span>Premium Frontend</span>
-          </div>
-          <a href="#design-contact" class="ef-service-feature-link">Start this service</a>
-        </div>
-      </article>
-
-      <article class="ef-service-feature ef-service-feature-reverse">
-        <div class="ef-service-feature-media">
-          <img src="{% static 'images/works/design/test.png' %}" alt="UI UX Design showcase">
-        </div>
-        <div class="ef-service-feature-content">
-          <span class="ef-service-feature-kicker">02</span>
-          <h3 class="ef-service-feature-title">UI / UX Design</h3>
-          <p class="ef-service-feature-desc">
-            Interfaces built for people. User flows, wireframes, and thoughtful interaction systems
-            designed to make digital experiences feel intuitive, elegant, and memorable.
-          </p>
-          <div class="ef-service-feature-tags">
-            <span>User Flows</span>
-            <span>Wireframes</span>
-            <span>Interface Systems</span>
-          </div>
-          <a href="#design-contact" class="ef-service-feature-link">Discuss this service</a>
-        </div>
-      </article>
-
-      <article class="ef-service-feature">
-        <div class="ef-service-feature-media">
-          <img src="{% static 'images/works/design/test.png' %}" alt="Branding and identity showcase">
-        </div>
-        <div class="ef-service-feature-content">
-          <span class="ef-service-feature-kicker">03</span>
-          <h3 class="ef-service-feature-title">Branding &amp; Visual Identity</h3>
-          <p class="ef-service-feature-desc">
-            Cohesive visual identities that communicate value, character, and distinction.
-            From logo direction to typography and colour systems, every detail is aligned.
-          </p>
-          <div class="ef-service-feature-tags">
-            <span>Logo Direction</span>
-            <span>Typography</span>
-            <span>Visual Systems</span>
-          </div>
-          <a href="#design-contact" class="ef-service-feature-link">Build your identity</a>
-        </div>
-      </article>
-
-      <article class="ef-service-feature ef-service-feature-reverse">
-        <div class="ef-service-feature-media">
-          <img src="{% static 'images/works/design/test.png' %}" alt="Web systems and development showcase">
-        </div>
-        <div class="ef-service-feature-content">
-          <span class="ef-service-feature-kicker">04</span>
-          <h3 class="ef-service-feature-title">Web Systems &amp; Development</h3>
-          <p class="ef-service-feature-desc">
-            Robust digital systems built beneath the visual layer. From full-stack architecture
-            and backend logic to integrations and performance, every build is designed to scale.
-          </p>
-          <div class="ef-service-feature-tags">
-            <span>Django / Web Apps</span>
-            <span>API Integration</span>
-            <span>Performance</span>
-          </div>
-          <a href="#design-contact" class="ef-service-feature-link">Plan your build</a>
-        </div>
-      </article>
-
-      <article class="ef-service-feature">
-        <div class="ef-service-feature-media">
-          <img src="{% static 'images/works/design/test.png' %}" alt="Data and intelligence showcase">
-        </div>
-        <div class="ef-service-feature-content">
-          <span class="ef-service-feature-kicker">05</span>
-          <h3 class="ef-service-feature-title">Data &amp; Intelligence</h3>
-          <p class="ef-service-feature-desc">
-            Insight-led systems that turn data into direction. From analytics and dashboards
-            to intelligent features and predictive workflows, adding depth beyond design alone.
-          </p>
-          <div class="ef-service-feature-tags">
-            <span>Analytics</span>
-            <span>Dashboards</span>
-            <span>Predictive Features</span>
-          </div>
-          <a href="#design-contact" class="ef-service-feature-link">Explore intelligence</a>
-        </div>
-      </article>
-
+      <div class="ed-card">
+        <span class="ed-card__num">02</span>
+        <h3 class="ed-card__title">UI / UX Design</h3>
+        <p class="ed-card__desc">Interfaces built for people. User flows, wireframes, and interaction systems designed to feel intuitive, elegant, and memorable.</p>
+      </div>
+      <div class="ed-card">
+        <span class="ed-card__num">03</span>
+        <h3 class="ed-card__title">Branding &amp; Visual Identity</h3>
+        <p class="ed-card__desc">Cohesive visual identities that communicate value and distinction. Logo direction, typography, and colour systems — every detail aligned.</p>
+      </div>
+      <div class="ed-card">
+        <span class="ed-card__num">04</span>
+        <h3 class="ed-card__title">Web Systems &amp; Development</h3>
+        <p class="ed-card__desc">Full-stack architecture, backend logic, APIs, and performance. Every build designed to scale.</p>
+      </div>
+      <div class="ed-card">
+        <span class="ed-card__num">05</span>
+        <h3 class="ed-card__title">Data &amp; Intelligence</h3>
+        <p class="ed-card__desc">Analytics, dashboards, and predictive workflows. Insight-led systems that turn data into direction.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="ef-divider"></div>
+  <!-- 4. PORTFOLIO -->
+  <section class="ed-portfolio">
+    <p class="ef-design-fw-hero__eyebrow" style="text-align:center;margin-bottom:3rem">
+      Selected Work
+    </p>
+    <div class="ef-portfolio-grid">
+      <article class="ef-portfolio-card ef-portfolio-card-featured">
+        <img src="{% static 'images/works/design/portfolio-1.png' %}" alt="Brand identity project">
+        <div class="ef-portfolio-overlay">
+          <span class="ef-portfolio-kicker">Featured Project</span>
+          <h4>Brand Identity &amp; Digital Presence</h4>
+          <p>Visual system, interface direction, and premium digital execution.</p>
+        </div>
+      </article>
+      <article class="ef-portfolio-card">
+        <img src="{% static 'images/works/design/portfolio-2.png' %}" alt="Immersive web">
+        <div class="ef-portfolio-overlay">
+          <span class="ef-portfolio-kicker">Web</span>
+          <h4>Immersive Web Experience</h4>
+          <p>UI/UX architecture with seamless frontend development.</p>
+        </div>
+      </article>
+      <article class="ef-portfolio-card">
+        <img src="{% static 'images/works/design/portfolio-3.png' %}" alt="Visual campaign">
+        <div class="ef-portfolio-overlay">
+          <span class="ef-portfolio-kicker">Creative</span>
+          <h4>Visual Campaign Direction</h4>
+          <p>Concept design, storytelling, and cinematic visual language.</p>
+        </div>
+      </article>
+      <article class="ef-portfolio-card">
+        <img src="{% static 'images/works/design/portfolio-4.png' %}" alt="Interface system">
+        <div class="ef-portfolio-overlay">
+          <span class="ef-portfolio-kicker">System</span>
+          <h4>Interface Architecture System</h4>
+          <p>Design systems, components, and structured user flows.</p>
+        </div>
+      </article>
+      <article class="ef-portfolio-card">
+        <img src="{% static 'images/works/design/portfolio-5.png' %}" alt="Data experience">
+        <div class="ef-portfolio-overlay">
+          <span class="ef-portfolio-kicker">Data</span>
+          <h4>Data-Driven Experience System</h4>
+          <p>Analytics, dashboards, and predictive workflows.</p>
+        </div>
+      </article>
+    </div>
+  </section>
 
-    <!-- PORTFOLIO -->
-    <section class="ef-portfolio-section">
-
-      <p class="ef-section-label">Selected Work</p>
-
-      <div class="ef-portfolio-grid">
-
-        <article class="ef-portfolio-card ef-portfolio-card-featured">
-          <img src="{% static 'images/works/design/portfolio-1.png' %}" alt="Brand identity and digital presence project">
-          <div class="ef-portfolio-overlay">
-            <span class="ef-portfolio-kicker">Featured Project</span>
-            <h4>Brand Identity &amp; Digital Presence</h4>
-            <p>Visual system, interface direction, and premium digital execution.</p>
-          </div>
-        </article>
-
-        <article class="ef-portfolio-card">
-          <img src="{% static 'images/works/design/portfolio-2.png' %}" alt="Immersive web experience project">
-          <div class="ef-portfolio-overlay">
-            <span class="ef-portfolio-kicker">Web</span>
-            <h4>Immersive Web Experience</h4>
-            <p>UI/UX architecture with seamless frontend development.</p>
-          </div>
-        </article>
-
-        <article class="ef-portfolio-card">
-          <img src="{% static 'images/works/design/portfolio-3.png' %}" alt="Visual campaign direction project">
-          <div class="ef-portfolio-overlay">
-            <span class="ef-portfolio-kicker">Creative</span>
-            <h4>Visual Campaign Direction</h4>
-            <p>Concept design, storytelling, and cinematic visual language.</p>
-          </div>
-        </article>
-
-        <article class="ef-portfolio-card">
-          <img src="{% static 'images/works/design/portfolio-4.png' %}" alt="Interface architecture system project">
-          <div class="ef-portfolio-overlay">
-            <span class="ef-portfolio-kicker">System</span>
-            <h4>Interface Architecture System</h4>
-            <p>Design systems, components, and structured user flows.</p>
-          </div>
-        </article>
-
-        <article class="ef-portfolio-card">
-          <img src="{% static 'images/works/design/portfolio-5.png' %}" alt="Data-driven experience system">
-          <div class="ef-portfolio-overlay">
-            <span class="ef-portfolio-kicker">Data</span>
-            <h4>Data-Driven Experience System</h4>
-            <p>Analytics, dashboards, and predictive workflows integrated into digital experiences.</p>
-          </div>
-        </article>
-
-      </div>
-
-    </section>
-
-    <div class="ef-divider"></div>
-
-    <!-- CREDENTIALS -->
-    <section class="ef-section-intro">
-      <p class="ef-section-label">Credentials</p>
-      <div class="ef-section-head">
-        <h2 class="ef-section-title">Built on practice, not just aesthetics</h2>
-        <p class="ef-section-copy">
-          A technical foundation that supports refined visual decisions, scalable builds,
-          and data-aware digital experiences.
-        </p>
-      </div>
-    </section>
-
-    <div class="ef-credentials mb-5">
-
+  <!-- 5. CREDENTIALS -->
+  <section class="ed-credentials-section">
+    <p class="ef-design-fw-hero__eyebrow" style="text-align:center;margin-bottom:3rem">
+      Credentials
+    </p>
+    <div class="ef-credentials">
       <div class="ef-credentials-main">
         <h3>Diploma in Full Stack Software Development</h3>
         <p class="ef-credential-kicker">Code Institute · Dublin, Ireland</p>
         <p class="ef-credential-desc">
-          Comprehensive training in full-stack development, spanning front-end systems,
-          Django-based back-end architecture, databases, APIs, agile workflows, and
-          predictive analytics — including data analysis, visualisation, and machine learning workflows.
+          Comprehensive training in full-stack development — front-end systems,
+          Django back-end architecture, databases, APIs, agile workflows,
+          and predictive analytics including machine learning.
         </p>
-
         <div class="ef-skills-wrap">
           <span class="ef-skill-pill">Python</span>
           <span class="ef-skill-pill">Django</span>
@@ -340,32 +151,27 @@
           <span class="ef-skill-pill">Machine Learning</span>
         </div>
       </div>
-
       <div class="ef-credentials-side">
         <div class="ef-credential-mini-card">
           <span>01</span>
           <strong>Frontend</strong>
           <p>Responsive layouts, UI systems, and user experience foundations.</p>
         </div>
-
         <div class="ef-credential-mini-card">
           <span>02</span>
           <strong>Backend</strong>
           <p>Django architecture, databases, APIs, and scalable web logic.</p>
         </div>
-
         <div class="ef-credential-mini-card">
           <span>03</span>
           <strong>Data</strong>
           <p>Analytics, visualisation, and machine learning workflows.</p>
         </div>
       </div>
-
     </div>
+  </section>
 
-  </div>
-
-  <!-- CTA FULL WIDTH — outside container -->
+  <!-- 6. CTA FULL WIDTH -->
   <section class="ef-design-cta">
     <p class="ef-design-cta__eyebrow">Ready to start?</p>
     <h2 class="ef-design-cta__title">
