@@ -1996,3 +1996,26 @@
   .ed-portfolio,
   .ed-credentials-section { padding: 4rem 1.25rem; }
 }
+
+/* ── SERVICES CLEAN — no images ── */
+.ed-services-clean {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(0,188,212,.08);
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+}
+.ed-card--wide {
+  grid-column: 2 / 4;
+}
+@media (max-width: 900px) {
+  .ed-services-clean { grid-template-columns: 1fr 1fr; }
+  .ed-card--wide { grid-column: auto; }
+}
+@media (max-width: 600px) {
+  .ed-services-clean { grid-template-columns: 1fr; }
+}
+
+/* Hide old showcase if still present */
+.ef-services-showcase { display: none !important; }
