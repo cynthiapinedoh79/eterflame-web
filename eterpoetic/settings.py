@@ -97,6 +97,7 @@ INSTALLED_APPS = [
     'studio_app',
     'songs',
     'chat',
+    'shop',
 ]
 
 SITE_ID = 1

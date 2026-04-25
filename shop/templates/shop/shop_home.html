@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/songs.css' %}">
+<link rel="stylesheet" href="{% static 'css/shop.css' %}?v={% now 'U' %}">
+{% endblock %}
+
+{% block content %}
+<div class="section-aythnyk">
+  <div class="eter-breadcrumb">
+    <a href="{% url 'aythnyk:aythnyk_home' %}" class="eter-back-link">← Aythnyk</a>
+  </div>
+
+  <section class="songs-hero">
+    <p class="songs-hero__eyebrow">Aythnyk · Tienda</p>
+    <h1 class="songs-hero__title">Sho<span>p</span></h1>
+    <p class="songs-hero__sub">Arte impreso, descargas digitales y poemas personalizados.</p>
+  </section>
+
+  <!-- NAV CARDS -->
+  <section class="shop-nav">
+    <div class="shop-nav__inner">
+      <a href="{% url 'shop:prints' %}" class="shop-nav-card">
+        <span class="shop-nav-card__num">01</span>
+        <h2 class="shop-nav-card__title">Prints &amp; Art</h2>
+        <p class="shop-nav-card__desc">Láminas de arte y poesía impresa</p>
+        <span class="shop-nav-card__cta">Ver →</span>
+      </a>
+      <a href="{% url 'shop:digital' %}" class="shop-nav-card">
+        <span class="shop-nav-card__num">02</span>
+        <h2 class="shop-nav-card__title">Digital Downloads</h2>
+        <p class="shop-nav-card__desc">Archivos PDF, wallpapers y más</p>
+        <span class="shop-nav-card__cta">Ver →</span>
+      </a>
+      <a href="{% url 'shop:commission' %}" class="shop-nav-card shop-nav-card--gold">
+        <span class="shop-nav-card__num">03</span>
+        <h2 class="shop-nav-card__title">Poema a Medida</h2>
+        <p class="shop-nav-card__desc">Un poema escrito solo para ti</p>
+        <span class="shop-nav-card__cta">Pedir →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- PRINTS PREVIEW -->
+  {% if prints %}
+  <section class="shop-section">
+    <div class="shop-section__inner">
+      <p class="shop-section__label">Prints &amp; Art</p>
+      <h2 class="shop-section__title">Arte <span>impreso</span></h2>
+      <div class="shop-product-grid">
+        {% for product in prints %}
+        <div class="shop-product-card">
+          {% if product.image %}
+          <div class="shop-product-card__img-wrap">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="shop-product-card__img">
+          </div>
+          {% endif %}
+          <div class="shop-product-card__body">
+            <h3 class="shop-product-card__name">{{ product.name }}</h3>
+            <p class="shop-product-card__price">${{ product.price }}</p>
+            {% if product.external_url %}
+            <a href="{{ product.external_url }}" target="_blank" rel="noopener" class="shop-product-card__btn">Comprar →</a>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="shop-section__more">
+        <a href="{% url 'shop:prints' %}" class="shop-more-link">Ver todos los prints →</a>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- DIGITAL PREVIEW -->
+  {% if digital %}
+  <section class="shop-section shop-section--dark">
+    <div class="shop-section__inner">
+      <p class="shop-section__label">Descargas</p>
+      <h2 class="shop-section__title">Digital <span>Downloads</span></h2>
+      <div class="shop-product-grid">
+        {% for product in digital %}
+        <div class="shop-product-card">
+          {% if product.image %}
+          <div class="shop-product-card__img-wrap">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="shop-product-card__img">
+          </div>
+          {% endif %}
+          <div class="shop-product-card__body">
+            <h3 class="shop-product-card__name">{{ product.name }}</h3>
+            <p class="shop-product-card__price">${{ product.price }}</p>
+            {% if product.external_url %}
+            <a href="{{ product.external_url }}" target="_blank" rel="noopener" class="shop-product-card__btn">Descargar →</a>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="shop-section__more">
+        <a href="{% url 'shop:digital' %}" class="shop-more-link">Ver todas las descargas →</a>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- COMMISSION CTA -->
+  <section class="shop-commission-cta">
+    <div class="shop-commission-cta__inner">
+      <p class="shop-commission-cta__eyebrow">Escrito solo para ti</p>
+      <h2 class="shop-commission-cta__title">Poema a <span>Medida</span></h2>
+      <p class="shop-commission-cta__desc">
+        Cuéntame tu historia. Te escribo un poema personalizado
+        en español o inglés — para bodas, cumpleaños, dedicatorias o lo que necesites.
+      </p>
+      <a href="{% url 'shop:commission' %}" class="shop-commission-cta__btn">Pedir mi poema →</a>
+    </div>
+  </section>
+
+</div>
+{% endblock %}
+
+{% block full_width_banner %}
+<div class="quote-banner-fw banner-tuck">
+  {% include "poetry/_quote_banner.html" with theme="banner--red" %}
+</div>
+{% endblock full_width_banner %}
+
+{% block extras %}
+<script src="{% static 'js/quote_banner.js' %}"></script>
+{% endblock %}
