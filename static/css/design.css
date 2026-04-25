@@ -1579,3 +1579,183 @@
     0 30px 80px rgba(0,0,0,.5),
     0 0 60px rgba(0,188,212,.1) !important;
 }
+
+/* ══════════════════════════════════════════════
+   DESIGN STYLE UPGRADE — Match Media/Studio tone
+   Keeps blue palette · Darker · More dramatic
+══════════════════════════════════════════════ */
+
+/* PAGE BASE — deeper black like Media/Studio */
+.ef-design-page {
+  background: #060810 !important;
+}
+
+/* HERO — more dramatic dark bg */
+.ef-design-hero {
+  background: radial-gradient(ellipse at 30% 50%,
+    #0d1a2e 0%, #060810 60%, #03050a 100%) !important;
+  padding: 2rem 0 3rem !important;
+}
+
+/* HERO TITLE — more impactful */
+.ef-page-title-main {
+  font-size: clamp(5rem, 13vw, 10rem) !important;
+  letter-spacing: 10px !important;
+  color: #7ab8f5 !important;
+}
+.ef-page-title-support {
+  color: #5fd0d6 !important;
+}
+.ef-page-title-support span {
+  color: #00BCD4 !important;
+  font-style: italic;
+}
+
+/* SECTION LABELS — cyan accent like Media */
+.ef-section-label {
+  color: #00BCD4 !important;
+  font-size: .68rem !important;
+  letter-spacing: 7px !important;
+}
+
+/* DIVIDER — cyan */
+.ef-divider {
+  background: linear-gradient(90deg, #00BCD4, #1B3A5C) !important;
+  height: 1px !important;
+  width: 100% !important;
+  margin: 3rem 0 !important;
+  opacity: .4;
+}
+
+/* SECTION TITLES */
+.ef-section-title {
+  color: #c8dcf5 !important;
+}
+
+/* SERVICE FEATURES — darker cards like Media/Studio */
+.ef-service-feature {
+  background: #080e1a !important;
+  border: 1px solid rgba(0,188,212,.08) !important;
+  border-radius: 8px !important;
+}
+.ef-service-feature:hover {
+  background: #0a1220 !important;
+  border-color: rgba(0,188,212,.25) !important;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.5),
+    0 0 40px rgba(0,188,212,.1) !important;
+}
+
+/* SERVICE FEATURE KICKER — cyan */
+.ef-service-feature-kicker { color: #00BCD4 !important; }
+
+/* SERVICE TAGS */
+.ef-service-feature-tags span {
+  border-color: rgba(0,188,212,.15) !important;
+  color: #a8d4f5 !important;
+}
+.ef-service-feature:hover .ef-service-feature-tags span {
+  border-color: rgba(0,188,212,.4) !important;
+  color: #e0f5ff !important;
+}
+
+/* PORTFOLIO SECTION */
+.ef-portfolio-section { margin-top: 4rem !important; }
+.ef-portfolio-card {
+  border-radius: 8px !important;
+}
+.ef-portfolio-card:hover {
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.6),
+    0 0 50px rgba(0,188,212,.2) !important;
+}
+.ef-portfolio-kicker { color: #00BCD4 !important; }
+
+/* CREDENTIALS */
+.ef-credentials {
+  background: #080e1a !important;
+  border: 1px solid rgba(0,188,212,.08) !important;
+  border-radius: 8px !important;
+}
+.ef-credential-kicker { color: #00BCD4 !important; }
+.ef-skill-pill {
+  border-color: rgba(0,188,212,.15) !important;
+  color: #a8d4f5 !important;
+}
+.ef-skill-pill:hover {
+  background: #00BCD4 !important;
+  color: #02181c !important;
+  border-color: transparent !important;
+}
+.ef-credential-mini-card {
+  background: rgba(0,188,212,.04) !important;
+  border-color: rgba(0,188,212,.1) !important;
+}
+.ef-credential-mini-card span { color: #00BCD4 !important; }
+
+/* REEL SECTION */
+.ef-design-reel-media {
+  border-radius: 8px !important;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.5),
+    0 0 60px rgba(0,188,212,.08) !important;
+}
+.ef-design-reel-kicker { color: #00BCD4 !important; }
+
+/* CONTACT FORM — darker */
+.ef-contact-form {
+  background: #080e1a !important;
+  border: 1px solid rgba(0,188,212,.08) !important;
+  border-radius: 8px !important;
+}
+.ef-form-group label { color: #5fd0d6 !important; }
+.ef-form-group input,
+.ef-form-group select,
+.ef-form-group textarea {
+  background: rgba(0,8,20,.8) !important;
+  border-color: rgba(0,188,212,.12) !important;
+  color: #c8dcf5 !important;
+}
+.ef-form-group input:focus,
+.ef-form-group select:focus,
+.ef-form-group textarea:focus {
+  border-color: rgba(0,188,212,.5) !important;
+  box-shadow: 0 0 0 3px rgba(0,188,212,.08) !important;
+}
+
+/* HERO STATS — darker */
+.ef-hero-stat {
+  background: rgba(0,8,20,.7) !important;
+  border-color: rgba(0,188,212,.15) !important;
+}
+.ef-hero-stat-number { color: #00BCD4 !important; }
+
+/* HERO IMAGE WRAP */
+.ef-hero-image-wrap {
+  border-color: rgba(0,188,212,.2) !important;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.5),
+    0 0 40px rgba(0,188,212,.08) !important;
+}
+
+/* FLOATING BADGES */
+.ef-hero-floating {
+  background: rgba(0,8,20,.85) !important;
+  border-color: rgba(0,188,212,.2) !important;
+  color: #c8dcf5 !important;
+}
+
+/* BREADCRUMB */
+.eter-breadcrumb {
+  padding: 1.5rem 0 0 2rem;
+}
+.eter-back-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .68rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #3a5a7a;
+  text-decoration: none;
+  transition: color .2s;
+}
+.eter-back-link:hover { color: #00BCD4; }
