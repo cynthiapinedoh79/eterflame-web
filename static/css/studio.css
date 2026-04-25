@@ -137,34 +137,34 @@
 /* CTA */
 .es-cta {
   padding: 6rem 2rem; text-align: center;
-  background: #141414;
-  border-top: 1px solid var(--es-lime);
+  background: #7FBA00;
+  border-top: none;
 }
 .es-cta__eyebrow {
   font-family: var(--es-sans); font-size: .62rem;
   letter-spacing: 5px; text-transform: uppercase;
-  color: var(--es-lime); margin-bottom: .75rem;
+  color: rgba(0,0,0,.5); margin-bottom: .75rem;
 }
 .es-cta__title {
   font-family: var(--es-serif);
   font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 300; color: var(--es-text);
+  font-weight: 300; color: #0a0a0a;
   margin: 0 0 2rem; line-height: 1.2;
 }
 .es-cta__btn {
   display: inline-block;
   padding: .9rem 2.5rem;
-  background: var(--es-lime);
-  color: #0a0a0a;
+  background: #0a0a0a;
+  color: #7FBA00;
   font-family: var(--es-sans); font-size: .72rem;
   font-weight: 700; letter-spacing: 3px;
   text-transform: uppercase; text-decoration: none;
-  border-radius: 2px;
+  border-radius: 2px; border: none;
   transition: background var(--es-ease);
 }
 .es-cta__btn:hover {
-  background: var(--es-lime-lt);
-  color: #0a0a0a;
+  background: #1a1a1a;
+  color: #a0e020;
 }
 
 /* RESPONSIVE */

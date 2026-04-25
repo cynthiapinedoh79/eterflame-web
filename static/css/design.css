@@ -1458,7 +1458,7 @@
 .ef-design-cta {
   padding: 6rem 2rem;
   text-align: center;
-  background: #5fd0d6;
+  background: #00BCD4;
   width: 100%;
   margin-top: 0;
 }
@@ -1467,22 +1467,22 @@
   font-size: .62rem;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: rgba(4,30,34,.6);
+  color: rgba(0,40,46,.6);
   margin-bottom: .75rem;
 }
 .ef-design-cta__title {
   font-family: var(--font-display, 'Cormorant Garamond', serif);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 300;
-  color: #04191c;
+  color: #00252b;
   margin: 0 0 2rem;
   line-height: 1.2;
 }
 .ef-design-cta__btn {
   display: inline-block;
   padding: .9rem 2.5rem;
-  background: #04191c;
-  color: #5fd0d6;
+  background: #00252b;
+  color: #00BCD4;
   font-family: var(--font-mono, 'Courier Prime', monospace);
   font-size: .72rem;
   font-weight: 700;
@@ -1493,8 +1493,8 @@
   transition: background .25s ease;
 }
 .ef-design-cta__btn:hover {
-  background: #061f22;
-  color: #7feaef;
+  background: #003840;
+  color: #4dd9e8;
 }
 
 @media (max-width: 600px) {
