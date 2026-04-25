@@ -48,10 +48,14 @@
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(2.8rem, 7vw, 5.5rem);
   font-weight: 300;
-  color: #f0e8e8;
   letter-spacing: 4px;
   line-height: 1;
   margin: 0 0 1rem;
+  /* Alternating white and gold like App Sonic */
+  background: linear-gradient(135deg, #ffffff 40%, #c49a40 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .shop-hero__subtitle {
   font-family: 'DM Sans', sans-serif;
@@ -281,6 +285,10 @@
   color: #f0e8e8;
   margin: 0 0 1.25rem;
   letter-spacing: 2px;
+}
+.shop-title--gold {
+  color: #c49a40;
+  -webkit-text-fill-color: #c49a40;
 }
 .shop-commission__desc {
   font-family: 'DM Sans', sans-serif;
