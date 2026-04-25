@@ -19,7 +19,7 @@
         <div class="shop-grid">
           {% for product in products %}
           <div class="shop-card">
-            {% if product.image %}<img src="{{ product.image.url }}" alt="{{ product.name }}" class="shop-card__img">
+            {% if product.image.name %}<img src="{{ product.image.url }}" alt="{{ product.name }}" class="shop-card__img">
             {% else %}<div class="shop-card__img-placeholder"></div>{% endif %}
             <div class="shop-card__body">
               <span class="shop-card__badge">Print</span>
