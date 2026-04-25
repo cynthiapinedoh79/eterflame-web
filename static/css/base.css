@@ -560,34 +560,37 @@ pre {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: .75rem;
+}
+.socialaccount_providers li {
+  flex: 1;
 }
 .socialaccount_providers li a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .75rem;
+  gap: .6rem;
   width: 100%;
-  padding: .85rem 1.5rem;
-  border-radius: 3px;
+  padding: .8rem 1rem;
+  border-radius: 50px;
   font-family: 'DM Sans', sans-serif;
-  font-size: .85rem;
+  font-size: .82rem;
   font-weight: 500;
-  letter-spacing: .3px;
   text-decoration: none;
   transition: filter .2s ease, transform .15s ease;
+  letter-spacing: .3px;
+}
+.socialaccount_providers li a:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  text-decoration: none;
 }
 .socialaccount_providers li a img {
   width: 20px;
   height: 20px;
   object-fit: contain;
   flex-shrink: 0;
-}
-.socialaccount_providers li a:hover {
-  filter: brightness(1.06);
-  transform: translateY(-1px);
-  text-decoration: none;
 }
 .socialaccount_providers li a[href*="google"] {
   background: #fff;
@@ -601,6 +604,9 @@ pre {
   border: none;
 }
 .socialaccount_providers li a[href*="facebook"]::before { display: none; }
+.socialaccount_providers li a span.provider-text {
+  display: inline;
+}
 
 /* ================================================
    8. LOGIN PAGE

@@ -353,3 +353,44 @@
     display: none;
   }
 }
+
+/* ================================================
+   7. Collab Form — Dark Inputs
+=================================================== */
+
+.collab-section input,
+.collab-section textarea,
+.collab-section select,
+.collab-section .form-control {
+  background: #0a0804 !important;
+  background-color: #0a0804 !important;
+  border: 1px solid #2a2010 !important;
+  color: #f5e0b0 !important;
+  border-radius: 2px !important;
+  padding: .75rem 1rem !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: .88rem !important;
+}
+.collab-section input:focus,
+.collab-section textarea:focus {
+  border-color: #c49a40 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.collab-section input::placeholder,
+.collab-section textarea::placeholder {
+  color: #3a3020 !important;
+}
+.collab-section button[type="submit"],
+.collab-section .btn-signup {
+  background: transparent !important;
+  color: #c49a40 !important;
+  border: 1px solid #c49a40 !important;
+  width: 100% !important;
+  margin-top: .5rem !important;
+}
+.collab-section button[type="submit"]:hover,
+.collab-section .btn-signup:hover {
+  background: #c49a40 !important;
+  color: #0a0804 !important;
+}
