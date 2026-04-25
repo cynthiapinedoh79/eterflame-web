@@ -8,94 +8,109 @@
 
 {% block content %}
 
-<div class="eter-breadcrumb">
-  <a href="{% url 'poetry:poetry_home' %}" class="eter-back-link">← Aythnyk</a>
-  <span class="eter-breadcrumb-sep">·</span>
-  <a href="{% url 'blog:bloghome' %}" class="eter-back-link">Blog</a>
-</div>
-
-<!-- HERO: full-width, image behind dark overlay, title on top -->
-<section class="blog-detail-hero"
+<!-- ── HERO ── -->
+<section class="bpd-hero"
   {% if post.featured_image and "placeholder" not in post.featured_image.url %}
   style="background-image:url('{{ post.featured_image.url }}')"
   {% else %}
   style="background-image:url('{% static 'images/default.png' %}')"
   {% endif %}>
-  <div class="blog-detail-hero__overlay"></div>
-  <div class="blog-detail-hero__inner">
-    <p class="blog-detail-hero__eyebrow">{{ post.author }} · {{ post.created_on }}</p>
-    <h1 class="blog-detail-hero__title">{{ post.title }}</h1>
+  <div class="bpd-hero__overlay"></div>
+
+  <nav class="bpd-hero__nav">
+    <a href="{% url 'poetry:poetry_home' %}" class="bpd-hero__back">← Aythnyk</a>
+    <span class="bpd-hero__back-sep">·</span>
+    <a href="{% url 'blog:bloghome' %}" class="bpd-hero__back">Blog</a>
+  </nav>
+
+  <div class="bpd-hero__inner">
+    <p class="bpd-hero__eyebrow">Blog · Aythnyk</p>
+    <h1 class="bpd-hero__title">{{ post.title }}</h1>
+    <p class="bpd-hero__meta">{{ post.author }} · {{ post.created_on }}</p>
   </div>
 </section>
 
-<!-- POST BODY -->
-<article class="blog-post-body">
+<!-- ── ARTICLE BODY ── -->
+<article class="bpd-body">
   {{ post.content | safe }}
 </article>
 
-<!-- COMMENTS -->
-<section class="blog-post-comments">
-  <p class="blog-post-comments__count">
-    <i class="far fa-comments"></i> {{ comment_count }}
-  </p>
-  <hr class="blog-post-comments__divider">
+<!-- ── AUTHOR STRIP ── -->
+<div class="bpd-author-strip">
+  <span class="bpd-author-strip__label">Escrito por</span>
+  <span class="bpd-author-strip__name">{{ post.author }}</span>
+</div>
 
-  {% for comment in comments %}
-  <div class="blog-comment {% if not comment.approved and comment.author == user %}blog-comment--faded{% elif not comment.approved %}blog-comment--hidden{% endif %}">
-    <p class="blog-comment__meta">
-      <strong>{{ comment.author }}</strong>
-      <span>{{ comment.created_on }}</span> wrote:
-    </p>
-    <div id="comment{{ comment.id }}" class="blog-comment__body">
-      {{ comment.body | linebreaks }}
+<!-- ── COMMENTS ── -->
+<section class="bpd-comments">
+  <h2 class="bpd-comments__heading">Comentarios</h2>
+
+  <div class="bpd-comments__list">
+    {% for comment in comments %}
+    <div class="bpd-comment {% if not comment.approved and comment.author == user %}bpd-comment--faded{% elif not comment.approved %}bpd-comment--hidden{% endif %}">
+      <div class="bpd-comment__header">
+        <span class="bpd-comment__author">{{ comment.author }}</span>
+        <span class="bpd-comment__date">{{ comment.created_on }}</span>
+      </div>
+      <div id="comment{{ comment.id }}" class="bpd-comment__body">
+        {{ comment.body | linebreaks }}
+      </div>
+      {% if not comment.approved and comment.author == user %}
+      <p class="bpd-comment__pending">This comment is awaiting approval</p>
+      {% endif %}
+      {% if user.is_authenticated and comment.author == user %}
+      <div class="bpd-comment__actions">
+        <button class="btn btn-delete btn-sm"
+          data-comment_id="{{ comment.id }}"
+          data-delete-url="{% url 'blog:comment_delete' post.slug comment.id %}">Delete</button>
+        <button class="btn btn-edit btn-sm"
+          data-comment-id="{{ comment.id }}"
+          data-edit-url="{% url 'blog:comment_edit' post.slug comment.id %}">Edit</button>
+      </div>
+      {% endif %}
     </div>
-    {% if not comment.approved and comment.author == user %}
-    <p class="approval">This comment is awaiting approval</p>
-    {% endif %}
-    {% if user.is_authenticated and comment.author == user %}
-    <button class="btn btn-delete"
-      data-comment_id="{{ comment.id }}"
-      data-delete-url="{% url 'blog:comment_delete' post.slug comment.id %}">Delete</button>
-    <button class="btn btn-edit"
-      data-comment-id="{{ comment.id }}"
-      data-edit-url="{% url 'blog:comment_edit' post.slug comment.id %}">Edit</button>
-    {% endif %}
+    {% empty %}
+    <div class="bpd-comment bpd-comment--empty">
+      <p>No hay comentarios aún. Sé el primero en compartir tu opinión.</p>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
 
-  <div class="blog-post-comment-form">
+  <!-- Comment form -->
+  <div class="bpd-comment-form">
     {% if user.is_authenticated %}
-    <h3 class="blog-post-comment-form__title">Leave a comment:</h3>
-    <p class="blog-post-comment-form__meta">Posting as: {{ user.username }}</p>
+    <h3 class="bpd-comment-form__title">Deja un comentario</h3>
+    <p class="bpd-comment-form__meta">Publicando como <strong>{{ user.username }}</strong></p>
     <form id="commentForm" method="post">
       {{ comment_form | crispy }}
       {% csrf_token %}
-      <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+      <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Publicar</button>
     </form>
     {% else %}
-    <p class="blog-post-comment-form__meta">Log in to leave a comment</p>
+    <a href="{% url 'account_login' %}?next={{ request.path }}" class="bpd-login-btn">
+      Inicia sesión para comentar
+    </a>
     {% endif %}
   </div>
 </section>
 
-<!-- Delete confirmation modal -->
+<!-- ── DELETE MODAL ── -->
 <div class="modal fade" id="deleteModal" tabindex="-1"
   aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
+        <h5 class="modal-title" id="deleteModalLabel">¿Eliminar comentario?</h5>
         <button type="button" class="btn-close"
           data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Are you sure you want to delete your comment?
-        This action cannot be undone.
+        ¿Seguro que quieres eliminar tu comentario? Esta acción no se puede deshacer.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary"
-          data-bs-dismiss="modal">Close</button>
-        <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+          data-bs-dismiss="modal">Cancelar</button>
+        <a id="deleteConfirm" href="#" class="btn btn-danger">Eliminar</a>
       </div>
     </div>
   </div>
