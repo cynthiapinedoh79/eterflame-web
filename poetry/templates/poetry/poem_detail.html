@@ -11,6 +11,15 @@
 <div class="eter-breadcrumb">
   <a href="{% url 'aythnyk:aythnyk_home' %}" class="eter-back-link">← Aythnyk</a>
 </div>
+
+<section class="songs-hero">
+  <p class="songs-hero__eyebrow">Aythnyk · Poesía</p>
+  <h1 class="songs-hero__title">Poe<span>ma</span></h1>
+  <p class="songs-hero__sub">
+    {% if poem.collection %}{{ poem.collection.name_es|default:poem.collection.name_en }}{% elif poem.author %}{{ poem.author }}{% else %}Escritos{% endif %}
+  </p>
+</section>
+
 <div class="poem-with-panel">
 <div class="poem-main-col">
 <div class="mt-2 mb-5" style="max-width:1100px;margin:0 auto;padding:0 2rem">

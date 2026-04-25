@@ -3,12 +3,19 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/blog.css' %}?v={% now 'U' %}">
+<link rel="stylesheet" href="{% static 'css/songs.css' %}">
 {% endblock %}
 
 {% block content %}
 <div class="eter-breadcrumb">
   <a href="{% url 'poetry:poetry_home' %}" class="eter-back-link">← Aythnyk</a>
 </div>
+
+<section class="songs-hero">
+  <p class="songs-hero__eyebrow">Aythnyk · Palabras</p>
+  <h1 class="songs-hero__title">Blo<span>g</span></h1>
+  <p class="songs-hero__sub">Reflexiones y proceso creativo.</p>
+</section>
 
 <div style="max-width:1100px;margin:0 auto;padding:0 2rem">
   <div class="blog-grid left mt-3">
