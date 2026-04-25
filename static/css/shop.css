@@ -1,0 +1,408 @@
+/* ================================================
+   AYTHNYK SHOP — CSS
+   Palette: #070708 bg | #c8102e crimson | #c49a40 gold
+   ================================================ */
+
+.shop-page {
+  background: #070708;
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* ── HERO ── */
+.shop-hero {
+  background: #0a0608;
+  padding: 8rem 2rem 5rem;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid rgba(200,16,46,0.12);
+}
+.shop-hero--small {
+  padding: 6rem 2rem 3.5rem;
+}
+.shop-hero__inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.shop-hero__back {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c49a40;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+}
+.shop-hero__back:hover { color: #e8b84b; }
+.shop-hero__eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #c8102e;
+  margin-bottom: 1rem;
+}
+.shop-hero__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 300;
+  color: #f0e8e8;
+  letter-spacing: 4px;
+  line-height: 1;
+  margin: 0 0 1rem;
+}
+.shop-hero__subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  margin: 0 0 2.5rem;
+}
+.shop-hero__ctas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── BUTTONS ── */
+.shop-btn {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: 3px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.shop-btn--crimson {
+  border: 1px solid #c8102e;
+  color: #c8102e;
+  background: transparent;
+}
+.shop-btn--crimson:hover {
+  background: #c8102e;
+  color: #fff;
+}
+.shop-btn--gold {
+  border: 1px solid #c49a40;
+  color: #c49a40;
+  background: transparent;
+}
+.shop-btn--gold:hover {
+  background: #c49a40;
+  color: #070708;
+}
+.shop-btn--outline {
+  border: 1px solid rgba(196,154,64,0.4);
+  color: #c49a40;
+  background: transparent;
+}
+.shop-btn--outline:hover {
+  border-color: #c49a40;
+  background: rgba(196,154,64,0.06);
+}
+.shop-btn--crimson-fill {
+  background: #c8102e;
+  color: #fff;
+  border: 1px solid #c8102e;
+}
+.shop-btn--crimson-fill:hover {
+  background: #a00d25;
+  border-color: #a00d25;
+}
+
+/* ── LABEL ── */
+.shop-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.63rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #c8102e;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.shop-label--gold { color: #c49a40; }
+
+/* ── SECTIONS ── */
+.shop-section {
+  padding: 6rem 2rem;
+  background: #070708;
+  border-top: 1px solid rgba(200,16,46,0.08);
+}
+.shop-section--alt {
+  background: #0a0608;
+}
+.shop-section__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.shop-section__cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* ── PRODUCT GRID ── */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ── PRODUCT CARD ── */
+.shop-card {
+  background: #0d0d0e;
+  border: 1px solid rgba(200,16,46,0.15);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.shop-card:hover {
+  border-color: rgba(200,16,46,0.4);
+  transform: translateY(-3px);
+}
+.shop-card__img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+.shop-card__img-placeholder {
+  width: 100%;
+  height: 260px;
+  background: #111;
+  border-bottom: 1px solid rgba(200,16,46,0.1);
+}
+.shop-card__body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.shop-card__badge {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c8102e;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.shop-card__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 300;
+  color: #f0e8e8;
+  margin: 0 0 0.5rem;
+  letter-spacing: 1px;
+}
+.shop-card__desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: #555;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+  flex: 1;
+}
+.shop-card__price {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: #c49a40;
+  margin: 0 0 1.25rem;
+  font-weight: 500;
+}
+.shop-card__btn {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid #c8102e;
+  color: #c8102e;
+  border-radius: 3px;
+  transition: all 0.25s ease;
+  text-align: center;
+  margin-top: auto;
+}
+.shop-card__btn:hover {
+  background: #c8102e;
+  color: #fff;
+}
+.shop-card__btn--disabled {
+  border-color: rgba(255,255,255,0.1);
+  color: #333;
+  cursor: default;
+}
+
+/* ── EMPTY STATE ── */
+.shop-empty {
+  border: 1px dashed rgba(200,16,46,0.3);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 4px;
+}
+.shop-empty__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: #c8dcf5;
+  margin: 0 0 0.75rem;
+}
+.shop-empty__sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0 0 2rem;
+}
+
+/* ── COMMISSION BANNER ── */
+.shop-commission {
+  background: #0d0205;
+  padding: 7rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(200,16,46,0.15);
+}
+.shop-commission__inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.shop-commission__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  color: #f0e8e8;
+  margin: 0 0 1.25rem;
+  letter-spacing: 2px;
+}
+.shop-commission__desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 2;
+  margin: 0 0 2.5rem;
+}
+
+/* ── COMMISSION FORM ── */
+.shop-commission-form {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+.shop-form__group {
+  margin-bottom: 1.75rem;
+}
+.shop-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+.shop-form__label {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c49a40;
+  margin-bottom: 0.6rem;
+}
+.shop-form__hint {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #444;
+  margin: -0.3rem 0 0.6rem;
+}
+.shop-commission-form input,
+.shop-commission-form select,
+.shop-commission-form textarea {
+  width: 100%;
+  background: #0d0d0e;
+  border: 1px solid rgba(196,154,64,0.2);
+  color: #e0e0e0;
+  padding: 0.75rem 1rem;
+  border-radius: 3px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+  -webkit-appearance: none;
+}
+.shop-commission-form input:focus,
+.shop-commission-form select:focus,
+.shop-commission-form textarea:focus {
+  outline: none;
+  border-color: #c49a40;
+}
+.shop-commission-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+.shop-form__error {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  color: #c8102e;
+  margin-top: 0.4rem;
+}
+.shop-form__submit {
+  width: 100%;
+  background: #c8102e;
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.25s ease;
+  margin-top: 0.5rem;
+}
+.shop-form__submit:hover { background: #a00d25; }
+
+/* ── SUCCESS ── */
+.shop-success {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.shop-success__icon {
+  display: block;
+  font-size: 3rem;
+  color: #c49a40;
+  margin-bottom: 1.5rem;
+}
+.shop-success__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  color: #f0e8e8;
+  margin: 0 0 1rem;
+}
+.shop-success__msg {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0 0 2.5rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .shop-grid { grid-template-columns: repeat(2, 1fr); }
+  .shop-form__row { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .shop-grid { grid-template-columns: 1fr; }
+  .shop-hero { padding: 6rem 1.25rem 3rem; }
+  .shop-section { padding: 3.5rem 1.25rem; }
+  .shop-commission { padding: 4rem 1.25rem; }
+  .shop-commission-form { padding: 2rem 1.25rem; }
+  .shop-hero__ctas { flex-direction: column; align-items: center; }
+}
