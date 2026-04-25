@@ -1,13 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/shop.css' %}?v={% now 'U' %}">
 {% endblock %}
-
 {% block content %}
 <div class="shop-page">
-
   <section class="shop-hero shop-hero--small">
     <div class="shop-hero__inner">
       <a href="/aythnyk/shop/" class="shop-hero__back">← Shop</a>
@@ -16,10 +13,8 @@
       <p class="shop-hero__subtitle">Written for you, by hand, with intention.</p>
     </div>
   </section>
-
   <section class="shop-section">
     <div class="shop-commission-form">
-
       {% if submitted %}
         <div class="shop-success">
           <span class="shop-success__icon">✓</span>
@@ -27,58 +22,44 @@
           <p class="shop-success__msg">We'll be in touch within 48 hours.</p>
           <a href="/aythnyk/shop/" class="shop-btn shop-btn--outline">← Back to Shop</a>
         </div>
-
       {% else %}
         <form method="POST" novalidate>
           {% csrf_token %}
-
           <div class="shop-form__group">
-            <label class="shop-form__label" for="id_name">Your Name</label>
+            <label class="shop-form__label">Your Name</label>
             {{ form.name }}
-            {% if form.name.errors %}<p class="shop-form__error">{{ form.name.errors.0 }}</p>{% endif %}
           </div>
-
           <div class="shop-form__group">
-            <label class="shop-form__label" for="id_email">Email</label>
+            <label class="shop-form__label">Email</label>
             {{ form.email }}
-            {% if form.email.errors %}<p class="shop-form__error">{{ form.email.errors.0 }}</p>{% endif %}
           </div>
-
           <div class="shop-form__row">
             <div class="shop-form__group">
-              <label class="shop-form__label" for="id_occasion">Occasion</label>
+              <label class="shop-form__label">Occasion</label>
               {{ form.occasion }}
             </div>
             <div class="shop-form__group">
-              <label class="shop-form__label" for="id_language">Language</label>
+              <label class="shop-form__label">Language</label>
               {{ form.language }}
             </div>
           </div>
-
           <div class="shop-form__group">
-            <label class="shop-form__label" for="id_recipient">Who is the poem for?</label>
+            <label class="shop-form__label">Who is the poem for?</label>
             {{ form.recipient }}
-            {% if form.recipient.errors %}<p class="shop-form__error">{{ form.recipient.errors.0 }}</p>{% endif %}
           </div>
-
           <div class="shop-form__group">
-            <label class="shop-form__label" for="id_details">Tell us the story</label>
+            <label class="shop-form__label">Tell us the story</label>
             <p class="shop-form__hint">Mood, keywords, memories, tone — the more detail, the better the poem.</p>
             {{ form.details }}
-            {% if form.details.errors %}<p class="shop-form__error">{{ form.details.errors.0 }}</p>{% endif %}
           </div>
-
           <div class="shop-form__group">
-            <label class="shop-form__label" for="id_budget">Budget (optional)</label>
+            <label class="shop-form__label">Budget (optional)</label>
             {{ form.budget }}
           </div>
-
           <button type="submit" class="shop-form__submit">Send Request →</button>
         </form>
       {% endif %}
-
     </div>
   </section>
-
 </div>
 {% endblock %}

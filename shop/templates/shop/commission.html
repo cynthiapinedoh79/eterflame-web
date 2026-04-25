@@ -1,110 +1,65 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/songs.css' %}">
 <link rel="stylesheet" href="{% static 'css/shop.css' %}?v={% now 'U' %}">
 {% endblock %}
-
 {% block content %}
-<div class="section-aythnyk">
-  <div class="eter-breadcrumb">
-    <a href="{% url 'aythnyk:aythnyk_home' %}" class="eter-back-link">← Aythnyk</a>
-    <span class="eter-breadcrumb-sep">·</span>
-    <a href="{% url 'shop:shop_home' %}" class="eter-back-link">Shop</a>
-  </div>
-
-  <section class="songs-hero">
-    <p class="songs-hero__eyebrow">Aythnyk · Shop</p>
-    <h1 class="songs-hero__title">Comi<span>sión</span></h1>
-    <p class="songs-hero__sub">Un poema escrito solo para ti.</p>
-  </section>
-
-  {% if submitted %}
-  <section class="shop-commission-thanks">
-    <div class="shop-commission-thanks__inner">
-      <p class="shop-commission-thanks__icon">✦</p>
-      <h2 class="shop-commission-thanks__title">Gracias, {{ requester_name }}</h2>
-      <p class="shop-commission-thanks__msg">
-        He recibido tu solicitud. Me pondré en contacto contigo pronto
-        para hablar sobre tu poema.
-      </p>
-      <a href="{% url 'shop:shop_home' %}" class="shop-product-card__btn">Volver al Shop →</a>
+<div class="shop-page">
+  <section class="shop-hero shop-hero--small">
+    <div class="shop-hero__inner">
+      <a href="/aythnyk/shop/" class="shop-hero__back">← Shop</a>
+      <p class="shop-hero__eyebrow">Aythnyk · Commission</p>
+      <h1 class="shop-hero__title">Commission a Poem</h1>
+      <p class="shop-hero__subtitle">Written for you, by hand, with intention.</p>
     </div>
   </section>
-
-  {% else %}
-  <section class="shop-commission-form-section">
-    <div class="shop-commission-form-section__inner">
-      <div class="shop-commission-intro">
-        <p class="shop-commission-intro__text">
-          Cuéntame la ocasión y la persona. Escribo poemas personalizados
-          en español, inglés o ambos — para bodas, cumpleaños, homenajes,
-          dedicatorias o cualquier momento especial.
-        </p>
-      </div>
-
-      <form method="POST" class="shop-commission-form" novalidate>
-        {% csrf_token %}
-
-        <div class="shop-form-group">
-          <label class="shop-form-label" for="{{ form.name.id_for_label }}">Tu nombre</label>
-          {{ form.name }}
-          {% if form.name.errors %}<p class="shop-form-error">{{ form.name.errors|join:", " }}</p>{% endif %}
+  <section class="shop-section">
+    <div class="shop-commission-form">
+      {% if submitted %}
+        <div class="shop-success">
+          <span class="shop-success__icon">✓</span>
+          <h2 class="shop-success__title">Thank you.</h2>
+          <p class="shop-success__msg">We'll be in touch within 48 hours.</p>
+          <a href="/aythnyk/shop/" class="shop-btn shop-btn--outline">← Back to Shop</a>
         </div>
-
-        <div class="shop-form-group">
-          <label class="shop-form-label" for="{{ form.email.id_for_label }}">Email de contacto</label>
-          {{ form.email }}
-          {% if form.email.errors %}<p class="shop-form-error">{{ form.email.errors|join:", " }}</p>{% endif %}
-        </div>
-
-        <div class="shop-form-group">
-          <label class="shop-form-label" for="{{ form.occasion.id_for_label }}">Ocasión</label>
-          {{ form.occasion }}
-          {% if form.occasion.errors %}<p class="shop-form-error">{{ form.occasion.errors|join:", " }}</p>{% endif %}
-        </div>
-
-        <div class="shop-form-group">
-          <label class="shop-form-label" for="{{ form.recipient.id_for_label }}">¿Para quién es el poema?</label>
-          {{ form.recipient }}
-          {% if form.recipient.errors %}<p class="shop-form-error">{{ form.recipient.errors|join:", " }}</p>{% endif %}
-        </div>
-
-        <div class="shop-form-group">
-          <label class="shop-form-label" for="{{ form.details.id_for_label }}">Cuéntame más</label>
-          {{ form.details }}
-          {% if form.details.errors %}<p class="shop-form-error">{{ form.details.errors|join:", " }}</p>{% endif %}
-        </div>
-
-        <div class="shop-form-row">
-          <div class="shop-form-group">
-            <label class="shop-form-label" for="{{ form.language.id_for_label }}">Idioma</label>
-            {{ form.language }}
-            {% if form.language.errors %}<p class="shop-form-error">{{ form.language.errors|join:", " }}</p>{% endif %}
+      {% else %}
+        <form method="POST" novalidate>
+          {% csrf_token %}
+          <div class="shop-form__group">
+            <label class="shop-form__label">Your Name</label>
+            {{ form.name }}
           </div>
-          <div class="shop-form-group">
-            <label class="shop-form-label" for="{{ form.budget.id_for_label }}">Presupuesto (opcional)</label>
+          <div class="shop-form__group">
+            <label class="shop-form__label">Email</label>
+            {{ form.email }}
+          </div>
+          <div class="shop-form__row">
+            <div class="shop-form__group">
+              <label class="shop-form__label">Occasion</label>
+              {{ form.occasion }}
+            </div>
+            <div class="shop-form__group">
+              <label class="shop-form__label">Language</label>
+              {{ form.language }}
+            </div>
+          </div>
+          <div class="shop-form__group">
+            <label class="shop-form__label">Who is the poem for?</label>
+            {{ form.recipient }}
+          </div>
+          <div class="shop-form__group">
+            <label class="shop-form__label">Tell us the story</label>
+            <p class="shop-form__hint">Mood, keywords, memories, tone — the more detail, the better the poem.</p>
+            {{ form.details }}
+          </div>
+          <div class="shop-form__group">
+            <label class="shop-form__label">Budget (optional)</label>
             {{ form.budget }}
-            {% if form.budget.errors %}<p class="shop-form-error">{{ form.budget.errors|join:", " }}</p>{% endif %}
           </div>
-        </div>
-
-        <button type="submit" class="shop-form-submit">Enviar solicitud →</button>
-      </form>
+          <button type="submit" class="shop-form__submit">Send Request →</button>
+        </form>
+      {% endif %}
     </div>
   </section>
-  {% endif %}
-
 </div>
-{% endblock %}
-
-{% block full_width_banner %}
-<div class="quote-banner-fw banner-tuck">
-  {% include "poetry/_quote_banner.html" with theme="banner--red" %}
-</div>
-{% endblock full_width_banner %}
-
-{% block extras %}
-<script src="{% static 'js/quote_banner.js' %}"></script>
 {% endblock %}
