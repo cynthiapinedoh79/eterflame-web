@@ -2091,3 +2091,38 @@ a.text-decoration-none:hover {
   margin: 0 auto 1.8rem;
   line-height: 1.7;
 }
+
+/* ── Large-screen cap: poem & collection cards stop stretching at 1400px ── */
+@media (min-width: 1400px) {
+  .poems-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 280px);
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  /* neutralise Bootstrap col-* flex sizing inside the overridden grid */
+  .poems-grid > [class*="col-"] {
+    width: 100%;
+    max-width: 280px;
+    padding: 0;
+    flex: none;
+  }
+  .poems-grid .collection-album-card,
+  .poems-grid .card {
+    max-width: 280px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1800px) {
+  .poems-grid {
+    grid-template-columns: repeat(4, 300px);
+  }
+  .poems-grid > [class*="col-"] {
+    max-width: 300px;
+  }
+  .poems-grid .collection-album-card,
+  .poems-grid .card {
+    max-width: 300px;
+  }
+}

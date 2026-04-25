@@ -61,7 +61,7 @@
   {% endcomment %}
   {% if page_mode == 'collections' %}
     {% if page_obj.object_list %}
-      <div class="row g-4">
+      <div class="row g-4 poems-grid">
         {% for collection in page_obj.object_list %}
         <div class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2">
         
@@ -123,7 +123,7 @@
       </div>
       {% endif %}
 
-      <div class="row g-4">
+      <div class="row g-4 poems-grid">
         {% for poem in page_obj.object_list %}
           <div class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2">
             <div class="card h-100 {% if poem.is_featured %}is-featured{% else %}shadow-sm{% endif %}">
