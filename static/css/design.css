@@ -2124,3 +2124,74 @@
 
 /* Hide old conflicting classes */
 .eter-breadcrumb { display: none !important; }
+
+/* ── RESPONSIVE — What We Do grid ── */
+@media (max-width: 1024px) {
+  .ed-services-clean {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ed-card--wide { grid-column: auto; }
+}
+@media (max-width: 600px) {
+  .ed-services-clean {
+    grid-template-columns: 1fr;
+  }
+  .ed-card { padding: 2rem 1.5rem; min-height: auto; }
+}
+
+/* ── RESPONSIVE — Selected Work portfolio grid ── */
+@media (max-width: 1024px) {
+  .ef-portfolio-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto !important;
+  }
+  .ef-portfolio-card-featured {
+    grid-column: 1 / 3 !important;
+    grid-row: auto !important;
+    height: 320px;
+  }
+  .ef-portfolio-card {
+    height: 240px;
+  }
+  .ef-portfolio-card:nth-child(5) {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}
+@media (max-width: 600px) {
+  .ef-portfolio-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+  }
+  .ef-portfolio-card-featured,
+  .ef-portfolio-card,
+  .ef-portfolio-card:nth-child(5) {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    height: 260px;
+  }
+}
+
+/* ── RESPONSIVE — Sections padding ── */
+@media (max-width: 600px) {
+  .ed-services,
+  .ed-portfolio,
+  .ed-credentials-section {
+    padding: 3rem 1.25rem;
+  }
+  .ef-design-reel--fw .ef-design-reel-image {
+    height: 260px;
+  }
+  .ef-design-reel--fw .ef-design-reel-media {
+    min-height: 260px;
+  }
+  .ef-design-reel-overlay {
+    left: 20px; right: 20px; bottom: 20px;
+  }
+  .ef-design-reel-title {
+    font-size: 1.5rem;
+  }
+  .ef-credentials {
+    grid-template-columns: 1fr !important;
+  }
+}
