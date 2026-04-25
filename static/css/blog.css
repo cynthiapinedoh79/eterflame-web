@@ -728,3 +728,41 @@
         font-size: clamp(1.6rem, 7vw, 2.2rem);
     }
 }
+
+/* ── Post body: inline content headings & emphasis ── */
+.blog-post-body strong {
+    color: #c49a40;
+    font-weight: 600;
+}
+
+.blog-post-body h2,
+.blog-post-body h3,
+.blog-post-body h4 {
+    color: #c49a40;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ── Back navigation link ── */
+.blog-back-link {
+    display: inline-block;
+    margin-top: 3rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #c49a40;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(196, 154, 64, 0.3);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.blog-back-link:hover {
+    color: #e8b84b;
+    border-color: rgba(196, 154, 64, 0.7);
+}
