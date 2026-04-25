@@ -1903,68 +1903,7 @@
   .ef-design-fw-hero__title { font-size: clamp(3rem, 18vw, 6rem); }
 }
 
-/* ── SERVICES GRID — like Media/Studio ── */
-.ed-services {
-  padding: 6rem 2rem;
-  background: #080e1a;
-  border-top: 1px solid rgba(0,188,212,.08);
-}
-.ed-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: rgba(0,188,212,.08);
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* Card 05 ocupa las 2 últimas columnas de la fila 2 */
-.ed-card:nth-child(5) {
-  grid-column: 2 / 4;
-}
-.ed-card {
-  background: #060810;
-  padding: 2.5rem 2rem;
-  transition: background .3s ease;
-  position: relative;
-  overflow: hidden;
-}
-.ed-card::before {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 100%; height: 2px;
-  background: #00BCD4;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .3s ease;
-}
-.ed-card:hover { background: rgba(0,188,212,.06); }
-.ed-card:hover::before { transform: scaleX(1); }
-.ed-card__num {
-  font-family: 'DM Sans', sans-serif;
-  font-size: .58rem;
-  letter-spacing: 4px;
-  color: #00BCD4;
-  margin-bottom: .75rem;
-  display: block;
-}
-.ed-card__title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.35rem;
-  font-weight: 300;
-  color: #c8dcf5;
-  margin: 0 0 .6rem;
-  transition: color .3s ease;
-}
-.ed-card:hover .ed-card__title { color: #00BCD4; }
-.ed-card__desc {
-  font-family: 'DM Sans', sans-serif;
-  font-size: .8rem;
-  color: #3a5a7a;
-  line-height: 1.7;
-  margin: 0;
-}
+/* ── SERVICES GRID — consolidated, see bottom of file ── */
 
 /* ── PORTFOLIO SECTION ── */
 .ed-portfolio {
@@ -1997,35 +1936,22 @@
   .ed-credentials-section { padding: 4rem 1.25rem; }
 }
 
-/* ── SERVICES CLEAN — no images ── */
-.ed-services-clean {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: rgba(0,188,212,.08);
-  max-width: 1200px;
-  margin: 0 auto 4rem;
-}
-.ed-card--wide {
-  grid-column: 2 / 4;
-}
-@media (max-width: 900px) {
-  .ed-services-clean { grid-template-columns: 1fr 1fr; }
-  .ed-card--wide { grid-column: auto; }
-}
-@media (max-width: 600px) {
-  .ed-services-clean { grid-template-columns: 1fr; }
-}
+/* ── SERVICES CLEAN — consolidated, see bottom of file ── */
 
 /* Hide old showcase if still present */
 .ef-services-showcase { display: none !important; }
 
-/* ── CONSISTENT LAYOUT SYSTEM ── */
+/* ── CONSISTENT LAYOUT SYSTEM — consolidated below ── */
+/* ============================================================
+   ── DESIGN PAGE — SISTEMA CONSOLIDADO (fuente única) ──
+   Reemplaza todos los bloques duplicados anteriores.
+   6 servicios en grid 3×2 (desktop) → 2×3 (tablet) → 1×6 (mobile)
+   ============================================================ */
 
 /* Page reset */
 .ef-design-page { padding: 0 !important; }
 
-/* Centered label used in all sections */
+/* Label centrado reutilizable */
 .ed-label {
   font-family: 'DM Sans', sans-serif;
   font-size: .63rem;
@@ -2036,21 +1962,26 @@
   margin-bottom: 3rem;
 }
 
-/* Services section */
+/* ── SERVICES SECTION ── */
 .ed-services {
   padding: 6rem 2rem;
   background: #080e1a;
   border-top: 1px solid rgba(0,188,212,.08);
 }
+
+/* Grid 3×2 para 6 servicios */
 .ed-services-clean {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: rgba(0,188,212,.08);
   max-width: 1100px;
   margin: 0 auto;
 }
-.ed-card--wide { grid-column: 2 / 4; }
+
+/* Cards — sin .ed-card--wide, ya no hace falta */
+.ed-card--wide { grid-column: auto; }
+
 .ed-card {
   background: #060810;
   padding: 3rem 2.5rem;
@@ -2071,26 +2002,37 @@
 }
 .ed-card:hover { background: rgba(0,188,212,.05); }
 .ed-card:hover::before { transform: scaleX(1); }
+
 .ed-card__num {
   font-family: 'DM Sans', sans-serif;
-  font-size: .6rem; letter-spacing: 4px;
-  color: #00BCD4; margin-bottom: 1rem; display: block;
+  font-size: .6rem;
+  letter-spacing: 4px;
+  color: #00BCD4;
+  margin-bottom: 1rem;
+  display: block;
 }
 .ed-card__title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem; font-weight: 300;
-  color: #c8dcf5; margin: 0 0 .75rem;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: #c8dcf5;
+  margin: 0 0 .75rem;
   letter-spacing: 1px;
   transition: color .3s ease;
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 .ed-card:hover .ed-card__title { color: #00BCD4; }
 .ed-card__desc {
   font-family: 'DM Sans', sans-serif;
-  font-size: .82rem; color: #4a6a8a;
-  line-height: 1.75; margin: 0;
+  font-size: .82rem;
+  color: #4a6a8a;
+  line-height: 1.75;
+  margin: 0;
 }
 
-/* Portfolio section */
+/* ── PORTFOLIO SECTION ── */
 .ed-portfolio {
   padding: 6rem 2rem;
   background: #060810;
@@ -2101,7 +2043,7 @@
   margin: 0 auto;
 }
 
-/* Credentials section */
+/* ── CREDENTIALS SECTION ── */
 .ed-credentials-section {
   padding: 6rem 2rem;
   background: #080e1a;
@@ -2112,34 +2054,83 @@
   margin: 0 auto;
 }
 
-/* Responsive */
+/* ── REEL ── */
+.ef-design-reel--fw { width: 100%; overflow: hidden; }
+.ef-design-reel-media {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+}
+.ef-design-reel-image {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+.ef-design-reel-overlay {
+  position: absolute;
+  left: 40px; right: 40px; bottom: 40px;
+}
+.ef-design-reel-kicker {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .6rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #00BCD4;
+  display: block;
+  margin-bottom: .75rem;
+}
+.ef-design-reel-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 300;
+  color: #c8dcf5;
+  margin: 0;
+  max-width: 700px;
+  line-height: 1.15;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — mobile-first breakpoints
+   ══════════════════════════════════════════════ */
+
+/* Tablet: 2 columnas */
 @media (max-width: 900px) {
-  .ed-services-clean { grid-template-columns: 1fr 1fr; }
-  .ed-card--wide { grid-column: auto; }
-}
-@media (max-width: 600px) {
-  .ed-services-clean { grid-template-columns: 1fr; }
-  .ed-services, .ed-portfolio, .ed-credentials-section { padding: 4rem 1.25rem; }
-}
-
-/* Hide old conflicting classes */
-.eter-breadcrumb { display: none !important; }
-
-/* ── RESPONSIVE — What We Do grid ── */
-@media (max-width: 1024px) {
   .ed-services-clean {
     grid-template-columns: repeat(2, 1fr);
   }
-  .ed-card--wide { grid-column: auto; }
+  .ed-card {
+    min-height: auto;
+    padding: 2.5rem 2rem;
+  }
 }
+
+/* Mobile: 1 columna */
 @media (max-width: 600px) {
   .ed-services-clean {
     grid-template-columns: 1fr;
+    gap: 1px;
   }
-  .ed-card { padding: 2rem 1.5rem; min-height: auto; }
+  .ed-card {
+    padding: 2rem 1.5rem;
+    min-height: auto;
+  }
+  .ed-card__title {
+    font-size: 1.25rem;
+  }
+  .ed-services,
+  .ed-portfolio,
+  .ed-credentials-section {
+    padding: 3.5rem 1.25rem;
+  }
+  .ef-design-reel-image,
+  .ef-design-reel-media { height: 240px; min-height: 240px; }
+  .ef-design-reel-overlay { left: 20px; right: 20px; bottom: 20px; }
+  .ef-design-reel-title { font-size: 1.4rem; }
+  .ef-credentials { grid-template-columns: 1fr !important; }
 }
 
-/* ── RESPONSIVE — Selected Work portfolio grid ── */
+/* Portfolio grid responsive */
 @media (max-width: 1024px) {
   .ef-portfolio-grid {
     grid-template-columns: 1fr 1fr !important;
@@ -2148,12 +2139,10 @@
   .ef-portfolio-card-featured {
     grid-column: 1 / 3 !important;
     grid-row: auto !important;
-    height: 320px;
+    height: 300px;
   }
-  .ef-portfolio-card {
-    height: 240px;
-  }
-  .ef-portfolio-card:nth-child(5) {
+  .ef-portfolio-card { height: 220px; }
+  .ef-portfolio-card:nth-child(n) {
     grid-column: auto !important;
     grid-row: auto !important;
   }
@@ -2164,34 +2153,13 @@
     grid-template-rows: auto !important;
   }
   .ef-portfolio-card-featured,
-  .ef-portfolio-card,
-  .ef-portfolio-card:nth-child(5) {
+  .ef-portfolio-card {
     grid-column: auto !important;
     grid-row: auto !important;
-    height: 260px;
+    height: 240px;
   }
 }
 
-/* ── RESPONSIVE — Sections padding ── */
-@media (max-width: 600px) {
-  .ed-services,
-  .ed-portfolio,
-  .ed-credentials-section {
-    padding: 3rem 1.25rem;
-  }
-  .ef-design-reel--fw .ef-design-reel-image {
-    height: 260px;
-  }
-  .ef-design-reel--fw .ef-design-reel-media {
-    min-height: 260px;
-  }
-  .ef-design-reel-overlay {
-    left: 20px; right: 20px; bottom: 20px;
-  }
-  .ef-design-reel-title {
-    font-size: 1.5rem;
-  }
-  .ef-credentials {
-    grid-template-columns: 1fr !important;
-  }
-}
+/* Hide legacy */
+.eter-breadcrumb { display: none !important; }
+.ef-services-showcase { display: none !important; }
