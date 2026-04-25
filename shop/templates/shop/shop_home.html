@@ -5,6 +5,7 @@
 {% endblock %}
 {% block content %}
 <div class="shop-page">
+
   <section class="shop-hero">
     <div class="shop-hero__inner">
       <a href="/aythnyk/" class="shop-hero__back">← Aythnyk</a>
@@ -17,30 +18,77 @@
       </div>
     </div>
   </section>
+
   <section class="shop-section">
     <div class="shop-section__inner">
       <p class="shop-label">Prints &amp; Art</p>
-      <div class="shop-empty">
-        <p class="shop-empty__title">Products coming soon.</p>
-        <p class="shop-empty__sub">Follow us on Instagram for previews.</p>
-      </div>
+      {% if prints %}
+        <div class="shop-grid">
+          {% for product in prints %}
+          <div class="shop-card">
+            {% if product.image_url %}
+            <img src="{{ product.image_url }}" alt="{{ product.name }}" class="shop-card__img">
+            {% else %}<div class="shop-card__img-placeholder"></div>{% endif %}
+            <div class="shop-card__body">
+              <span class="shop-card__badge">Print</span>
+              <h3 class="shop-card__title">{{ product.name }}</h3>
+              <p class="shop-card__price">${{ product.price }}</p>
+              {% if product.external_url %}
+              <a href="{{ product.external_url }}" target="_blank" class="shop-card__btn">Get it →</a>
+              {% else %}
+              <span class="shop-card__btn shop-card__btn--disabled">Coming Soon</span>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="shop-empty">
+          <p class="shop-empty__title">Products coming soon.</p>
+          <p class="shop-empty__sub">Follow us on Instagram for previews.</p>
+        </div>
+      {% endif %}
       <div class="shop-section__cta">
         <a href="/aythnyk/shop/prints/" class="shop-btn shop-btn--outline">View all prints →</a>
       </div>
     </div>
   </section>
+
   <section class="shop-section shop-section--alt">
     <div class="shop-section__inner">
       <p class="shop-label">Digital Downloads</p>
-      <div class="shop-empty">
-        <p class="shop-empty__title">Products coming soon.</p>
-        <p class="shop-empty__sub">Poetry PDFs, books, and audio coming shortly.</p>
-      </div>
+      {% if digital %}
+        <div class="shop-grid">
+          {% for product in digital %}
+          <div class="shop-card">
+            {% if product.image_url %}
+            <img src="{{ product.image_url }}" alt="{{ product.name }}" class="shop-card__img">
+            {% else %}<div class="shop-card__img-placeholder"></div>{% endif %}
+            <div class="shop-card__body">
+              <span class="shop-card__badge">Digital</span>
+              <h3 class="shop-card__title">{{ product.name }}</h3>
+              <p class="shop-card__price">${{ product.price }}</p>
+              {% if product.external_url %}
+              <a href="{{ product.external_url }}" target="_blank" class="shop-card__btn">Download →</a>
+              {% else %}
+              <span class="shop-card__btn shop-card__btn--disabled">Coming Soon</span>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="shop-empty">
+          <p class="shop-empty__title">Products coming soon.</p>
+          <p class="shop-empty__sub">Poetry PDFs, books, and audio coming shortly.</p>
+        </div>
+      {% endif %}
       <div class="shop-section__cta">
         <a href="/aythnyk/shop/digital/" class="shop-btn shop-btn--outline">View all digital →</a>
       </div>
     </div>
   </section>
+
   <section class="shop-commission">
     <div class="shop-commission__inner">
       <p class="shop-label shop-label--gold">Commission</p>
@@ -51,5 +99,6 @@
       <a href="/aythnyk/shop/commission/" class="shop-btn shop-btn--crimson-fill">Request a Custom Poem →</a>
     </div>
   </section>
+
 </div>
 {% endblock %}

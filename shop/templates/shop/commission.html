@@ -28,29 +28,35 @@
           <div class="shop-form__group">
             <label class="shop-form__label">Your Name</label>
             {{ form.name }}
+            {% if form.name.errors %}<p class="shop-form__error">{{ form.name.errors|join:", " }}</p>{% endif %}
           </div>
           <div class="shop-form__group">
             <label class="shop-form__label">Email</label>
             {{ form.email }}
+            {% if form.email.errors %}<p class="shop-form__error">{{ form.email.errors|join:", " }}</p>{% endif %}
           </div>
           <div class="shop-form__row">
             <div class="shop-form__group">
               <label class="shop-form__label">Occasion</label>
               {{ form.occasion }}
+              {% if form.occasion.errors %}<p class="shop-form__error">{{ form.occasion.errors|join:", " }}</p>{% endif %}
             </div>
             <div class="shop-form__group">
               <label class="shop-form__label">Language</label>
               {{ form.language }}
+              {% if form.language.errors %}<p class="shop-form__error">{{ form.language.errors|join:", " }}</p>{% endif %}
             </div>
           </div>
           <div class="shop-form__group">
             <label class="shop-form__label">Who is the poem for?</label>
             {{ form.recipient }}
+            {% if form.recipient.errors %}<p class="shop-form__error">{{ form.recipient.errors|join:", " }}</p>{% endif %}
           </div>
           <div class="shop-form__group">
             <label class="shop-form__label">Tell us the story</label>
             <p class="shop-form__hint">Mood, keywords, memories, tone — the more detail, the better the poem.</p>
             {{ form.details }}
+            {% if form.details.errors %}<p class="shop-form__error">{{ form.details.errors|join:", " }}</p>{% endif %}
           </div>
           <div class="shop-form__group">
             <label class="shop-form__label">Budget (optional)</label>
