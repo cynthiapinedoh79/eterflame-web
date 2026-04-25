@@ -13,7 +13,7 @@
 </div>
 <div class="poem-with-panel">
 <div class="poem-main-col">
-<div class="container mt-2 mb-5">
+<div class="mt-2 mb-5" style="max-width:1100px;margin:0 auto;padding:0 2rem">
 
   <div class="text-center mb-4">
     {% if poem.collection %}
@@ -188,12 +188,8 @@
 
 
 {# show the red banner above the footer #}
-<div class="container my-4">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-11 col-lg-10">
-      {% include "poetry/_quote_banner.html" with theme="banner--black" %}
-    </div>
-  </div>
+<div class="my-4" style="max-width:1100px;margin:0 auto;padding:0 2rem">
+  {% include "poetry/_quote_banner.html" with theme="banner--black" %}
 </div>
 
 {% if related_songs %}

@@ -7,7 +7,7 @@
 {% static 'images/placeholder_poem.png' as PLACEHOLDER_IMG %}
 {% static 'images/placeholder_coll.png' as PLACEHOLDER_COLL_IMG %}
 
-<div class="container mt-4 poetry-list">
+<div class="mt-4 poetry-list" style="max-width:1100px;margin:0 auto;padding:0 2rem">
 
   <div class="d-flex align-items-center justify-content-between mb-3">
     {% if not hide_page_title %}<h1 class="mb-0">{% if page_mode == 'collections' %}Collections{% else %}Poems{% endif %}</h1>{% endif %}
