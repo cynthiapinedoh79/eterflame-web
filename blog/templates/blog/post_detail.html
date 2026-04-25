@@ -9,116 +9,74 @@
 {% block content %}
 
 <div class="eter-breadcrumb">
-  <a href="{% url 'poetry:poetry_home' %}" class="eter-back-link">
-    ← Aythnyk
-  </a>
+  <a href="{% url 'poetry:poetry_home' %}" class="eter-back-link">← Aythnyk</a>
   <span class="eter-breadcrumb-sep">·</span>
-  <a href="{% url 'blog:bloghome' %}" class="eter-back-link">
-    Blog
-  </a>
+  <a href="{% url 'blog:bloghome' %}" class="eter-back-link">Blog</a>
 </div>
 
-<div class="masthead">
-    <div class="row g-0">
-        <div class="col-md-6 masthead-text">
-            <h1 class="post-title">{{ post.title }}</h1>
-            <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
-        </div>
-        <div class="d-none d-md-block col-md-6 masthead-image">
-            <img src="{% static 'images/default.png' %}" class="scale" alt="placeholder">
-        </div>
+<!-- HERO: full-width, image behind dark overlay, title on top -->
+<section class="blog-detail-hero"
+  {% if post.featured_image and "placeholder" not in post.featured_image.url %}
+  style="background-image:url('{{ post.featured_image.url }}')"
+  {% else %}
+  style="background-image:url('{% static 'images/default.png' %}')"
+  {% endif %}>
+  <div class="blog-detail-hero__overlay"></div>
+  <div class="blog-detail-hero__inner">
+    <p class="blog-detail-hero__eyebrow">{{ post.author }} · {{ post.created_on }}</p>
+    <h1 class="blog-detail-hero__title">{{ post.title }}</h1>
+  </div>
+</section>
+
+<!-- POST BODY -->
+<article class="blog-post-body">
+  {{ post.content | safe }}
+</article>
+
+<!-- COMMENTS -->
+<section class="blog-post-comments">
+  <p class="blog-post-comments__count">
+    <i class="far fa-comments"></i> {{ comment_count }}
+  </p>
+  <hr class="blog-post-comments__divider">
+
+  {% for comment in comments %}
+  <div class="blog-comment {% if not comment.approved and comment.author == user %}blog-comment--faded{% elif not comment.approved %}blog-comment--hidden{% endif %}">
+    <p class="blog-comment__meta">
+      <strong>{{ comment.author }}</strong>
+      <span>{{ comment.created_on }}</span> wrote:
+    </p>
+    <div id="comment{{ comment.id }}" class="blog-comment__body">
+      {{ comment.body | linebreaks }}
     </div>
-</div>
+    {% if not comment.approved and comment.author == user %}
+    <p class="approval">This comment is awaiting approval</p>
+    {% endif %}
+    {% if user.is_authenticated and comment.author == user %}
+    <button class="btn btn-delete"
+      data-comment_id="{{ comment.id }}"
+      data-delete-url="{% url 'blog:comment_delete' post.slug comment.id %}">Delete</button>
+    <button class="btn btn-edit"
+      data-comment-id="{{ comment.id }}"
+      data-edit-url="{% url 'blog:comment_edit' post.slug comment.id %}">Edit</button>
+    {% endif %}
+  </div>
+  {% endfor %}
 
-<div style="max-width:1100px;margin:0 auto;padding:0 2rem">
-    <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-                <h2>
-                    {{ post.author | safe | upper }}
-                </h2>
-                <article class="card-text">
-                    <h2 class="visually-hidden">{{ post.title }}</h2>
-                    {{ post.content | safe }}
-                </article>
-                <hr>
-                <h3>
-                    {{ coder }}
-                </h3>
-            </div>
-        </div>
-    </div>
-    <!-- Displaying count of comments -->
-    <div class="row">
-        <div class="col-12">
-            <strong class="text-secondary">
-                <i class="far fa-comments"></i> {{ comment_count }}
-            </strong>
-        </div>
-        <div class="col-12">
-            <hr>
-        </div>
-    </div>
-    <!-- Displaying Comments -->
-    <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
-            <h3>Comments:</h3>
-            <div class="card-body">
-                <!-- We want a for loop inside the empty control tags
-          to iterate through each comment in comments -->
-                {% for comment in comments %}
-                <div class="p-2 comments
-          {% if not comment.approved and comment.author == user %}
-          faded{% elif not comment.approved %} d-none{% endif %}">
-                    <p class="font-weight-bold">
-                        {{ comment.author }}
-                        <span class="font-weight-normal">
-                            {{ comment.created_on }}
-                        </span> wrote:
-                    </p>
-                    <div id="comment{{ comment.id }}" class="comment-body">
-                        {{ comment.body | linebreaks }}
-                    </div>
-                    {% if not comment.approved and comment.author == user %}
-                    <p class="approval">
-                        This comment is awaiting approval
-                    </p>
-                    {% endif %}
-
-                    {% if user.is_authenticated and comment.author == user %}
-
-                    <button class="btn btn-delete" data-comment_id="{{ comment.id }}" data-delete-url="{% url 'blog:comment_delete' post.slug comment.id %}">Delete</button>
-
-                    <button class="btn btn-edit" data-comment-id="{{ comment.id }}"
-                        data-edit-url="{% url 'blog:comment_edit' post.slug comment.id %}">Edit</button>
-                    {% endif %}
-
-
-                </div>
-
-                {% endfor %}
-            </div>
-        </div>
-
-        <!-- Creating New Comments -->
-        <div class="col-md-4 card mb-4 mt-3">
-            <div class="card-body">
-                {% if user.is_authenticated %}
-                <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form id="commentForm" method="post" style="margin-top: 1.3em;">
-                    {{ comment_form | crispy }}
-                    {% csrf_token %}
-                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
-                {% else %}
-                <p>Log in to leave a comment</p>
-                {% endif %}
-            </div>
-        </div>
-
-    </div>
-</div>
+  <div class="blog-post-comment-form">
+    {% if user.is_authenticated %}
+    <h3 class="blog-post-comment-form__title">Leave a comment:</h3>
+    <p class="blog-post-comment-form__meta">Posting as: {{ user.username }}</p>
+    <form id="commentForm" method="post">
+      {{ comment_form | crispy }}
+      {% csrf_token %}
+      <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+    </form>
+    {% else %}
+    <p class="blog-post-comment-form__meta">Log in to leave a comment</p>
+    {% endif %}
+  </div>
+</section>
 
 <!-- Delete confirmation modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1"
@@ -126,8 +84,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title"
-          id="deleteModalLabel">Delete comment?</h5>
+        <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
         <button type="button" class="btn-close"
           data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -138,8 +95,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary"
           data-bs-dismiss="modal">Close</button>
-        <a id="deleteConfirm" href="#" class="btn
-          btn-danger">Delete</a>
+        <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
       </div>
     </div>
   </div>

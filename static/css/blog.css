@@ -396,3 +396,153 @@
 .left .card:hover {
     filter: brightness(1.03) contrast(1.08);
 }
+
+/* ================================================
+   10. BLOG GRID — Equal-height card layout
+=================================================== */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.blog-grid .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 0;
+}
+
+.blog-grid .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-grid .card-footer {
+    background: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 0.5rem 0;
+    margin-top: auto;
+}
+
+/* ================================================
+   11. BLOG POST DETAIL — Full-width hero + centered body
+=================================================== */
+.blog-detail-hero {
+    position: relative;
+    width: 100%;
+    min-height: 360px;
+    background-size: cover;
+    background-position: center;
+    background-color: #0a0a0a;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 3rem;
+}
+
+.blog-detail-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.78));
+}
+
+.blog-detail-hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.blog-detail-hero__eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: .7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--color-gold, #c49a40);
+    margin-bottom: .5rem;
+}
+
+.blog-detail-hero__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 300;
+    color: #f5f5f5;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.blog-post-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    line-height: 1.9;
+    color: var(--color-text-light, #e0d5c5);
+    font-size: 1.05rem;
+}
+
+.blog-post-comments {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+    border-top: 1px solid #1e1e1e;
+}
+
+.blog-post-comments__count {
+    font-size: .85rem;
+    color: #666;
+    padding-top: 2rem;
+    margin-bottom: .5rem;
+}
+
+.blog-post-comments__divider {
+    border-color: #1e1e1e;
+    margin-bottom: 2rem;
+}
+
+.blog-comment {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #1e1e1e;
+}
+
+.blog-comment--faded { opacity: 0.5; }
+.blog-comment--hidden { display: none; }
+
+.blog-comment__meta {
+    font-size: .82rem;
+    color: #666;
+    margin-bottom: .5rem;
+}
+
+.blog-comment__meta strong {
+    color: var(--color-gold, #c49a40);
+    margin-right: .4rem;
+}
+
+.blog-comment__body {
+    color: var(--color-text-light, #e0d5c5);
+    line-height: 1.7;
+}
+
+.blog-post-comment-form {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #1e1e1e;
+}
+
+.blog-post-comment-form__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #f5f5f5;
+    margin-bottom: .5rem;
+}
+
+.blog-post-comment-form__meta {
+    font-size: .82rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
