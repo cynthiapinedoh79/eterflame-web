@@ -17,4 +17,5 @@ urlpatterns = [
     path("poem/<int:poem_id>/favorite/", views.toggle_favorite,
          name="toggle_favorite"),
     path("tools/", views.aythnyk_tools, name="tools"),
+    path("poem/<slug:slug>/pdf/", views.download_poem_pdf, name="download_pdf"),
 ]

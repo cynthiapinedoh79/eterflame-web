@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.http import HttpResponse
 from django.templatetags.static import static
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
@@ -268,6 +269,15 @@ def author_detail(request, slug):
         "favorite_poem_ids": favorite_poem_ids,
     }
     return render(request, "poetry/author_detail.html", context)
+
+
+def download_poem_pdf(request, slug):
+    poem = get_object_or_404(Poem, slug=slug)
+    from .pdf_generator import generate_poem_pdf
+    pdf_bytes = generate_poem_pdf(poem)
+    response = HttpResponse(pdf_bytes, content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename="{poem.slug}.pdf"'
+    return response
 
 
 def aythnyk_tools(request):
