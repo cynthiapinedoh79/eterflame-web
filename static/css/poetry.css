@@ -751,7 +751,9 @@ a.page-link {
 =================================================== */
 
 .poem-detail-card {
-  background-image: url('/static/images/works/aythnyk/oldSheet.png') !important;
+  background-image:
+    url('/static/images/works/aythnyk/oldSheet.png'),
+    url('https://res.cloudinary.com/dam7n1lk3/image/upload/v1777245670/oldSheet_ob1cvk.png') !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
