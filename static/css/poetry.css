@@ -824,7 +824,7 @@ a.page-link {
   display: block !important;
   width: 40px !important;
   height: 2px !important;
-  background: rgba(10,8,4,0.25) !important;
+  background: rgba(196,154,64,0.5) !important;
   margin: 0 auto 1.5rem !important;
 }
 
@@ -1483,6 +1483,11 @@ a.text-decoration-none:hover {
   color: var(--ay-light);
 }
 
+/* Collection/series label in poem hero */
+.songs-hero__sub {
+  color: #c8102e !important;
+}
+
 /* Poem detail card - overlay layer disabled (solid background used instead) */
 .poem-detail-card::before {
   display: none;
@@ -1691,6 +1696,13 @@ a.text-decoration-none:hover {
   color: var(--ay-light);
   border-color: var(--ay-light);
   box-shadow: 0 8px 24px rgba(200,16,46,0.2);
+}
+
+/* Heart icons inside poem card — override inline styles on <i> */
+.poem-detail-overlay .btn-like i,
+.poem-detail-overlay a .far.fa-heart,
+.poem-detail-overlay a .fas.fa-heart {
+  color: #c8102e !important;
 }
 
 /* btn-like override for Aythnyk */
