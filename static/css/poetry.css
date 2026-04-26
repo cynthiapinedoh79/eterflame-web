@@ -751,23 +751,23 @@ a.page-link {
 =================================================== */
 
 .poem-detail-card {
-  background: #d4b878 !important;
-  border: 1px solid rgba(0,0,0,0.08) !important;
+  background-image: url('/static/images/works/aythnyk/oldSheet.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-color: #d4b878 !important;
+  border: none !important;
   border-radius: 12px !important;
   overflow: hidden !important;
   width: 100% !important;
   box-shadow:
     0 4px 6px rgba(0,0,0,0.4),
-    0 40px 80px rgba(0,0,0,0.6),
-    inset 0 0 80px rgba(0,0,0,0.12) !important;
-  position: relative;
+    0 40px 80px rgba(0,0,0,0.6) !important;
+  position: relative !important;
 }
 
 .poem-detail-overlay {
-  background: linear-gradient(160deg,
-    rgba(220,196,130,0.99) 0%,
-    rgba(210,182,110,0.99) 40%,
-    rgba(196,162,88,0.98) 100%) !important;
+  background: rgba(212, 184, 120, 0.55) !important;
   padding: 52px 48px !important;
   overflow: hidden !important;
   box-sizing: border-box !important;
@@ -797,7 +797,7 @@ a.page-link {
   font-style: italic !important;
   font-size: 1.1rem !important;
   font-weight: 700 !important;
-  color: #ffffff !important;
+  color: #3a1a00 !important;
   letter-spacing: 3px !important;
   margin-bottom: 1.5rem !important;
   display: block !important;
@@ -832,7 +832,7 @@ a.page-link {
   font-size: 1.15rem !important;
   font-weight: 400 !important;
   line-height: 1.65 !important;
-  color: #0a0804 !important;
+  color: #1a0a00 !important;
   max-width: 100% !important;
   margin: 0 auto !important;
   letter-spacing: 0.01em !important;
@@ -858,7 +858,7 @@ a.page-link {
   padding: 0 !important;
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
-  color: #0a0804 !important;
+  color: #1a0a00 !important;
   font-size: 1.15rem !important;
   font-weight: 400 !important;
   max-width: 100% !important;
@@ -1525,7 +1525,7 @@ a.text-decoration-none:hover {
   transform: translate(-50%, -50%);
   width: 75%;
   max-width: 380px;
-  opacity: 0.12;
+  opacity: 0.08;
   pointer-events: none;
   z-index: 0;
   mix-blend-mode: multiply;
