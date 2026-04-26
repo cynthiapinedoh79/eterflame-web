@@ -6,10 +6,10 @@ from weasyprint import HTML
 def generate_poem_pdf(poem):
     # Prefer STATIC_ROOT (after collectstatic); fall back to source static dir
     static_base = settings.STATIC_ROOT
-    logo_path = os.path.join(static_base, 'images', 'aythnyk-logo.png')
+    logo_path = os.path.join(static_base, 'images', 'works', 'aythnyk', 'logoAyth_transp.png')
     if not os.path.exists(logo_path):
         static_base = os.path.join(settings.BASE_DIR, 'static')
-        logo_path = os.path.join(static_base, 'images', 'aythnyk-logo.png')
+        logo_path = os.path.join(static_base, 'images', 'works', 'aythnyk', 'logoAyth_transp.png')
 
     logo_url = f'file://{logo_path}'
     collection_name = str(poem.collection) if poem.collection else 'Aythnyk'
