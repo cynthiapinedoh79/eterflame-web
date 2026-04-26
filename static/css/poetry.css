@@ -786,7 +786,7 @@ a.page-link {
 }
 
 .poem-detail-title::first-line {
-  color: #ffffff !important;
+  color: #c8102e !important;
   font-weight: 300 !important;
 }
 
@@ -795,7 +795,7 @@ a.page-link {
   font-style: italic !important;
   font-size: 1.1rem !important;
   font-weight: 700 !important;
-  color: #2a0e00 !important;
+  color: #ffffff !important;
   letter-spacing: 3px !important;
   margin-bottom: 1.5rem !important;
   display: block !important;
@@ -1497,7 +1497,7 @@ a.text-decoration-none:hover {
   transform: translate(-50%, -50%);
   width: 75%;
   max-width: 380px;
-  opacity: 0.07;
+  opacity: 0.13;
   pointer-events: none;
   z-index: 0;
   mix-blend-mode: multiply;
@@ -1695,13 +1695,13 @@ a.text-decoration-none:hover {
 
 /* btn-like override for Aythnyk */
 .btn-like {
-  color: rgba(10,8,4,0.3) !important;
+  color: #c8102e !important;
   font-size: 14px;
   transition: all 0.2s !important;
 }
 .btn-like:hover,
 .btn-like.favorited {
-  color: #0a0804 !important;
+  color: #8b0000 !important;
   transform: scale(1.2) !important;
 }
 
