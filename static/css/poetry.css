@@ -752,13 +752,14 @@ a.page-link {
 
 .poem-detail-card {
   background: linear-gradient(160deg, #c9a84c 0%, #d4a843 40%, #b8922e 100%) !important;
-  border: none !important;
+  border: 1px solid rgba(0,0,0,0.08) !important;
   border-radius: 12px !important;
   overflow: hidden !important;
   width: 100% !important;
   box-shadow:
     0 4px 6px rgba(0,0,0,0.4),
-    0 40px 80px rgba(0,0,0,0.6) !important;
+    0 40px 80px rgba(0,0,0,0.6),
+    inset 0 0 80px rgba(0,0,0,0.12) !important;
   position: relative;
 }
 
@@ -775,12 +776,12 @@ a.page-link {
 
 .poem-detail-title {
   font-family: 'Cormorant Garamond', serif !important;
-  font-size: clamp(2rem, 4vw, 3rem) !important;
+  font-size: clamp(2.2rem, 6vw, 3.8rem) !important;
   font-weight: 800 !important;
-  letter-spacing: 5px !important;
+  letter-spacing: 6px !important;
   color: #0a0804 !important;
   text-transform: uppercase !important;
-  line-height: 1.15 !important;
+  line-height: 1.05 !important;
   margin-bottom: 10px !important;
 }
 
@@ -1482,6 +1483,34 @@ a.text-decoration-none:hover {
   display: none;
 }
 .poem-detail-overlay { position: relative; z-index: 1; }
+
+/* Watermark logo inside gold card */
+.poem-card-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  max-width: 380px;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: multiply;
+}
+
+/* Ensure card content sits above the watermark */
+.poem-detail-overlay .card-body {
+  position: relative;
+  z-index: 1;
+}
+
+/* Crimson accent line at top of poem card */
+.poem-accent-line {
+  height: 3px;
+  background: linear-gradient(to right, transparent, #c8102e, transparent);
+  width: 60%;
+  margin: 0 auto 24px;
+}
 
 /* ================================================
    AYTHNYK HOME — Hero Section
