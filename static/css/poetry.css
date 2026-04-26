@@ -751,15 +751,15 @@ a.page-link {
 =================================================== */
 
 .poem-detail-card {
-  background: #d4b06a !important;
+  background: #000000 !important;
   border: none !important;
-  border-radius: 12px !important;
+  border-radius: 0 !important;
   overflow: hidden !important;
   width: 100% !important;
   position: relative !important;
   box-shadow:
     0 4px 6px rgba(0,0,0,0.4),
-    0 40px 80px rgba(0,0,0,0.6) !important;
+    0 40px 80px rgba(0,0,0,0.7) !important;
 }
 
 .poem-sheet-bg {
@@ -779,8 +779,8 @@ a.page-link {
 .poem-detail-overlay {
   position: relative !important;
   z-index: 1 !important;
-  background: rgba(200, 168, 90, 0.3) !important;
-  padding: 52px 48px !important;
+  background: rgba(200, 168, 90, 0.25) !important;
+  padding: 80px 52px 80px 52px !important;
   overflow: hidden !important;
   box-sizing: border-box !important;
   width: 100% !important;
