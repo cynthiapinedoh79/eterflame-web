@@ -777,12 +777,17 @@ a.page-link {
 .poem-detail-title {
   font-family: 'Cormorant Garamond', serif !important;
   font-size: clamp(2.2rem, 6vw, 3.8rem) !important;
-  font-weight: 800 !important;
+  font-weight: 300 !important;
   letter-spacing: 6px !important;
   color: #0a0804 !important;
   text-transform: uppercase !important;
   line-height: 1.05 !important;
   margin-bottom: 10px !important;
+}
+
+.poem-detail-title::first-line {
+  color: #ffffff !important;
+  font-weight: 300 !important;
 }
 
 .poem-detail-author {
@@ -1510,6 +1515,32 @@ a.text-decoration-none:hover {
   background: linear-gradient(to right, transparent, #c8102e, transparent);
   width: 60%;
   margin: 0 auto 24px;
+}
+
+/* Branded footer inside gold card */
+.poem-card-footer {
+  margin-top: 32px;
+  padding-top: 14px;
+  border-top: 0.5px solid rgba(10,8,4,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.poem-card-footer__text {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 7px !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  color: rgba(10,8,4,0.35) !important;
+}
+
+.poem-card-footer__brand {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 10px !important;
+  letter-spacing: 5px !important;
+  text-transform: uppercase !important;
+  color: rgba(10,8,4,0.4) !important;
 }
 
 /* ================================================
