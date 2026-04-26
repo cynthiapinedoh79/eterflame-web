@@ -754,12 +754,10 @@ a.page-link {
   background: #000000 !important;
   border: none !important;
   border-radius: 0 !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   width: 100% !important;
   position: relative !important;
-  box-shadow:
-    0 4px 6px rgba(0,0,0,0.5),
-    0 40px 80px rgba(0,0,0,0.8) !important;
+  box-shadow: none !important;
 }
 
 .poem-sheet-bg {
@@ -768,19 +766,17 @@ a.page-link {
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
+  object-fit: fill !important;
+  object-position: center top !important;
   z-index: 0 !important;
   pointer-events: none !important;
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
 }
 
 .poem-detail-overlay {
   position: relative !important;
   z-index: 1 !important;
-  background: rgba(200, 168, 90, 0.2) !important;
-  padding: 120px 60px 120px 60px !important;
+  background: transparent !important;
+  padding: 14% 60px 14% 60px !important;
   overflow: hidden !important;
   box-sizing: border-box !important;
   width: 100% !important;
