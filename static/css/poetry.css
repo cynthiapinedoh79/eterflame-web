@@ -751,25 +751,35 @@ a.page-link {
 =================================================== */
 
 .poem-detail-card {
-  background-image:
-    url('/static/images/works/aythnyk/oldSheet.png'),
-    url('https://res.cloudinary.com/dam7n1lk3/image/upload/v1777245670/oldSheet_ob1cvk.png') !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-color: #d4b878 !important;
+  background: #d4b06a !important;
   border: none !important;
   border-radius: 12px !important;
   overflow: hidden !important;
   width: 100% !important;
+  position: relative !important;
   box-shadow:
     0 4px 6px rgba(0,0,0,0.4),
     0 40px 80px rgba(0,0,0,0.6) !important;
-  position: relative !important;
+}
+
+.poem-sheet-bg {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
 }
 
 .poem-detail-overlay {
-  background: rgba(212, 184, 120, 0.55) !important;
+  position: relative !important;
+  z-index: 1 !important;
+  background: rgba(200, 168, 90, 0.3) !important;
   padding: 52px 48px !important;
   overflow: hidden !important;
   box-sizing: border-box !important;

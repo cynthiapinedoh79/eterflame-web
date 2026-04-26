@@ -42,9 +42,14 @@
       MODIFIED: Using a hard-coded path for the placeholder image.
       This will tell us if the {% static %} tag or the path was the issue.
       {% endcomment %}
-      <div class="card shadow-lg poem-detail-card" 
+      <div class="card shadow-lg poem-detail-card"
            style="background-image: url('{% if poem.featured_image and "placeholder" not in poem.featured_image.url %}{{ poem.featured_image.url }}{% else %}/static/images/placeholder_poem.png{% endif %}')">
-        
+        <img
+          src="{% static 'images/works/aythnyk/oldSheet.png' %}"
+          onerror="this.src='https://res.cloudinary.com/dam7n1lk3/image/upload/v1777245670/oldSheet_ob1cvk.png'"
+          class="poem-sheet-bg"
+          alt=""
+        />
         <div class="poem-detail-overlay">
           <img
             src="{% static 'images/works/aythnyk/logoAyth_transp.png' %}"
