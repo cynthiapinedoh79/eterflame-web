@@ -16,7 +16,7 @@
   <p class="songs-hero__eyebrow">Aythnyk · Poesía</p>
   <h1 class="songs-hero__title">Poe<span>ma</span></h1>
   <p class="songs-hero__sub">
-    {% if poem.collection %}{{ poem.collection.name_es|default:poem.collection.name_en }}{% elif poem.author %}{{ poem.author }}{% else %}Escritos{% endif %}
+    {% if poem.collection %}Colección · {{ poem.collection.name_es|default:poem.collection.name_en }}{% elif poem.author %}{{ poem.author }}{% else %}Escritos{% endif %}
   </p>
 </section>
 
@@ -94,8 +94,8 @@
                 <h1 class="poem-detail-title">{{ poem.title_es|default:poem.title_en }}</h1>
                 {% if poem.author %}
                   <p class="poem-detail-author mb-4">
-                    <a href="{% url 'poetry:author_detail' poem.author.slug %}" class="text-decoration-none text-dark">
-                      {{ poem.author.name|default:poem.author }}
+                    <a href="{% url 'poetry:author_detail' poem.author.slug %}" class="poem-author-link">
+                      {{ poem.author.name|default:poem.author }} →
                     </a>
                   </p>
                 {% endif %}
@@ -111,8 +111,8 @@
                 <h1 class="poem-detail-title">{{ poem.title_en }}</h1>
                 {% if poem.author %}
                   <p class="poem-detail-author mb-4">
-                    <a href="{% url 'poetry:author_detail' poem.author.slug %}" class="text-decoration-none text-dark">
-                      {{ poem.author.name|default:poem.author }}
+                    <a href="{% url 'poetry:author_detail' poem.author.slug %}" class="poem-author-link">
+                      {{ poem.author.name|default:poem.author }} →
                     </a>
                   </p>
                 {% endif %}
@@ -127,8 +127,8 @@
               <h1 class="poem-detail-title">{{ poem.title_en }}</h1>
               {% if poem.author %}
                 <p class="poem-detail-author mb-4">
-                  <a href="{% url 'poetry:author_detail' poem.author.slug %}" class="text-decoration-none text-dark">
-                    {{ poem.author.name|default:poem.author }}
+                  <a href="{% url 'poetry:author_detail' poem.author.slug %}" class="poem-author-link">
+                    {{ poem.author.name|default:poem.author }} →
                   </a>
                 </p>
               {% endif %}

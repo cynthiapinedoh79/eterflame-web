@@ -1,123 +1,314 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/poetry.css' %}?v={% now 'U' %}">
+{% endblock %}
+
 {% block content %}
-<div class="my-5" style="max-width:1100px;margin:0 auto;padding:0 2rem">
+<div class="author-page">
 
-  <div class="row justify-content-center mb-5">
-    <div class="col-12 col-md-8 text-center">
+  <div class="author-back">
+    <a href="{% url 'aythnyk:aythnyk_home' %}" class="author-back__link">← Aythnyk</a>
+  </div>
 
-      {% if author.photo %}
-        <img src="{{ author.photo.url }}" alt="{{ author.name }}"
-          class="rounded-circle mb-4 shadow" 
-          style="width: 150px; height: 150px; object-fit: cover;">
-      {% else %}
-        <div class="rounded-circle bg-light d-inline-flex align-items-center justify-content-center mb-4 shadow-sm" 
-          style="width: 150px; height: 150px;">
-          <i class="fas fa-feather-alt fa-3x text-muted"></i>
+  <div class="author-profile">
+    {% if author.photo %}
+      <img src="{{ author.photo.url }}" alt="{{ author.name }}" class="author-profile__photo">
+    {% else %}
+      <div class="author-profile__photo author-profile__photo--empty">
+        <i class="fas fa-feather-alt"></i>
+      </div>
+    {% endif %}
+
+    <h1 class="author-profile__name">{{ author.name }}</h1>
+
+    <p class="author-profile__count">
+      Published Poems · <strong>{{ page_obj.paginator.count }}</strong>
+    </p>
+
+    <div class="author-profile__bio">
+      {% if author.bio_en %}
+        <div class="author-bio__text">{{ author.bio_en|linebreaks }}</div>
+      {% endif %}
+
+      {% if author.bio_es %}
+        <div class="author-bio__toggle-wrap">
+          <button class="author-bio__toggle" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#collapseBioES"
+                  aria-expanded="false" aria-controls="collapseBioES">
+            Biografía en Español <i class="fas fa-chevron-down ms-2"></i>
+          </button>
+        </div>
+        <div class="collapse mt-3" id="collapseBioES">
+          <div class="author-bio__text author-bio__text--es">{{ author.bio_es|linebreaks }}</div>
         </div>
       {% endif %}
 
-      <h1 class="display-5 fw-bold mb-2">{{ author.name }}</h1>
-      <p class="text-muted small mb-4">
-        Published Poems: <strong>{{ page_obj.paginator.count }}</strong>
-      </p>
-
-      <hr class="my-4 w-50 mx-auto">
-
-      <div class="text-start px-md-4">
-        
-        {% if author.bio_en %}
-          <div class="lead mb-3" style="font-family: 'Georgia', serif; color: #444;">
-            {{ author.bio_en|linebreaks }}
-          </div>
-        {% endif %}
-
-        {% if author.bio_es %}
-          <div class="text-center mt-3">
-            <button class="btn btn-outline-secondary btn-sm rounded-pill px-4" type="button" 
-                    data-bs-toggle="collapse" data-bs-target="#collapseBioES" 
-                    aria-expanded="false" aria-controls="collapseBioES">
-              Biography in Spanish <i class="fas fa-chevron-down ms-1"></i>
-            </button>
-          </div>
-          
-          <div class="collapse mt-3" id="collapseBioES">
-            <div class="card card-body bg-light border-0 shadow-sm" 
-                 style="font-family: 'Georgia', serif; font-style: italic; color: #555;">
-              {{ author.bio_es|linebreaks }}
-            </div>
-          </div>
-        {% endif %}
-        
-        {% if not author.bio_en and not author.bio_es %}
-          <p class="text-muted text-center fst-italic">No biography available.</p>
-        {% endif %}
-      </div>
-
+      {% if not author.bio_en and not author.bio_es %}
+        <p class="author-bio__empty">No biography available.</p>
+      {% endif %}
     </div>
   </div>
 
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-8">
-      <h3 class="text-center mb-4" style="font-family: 'Georgia', serif;">Poems by {{ author.name }}</h3>
-      
-      <div class="list-group shadow-sm rounded-3 overflow-hidden">
-        {% for poem in page_obj %}
-          <a href="{% url 'poetry:poem_detail' poem.slug %}" 
-             class="list-group-item list-group-item-action py-3 d-flex justify-content-between align-items-center poem-list-item border-start-0 border-end-0">
-            
-            <div class="ms-2">
-              <span class="fw-bold fs-6" style="font-family: 'Georgia', serif; color: #222;">
-                {{ poem.title_en }}
-              </span>
-            </div>
-            
-            <span class="text-muted small"><i class="fas fa-chevron-right"></i></span>
-          </a>
-        {% empty %}
-          <div class="list-group-item text-center py-4 text-muted">
-            No poems found for this author.
-          </div>
-        {% endfor %}
-      </div>
+  <div class="author-poems">
+    <h2 class="author-poems__heading">Poems by {{ author.name }}</h2>
 
+    <div class="author-poems__list">
+      {% for poem in page_obj %}
+        <a href="{% url 'poetry:poem_detail' poem.slug %}" class="author-poem-item">
+          <span class="author-poem-item__title">
+            {{ poem.title_es|default:poem.title_en }}
+          </span>
+          <span class="author-poem-item__arrow">→</span>
+        </a>
+      {% empty %}
+        <p class="author-poems__empty">No poems found for this author.</p>
+      {% endfor %}
     </div>
+
+    {% if page_obj.has_other_pages %}
+      <nav class="author-pagination" aria-label="Author page navigation">
+        {% if page_obj.has_previous %}
+          <a class="author-pagination__link" href="?page={{ page_obj.previous_page_number }}">← Prev</a>
+        {% endif %}
+        <span class="author-pagination__info">{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+        {% if page_obj.has_next %}
+          <a class="author-pagination__link" href="?page={{ page_obj.next_page_number }}">Next →</a>
+        {% endif %}
+      </nav>
+    {% endif %}
   </div>
-
-  {% if page_obj.has_other_pages %}
-    <div class="row mt-5">
-      <div class="col-12 d-flex justify-content-center">
-        <nav aria-label="Author page navigation">
-          <ul class="pagination">
-            {% if page_obj.has_previous %}
-              <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
-              </li>
-            {% endif %}
-            <li class="page-item disabled">
-              <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-            </li>
-            {% if page_obj.has_next %}
-              <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
-              </li>
-            {% endif %}
-          </ul>
-        </nav>
-      </div>
-    </div>
-  {% endif %}
 
 </div>
 
 <style>
-  .poem-list-item {
-    transition: background-color 0.2s ease, padding-left 0.2s ease;
-  }
-  .poem-list-item:hover {
-    background-color: #f9f9f9; /* Very light grey on hover */
-    padding-left: 1.5rem !important; /* Subtle slide-right effect */
-  }
+.author-page {
+  background: #070708;
+  min-height: 100vh;
+  padding: 3rem 0 6rem;
+}
+
+/* Back link */
+.author-back {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+.author-back__link {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c49a40;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.author-back__link:hover { opacity: 0.7; color: #c49a40; text-decoration: none; }
+
+/* Profile block */
+.author-profile {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.author-profile__photo {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #c49a40;
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+.author-profile__photo--empty {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 2px solid #c49a40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  background: #0d0d0e;
+  color: rgba(196,154,64,0.4);
+  font-size: 2.5rem;
+}
+
+.author-profile__name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 300;
+  letter-spacing: 8px;
+  color: #c49a40;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 0.75rem;
+}
+
+.author-profile__count {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(196,154,64,0.5);
+  margin-bottom: 2.5rem;
+}
+.author-profile__count strong { font-weight: 600; }
+
+/* Bio */
+.author-profile__bio {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.author-bio__text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.97rem;
+  color: #b0b0b0;
+  line-height: 1.9;
+}
+
+.author-bio__text--es {
+  font-style: italic;
+  color: #909090;
+}
+
+.author-bio__toggle-wrap {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.author-bio__toggle {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c49a40;
+  background: transparent;
+  border: 1px solid rgba(196,154,64,0.4);
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.author-bio__toggle:hover {
+  background: rgba(196,154,64,0.08);
+  border-color: #c49a40;
+}
+
+.author-bio__empty {
+  color: rgba(176,176,176,0.5);
+  font-style: italic;
+  text-align: center;
+}
+
+/* Poems section */
+.author-poems {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.author-poems__heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 300;
+  letter-spacing: 4px;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.author-poems__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.author-poem-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0d0d0e;
+  border: 1px solid rgba(196,154,64,0.1);
+  padding: 16px 20px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.author-poem-item:hover {
+  background: #111012;
+  border-color: rgba(196,154,64,0.3);
+  text-decoration: none;
+}
+
+.author-poem-item__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(196,154,64,0.7);
+  transition: color 0.2s;
+}
+.author-poem-item:hover .author-poem-item__title {
+  color: #c49a40;
+}
+
+.author-poem-item__arrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: rgba(196,154,64,0.3);
+  transition: color 0.2s, transform 0.2s;
+}
+.author-poem-item:hover .author-poem-item__arrow {
+  color: #c49a40;
+  transform: translateX(4px);
+}
+
+.author-poems__empty {
+  text-align: center;
+  color: rgba(176,176,176,0.5);
+  font-style: italic;
+  padding: 2rem 0;
+}
+
+/* Pagination */
+.author-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.author-pagination__link {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c8102e;
+  text-decoration: none;
+  border: 1px solid rgba(200,16,46,0.25);
+  padding: 8px 18px;
+  transition: all 0.2s;
+}
+.author-pagination__link:hover {
+  background: rgba(200,16,46,0.1);
+  border-color: rgba(200,16,46,0.5);
+  color: #e8314f;
+  text-decoration: none;
+}
+
+.author-pagination__info {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(196,154,64,0.4);
+}
 </style>
 {% endblock %}

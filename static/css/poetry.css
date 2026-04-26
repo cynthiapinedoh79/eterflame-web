@@ -802,6 +802,24 @@ a.page-link {
   text-transform: uppercase !important;
 }
 
+.poem-author-link {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-style: normal !important;
+  transition: color 0.2s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+.poem-author-link:hover {
+  color: #c49a40 !important;
+  text-decoration: none !important;
+}
+
 .poem-body {
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
