@@ -758,8 +758,8 @@ a.page-link {
   width: 100% !important;
   position: relative !important;
   box-shadow:
-    0 4px 6px rgba(0,0,0,0.4),
-    0 40px 80px rgba(0,0,0,0.7) !important;
+    0 4px 6px rgba(0,0,0,0.5),
+    0 40px 80px rgba(0,0,0,0.8) !important;
 }
 
 .poem-sheet-bg {
@@ -779,8 +779,8 @@ a.page-link {
 .poem-detail-overlay {
   position: relative !important;
   z-index: 1 !important;
-  background: rgba(200, 168, 90, 0.25) !important;
-  padding: 80px 52px 80px 52px !important;
+  background: rgba(200, 168, 90, 0.2) !important;
+  padding: 120px 60px 120px 60px !important;
   overflow: hidden !important;
   box-sizing: border-box !important;
   width: 100% !important;
