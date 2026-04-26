@@ -779,7 +779,7 @@ a.page-link {
   font-size: clamp(2.2rem, 6vw, 3.8rem) !important;
   font-weight: 300 !important;
   letter-spacing: 6px !important;
-  color: #0a0804 !important;
+  color: #c49a40 !important;
   text-transform: uppercase !important;
   line-height: 1.05 !important;
   margin-bottom: 10px !important;
@@ -789,7 +789,7 @@ a.page-link {
 }
 
 .poem-detail-title::first-line {
-  color: #c8102e !important;
+  color: #f5ede0 !important;
   font-weight: 300 !important;
 }
 
