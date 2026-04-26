@@ -4,6 +4,16 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/poetry.css' %}?v={% now 'U' %}">
 <link rel="stylesheet" href="{% static 'css/songs.css' %}">
+<style>
+  /* Hide Gemini/AI assistant floating button */
+  #gemini-nano-button,
+  .gemini-button,
+  [data-gemini],
+  gmpx-icon-button,
+  #assistant-yc-button {
+    display: none !important;
+  }
+</style>
 {% endblock %}
 {# No longer need PLACEHOLDER_IMG_URL since we're hardcoding the path below #}
 

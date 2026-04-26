@@ -776,7 +776,7 @@ a.page-link {
   position: relative !important;
   z-index: 1 !important;
   background: transparent !important;
-  padding: 18% 14% 18% 14% !important;
+  padding: 22% 14% 20% 14% !important;
   overflow: hidden !important;
   box-sizing: border-box !important;
   width: 100% !important;
@@ -1520,6 +1520,17 @@ a.text-decoration-none:hover {
   color: #c8102e !important;
 }
 
+/* Hide Gemini/AI assistant floating button injected by Chrome extensions */
+#gemini-nano-button,
+.gemini-button,
+[data-gemini],
+gmpx-icon-button,
+#assistant-yc-button,
+[id*="gemini"],
+[class*="gemini"] {
+  display: none !important;
+}
+
 /* Poem detail card - overlay layer disabled (solid background used instead) */
 .poem-detail-card::before {
   display: none;
@@ -1566,12 +1577,12 @@ a.text-decoration-none:hover {
 
 /* Branded footer inside gold card */
 .poem-card-footer {
-  margin-top: 32px;
-  padding-top: 14px;
-  border-top: 0.5px solid rgba(10,8,4,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  margin-top: 20px !important;
+  padding-top: 12px !important;
+  border-top: 0.5px solid rgba(10,8,4,0.2) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
 }
 
 .poem-card-footer__text {
