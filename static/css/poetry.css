@@ -783,6 +783,9 @@ a.page-link {
   text-transform: uppercase !important;
   line-height: 1.05 !important;
   margin-bottom: 10px !important;
+  word-break: break-word !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
 }
 
 .poem-detail-title::first-line {
@@ -816,7 +819,10 @@ a.page-link {
   gap: 6px !important;
 }
 .poem-author-link:hover {
-  color: #c49a40 !important;
+  color: #1a0e00 !important;
+  background: rgba(255,255,255,0.15) !important;
+  padding: 2px 6px !important;
+  border-radius: 2px !important;
   text-decoration: none !important;
 }
 
@@ -1530,6 +1536,15 @@ a.text-decoration-none:hover {
 .poem-detail-overlay .card-body {
   position: relative;
   z-index: 1;
+}
+
+/* Controls bar (favorite + ES/EN toggle) at top of poem card */
+.poem-card-top-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 /* Crimson accent line at top of poem card */

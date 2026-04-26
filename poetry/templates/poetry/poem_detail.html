@@ -53,34 +53,32 @@
           />
           <div class="card-body p-4 p-md-5">
             <div class="poem-accent-line"></div>
-
-            {% if poem.body_es and poem.body_en %}
-              <div class="btn-group btn-group-sm float-end" role="group" aria-label="Poem language toggle">
-                <button id="btn-es" class="btn btn-secondary">ES</button>
-                <button id="btn-en" class="btn btn-outline-secondary">EN</button>
-              </div>
-            {% endif %}
-
-            {# --- Favorite Toggle Button --- #}
-            <div class="float-end me-3">
+            <div class="poem-card-top-controls">
+              {# --- Favorite Toggle Button --- #}
               {% if user.is_authenticated %}
                 <form action="{% url 'poetry:toggle_favorite' poem.id %}" method="POST" class="d-inline">
                   {% csrf_token %}
                   <button type="submit" class="btn btn-like p-0 border-0 fs-5">
                     {% if is_favorite %}
-                      <i class="fas fa-heart" style="color: var(--color-danger);"></i> {# Filled Heart #}
+                      <i class="fas fa-heart" style="color: var(--color-danger);"></i>
                     {% else %}
-                      <i class="far fa-heart" style="color: var(--color-text-muted);"></i> {# Outline Heart #}
+                      <i class="far fa-heart" style="color: var(--color-text-muted);"></i>
                     {% endif %}
                   </button>
                 </form>
               {% else %}
                 <a href="{% url 'account_login' %}?next={{ request.path }}" class="fs-5">
-                  <i class="far fa-heart" style="color: var(--color-text-muted);"></i> {# Outline Heart #}
+                  <i class="far fa-heart" style="color: var(--color-text-muted);"></i>
                 </a>
               {% endif %}
+              {# --- ES/EN toggle --- #}
+              {% if poem.body_es and poem.body_en %}
+                <div class="btn-group btn-group-sm" role="group" aria-label="Poem language toggle">
+                  <button id="btn-es" class="btn btn-secondary">ES</button>
+                  <button id="btn-en" class="btn btn-outline-secondary">EN</button>
+                </div>
+              {% endif %}
             </div>
-            {# --- End Favorite Toggle --- #}
             
             
             {% comment %}
