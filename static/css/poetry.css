@@ -1138,34 +1138,42 @@ a.text-decoration-none:hover {
     font-size: 1.1rem !important;
   }
 
-  /* Poem with side panel — collapse grid on mobile */
+  /* Poem with side panel — collapse grid on tablet + mobile */
   .poem-with-panel {
     display: block !important;
     width: 100% !important;
     padding: 0 !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
   }
   .poem-main-col {
     width: 100% !important;
     max-width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
+    float: none !important;
   }
-  .poem-main-col .mt-2 {
-    padding: 0 0.75rem !important;
-    margin: 0 !important;
+  .poem-main-col > div {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
     max-width: 100% !important;
   }
   .poem-main-col .row {
-    margin: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
-  .poem-main-col .col-12 {
-    padding: 0 !important;
+  .poem-main-col [class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    width: 100% !important;
   }
   .song-panel {
     position: static !important;
     width: 100% !important;
     margin-top: 1.5rem !important;
+    margin-left: 0 !important;
   }
 }
 
