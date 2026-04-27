@@ -226,7 +226,7 @@
 
   {% if song.pdf_price and song.pdf_buy_url %}
   <hr class="song-panel__divider">
-  <button class="song-panel__pdf-btn" onclick="openPdfModal()">
+  <button class="song-panel__pdf-btn song-panel__pdf-btn--paid" onclick="openPdfModal()">
     Descargar PDF — ${{ song.pdf_price }}
   </button>
   {% endif %}

@@ -266,9 +266,9 @@
 .song-panel__pdf-btn {
   width: 100%;
   padding: .85rem;
-  background: var(--s-gold);
-  color: #0a0a0a;
-  border: none;
+  background: transparent;
+  color: #c49a40;
+  border: 1px solid #c49a40;
   border-radius: 3px;
   font-family: var(--s-sans);
   font-size: .72rem;
@@ -276,9 +276,23 @@
   text-transform: uppercase;
   font-weight: 600;
   cursor: pointer;
-  transition: background var(--s-ease);
+  transition: all 0.25s ease;
 }
-.song-panel__pdf-btn:hover { background: #d4a844; }
+.song-panel__pdf-btn:hover {
+  background: #c49a40;
+  color: #0a0804;
+}
+.song-panel__pdf-btn--paid {
+  background: #c49a40;
+  color: #0a0804;
+  border: 1px solid #c49a40;
+  transition: all 0.25s ease;
+}
+.song-panel__pdf-btn--paid:hover {
+  background: #c8102e;
+  border-color: #c8102e;
+  color: #ffffff;
+}
 .song-panel__linked-poem {
   margin-top: 1.5rem;
   padding-top: 1.25rem;
