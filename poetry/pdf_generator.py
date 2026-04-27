@@ -87,19 +87,26 @@ def generate_poem_pdf(poem):
             border-bottom: 0.8mm solid #c49a40;
           }}
 
-          @bottom-center {{
-            content: "© 2025 Aythnyk    ETER FLAME    eterflame.com";
+          @bottom-left {
+            content: "© 2025 Aythnyk · ETERFLAME.COM";
             font-family: 'DM Sans', sans-serif;
             font-size: 6pt;
             letter-spacing: 1.5pt;
             color: #bbb;
             text-transform: uppercase;
-            border-top: 0.3mm solid #eee;
+            padding-left: 15mm;
             padding-top: 3mm;
-            width: 100%;
-            text-align: center;
-          }}
-        }}
+          }
+
+          @bottom-right {
+            content: counter(page) " / " counter(pages);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 6pt;
+            letter-spacing: 1.5pt;
+            color: #bbb;
+            padding-right: 15mm;
+            padding-top: 3mm;
+          }
 
         @page:first {{
           margin-top: 25mm;
