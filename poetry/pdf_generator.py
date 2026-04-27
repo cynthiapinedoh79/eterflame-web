@@ -13,7 +13,12 @@ def generate_poem_pdf(poem):
 
     logo_url = f'file://{logo_path}'
     collection_name = str(poem.collection) if poem.collection else 'Aythnyk'
-    body_html = poem.body.replace(chr(10), '<br>')
+    stanzas = [s.strip() for s in poem.body.split('\n\n') if s.strip()]
+
+    body_html = ''.join(
+        f'<p class="poem-stanza">{stanza.replace(chr(10), "<br>")}</p>'
+        for stanza in stanzas
+    )
 
     title_parts = poem.title.split()
     if len(title_parts) >= 2:
@@ -31,7 +36,7 @@ def generate_poem_pdf(poem):
 
       @page {{
         size: A4;
-        margin-top: 32mm;
+        margin-top: 35mm;
         margin-bottom: 20mm;
         margin-left: 0;
         margin-right: 0;
@@ -45,16 +50,23 @@ def generate_poem_pdf(poem):
           text-transform: uppercase;
           background: #1a1a1a;
           width: 100%;
-          padding: 6mm 15mm;
+          padding: 7mm 15mm;
           vertical-align: middle;
+          border-bottom: 0.8mm solid #c49a40;
+          box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset;
         }}
+
+        /* 👇 SOLO PRIMERA PÁGINA */
+      @page:first {{
+        margin-top: 25mm;
+      }}
 
         @top-right {{
           content: "ETERFLAME · POESÍA";
           font-family: 'DM Sans', sans-serif;
           font-size: 6pt;
           letter-spacing: 2pt;
-          color: rgba(196,154,64,0.4);
+          color: rgba(196,154,64,0.6);
           text-transform: uppercase;
           background: #1a1a1a;
           padding: 6mm 15mm 6mm 0;
@@ -76,10 +88,6 @@ def generate_poem_pdf(poem):
         }}
       }}
 
-      @page :first {{
-        margin-top: 0;
-      }}
-
       * {{ margin: 0; padding: 0; box-sizing: border-box; }}
 
       body {{
@@ -92,19 +100,21 @@ def generate_poem_pdf(poem):
 
       .watermark {{
         position: fixed;
-        top: 50%;
+        top: 52%;
         left: 50%;
-        transform: translate(-50%, -46%);
-        width: 160mm;
-        height: 160mm;
-        opacity: 0.12;
+        transform: translate(-50%, -50%) scale(1.08);
+        width: 185mm;
+        height: 185mm;
+        opacity: 0.095;
         object-fit: contain;
         z-index: 0;
-        mix-blend-mode: multiply;
+        mix-blend-mode: normal;
+        opacity: 0.08;
+        filter: blur(0.2px);
       }}
 
       .inner {{
-        padding: 10mm 20mm 25mm;
+        padding: 18mm 20mm 25mm;
         position: relative;
         z-index: 1;
       }}
@@ -130,12 +140,12 @@ def generate_poem_pdf(poem):
 
       .title {{
         font-family: 'Cormorant Garamond', serif;
-        font-size: 26pt;
-        font-weight: bold;
+        font-size: 31pt;
+        font-weight: 600;
         text-align: center;
-        letter-spacing: 5pt;
+        letter-spacing: 3pt;
         text-transform: uppercase;
-        line-height: 1.1;
+        line-height: 1.05;
         margin-bottom: 2mm;
       }}
 
@@ -143,37 +153,57 @@ def generate_poem_pdf(poem):
         font-family: 'DM Sans', sans-serif;
         font-size: 7pt;
         letter-spacing: 3pt;
-        color: #c49a40;
+        color: #8a6a2f;
         text-align: center;
         text-transform: uppercase;
         margin-bottom: 6mm;
       }}
 
       .rule-gold {{
-        width: 15mm;
-        height: 0.3mm;
-        background: #c49a40;
-        margin: 0 auto 2mm;
+        width: 18mm;
+        height: 0.35mm;
+        background: #9c762c;
+        margin: 0 auto 8mm;
       }}
 
       .rule-red {{
-        width: 8mm;
-        height: 0.5mm;
-        background: #c8102e;
-        margin: 0 auto 7mm;
-        opacity: 0.7;
+        display: none;
       }}
 
       .body {{
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 11pt;
-        color: #1e1e1e;
-        line-height: 2.2;
-        text-align: center;
+        font-size: 13pt;
+        color: #111111;
+        line-height: 1.68;
+        letter-spacing: 0.2px;
+        text-align: left;
+        max-width: 118mm;
+        margin: 0 auto;
+        padding-top: 8mm;
         padding-bottom: 20mm;
+        orphans: 4;
+        widows: 4;
       }}
 
-      .stanza {{ height: 5mm; }}
+      .body::before {{
+      content: "";
+      display: block;
+      height: 8mm;
+    }}
+
+      .stanza {{ height: 4mm; }}
+
+      .poem-stanza {{
+      margin: 0 0 6mm;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+      display: block;
+      max-height: 70%;
+    }}
+
+    .poem-stanza + .poem-stanza {{
+      break-before: auto;
+    }}
 
       .bottom-accent {{
         margin-top: 10mm;
@@ -187,13 +217,6 @@ def generate_poem_pdf(poem):
     </head>
     <body>
       <img class="watermark" src="{logo_url}" alt=""/>
-
-      <!-- Page 1 only: manual header in normal flow (page 1 has margin-top: 0) -->
-      <div style="background:#1a1a1a;padding:6mm 15mm;display:flex;justify-content:space-between;align-items:center;width:100%;">
-        <span style="font-family:'Cormorant Garamond',serif;font-size:10pt;letter-spacing:5pt;color:#c49a40;text-transform:uppercase;white-space:nowrap;">Aythnyk</span>
-        <span style="font-family:'DM Sans',sans-serif;font-size:6pt;letter-spacing:2pt;color:rgba(196,154,64,0.4);text-transform:uppercase;white-space:nowrap;">ETERFLAME · POESÍA</span>
-      </div>
-      <div style="height:2mm;background:#c8102e;"></div>
 
       <div class="inner">
         <div class="left-bar"></div>
