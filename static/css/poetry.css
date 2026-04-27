@@ -750,8 +750,11 @@ a.page-link {
    3. PAGE: POEM DETAIL
 =================================================== */
 
+.card.poem-detail-card,
 .poem-detail-card {
   background: #000000 !important;
+  background-image: none !important;
+  background-color: #000000 !important;
   border: none !important;
   border-radius: 0 !important;
   overflow: visible !important;
