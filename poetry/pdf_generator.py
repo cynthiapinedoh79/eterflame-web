@@ -55,6 +55,7 @@ def generate_poem_pdf(poem):
         opacity: 0.12;
         object-fit: contain;
         z-index: 0;
+        mix-blend-mode: multiply;
       }}
 
       .header-wrapper {{
@@ -95,8 +96,7 @@ def generate_poem_pdf(poem):
       }}
 
       .inner {{
-        padding: 28mm 20mm 25mm;
-        margin-top: 22mm;
+        padding: 30mm 20mm 25mm;
         position: relative;
         z-index: 1;
       }}
@@ -122,8 +122,8 @@ def generate_poem_pdf(poem):
 
       .title {{
         font-family: 'Cormorant Garamond', serif;
-        font-size: 28pt;
-        font-weight: 300;
+        font-size: 26pt;
+        font-weight: bold;
         text-align: center;
         letter-spacing: 5pt;
         text-transform: uppercase;
