@@ -803,6 +803,12 @@ a.page-link {
   color: #c8102e !important;
 }
 
+.poem-main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
 .poem-detail-author {
   font-family: 'Cormorant Garamond', serif !important;
   font-style: italic !important;
@@ -1141,6 +1147,12 @@ a.text-decoration-none:hover {
 }
 
 @media (max-width: 960px) {
+  .poem-main-container {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 0.75rem !important;
+  }
+
   /* Poem with side panel — collapse grid on tablet + mobile */
   .poem-with-panel {
     display: block !important;
