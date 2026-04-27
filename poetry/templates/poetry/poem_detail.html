@@ -214,6 +214,13 @@
   </div>
   {% endif %}
 
+  <hr class="song-panel__divider">
+  <a href="{% url 'poetry:download_pdf' poem.slug %}"
+     class="song-panel__pdf-btn"
+     style="display:block;text-align:center;text-decoration:none;">
+    Descargar PDF →
+  </a>
+
   {% if song.pdf_price and song.pdf_buy_url %}
   <hr class="song-panel__divider">
   <button class="song-panel__pdf-btn" onclick="openPdfModal()">
