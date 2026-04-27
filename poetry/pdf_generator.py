@@ -31,8 +31,14 @@ def generate_poem_pdf(poem):
 
       @page {{
         size: A4;
-        margin: 0;
-        @top-left {{ content: ''; }}
+        margin-top: 28mm;
+        margin-right: 0;
+        margin-bottom: 15mm;
+        margin-left: 0;
+      }}
+
+      @page :first {{
+        margin-top: 0;
       }}
 
       * {{ margin: 0; padding: 0; box-sizing: border-box; }}
@@ -96,7 +102,7 @@ def generate_poem_pdf(poem):
       }}
 
       .inner {{
-        padding: 42mm 20mm 25mm;
+        padding: 22mm 20mm 25mm;
         position: relative;
         z-index: 1;
       }}
