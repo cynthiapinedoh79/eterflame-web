@@ -1138,42 +1138,50 @@ a.text-decoration-none:hover {
     font-size: 1.1rem !important;
   }
 
+}
+
+@media (max-width: 960px) {
   /* Poem with side panel — collapse grid on tablet + mobile */
   .poem-with-panel {
     display: block !important;
     width: 100% !important;
-    padding: 0 !important;
-    margin: 0 auto !important;
     max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    grid-template-columns: 1fr !important;
   }
   .poem-main-col {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 !important;
     margin: 0 !important;
-    float: none !important;
+    padding: 0 !important;
   }
-  .poem-main-col > div {
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
+  .poem-main-col > div,
+  .poem-main-col > div > div,
+  .poem-main-col .container,
+  .poem-main-col .container-fluid,
+  .poem-main-col [class*="container"] {
+    width: 100% !important;
     max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
   .poem-main-col .row {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
   .poem-main-col [class*="col-"] {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    width: 100% !important;
     max-width: 100% !important;
     flex: 0 0 100% !important;
-    width: 100% !important;
+    padding: 0 !important;
   }
   .song-panel {
     position: static !important;
     width: 100% !important;
     margin-top: 1.5rem !important;
-    margin-left: 0 !important;
   }
 }
 
