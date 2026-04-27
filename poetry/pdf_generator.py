@@ -179,22 +179,16 @@ def generate_poem_pdf(poem):
         text-align: left;
         max-width: 118mm;
         margin: 0 auto;
-        padding-top: 8mm;
+        padding-top: 0;
         padding-bottom: 20mm;
         orphans: 4;
         widows: 4;
       }}
 
-      .body::before {{
-      content: "";
-      display: block;
-      height: 8mm;
-    }}
-
       .stanza {{ height: 4mm; }}
 
       .poem-stanza {{
-      margin: 0 0 6mm;
+      margin: 8mm 0 6mm;
       break-inside: avoid !important;
       page-break-inside: avoid !important;
       display: block;
@@ -202,7 +196,7 @@ def generate_poem_pdf(poem):
     }}
 
     .poem-stanza + .poem-stanza {{
-      break-before: auto;
+      margin-top: 0;
     }}
 
       .bottom-accent {{
