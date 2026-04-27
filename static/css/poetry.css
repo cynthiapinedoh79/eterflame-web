@@ -1137,6 +1137,46 @@ a.text-decoration-none:hover {
   .poem-body p {
     font-size: 1.1rem !important;
   }
+
+  /* Poem with side panel — collapse grid on mobile */
+  .poem-with-panel {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .poem-main-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .poem-main-col .mt-2 {
+    padding: 0 0.75rem !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+  .poem-main-col .row {
+    margin: 0 !important;
+  }
+  .poem-main-col .col-12 {
+    padding: 0 !important;
+  }
+  .song-panel {
+    position: static !important;
+    width: 100% !important;
+    margin-top: 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .poem-detail-title {
+    font-size: clamp(1.2rem, 7vw, 1.8rem) !important;
+    letter-spacing: 2px !important;
+  }
+  .poem-detail-overlay {
+    padding: 20% 8% 20% 8% !important;
+  }
 }
 
 @media (max-width: 992px) {
