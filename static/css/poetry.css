@@ -2381,3 +2381,30 @@ gmpx-icon-button,
     max-width: 300px;
   }
 }
+
+@media (max-width: 960px) {
+  .poem-with-panel {
+    display: block !important;
+    grid-template-columns: 1fr !important;
+  }
+  .poem-main-col .row.justify-content-center {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    --bs-gutter-x: 0 !important;
+  }
+  .poem-main-col .row.justify-content-center > [class*="col-"] {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  .poem-main-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .song-panel {
+    position: static !important;
+    width: 100% !important;
+    margin-top: 1.5rem !important;
+  }
+}
