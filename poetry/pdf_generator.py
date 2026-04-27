@@ -31,10 +31,48 @@ def generate_poem_pdf(poem):
 
       @page {{
         size: A4;
-        margin-top: 28mm;
-        margin-right: 0;
-        margin-bottom: 15mm;
+        margin-top: 32mm;
+        margin-bottom: 20mm;
         margin-left: 0;
+        margin-right: 0;
+
+        @top-left {{
+          content: "AYTHNYK";
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 11pt;
+          letter-spacing: 6pt;
+          color: #c49a40;
+          text-transform: uppercase;
+          background: #1a1a1a;
+          width: 100%;
+          padding: 6mm 15mm;
+          vertical-align: middle;
+        }}
+
+        @top-right {{
+          content: "ETER FLAME · POESÍA";
+          font-family: 'DM Sans', sans-serif;
+          font-size: 6pt;
+          letter-spacing: 2pt;
+          color: rgba(196,154,64,0.4);
+          text-transform: uppercase;
+          background: #1a1a1a;
+          padding: 6mm 15mm 6mm 0;
+          vertical-align: middle;
+        }}
+
+        @bottom-center {{
+          content: "© 2025 Aythnyk    ETER FLAME    eterflame.com";
+          font-family: 'DM Sans', sans-serif;
+          font-size: 6pt;
+          letter-spacing: 1.5pt;
+          color: #bbb;
+          text-transform: uppercase;
+          border-top: 0.3mm solid #eee;
+          padding-top: 3mm;
+          width: 100%;
+          text-align: center;
+        }}
       }}
 
       @page :first {{
@@ -64,45 +102,8 @@ def generate_poem_pdf(poem):
         mix-blend-mode: multiply;
       }}
 
-      .header-wrapper {{
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 10;
-      }}
-
-      .header-bar {{
-        background: #1a1a1a;
-        padding: 8mm 15mm;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }}
-
-      .header-brand {{
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 11pt;
-        letter-spacing: 6pt;
-        color: #c49a40;
-        text-transform: uppercase;
-      }}
-
-      .header-tag {{
-        font-family: 'DM Sans', sans-serif;
-        font-size: 6pt;
-        letter-spacing: 2pt;
-        color: rgba(196,154,64,0.4);
-        text-transform: uppercase;
-      }}
-
-      .crimson-stripe {{
-        height: 2mm;
-        background: #c8102e;
-      }}
-
       .inner {{
-        padding: 22mm 20mm 25mm;
+        padding: 10mm 20mm 25mm;
         position: relative;
         z-index: 1;
       }}
@@ -181,48 +182,17 @@ def generate_poem_pdf(poem):
 
       .bottom-gold {{ flex: 1; background: #c49a40; opacity: 0.35; }}
       .bottom-red  {{ flex: 1; background: #c8102e; opacity: 0.35; }}
-
-      .footer {{
-        position: fixed;
-        bottom: 0;
-        left: 0; right: 0;
-        background: rgba(249,247,243,0.96);
-        padding: 3mm 20mm;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 0.3mm solid #eee;
-        z-index: 2;
-      }}
-
-      .footer-text {{
-        font-family: 'DM Sans', sans-serif;
-        font-size: 6pt;
-        letter-spacing: 1.5pt;
-        color: #bbb;
-        text-transform: uppercase;
-      }}
-
-      .footer-brand {{
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 8pt;
-        letter-spacing: 3pt;
-        color: #c49a40;
-        text-transform: uppercase;
-        opacity: 0.7;
-      }}
     </style>
     </head>
     <body>
       <img class="watermark" src="{logo_url}" alt=""/>
 
-      <div class="header-wrapper">
-        <div class="header-bar">
-          <span class="header-brand">Aythnyk</span>
-          <span class="header-tag">Eter Flame · Poesía</span>
-        </div>
-        <div class="crimson-stripe"></div>
+      <!-- Page 1 only: manual header in normal flow (page 1 has margin-top: 0) -->
+      <div style="background:#1a1a1a;padding:8mm 15mm;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:11pt;letter-spacing:6pt;color:#c49a40;text-transform:uppercase;">Aythnyk</span>
+        <span style="font-family:'DM Sans',sans-serif;font-size:6pt;letter-spacing:2pt;color:rgba(196,154,64,0.4);text-transform:uppercase;">Eter Flame · Poesía</span>
       </div>
+      <div style="height:2mm;background:#c8102e;"></div>
 
       <div class="inner">
         <div class="left-bar"></div>
@@ -236,12 +206,6 @@ def generate_poem_pdf(poem):
           <div class="bottom-gold"></div>
           <div class="bottom-red"></div>
         </div>
-      </div>
-
-      <div class="footer">
-        <span class="footer-text">© 2025 Aythnyk</span>
-        <span class="footer-brand">Eter Flame</span>
-        <span class="footer-text">eterflame.com</span>
       </div>
     </body>
     </html>
