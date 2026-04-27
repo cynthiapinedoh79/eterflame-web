@@ -1613,28 +1613,33 @@ gmpx-icon-button,
 
 .poem-page-btn {
   font-family: 'DM Sans', sans-serif;
-  font-size: 8px;
+  font-size: 9px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: rgba(10,8,4,0.5);
+  color: #1a0a00 !important;
   text-decoration: none;
-  border: 1px solid rgba(10,8,4,0.2);
-  padding: 6px 14px;
+  border: 1px solid rgba(10,8,4,0.4);
+  padding: 8px 18px;
   transition: all 0.2s;
+  font-weight: 600;
+  background: rgba(196,154,64,0.15);
 }
 
 .poem-page-btn:hover {
-  background: rgba(10,8,4,0.08);
-  color: rgba(10,8,4,0.8);
+  background: #c8102e !important;
+  color: #ffffff !important;
+  border-color: #c8102e !important;
   text-decoration: none;
+  letter-spacing: 5px;
 }
 
 .poem-page-num {
   font-family: 'DM Sans', sans-serif;
-  font-size: 8px;
+  font-size: 9px;
   letter-spacing: 3px;
-  color: rgba(10,8,4,0.35);
+  color: rgba(10,8,4,0.6) !important;
   text-transform: uppercase;
+  font-weight: 500;
 }
 
 /* ================================================
