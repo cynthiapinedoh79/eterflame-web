@@ -438,6 +438,8 @@
     grid-template-columns: unset !important;
     padding: 0 0.5rem !important;
     width: 100% !important;
+    margin: 0 !important;
+    max-width: 100% !important;
   }
   .poem-with-panel .song-panel {
     position: static;
