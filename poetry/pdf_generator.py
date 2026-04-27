@@ -15,6 +15,12 @@ def generate_poem_pdf(poem):
     collection_name = str(poem.collection) if poem.collection else 'Aythnyk'
     body_html = poem.body.replace(chr(10), '<br>')
 
+    title_parts = poem.title.split()
+    if len(title_parts) >= 2:
+        title_html = f'<span style="color:#c8102e">{title_parts[0]}</span> <span style="color:#c49a40">{" ".join(title_parts[1:])}</span>'
+    else:
+        title_html = f'<span style="color:#c8102e">{poem.title}</span>'
+
     html_content = f"""
     <!DOCTYPE html>
     <html>
@@ -26,6 +32,7 @@ def generate_poem_pdf(poem):
       @page {{
         size: A4;
         margin: 0;
+        @top-left {{ content: ''; }}
       }}
 
       * {{ margin: 0; padding: 0; box-sizing: border-box; }}
@@ -45,9 +52,17 @@ def generate_poem_pdf(poem):
         transform: translate(-50%, -46%);
         width: 160mm;
         height: 160mm;
-        opacity: 0.07;
+        opacity: 0.12;
         object-fit: contain;
         z-index: 0;
+      }}
+
+      .header-wrapper {{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
       }}
 
       .header-bar {{
@@ -56,8 +71,6 @@ def generate_poem_pdf(poem):
         display: flex;
         justify-content: space-between;
         align-items: center;
-        position: relative;
-        z-index: 2;
       }}
 
       .header-brand {{
@@ -79,12 +92,11 @@ def generate_poem_pdf(poem):
       .crimson-stripe {{
         height: 2mm;
         background: #c8102e;
-        position: relative;
-        z-index: 2;
       }}
 
       .inner {{
-        padding: 15mm 20mm 15mm;
+        padding: 28mm 20mm 25mm;
+        margin-top: 22mm;
         position: relative;
         z-index: 1;
       }}
@@ -112,7 +124,6 @@ def generate_poem_pdf(poem):
         font-family: 'Cormorant Garamond', serif;
         font-size: 28pt;
         font-weight: 300;
-        color: #111;
         text-align: center;
         letter-spacing: 5pt;
         text-transform: uppercase;
@@ -146,12 +157,12 @@ def generate_poem_pdf(poem):
       }}
 
       .body {{
-        font-family: 'Cormorant Garamond', serif;
+        font-family: 'Cormorant Garamond', Georgia, serif;
         font-size: 11pt;
-        font-weight: 400;
         color: #1e1e1e;
-        line-height: 2.0;
+        line-height: 2.2;
         text-align: center;
+        padding-bottom: 20mm;
       }}
 
       .stanza {{ height: 5mm; }}
@@ -199,16 +210,18 @@ def generate_poem_pdf(poem):
     <body>
       <img class="watermark" src="{logo_url}" alt=""/>
 
-      <div class="header-bar">
-        <span class="header-brand">Aythnyk</span>
-        <span class="header-tag">Eter Flame · Poesía</span>
+      <div class="header-wrapper">
+        <div class="header-bar">
+          <span class="header-brand">Aythnyk</span>
+          <span class="header-tag">Eter Flame · Poesía</span>
+        </div>
+        <div class="crimson-stripe"></div>
       </div>
-      <div class="crimson-stripe"></div>
 
       <div class="inner">
         <div class="left-bar"></div>
         <div class="collection">Colección · {collection_name}</div>
-        <h1 class="title">{poem.title}</h1>
+        <h1 class="title">{title_html}</h1>
         <p class="author">Cynthia Pinedo</p>
         <div class="rule-gold"></div>
         <div class="rule-red"></div>
