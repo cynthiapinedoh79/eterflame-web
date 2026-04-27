@@ -776,7 +776,7 @@ a.page-link {
   z-index: 1 !important;
   background: transparent !important;
   padding: 22% 13% 22% 13% !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   box-sizing: border-box !important;
   width: 100% !important;
 }
