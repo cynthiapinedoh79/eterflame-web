@@ -2348,6 +2348,49 @@ gmpx-icon-button,
   }
 }
 
+@media (max-width: 960px) {
+  /* Force full width on poem layout */
+  .poem-with-panel {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .poem-main-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  /* Override Bootstrap p-4 and p-md-5 inside poem card */
+  .poem-detail-overlay .card-body,
+  .poem-detail-overlay .card-body.p-4,
+  .poem-detail-overlay .card-body.p-md-5 {
+    padding: 0 !important;
+  }
+  /* Override poem-main-container */
+  .poem-main-container {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 0.5rem !important;
+  }
+  /* Bootstrap row and col fix */
+  .poem-main-col .row {
+    margin: 0 !important;
+  }
+  .poem-main-col [class*="col-"] {
+    padding: 0 !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+  .song-panel {
+    position: static !important;
+    width: 100% !important;
+    margin-top: 1.5rem !important;
+  }
+}
+
 @media (min-width: 1800px) {
   .poems-grid {
     grid-template-columns: repeat(4, 300px);
