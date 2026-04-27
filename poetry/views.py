@@ -93,23 +93,31 @@ def poem_detail(request, slug):
     poem = get_object_or_404(Poem, slug=slug)
     page_num = int(request.GET.get('page', 1))
 
-    def paginate_poem(body, stanzas_per_page=12):
+    STANZAS_PER_PAGE = 12
+
+    def paginate_poem(body):
         if not body:
             return [''], 1
-        stanzas = re.split(r'</p>\s*<p>', body)
-        chunks = [stanzas[i:i + stanzas_per_page]
-                  for i in range(0, len(stanzas), stanzas_per_page)]
-        pages = ['<p>' + '</p><p>'.join(chunk) + '</p>'
-                 for chunk in chunks]
+        stanzas = re.split(r'</p>\s*<p>', body.strip())
+        if len(stanzas) <= STANZAS_PER_PAGE:
+            return [body], 1
+        chunks = [stanzas[i:i + STANZAS_PER_PAGE]
+                  for i in range(0, len(stanzas), STANZAS_PER_PAGE)]
+        pages = []
+        for chunk in chunks:
+            if not chunk[0].startswith('<p>'):
+                chunk[0] = '<p>' + chunk[0]
+            if not chunk[-1].endswith('</p>'):
+                chunk[-1] = chunk[-1] + '</p>'
+            pages.append('</p><p>'.join(chunk))
         return pages, len(pages)
 
     pages_es, total_pages = paginate_poem(poem.body_es)
-    pages_en, _ = paginate_poem(poem.body_en)
+    pages_en, _ = paginate_poem(poem.body_en) if poem.body_en else ([''], 1)
+    page_num = max(1, min(page_num, total_pages))
 
-    current_page_es = pages_es[min(page_num - 1, len(pages_es) - 1)]
-    current_page_en = (
-        pages_en[min(page_num - 1, len(pages_en) - 1)] if pages_en else ''
-    )
+    current_page_es = pages_es[page_num - 1]
+    current_page_en = pages_en[min(page_num - 1, len(pages_en) - 1)]
 
     is_favorite = False
     if request.user.is_authenticated:

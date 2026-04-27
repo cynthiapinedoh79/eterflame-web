@@ -1623,6 +1623,7 @@ gmpx-icon-button,
 .poem-page-btn:hover {
   background: rgba(10,8,4,0.08);
   color: rgba(10,8,4,0.8);
+  text-decoration: none;
 }
 
 .poem-page-num {
