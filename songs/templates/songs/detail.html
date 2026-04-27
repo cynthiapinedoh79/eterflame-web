@@ -15,7 +15,7 @@
   <h1 class="sd-title">
     {% with words=song.title.split %}
       {% if words|length >= 2 %}
-        <span style="color:#c8102e">{{ words.0 }}</span>&nbsp;<span style="color:#c49a40">{{ words|slice:"1:"|join:" " }}</span>
+        <span style="color:#ffffff">{{ words.0 }}</span>&nbsp;<span style="color:#c49a40">{{ words|slice:"1:"|join:" " }}</span>
       {% else %}
         {{ song.title }}
       {% endif %}
