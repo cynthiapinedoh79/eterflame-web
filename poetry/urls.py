@@ -18,4 +18,5 @@ urlpatterns = [
          name="toggle_favorite"),
     path("tools/", views.aythnyk_tools, name="tools"),
     path("poem/<slug:slug>/pdf/", views.download_poem_pdf, name="download_pdf"),
+    path("pdf-tool/", views.pdf_tool, name="pdf_tool"),
 ]

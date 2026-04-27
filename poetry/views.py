@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.templatetags.static import static
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 
@@ -325,6 +326,12 @@ def author_detail(request, slug):
         "favorite_poem_ids": favorite_poem_ids,
     }
     return render(request, "poetry/author_detail.html", context)
+
+
+@staff_member_required
+def pdf_tool(request):
+    poems = Poem.objects.all().order_by('collection__name', 'title')
+    return render(request, 'poetry/pdf_tool.html', {'poems': poems})
 
 
 def download_poem_pdf(request, slug):
