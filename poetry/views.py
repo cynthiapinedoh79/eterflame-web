@@ -89,7 +89,27 @@ def _build_poem_list_context(request):
 
 def poem_detail(request, slug):
     """Display a single poem's detail page."""
+    import re
     poem = get_object_or_404(Poem, slug=slug)
+    page_num = int(request.GET.get('page', 1))
+
+    def paginate_poem(body, stanzas_per_page=12):
+        if not body:
+            return [''], 1
+        stanzas = re.split(r'</p>\s*<p>', body)
+        chunks = [stanzas[i:i + stanzas_per_page]
+                  for i in range(0, len(stanzas), stanzas_per_page)]
+        pages = ['<p>' + '</p><p>'.join(chunk) + '</p>'
+                 for chunk in chunks]
+        return pages, len(pages)
+
+    pages_es, total_pages = paginate_poem(poem.body_es)
+    pages_en, _ = paginate_poem(poem.body_en)
+
+    current_page_es = pages_es[min(page_num - 1, len(pages_es) - 1)]
+    current_page_en = (
+        pages_en[min(page_num - 1, len(pages_en) - 1)] if pages_en else ''
+    )
 
     is_favorite = False
     if request.user.is_authenticated:
@@ -99,6 +119,12 @@ def poem_detail(request, slug):
 
     context = {
         "poem": poem,
+        "poem_body_es": current_page_es,
+        "poem_body_en": current_page_en,
+        "current_page": page_num,
+        "total_pages": total_pages,
+        "has_next": page_num < total_pages,
+        "has_prev": page_num > 1,
         "is_favorite": is_favorite,
         "related_songs": poem.songs.filter(active=True),
     }

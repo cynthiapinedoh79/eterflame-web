@@ -1600,6 +1600,39 @@ gmpx-icon-button,
   color: rgba(10,8,4,0.6) !important;
 }
 
+.poem-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 12px;
+}
+
+.poem-page-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(10,8,4,0.5);
+  text-decoration: none;
+  border: 1px solid rgba(10,8,4,0.2);
+  padding: 6px 14px;
+  transition: all 0.2s;
+}
+
+.poem-page-btn:hover {
+  background: rgba(10,8,4,0.08);
+  color: rgba(10,8,4,0.8);
+}
+
+.poem-page-num {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: rgba(10,8,4,0.35);
+  text-transform: uppercase;
+}
+
 /* ================================================
    AYTHNYK HOME — Hero Section
 =================================================== */

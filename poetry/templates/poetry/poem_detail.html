@@ -114,7 +114,7 @@
                 {% endif %}
                 
                 <div class="poem-body">
-                  {{ poem.body_es|safe }}
+                  {{ poem_body_es|safe }}
                 </div>
               </article>
             {% endif %}
@@ -131,7 +131,7 @@
                 {% endif %}
                 
                 <div class="poem-body">
-                  {{ poem.body_en|safe }}
+                  {{ poem_body_en|safe }}
                 </div>
               </article>
             {% endif %}
@@ -155,6 +155,22 @@
               <span class="poem-card-footer__brand">Eter Flame</span>
               <span class="poem-card-footer__text">eterflame.com</span>
             </div>
+
+            {% if total_pages > 1 %}
+            <div class="poem-pagination">
+              {% if has_prev %}
+              <a href="?page={{ current_page|add:'-1' }}" class="poem-page-btn">← Anterior</a>
+              {% else %}
+              <span></span>
+              {% endif %}
+              <span class="poem-page-num">{{ current_page }} / {{ total_pages }}</span>
+              {% if has_next %}
+              <a href="?page={{ current_page|add:'1' }}" class="poem-page-btn">Siguiente →</a>
+              {% else %}
+              <span></span>
+              {% endif %}
+            </div>
+            {% endif %}
 
           </div>
         </div>
