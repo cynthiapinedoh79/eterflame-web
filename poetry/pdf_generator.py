@@ -50,7 +50,7 @@ def generate_poem_pdf(poem):
         }}
 
         @top-right {{
-          content: "ETER FLAME · POESÍA";
+          content: "ETERFLAME · POESÍA";
           font-family: 'DM Sans', sans-serif;
           font-size: 6pt;
           letter-spacing: 2pt;
@@ -59,6 +59,7 @@ def generate_poem_pdf(poem):
           background: #1a1a1a;
           padding: 6mm 15mm 6mm 0;
           vertical-align: middle;
+          white-space: nowrap;
         }}
 
         @bottom-center {{
@@ -188,9 +189,9 @@ def generate_poem_pdf(poem):
       <img class="watermark" src="{logo_url}" alt=""/>
 
       <!-- Page 1 only: manual header in normal flow (page 1 has margin-top: 0) -->
-      <div style="background:#1a1a1a;padding:8mm 15mm;display:flex;justify-content:space-between;align-items:center;">
-        <span style="font-family:'Cormorant Garamond',serif;font-size:11pt;letter-spacing:6pt;color:#c49a40;text-transform:uppercase;">Aythnyk</span>
-        <span style="font-family:'DM Sans',sans-serif;font-size:6pt;letter-spacing:2pt;color:rgba(196,154,64,0.4);text-transform:uppercase;">Eter Flame · Poesía</span>
+      <div style="background:#1a1a1a;padding:6mm 15mm;display:flex;justify-content:space-between;align-items:center;width:100%;">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:10pt;letter-spacing:5pt;color:#c49a40;text-transform:uppercase;white-space:nowrap;">Aythnyk</span>
+        <span style="font-family:'DM Sans',sans-serif;font-size:6pt;letter-spacing:2pt;color:rgba(196,154,64,0.4);text-transform:uppercase;white-space:nowrap;">ETERFLAME · POESÍA</span>
       </div>
       <div style="height:2mm;background:#c8102e;"></div>
 
