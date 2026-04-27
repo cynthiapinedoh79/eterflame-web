@@ -96,7 +96,7 @@ def generate_poem_pdf(poem):
       }}
 
       .inner {{
-        padding: 30mm 20mm 25mm;
+        padding: 42mm 20mm 25mm;
         position: relative;
         z-index: 1;
       }}
