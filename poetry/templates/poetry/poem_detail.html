@@ -52,8 +52,7 @@
       MODIFIED: Using a hard-coded path for the placeholder image.
       This will tell us if the {% static %} tag or the path was the issue.
       {% endcomment %}
-      <div class="card shadow-lg poem-detail-card"
-           style="background-image: url('{% if poem.featured_image and "placeholder" not in poem.featured_image.url %}{{ poem.featured_image.url }}{% else %}/static/images/placeholder_poem.png{% endif %}')">
+      <div class="card shadow-lg poem-detail-card">
         <img
           src="{% static 'images/works/aythnyk/oldSheetBgBlack.png' %}"
           onerror="this.src='https://res.cloudinary.com/dam7n1lk3/image/upload/v1777247265/oldSheetBgBlack_kxbnw3.png'"
