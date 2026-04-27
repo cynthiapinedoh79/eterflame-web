@@ -431,10 +431,13 @@
 .poem-main-col {
   min-width: 0;
 }
+
 @media (max-width: 960px) {
   .poem-with-panel {
-    grid-template-columns: 1fr;
-    padding: 0 1rem;
+    display: block !important;
+    grid-template-columns: unset !important;
+    padding: 0 0.5rem !important;
+    width: 100% !important;
   }
   .poem-with-panel .song-panel {
     position: static;
