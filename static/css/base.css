@@ -1829,7 +1829,7 @@ p.text-end.m-3 {
   box-shadow: var(--shadow-soft);
 }
 
-.card,
+.card:not(.poem-detail-card),
 .service-card,
 .division-card,
 .poem-card,
