@@ -2526,3 +2526,17 @@ p.text-end.m-3 {
   color: #c49a40 !important;
 }
 
+
+
+/* ================================================
+   EXCEPTION: poem-detail-card overrides .card
+=================================================== */
+.card.poem-detail-card {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  background-image: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
