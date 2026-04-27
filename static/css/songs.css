@@ -606,20 +606,25 @@
 /* PDF */
 .sd-pdf-section { text-align: center; padding-bottom: 5rem; }
 .sd-pdf-btn {
-  padding: 1rem 3rem;
-  background: var(--s-gold);
-  color: #0a0a0a;
-  border: none;
+  display: inline-block;
+  padding: 12px 30px;
+  background: transparent;
+  color: #c49a40;
+  border: 1px solid #c49a40;
   border-radius: 3px;
   font-family: var(--s-sans);
-  font-size: .72rem;
-  letter-spacing: 3px;
+  font-size: 0.65rem;
+  letter-spacing: 4px;
   text-transform: uppercase;
   font-weight: 600;
   cursor: pointer;
-  transition: background var(--s-ease);
+  transition: all 0.25s ease;
 }
-.sd-pdf-btn:hover { background: #d4a844; }
+.sd-pdf-btn:hover {
+  background: #c8102e;
+  border-color: #c8102e;
+  color: #ffffff;
+}
 
 /* Responsive */
 @media (max-width: 600px) {
