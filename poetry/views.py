@@ -98,18 +98,40 @@ def poem_detail(request, slug):
     def paginate_poem(body):
         if not body:
             return [''], 1
-        stanzas = re.split(r'</p>\s*<p>', body.strip())
+        
+        # Split by double <br> or </p><p> or <br><br>
+        import re as _re
+        
+        # Try splitting by </p><p> first
+        stanzas = _re.split(r'</p>\s*<p>', body.strip())
+        
+        # If only 1 chunk, try splitting by <br><br> or double newlines
+        if len(stanzas) <= 1:
+            stanzas = _re.split(r'<br\s*/?>\s*<br\s*/?>', body.strip())
+        
+        # If still only 1, try splitting by \n\n
+        if len(stanzas) <= 1:
+            stanzas = _re.split(r'\n\s*\n', body.strip())
+            
+        # If still 1, split every STANZAS_PER_PAGE lines
+        if len(stanzas) <= 1:
+            lines = _re.split(r'<br\s*/?>', body.strip())
+            LINES_PER_PAGE = 20
+            if len(lines) <= LINES_PER_PAGE:
+                return [body], 1
+            chunks = [lines[i:i + LINES_PER_PAGE]
+                      for i in range(0, len(lines), LINES_PER_PAGE)]
+            pages = ['<br>'.join(chunk) for chunk in chunks]
+            return pages, len(pages)
+        
         if len(stanzas) <= STANZAS_PER_PAGE:
             return [body], 1
+            
         chunks = [stanzas[i:i + STANZAS_PER_PAGE]
                   for i in range(0, len(stanzas), STANZAS_PER_PAGE)]
         pages = []
         for chunk in chunks:
-            if not chunk[0].startswith('<p>'):
-                chunk[0] = '<p>' + chunk[0]
-            if not chunk[-1].endswith('</p>'):
-                chunk[-1] = chunk[-1] + '</p>'
-            pages.append('</p><p>'.join(chunk))
+            pages.append('<br><br>'.join(chunk))
         return pages, len(pages)
 
     pages_es, total_pages = paginate_poem(poem.body_es)
