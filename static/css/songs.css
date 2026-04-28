@@ -707,3 +707,38 @@
     aspect-ratio: 4/3;
   }
 }
+
+/* ================================================
+   POEM DETAIL — TABLET RESPONSIVE FIX
+   481px–768px
+=================================================== */
+
+@media (min-width: 481px) and (max-width: 960px) {
+  .poem-with-panel {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .poem-main-col,
+  .poem-main-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .poem-detail-card {
+    width: 100% !important;
+  }
+
+  .song-panel {
+    width: 100% !important;
+    margin: 1.5rem 0 0 !important;
+    position: static !important;
+  }
+}

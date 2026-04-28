@@ -807,6 +807,7 @@ a.page-link {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 2rem;
+  box-sizing: border-box;
 }
 
 .poem-detail-author {
@@ -2326,7 +2327,10 @@ gmpx-icon-button,
   line-height: 1.7;
 }
 
-/* ── Large-screen cap: poem & collection cards stop stretching at 1400px ── */
+/* ================================================
+   7. LARGE SCREEN CAPS — POEM + COLLECTION GRIDS
+=================================================== */
+
 @media (min-width: 1400px) {
   .poems-grid {
     display: grid;
@@ -2334,25 +2338,18 @@ gmpx-icon-button,
     justify-content: center;
     gap: 1.5rem;
   }
-  /* neutralise Bootstrap col-* flex sizing inside the overridden grid */
+
   .poems-grid > [class*="col-"] {
     width: 100%;
     max-width: 280px;
     padding: 0;
     flex: none;
   }
+
   .poems-grid .collection-album-card,
   .poems-grid .card {
     max-width: 280px;
     width: 100%;
-  }
-}
-
-
-  .song-panel {
-    position: static !important;
-    width: 100% !important;
-    margin-top: 1.5rem !important;
   }
 }
 
@@ -2360,9 +2357,11 @@ gmpx-icon-button,
   .poems-grid {
     grid-template-columns: repeat(4, 300px);
   }
+
   .poems-grid > [class*="col-"] {
     max-width: 300px;
   }
+
   .poems-grid .collection-album-card,
   .poems-grid .card {
     max-width: 300px;
@@ -2370,26 +2369,11 @@ gmpx-icon-button,
 }
 
 
-  .poem-main-col .row.justify-content-center > [class*="col-"] {
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-  }
-  .poem-main-container {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-  .song-panel {
-    position: static !important;
-    width: 100% !important;
-    margin-top: 1.5rem !important;
-  }
-}
 /* ================================================
-   POEM DETAIL — MOBILE LAYOUT DEFINITIVE FIX
-   ================================================ */
+   8. POEM DETAIL — MOBILE ONLY FIX
+=================================================== */
 
+@media (max-width: 480px) {
   .poem-main-col .row,
   .poem-main-col .row.justify-content-center {
     margin-left: 0 !important;
@@ -2397,15 +2381,218 @@ gmpx-icon-button,
     --bs-gutter-x: 0 !important;
     width: 100% !important;
   }
+
   .poem-main-col [class*="col-"] {
     padding: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
     flex: 0 0 100% !important;
   }
+
   .song-panel {
     position: static !important;
     width: 100% !important;
     margin-top: 1.5rem !important;
+  }
+}
+
+/* ================================================
+   POEM DETAIL — XS / SMALL PHONES FIX
+   <= 480px
+=================================================== */
+
+@media (max-width: 480px) {
+  .poem-main-container {
+    padding: 0 0.5rem !important;
+  }
+
+  .poem-detail-card {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  .poem-detail-overlay {
+    padding: 18% 9% 18% 9% !important;
+  }
+
+  .poem-detail-overlay .card-body {
+    padding: 1rem !important;
+  }
+
+  .poem-card-top-controls {
+    gap: 8px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .poem-accent-line {
+    width: 52% !important;
+    margin-bottom: 18px !important;
+  }
+
+  .poem-detail-title {
+    font-size: clamp(1.25rem, 7vw, 1.75rem) !important;
+    letter-spacing: 3px !important;
+    line-height: 1.05 !important;
+  }
+
+  .poem-author-link {
+    font-size: 0.62rem !important;
+    letter-spacing: 3px !important;
+  }
+
+  .poem-body {
+    padding: 0 6px !important;
+  }
+
+  .poem-body,
+  .poem-body p {
+    font-size: 1rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .poem-body p {
+    margin-bottom: 1.1rem !important;
+  }
+
+  .poem-card-watermark {
+    width: 78% !important;
+    opacity: 0.14 !important;
+  }
+
+  .poem-card-footer {
+    margin-top: 20px !important;
+    gap: 8px !important;
+  }
+
+  .poem-card-footer__text,
+  .poem-card-footer__brand {
+    font-size: 7px !important;
+    letter-spacing: 2px !important;
+  }
+
+  .poem-pagination {
+    margin-top: 14px !important;
+  }
+
+  .poem-page-btn {
+    font-size: 8px !important;
+    letter-spacing: 3px !important;
+    padding: 7px 12px !important;
+  }
+}
+
+/* ================================================
+   POEM DETAIL — FOOTER + PAGINATION COMPACT
+   <= 522px
+=================================================== */
+
+@media (max-width: 522px) {
+  .poem-card-footer {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    text-align: center !important;
+    gap: 6px !important;
+    margin-top: 18px !important;
+    padding-top: 10px !important;
+  }
+
+  .poem-card-footer__text,
+  .poem-card-footer__brand {
+    font-size: 7px !important;
+    letter-spacing: 2px !important;
+    line-height: 1.2 !important;
+  }
+
+  .poem-pagination {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    justify-items: center !important;
+    margin-top: 12px !important;
+  }
+
+  .poem-page-num {
+    order: -1;
+    font-size: 8px !important;
+    letter-spacing: 2px !important;
+  }
+
+  .poem-page-btn {
+    width: 100% !important;
+    max-width: 220px !important;
+    text-align: center !important;
+    font-size: 8px !important;
+    letter-spacing: 3px !important;
+    padding: 8px 12px !important;
+  }
+}
+
+/* ================================================
+   POEM DETAIL — SAFE PADDING TOP/BOTTOM (MOBILE)
+=================================================== */
+
+@media (max-width: 522px) {
+  .poem-detail-overlay {
+    padding-top: 24% !important;   /* antes 18% */
+    padding-bottom: 26% !important; /* más aire abajo */
+  }
+
+  .poem-card-footer {
+    margin-top: 24px !important;
+    padding-top: 14px !important;
+  }
+
+  .poem-pagination {
+    margin-top: 18px !important;
+    padding-bottom: 10px !important;
+  }
+}
+
+/* ================================================
+   POEM DETAIL — TABLET / SMALL TABLET FIX
+   523px–768px
+=================================================== */
+
+@media (min-width: 523px) and (max-width: 768px) {
+  .poem-detail-card {
+    max-width: 680px !important;
+    margin: 0 auto !important;
+  }
+
+  .poem-detail-overlay {
+    padding: 20% 10% 24% 10% !important;
+  }
+
+  .poem-detail-overlay .card-body {
+    padding: 1.5rem !important;
+  }
+
+  .poem-detail-title {
+    font-size: clamp(1.8rem, 5vw, 2.6rem) !important;
+    letter-spacing: 4px !important;
+    line-height: 1.08 !important;
+  }
+
+  .poem-body,
+  .poem-body p {
+    font-size: 1.08rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .poem-card-footer {
+    margin-top: 28px !important;
+    padding-top: 16px !important;
+  }
+
+  .poem-pagination {
+    margin-top: 20px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .poem-page-btn {
+    padding: 8px 18px !important;
+    font-size: 8px !important;
+    letter-spacing: 3px !important;
   }
 }
