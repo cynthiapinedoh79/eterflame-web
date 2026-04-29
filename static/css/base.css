@@ -355,7 +355,7 @@ pre {
 }
 
 .navbar-brand img {
-  height: 36px;
+  height: 45px;
   width: auto;
 }
 
@@ -367,6 +367,54 @@ pre {
   font-weight: 400;
   text-transform: uppercase;
 }
+
+/* NAVBAR BRAND — ETHERFLAME */
+.ef-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.ef-brand-icon {
+  height: 45px;
+  width: auto;
+}
+
+.ef-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.ef-brand-main {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 4px;
+  color: #c49a40;
+  text-transform: uppercase;
+}
+
+.ef-brand-sub {
+  font-family: var(--font-body);
+  font-size: 0.6rem !important;
+  letter-spacing: 2.8px;
+  color: #8a7a5a;
+  margin-top: 3px;
+  opacity: 0.75;
+  text-transform: uppercase;
+}
+
+.ef-brand:hover .ef-brand-main {
+  color: #e6c27a;
+}
+
+.ef-brand:hover .ef-brand-icon {
+  filter: brightness(1.1);
+}
+
+/** NAVBAR LINKS */
 
 .navbar-nav .nav-link {
   position: relative;
@@ -2504,6 +2552,21 @@ p.text-end.m-3 {
   .footer-bottom__inner {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .ef-brand-sub {
+    display: none;
+  }
+
+  .ef-brand-main {
+    font-size: 0.9rem;
+    letter-spacing: 2.5px;
+  }
+
+  .ef-brand-icon {
+    height: 30px;
   }
 }
 

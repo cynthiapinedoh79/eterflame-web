@@ -44,12 +44,13 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <!-- Brand goes to Works home -->
-            <a class="navbar-brand" href="{{ home_url }}">
-                <img src="{% static 'images/ef-works_logo.png' %}" alt="Etherflame Works" height="40"
-                     class="d-inline-block align-text-top me-2"
-                     onerror="this.style.display='none'">
-            <span class="ms-2" style="font-family:'Cormorant Garamond',serif;letter-spacing:3px;color:#c49a40;">ETER FLAME</span>
+            <a class="navbar-brand ef-brand" href="{{ home_url }}">
+                <img src="{% static 'images/works/ef_logo.png' %}" alt="Eterflame Works" class="ef-brand-icon">
 
+                <div class="ef-brand-text">
+                    <span class="ef-brand-main">ETERFLAME WORKS</span>
+                    <span class="ef-brand-sub">Creative & Digital Production</span>
+                </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

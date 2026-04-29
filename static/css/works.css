@@ -173,6 +173,29 @@
   100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
+/* ── HERO WATERMARK (EF LOGO) ── */
+.wh-hero__logo-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 900px;
+  height: 900px;
+  opacity: 0.04; /* 🔥 clave para elegancia */
+
+  background-image: url("/static/images/works/ef_logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: 0.10; /* 🔥 clave para elegancia */
+  filter: brightness(1.35) contrast(1.15);
+
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* ── 2. TICKER ── */
 .wh-ticker {
   overflow: hidden;
@@ -949,4 +972,11 @@
   .wc-info { position: static; }
   .wc-hero { padding: 5rem 1.25rem 2.5rem; }
   .wc-body { padding: 2.5rem 1.25rem 5rem; }
+
+  .wh-hero__logo-watermark {
+    width: 500px;
+    height: 500px;
+    opacity: 0.03;
+  }
+
 }
