@@ -8,7 +8,18 @@
 
 {% block content %}
 <a href="{% url 'works:works_home' %}" class="page-back">← Inicio</a>
-<div class="container mt-5 about-page">
+<div class="container about-page">
+
+    <section class="about-hero">
+        <p class="about-hero__eyebrow">Eterflame Works · Profile</p>
+        <h1 class="about-hero__title">
+            Creative minds behind<br>
+            <em>the work.</em>
+        </h1>
+        <p class="about-hero__sub">
+            A curated profile space for collaborators, creators, technologists, and strategic partners.
+        </p>
+    </section>
 
     {% if about %}
     <div class="row">

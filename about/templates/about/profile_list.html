@@ -8,12 +8,22 @@
 
 {% block content %}
 
-<div class="container mt-5 about-page">
-    <h1 class="profile-list-title mb-4">Available Profiles</h1>
+<section class="about-hero about-hero--list">
+  <p class="about-hero__eyebrow">Eterflame Works · Profiles</p>
+  <h1 class="about-hero__title">
+    Available creative<br>
+    <em>profiles.</em>
+  </h1>
+  <p class="about-hero__sub">
+    Explore collaborators, creators, technologists, and strategic partners behind the work.
+  </p>
+</section>
+
+<div class="container about-page">
 
     <div class="mb-4">
-        <a href="{% url 'about' %}" class="back-link">
-            &larr; Back to Main About Page
+        <a href="{% url 'about' %}" class="about-back-link">
+            ← Back to Main About Page
         </a>
     </div>
 
@@ -21,7 +31,7 @@
     <div class="row g-4">
         {% for profile in profiles %}
         <div class="col-12 col-md-4">
-            <div class="card">
+            <div class="about-profile-card">
 
                 {% if "placeholder" not in profile.profile_image.url %}
                 <img src="{{ profile.profile_image.url }}" class="card-img-top" alt="{{ profile.title }}">
@@ -30,7 +40,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ profile.title }}</h5>
                     <p class="card-text">Updated: {{ profile.updated_on|date:"F j, Y" }}</p>
-                    <a href="{% url 'profile_detail' profile_title=profile.title %}" class="btn btn-signup">
+                    <a href="{% url 'profile_detail' profile_title=profile.title %}" class="about-profile-btn">
                         View Full Profile
                     </a>
                 </div>
