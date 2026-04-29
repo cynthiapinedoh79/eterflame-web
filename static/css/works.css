@@ -189,8 +189,8 @@
   background-position: center;
   background-size: contain;
 
-  opacity: 0.10; /* 🔥 clave para elegancia */
-  filter: brightness(1.35) contrast(1.15);
+  opacity: 0.05; /* 🔥 clave para elegancia */
+  filter: brightness(1.1) contrast(1.05);
 
   pointer-events: none;
   z-index: 1;
