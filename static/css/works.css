@@ -54,13 +54,14 @@
 }
 .wh-btn-primary:hover {
   background: var(--w-gold-lt);
+  color: #080603; /* 🔥 negro más profundo */
   transform: translateY(-2px);
 }
 .wh-btn-ghost {
   display: inline-block;
   padding: .85rem 2rem;
-  background: transparent;
-  color: var(--w-text);
+  background: var(--w-gold);
+  color: #080603;
   font-family: var(--w-sans);
   font-size: .72rem;
   letter-spacing: 3px;
@@ -72,6 +73,7 @@
 }
 .wh-btn-ghost:hover {
   border-color: var(--w-gold);
+  background: transparent;
   color: var(--w-gold);
 }
 
@@ -1038,3 +1040,4 @@
   }
 
 }
+
