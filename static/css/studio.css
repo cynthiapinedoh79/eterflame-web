@@ -83,6 +83,28 @@
   border-radius: 2px;
 }
 
+.es__logo-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 760px;
+  height: 760px;
+
+  background-image: url("../images/works/media/efM_logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: 0.055;
+  filter: brightness(1.6) contrast(0.75);
+  mix-blend-mode: screen;
+
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* SERVICES */
 .es-services {
   padding: 6rem 2rem;

@@ -355,6 +355,41 @@
   opacity: 0.9;
 }
 
+/* ── DESIGN HERO WATERMARK (EF LOGO) ── */
+.ef-design-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.ef-design__logo-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 760px;
+  height: 760px;
+
+  background-image: url("../images/works/design/efD_logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: 0.055;
+  filter: brightness(1.6) contrast(0.75);
+  mix-blend-mode: screen;
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ef-design-hero .row,
+.ef-design-hero .col-12,
+.ef-design-hero .ef-hero-visual {
+  position: relative;
+  z-index: 2;
+}
+
 /* ================================================
    FULL-WIDTH DESIGN REEL
 =================================================== */
@@ -1465,6 +1500,12 @@
   .ef-portfolio-grid {
     grid-template-columns: 1fr 1fr;
   }
+  .ef-design__logo-watermark {
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    opacity: 0.04;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1612,8 +1653,8 @@
 /* HERO — more dramatic dark bg */
 .ef-design-hero {
   background: radial-gradient(ellipse at 30% 50%,
-    #0d1a2e 0%, #060810 60%, #03050a 100%) !important;
-  padding: 2rem 0 3rem !important;
+    #0d1a2e 0%, #060810 60%, #03050a 100%);
+  padding: 2rem 0 3rem;
 }
 
 /* HERO TITLE — more impactful */
@@ -2182,3 +2223,11 @@
 /* Hide legacy */
 .eter-breadcrumb { display: none !important; }
 .ef-services-showcase { display: none !important; }
+
+.ef-design-fw-hero__back,
+.eter-back-link {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
