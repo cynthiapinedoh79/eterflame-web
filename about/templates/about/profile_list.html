@@ -39,6 +39,7 @@
 
                 <div class="card-body">
                     <h5 class="card-title">{{ profile.title }}</h5>
+                    <p class="about-profile-role">{{ profile.subtitle }}</p>
                     <p class="card-text">Updated: {{ profile.updated_on|date:"F j, Y" }}</p>
                     <a href="{% url 'profile_detail' profile_title=profile.title %}" class="about-profile-btn">
                         View Full Profile

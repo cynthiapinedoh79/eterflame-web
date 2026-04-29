@@ -768,3 +768,34 @@
   color: #000;
   border-color: #c49a40;
 }
+
+/* Subtitle/Role (hidden by default, revealed on hover) */
+.about-profile-role {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .82rem;
+  font-style: italic;              /* 🔥 look magazine */
+  line-height: 1.5;
+
+  color: rgba(245, 224, 176, 0.72);
+
+  margin: .4rem 0 .8rem;
+  max-width: 90%;
+
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all .3s ease;
+}
+
+/* Hover reveal */
+.about-profile-card:hover .about-profile-role {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-profile-card .card-title {
+  transition: transform .3s ease;
+}
+
+.about-profile-card:hover .card-title {
+  transform: translateY(-4px);
+}
