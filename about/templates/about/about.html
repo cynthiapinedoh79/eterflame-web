@@ -30,6 +30,50 @@
             <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
         </div>
     </div>
+
+    <!-- CREDENTIALS / PROFILE HIGHLIGHTS -->
+    <section class="about-credentials-section">
+      <p class="about-section-label">Credentials</p>
+
+      <div class="about-credentials">
+        <div class="about-credentials-main">
+            <h3>Core Expertise</h3>
+            <p class="about-credential-kicker">Skills · Focus Areas · Technical Direction</p>
+            <p class="about-credential-desc">
+            A curated overview of this profile’s strongest technical, creative, and strategic capabilities.
+            </p>
+
+            <div class="about-skills-wrap">
+                {% if about.skills %}
+                    {% for skill in about.skills_as_list %}
+                    <span class="about-skill-pill">{{ skill }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+        </div>
+
+        <div class="about-credentials-side">
+          <div class="about-credential-mini-card">
+            <span>01</span>
+            <strong>Frontend</strong>
+            <p>Responsive layouts, UI systems, and user experience foundations.</p>
+          </div>
+          <div class="about-credential-mini-card">
+            <span>02</span>
+            <strong>Backend</strong>
+            <p>Django architecture, databases, APIs, and scalable web logic.</p>
+          </div>
+          <div class="about-credential-mini-card">
+            <span>03</span>
+            <strong>Data</strong>
+            <p>Analytics, visualisation, and machine learning workflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
     {% else %}
     <div class="row justify-content-center py-5">
         <div class="col-12 col-md-8 text-center">

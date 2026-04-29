@@ -6,11 +6,36 @@ from django_summernote.admin import SummernoteModelAdmin
 @admin.register(About)
 class AboutAdmin(SummernoteModelAdmin):
     """
-    Adds rich-text editing of content in admin panel
-    for the About model.
+    Adds rich-text editing and organised profile credential fields
+    in the admin panel.
     """
 
     summernote_fields = ('content',)
+
+    fieldsets = (
+        ("Main Profile", {
+            "fields": (
+                "title",
+                "profile_image",
+                "content",
+            )
+        }),
+        ("Credentials / Skills", {
+            "fields": (
+                "credential_title",
+                "credential_subtitle",
+                "credential_summary",
+                "skills",
+            )
+        }),
+        ("Focus Cards", {
+            "fields": (
+                ("focus_1_title", "focus_1_text"),
+                ("focus_2_title", "focus_2_text"),
+                ("focus_3_title", "focus_3_text"),
+            )
+        }),
+    )
 
 # Note: admin.ModelAdmin is the standard way of registering
 #       our model with the admin panel. We do it differently
