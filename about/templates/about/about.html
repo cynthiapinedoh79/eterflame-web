@@ -20,7 +20,12 @@
             {% endif %}
         </div>
         <div class="col-12 col-md-8">
-            <h2>{{ about.title }}</h2>
+            <div class="about-heading">
+            <h1 class="about-name">{{ about.title }}</h1>
+            {% if about.subtitle %}
+                <p class="about-subtitle">{{ about.subtitle }}</p>
+            {% endif %}
+            </div>
             {{ about.content | safe }}
         </div>
     </div>
@@ -31,7 +36,52 @@
         </div>
     </div>
 
-    <!-- CREDENTIALS / PROFILE HIGHLIGHTS -->
+    <!-- CORE EXPERTISE -->
+    {% if about.skill_category_1_title or about.skill_category_2_title or about.skill_category_3_title %}
+    <section class="about-breakdown-section">
+    <p class="about-section-label">Technical Breakdown</p>
+
+    <div class="about-breakdown-table">
+
+        {% if about.skill_category_1_title or about.skill_category_1_skills %}
+        <div class="about-breakdown-row">
+        <div class="about-breakdown-category">
+            {{ about.skill_category_1_title }}
+        </div>
+        <div class="about-breakdown-skills">
+            {{ about.skill_category_1_skills }}
+        </div>
+        </div>
+        {% endif %}
+
+        {% if about.skill_category_2_title or about.skill_category_2_skills %}
+        <div class="about-breakdown-row">
+        <div class="about-breakdown-category">
+            {{ about.skill_category_2_title }}
+        </div>
+        <div class="about-breakdown-skills">
+            {{ about.skill_category_2_skills }}
+        </div>
+        </div>
+        {% endif %}
+
+        {% if about.skill_category_3_title or about.skill_category_3_skills %}
+        <div class="about-breakdown-row">
+        <div class="about-breakdown-category">
+            {{ about.skill_category_3_title }}
+        </div>
+        <div class="about-breakdown-skills">
+            {{ about.skill_category_3_skills }}
+        </div>
+        </div>
+        {% endif %}
+
+    </div>
+    </section>
+    {% endif %} 
+
+
+    <!-- TECHNICAL BREAKDOWN (Credentials)-->
     <section class="about-credentials-section">
       <p class="about-section-label">Credentials</p>
 

@@ -9,6 +9,7 @@ class About(models.Model):
     """
 
     title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=255, blank=True)
     profile_image = CloudinaryField('image', default='placeholder')
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
@@ -33,6 +34,17 @@ class About(models.Model):
         blank=True,
         help_text="Separate skills with commas. Example: Python, Django, JavaScript, PostgreSQL"
     )
+
+    # Categories & Skills
+    skill_category_1_title = models.CharField(max_length=120, blank=True)
+    skill_category_1_skills = models.TextField(blank=True)
+
+    skill_category_2_title = models.CharField(max_length=120, blank=True)
+    skill_category_2_skills = models.TextField(blank=True)
+
+    skill_category_3_title = models.CharField(max_length=120, blank=True)
+    skill_category_3_skills = models.TextField(blank=True)
+
 
     focus_1_title = models.CharField(max_length=100, blank=True, default="Frontend")
     focus_1_text = models.CharField(

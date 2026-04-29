@@ -13,14 +13,15 @@ class AboutAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
 
     fieldsets = (
-        ("Main Profile", {
+        ("Core Profile", {
             "fields": (
                 "title",
+                "subtitle",
                 "profile_image",
                 "content",
             )
         }),
-        ("Credentials / Skills", {
+        ("Core Expertise", {
             "fields": (
                 "credential_title",
                 "credential_subtitle",
@@ -28,7 +29,14 @@ class AboutAdmin(SummernoteModelAdmin):
                 "skills",
             )
         }),
-        ("Focus Cards", {
+        ("Technical Breakdown", {
+            "fields": (
+                ("skill_category_1_title", "skill_category_1_skills"),
+                ("skill_category_2_title", "skill_category_2_skills"),
+                ("skill_category_3_title", "skill_category_3_skills"),
+            )
+        }),
+        ("Focus Areas", {
             "fields": (
                 ("focus_1_title", "focus_1_text"),
                 ("focus_2_title", "focus_2_text"),

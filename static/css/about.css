@@ -395,7 +395,7 @@
   color: #0a0804 !important;
 }
 
-/* ── ABOUT CREDENTIALS — PREMIUM PROFILE BLOCK ── */
+/* ── CORE EXPERTISE (Credentials) ── */
 .about-credentials-section {
   padding: 4rem 0 2rem;
   border-top: 1px solid #1e1a10;
@@ -535,4 +535,104 @@
     grid-template-columns: 1fr;
     padding: 1.6rem;
   }
+}
+
+/* ── TECHNICAL BREAKDOWN — PREMIUM TABLE ── */
+.about-breakdown-section {
+  padding: 3.5rem 0 4rem;
+  border-top: 1px solid rgba(196,154,64,.14);
+}
+
+.about-breakdown-table {
+  max-width: 920px;
+  margin: 0 auto;
+  border: 1px solid rgba(196,154,64,.24);
+  background:
+    radial-gradient(circle at 12% 30%, rgba(196,154,64,.08), transparent 40%),
+    linear-gradient(135deg, rgba(20,16,8,.94), rgba(8,6,4,.98));
+  box-shadow:
+    0 24px 70px rgba(0,0,0,.48),
+    0 0 36px rgba(196,154,64,.08);
+}
+
+.about-breakdown-row {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  border-bottom: 1px solid rgba(196,154,64,.16);
+  transition: background .25s ease, transform .25s ease;
+}
+
+.about-breakdown-row:last-child {
+  border-bottom: none;
+}
+
+.about-breakdown-row:hover {
+  background: rgba(196,154,64,.06);
+}
+
+.about-breakdown-category {
+  position: relative;
+  padding: 1.15rem 1.3rem;
+  border-right: 1px solid rgba(196,154,64,.18);
+  background:
+    linear-gradient(90deg, rgba(196,154,64,.14), rgba(196,154,64,.03));
+  font-family: 'DM Sans', sans-serif;
+  font-size: .74rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #e8c06a;
+}
+
+.about-breakdown-category::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18%;
+  width: 3px;
+  height: 64%;
+  background: #c49a40;
+  box-shadow: 0 0 14px rgba(196,154,64,.45);
+}
+
+.about-breakdown-skills {
+  padding: 1.15rem 1.4rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .9rem;
+  line-height: 1.75;
+  color: #ead9a8;
+}
+
+@media (max-width: 700px) {
+  .about-breakdown-row {
+    grid-template-columns: 1fr;
+  }
+
+  .about-breakdown-category {
+    border-right: none;
+    border-bottom: 1px solid rgba(196,154,64,.14);
+  }
+}
+
+/* ── NAME + SUBTITLE (EDITORIAL HERO STYLE) ── */
+.about-heading {
+  margin-bottom: 1.8rem;
+}
+
+.about-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+  color: #e6c77b;
+  line-height: 1.2;
+  margin-bottom: .4rem;
+}
+
+.about-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .9rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #a8915c !important;
 }
