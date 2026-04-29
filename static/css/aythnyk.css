@@ -174,21 +174,14 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1.45); /* 🔥 agranda solo el contenido */
+  transform: translate(-50%, -50%) scale(1.45);
 
   width: 1100px;
   height: 1100px;
 
-  background-image: url("../images/works/aythnyk/a_logo.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
 
-  opacity: 0.035;              /* 🔥 más sutil */
-  filter: brightness(1.6) contrast(0.6);
-  mix-blend-mode: screen;      /* 🔥 clave premium */
-
-    /* 🔥 MAGIA AQUÍ */
   -webkit-mask-image: linear-gradient(to bottom,
     transparent 0%,
     rgba(0,0,0,0.4) 20%,
@@ -201,9 +194,52 @@
     rgba(0,0,0,1) 50%,
     rgba(0,0,0,0.4) 80%,
     transparent 100%);
+}
 
-  pointer-events: none;
-  z-index: 0;                  /* 🔥 SIEMPRE detrás */
+/* Logo base */
+.ah-hero__logo-watermark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("../images/works/aythnyk/a_logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: 0.035;
+  filter: brightness(1.6) contrast(0.6);
+  mix-blend-mode: screen;
+}
+
+/* Emotional glow / breath */
+.ah-hero__logo-watermark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("../images/works/aythnyk/a_logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: 0.05;
+  filter: blur(8px) brightness(2);
+  mix-blend-mode: screen;
+
+  animation: aythnyk-breathe 6s ease-in-out infinite;
+}
+
+@keyframes aythnyk-breathe {
+  0%, 100% {
+    opacity: 0.02;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.12;
+    transform: scale(1.045);
+  }
 }
 
 .ah-hero__inner,

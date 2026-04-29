@@ -82,6 +82,7 @@
   border-radius: 2px;
 }
 
+/* ── MEDIA WATERMARK — PREMIUM SYSTEM ── */
 .em__logo-watermark {
   position: absolute;
   top: 50%;
@@ -91,17 +92,82 @@
   width: 760px;
   height: 760px;
 
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* LOGO BASE */
+.em__logo-watermark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
   background-image: url("../images/works/media/efM_logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 
-  opacity: 0.055;
-  filter: brightness(1.6) contrast(0.75);
-  mix-blend-mode: screen;
+  opacity: 0.08;
+  filter: brightness(1.45) contrast(0.85);
+}
 
-  pointer-events: none;
-  z-index: 1;
+/* ✨ COPPER / PURPLE LIGHT SWEEP */
+.em__logo-watermark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    115deg,
+    transparent 38%,
+    rgba(232, 130, 74, 0.85) 47%,
+    rgba(196, 98, 42, 1) 50%,
+    rgba(168, 122, 255, 0.75) 53%,
+    transparent 62%
+  );
+
+  background-size: 250% 250%;
+  background-position: -180% center;
+
+  -webkit-mask-image: url("../images/works/media/efM_logo.png");
+  mask-image: url("../images/works/media/efM_logo.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+
+  mix-blend-mode: screen;
+  opacity: 0.5;
+  filter: blur(1px);
+
+  animation: media-light-sweep 8s ease-in-out infinite;
+}
+
+@keyframes media-light-sweep {
+  0%, 55% {
+    background-position: -150% center;
+    opacity: 0;
+  }
+
+  65% {
+    opacity: 0.5;
+  }
+
+  75% {
+    background-position: 50% center;
+    opacity: 0.85;
+  }
+
+  85% {
+    opacity: 0.45;
+  }
+
+  100% {
+    background-position: 150% center;
+    opacity: 0;
+  }
 }
 
 /* SERVICES */

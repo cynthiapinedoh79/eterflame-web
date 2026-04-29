@@ -361,6 +361,7 @@
   overflow: hidden;
 }
 
+/* ── DESIGN WATERMARK — PREMIUM SYSTEM ── */
 .ef-design__logo-watermark {
   position: absolute;
   top: 50%;
@@ -370,17 +371,88 @@
   width: 760px;
   height: 760px;
 
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* LOGO BASE */
+.ef-design__logo-watermark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
   background-image: url("../images/works/design/efD_logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 
-  opacity: 0.055;
-  filter: brightness(1.6) contrast(0.75);
+  opacity: 0.05;
+  filter: brightness(1.5) contrast(0.8);
+}
+
+/* ✨ BLUE LIGHT SWEEP */
+.ef-design__logo-watermark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    115deg,
+    transparent 38%,
+    rgba(95, 208, 214, 0.8) 48%,
+    rgba(0, 188, 212, 1) 50%,
+    rgba(95, 208, 214, 0.8) 52%,
+    transparent 62%
+  );
+
+  background-size: 250% 250%;
+  background-position: -180% center;
+
+  /* CLIP A LA FORMA DEL LOGO */
+  -webkit-mask-image: url("../images/works/design/efD_logo.png");
+  mask-image: url("../images/works/design/efD_logo.png");
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
+
   mix-blend-mode: screen;
 
-  pointer-events: none;
-  z-index: 1;
+  opacity: 0.45;
+  filter: blur(1px);
+
+  animation: design-light-sweep 8s ease-in-out infinite;
+}
+
+/* ANIMACIÓN */
+@keyframes design-light-sweep {
+  0%, 55% {
+    background-position: -150% center;
+    opacity: 0;
+  }
+
+  65% {
+    opacity: 0.5;
+  }
+
+  75% {
+    background-position: 50% center;
+    opacity: 0.8;
+  }
+
+  85% {
+    opacity: 0.4;
+  }
+
+  100% {
+    background-position: 150% center;
+    opacity: 0;
+  }
 }
 
 .ef-design-hero .row,
