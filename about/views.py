@@ -42,7 +42,7 @@ def about_me(request):
                 ),
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[settings.CONTACT_EMAIL],
-                fail_silently=True,
+                fail_silently=False,
             )
 
             messages.add_message(
