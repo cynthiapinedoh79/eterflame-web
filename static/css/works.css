@@ -60,8 +60,8 @@
 .wh-btn-ghost {
   display: inline-block;
   padding: .85rem 2rem;
-  background: var(--w-gold);
-  color: #080603;
+  background: transparent;
+  color: var(--w-gold);
   font-family: var(--w-sans);
   font-size: .72rem;
   letter-spacing: 3px;
