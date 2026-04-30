@@ -303,8 +303,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_API_KEY')
-DEFAULT_FROM_EMAIL = 'contact@eterflame.com'
-CONTACT_EMAIL = 'contact@eterflame.com'
+DEFAULT_FROM_EMAIL = 'studio@eterflame.com'
+CONTACT_EMAIL = 'studio@eterflame.com'
 
 # --- Allauth v0.65+ (new-style settings) ---
 

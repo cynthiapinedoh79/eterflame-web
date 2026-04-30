@@ -70,7 +70,7 @@ def contact(request):
         if name and email and description:
             try:
                 send_mail(
-                    subject=f'[ETER FLAME] New inquiry from {name}',
+                    subject=f'[ETERFLAME] New inquiry from {name}',
                     message=(
                         f"Name: {name}\n"
                         f"Email: {email}\n"
