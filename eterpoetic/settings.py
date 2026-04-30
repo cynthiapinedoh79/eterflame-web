@@ -52,7 +52,7 @@ ALLOWED_HOSTS = [
     "dev.local",
     '[::1]',
     '.herokuapp.com',
-    'eterfalame-web-3348815acb0e.herokuapp.com',
+    'eterflame-web-ab680e12c17d.herokuapp.com',
     '*.codeinstitute-ide.net',
     '*.githubpreview.dev',
 ]
@@ -185,7 +185,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8000",
     "http://dev.local:8000",
     "https://*.herokuapp.com",
-    "https://eterfalame-web-3348815acb0e.herokuapp.com",
+    'https://eterflame-web-ab680e12c17d.herokuapp.com',
     "https://*.codeinstitute-ide.net",
     "https://*.githubpreview.dev",
 ]
@@ -298,13 +298,13 @@ ACCOUNT_LOGOUT_REDIRECT_URL = "/"
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
-
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_API_KEY')
+DEFAULT_FROM_EMAIL = 'contact@eterflame.com'
+CONTACT_EMAIL = 'contact@eterflame.com'
 
 # --- Allauth v0.65+ (new-style settings) ---
 

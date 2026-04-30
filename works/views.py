@@ -47,7 +47,7 @@ def design(request):
                 subject=f"[EF Design] New enquiry from {name}",
                 message=body,
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[settings.EMAIL_HOST_USER],
+                recipient_list=[settings.CONTACT_EMAIL],
                 fail_silently=False,
             )
             messages.success(request, "Your message has been sent. We'll be in touch soon.")
@@ -80,7 +80,7 @@ def contact(request):
                         f"Message:\n{description}"
                     ),
                     from_email=settings.DEFAULT_FROM_EMAIL,
-                    recipient_list=[settings.EMAIL_HOST_USER],
+                    recipient_list=[settings.CONTACT_EMAIL],
                     fail_silently=False,
                 )
                 messages.success(request,
