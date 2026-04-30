@@ -1015,16 +1015,12 @@ a.text-decoration-none:hover {
    5. COMPONENT: ALERTS (SUCCESS OVERRIDE)
 =================================================== */
 .alert-success {
-  background-color: rgba(232, 106, 51, 0.1);
-  border-color: rgba(232, 106, 51, 0.3);
-  color: var(--color-text-dark);
+  background-color: rgba(200, 16, 46, 0.1);
+  border-color: rgba(200, 16, 46, 0.3);
+  color: #f5e6c8;
 }
 
-.alert-success a {
-  color: var(--color-primary-brand);
-  font-weight: 700;
-  text-decoration: underline;
-}
+.alert-success a { color: #f5e6c8; font-weight: 600; }
 
 .alert-success a:hover {
   color: var(--color-link-hover);

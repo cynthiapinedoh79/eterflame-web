@@ -532,11 +532,12 @@ pre {
   border: 1px solid;
 }
 .alert-success {
-  background: rgba(30,100,50,.1);
-  border-color: rgba(30,100,50,.25);
-  color: #6fba8a;
+  background-color: rgba(196, 154, 64, 0.1);
+  border-color: rgba(196, 154, 64, 0.35);
+  color: #c49a40;
 }
-.alert-success a { color: #6fba8a; font-weight: 600; }
+.alert-success a { color: #c49a40; font-weight: 600; }
+
 .alert-info {
   background: rgba(196,154,64,.08) !important;
   border-color: rgba(196,154,64,.2) !important;
@@ -554,6 +555,15 @@ pre {
 }
 
 .btn-close { filter: invert(0.7); }
+
+/* Sign in / sign up success — allauth */
+.messagecontainer .alert-success,
+.messages .alert-success,
+ul.messages li.success {
+  background-color: rgba(196, 154, 64, 0.1) !important;
+  border-color: rgba(196, 154, 64, 0.35) !important;
+  color: #c49a40 !important;
+}
 
 /* Remember Me / form-check inside login card */
 .login-card .form-check {
