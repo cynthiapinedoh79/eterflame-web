@@ -368,8 +368,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: clamp(280px, 80vw, 760px);
-  height: clamp(280px, 80vw, 760px);
+  width: 760px;
+  height: 760px;
 
   pointer-events: none;
   z-index: 1;
@@ -1571,7 +1571,6 @@
     left: 50%;
     width: 600px;
     height: 600px;
-    opacity: 0.04;
   }
 }
 
