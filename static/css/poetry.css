@@ -747,7 +747,7 @@ a.page-link {
   font-size: 0.75rem !important;
   letter-spacing: 4px !important;
   text-transform: uppercase !important;
-  color: #ffffff !important;
+  color: #c49a40 !important;
   text-decoration: none !important;
   font-style: normal !important;
   transition: color 0.2s ease !important;
@@ -2193,4 +2193,37 @@ gmpx-icon-button,
   .poem-series-card:last-child {
     border-bottom: none;
   }
+}
+
+/* ================================================
+   POEM LIST — Hero title (songs-hero reuse)
+=================================================== */
+.songs-hero {
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+}
+
+.songs-hero__eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #c8102e;
+  margin-bottom: 0.75rem;
+}
+
+.songs-hero__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 300;
+  color: #f5e0b0;
+  margin: 0 0 0.5rem;
+}
+
+.songs-hero__title span { color: #c49a40; }
+
+.songs-hero__sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #c8102e !important;
 }
