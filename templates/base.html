@@ -1,12 +1,7 @@
 {% load static %}
 
 {% url 'works:works_home' as home_url %}
-{% url 'works:design' as design_url %}
 {% url 'aythnyk:aythnyk_home' as aythnyk_url %}
-{% url 'poetry:poem_list' as poems_url %}
-{% url 'poetry:favorites_list' as favorites_url %}
-{% url 'blog:bloghome' as blog_url %}
-{% url 'about' as about_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -71,19 +66,19 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/' %}active{% endif %}"
+                        <a class="nav-link {% if request.path == '/' or '/works' in request.path %}active{% endif %}"
                            href="{% url 'works:works_home' %}">Works</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if '/aythnyk' in request.path %}active{% endif %}"
+                        <a class="nav-link {% if '/aythnyk' in request.path or '/blog' in request.path or '/songs' in request.path or '/poems' in request.path %}active{% endif %}"
                            href="{% url 'aythnyk:aythnyk_home' %}">Aythnyk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/about/' %}active{% endif %}"
+                        <a class="nav-link {% if '/about' in request.path %}active{% endif %}"
                            href="{% url 'about' %}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-contact"
+                        <a class="nav-link nav-contact {% if '/contact' in request.path %}active{% endif %}"
                            href="{% url 'works:contact' %}">Contact Us</a>
                     </li>
                     {% if user.is_authenticated %}
