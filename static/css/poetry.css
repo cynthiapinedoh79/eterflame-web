@@ -1,63 +1,5 @@
 
 /* ================================================
-   1. PAGE: POETRY HOME
-=================================================== */
-
-.poetry-hero {
-  background: linear-gradient(180deg, var(--bg-dark, #0f0b05) 0%, var(--bg-body, #0a0804) 100%);
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-.cover-art {
-  margin-bottom: 2.5rem;
-}
-.cover-art img {
-  max-height: 380px;
-  object-fit: cover;
-  border-radius: 0;
-}
-
-.quote-row {
-  --q-gap: 1rem;
-}
-
-.quote-card {
-  background: #0b0b0b;
-  color: #fff;
-  border-radius: 14px;
-  padding: 18px 20px;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 140px;
-}
-
-.quote-card blockquote {
-  margin: 0 0 10px 0;
-  font-size: 1.05rem;
-  line-height: 1.45;
-  font-style: italic;
-}
-
-.quote-card .author {
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
-
-/* Hero image */
-.poetry-hero .hero-art {
-  max-width: 720px;
-  margin: 0 auto 1rem;
-}
-
-section.py-4 {
-  padding-bottom: 0.5rem !important;
-}
-
-/* ================================================
    2. PAGE: POETRY LIST
 =================================================== */
 
@@ -91,21 +33,10 @@ section.py-4 {
   margin-top: 2.5rem !important;
 }
 
-.poetry-list .center-grid {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .poetry-list .search-form {
   max-width: 800px;
   margin-left: 0;
   margin-right: auto;
-}
-
-.poetry-list .search-input-wrapper {
-  max-width: 600px;
-  width: 100%;
 }
 
 .poetry-list .search-input,
@@ -673,7 +604,6 @@ a.page-link {
   margin-top: 0;
 }
 
-.btn-favorites-link,
 .favorites-bar-link {
   display: inline-flex;
   align-items: center;
@@ -689,10 +619,6 @@ a.page-link {
   transition: all 0.2s ease;
 }
 
-.btn-favorites-link {
-  padding: 9px 20px;
-}
-
 .favorites-bar {
   display: flex;
   justify-content: flex-end;
@@ -703,17 +629,11 @@ a.page-link {
   padding: 9px 20px;
 }
 
-.btn-favorites-link:hover,
 .favorites-bar-link:hover {
   background: rgba(200, 16, 46, 0.1);
   color: var(--ay-light);
   border-color: rgba(200, 16, 46, 0.5);
   transform: translateY(-1px);
-}
-
-.favorites-bar-heart {
-  font-size: 14px;
-  color: var(--ay-primary);
 }
 
 /* like button */
@@ -990,17 +910,11 @@ a.text-decoration-none:hover {
 .qb-next { right: 8px; }
 .qb-nav:focus-visible { outline: 2px solid rgba(212,168,67,0.5); outline-offset: 2px; }
 
-.quote-banner-wrapper {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-}
-
 .quote-banner-fw .quote-banner {
   margin-bottom: 0;
 }
 
 .quote-banner-fw,
-.quote-banner-wrapper,
 .quote-banner{
   position: relative;
   z-index: 5;           /* below footer */
@@ -1111,22 +1025,10 @@ a.text-decoration-none:hover {
 /* --- Tablet --- */
 
 @media (max-width: 768px) {
-  /* Poetry Home */
-  .cover-art { margin-bottom: 1.5rem; }
-  .cover-art img {
-    max-height: 250px;
-  }
-  .quote-row { margin-bottom: 1.5rem; }
-  .poetry-hero { padding-top: 2rem; padding-bottom: 2rem; }
-
   /* Poetry List */
   .poetry-list .card { margin-bottom: 1rem; }
   .poetry-list .search-form {
     max-width: 100%;
-  }
-  .poetry-list .search-input-wrapper {
-    flex-direction: column;
-    align-items: stretch;
   }
 
   /* Poem Detail */
@@ -1214,28 +1116,12 @@ a.text-decoration-none:hover {
 
 /* --- Desktop --- */
 
-@media (min-width: 1400px) {
-  /* Poetry Home */
-  .poetry-hero .hero-art { max-width: 820px; }
-  /* Poetry List */
-  .poetry-list .center-grid { max-width: 1280px; }
-}
 
 @media (min-width: 1600px) {
   /* Poetry List XXL Tweaks */
   .poetry-list .row .col-xxl-2 .card-img-top { aspect-ratio: 4 / 3; }
 }
 
-/* --- Other --- */
-
-@media (hover:hover) {
-  /* Poetry Home Quote Card Hover */
-  .quote-card { transition: transform .18s ease, box-shadow .18s ease; }
-  .quote-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.18);
-  }
-}
 
 /* -------------------------------------- */
 /* 7. Collection Detail Flag (Updated Positioning) */
@@ -1273,31 +1159,6 @@ a.text-decoration-none:hover {
     transform: none; /* Ensure no unintended transforms */
 }
 
-/* ================================================
-   POEMS PAGE — Mis Favoritos link
-=================================================== */
-.btn-favorites-link {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--ay-primary);
-  text-decoration: none;
-  border: 1px solid rgba(200,16,46,0.25);
-  padding: 9px 20px;
-  border-radius: 3px;
-  transition: all 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-.btn-favorites-link:hover {
-  background: rgba(200,16,46,0.1);
-  color: var(--ay-light);
-  border-color: rgba(200,16,46,0.5);
-  transform: translateY(-1px);
-}
-
 /* === Favorites bar === */
 .favorites-bar {
   display: flex;
@@ -1325,11 +1186,6 @@ a.text-decoration-none:hover {
   border-color: rgba(200,16,46,0.5);
   transform: translateY(-1px);
 }
-.favorites-bar-heart {
-  font-size: 14px;
-  color: var(--ay-primary);
-}
-
 /* === Search inputs === */
 .poetry-list .search-input,
 .poetry-list input[type="search"],
@@ -1380,16 +1236,6 @@ a.text-decoration-none:hover {
 
 /* Poem list h2 title */
 .poetry-list h2 { color: #f5e6c8 !important; font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-spacing: 3px; }
-
-/* Collections header */
-.collections-header {
-  font-family: 'Courier Prime', monospace;
-  font-size: .7rem;
-  letter-spacing: 4px;
-  color: #7a6035;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
 
 /* ================================================
    POEM DETAIL — Language toggle buttons
@@ -1732,13 +1578,6 @@ gmpx-icon-button,
 /* keep collection ribbon readable */
 .poetry-list .collection-album-card:hover::before {
   color: #ffffff !important;
-}
-
-/* ---------- 4. Author labels on hover ---------- */
-.poetry-list .card:hover .image-flash,
-.poetry-list .collection-album-card:hover .image-flash {
-  background: #0b0d10;
-  color: #d4a843;
 }
 
 /* ---------- 5. Optional: slightly stronger hover glow ---------- */

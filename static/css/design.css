@@ -680,11 +680,6 @@
   z-index: 2;
 }
 
-.ef-service-content {
-  position: relative;
-  z-index: 2;
-}
-
 .ef-service-feature:hover {
   transform: translateY(-6px) scale(1.01);
 
@@ -2033,13 +2028,6 @@
   border-top: 1px solid rgba(0,188,212,.08);
 }
 
-/* ── CREDENTIALS SECTION ── */
-.ed-credentials-section {
-  padding: 6rem 2rem;
-  background: #080e1a;
-  border-top: 1px solid rgba(0,188,212,.08);
-}
-
 /* ── PAGE RESET — remove old padding ── */
 .ef-design-page {
   padding: 0 !important;
@@ -2053,8 +2041,7 @@
   .ed-grid { grid-template-columns: 1fr; }
   .ed-card:nth-child(5) { grid-column: auto; }
   .ed-services,
-  .ed-portfolio,
-  .ed-credentials-section { padding: 4rem 1.25rem; }
+  .ed-portfolio { padding: 4rem 1.25rem; }
 }
 
 /* ── SERVICES CLEAN — consolidated, see bottom of file ── */
@@ -2099,9 +2086,6 @@
   max-width: 1100px;
   margin: 0 auto;
 }
-
-/* Cards — sin .ed-card--wide, ya no hace falta */
-.ed-card--wide { grid-column: auto; }
 
 .ed-card {
   background: #060810;
@@ -2160,17 +2144,6 @@
   border-top: 1px solid rgba(0,188,212,.08);
 }
 .ed-portfolio .ef-portfolio-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* ── CREDENTIALS SECTION ── */
-.ed-credentials-section {
-  padding: 6rem 2rem;
-  background: #080e1a;
-  border-top: 1px solid rgba(0,188,212,.08);
-}
-.ed-credentials-section .ef-credentials {
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -2243,8 +2216,7 @@
     font-size: 1.25rem;
   }
   .ed-services,
-  .ed-portfolio,
-  .ed-credentials-section {
+  .ed-portfolio {
     padding: 3.5rem 1.25rem;
   }
   .ef-design-reel-image,

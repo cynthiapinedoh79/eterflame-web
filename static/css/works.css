@@ -573,18 +573,6 @@
   line-height: 1.8;
   margin-bottom: 2rem;
 }
-.wh-aythnyk__link {
-  font-family: var(--w-sans);
-  font-size: .72rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: #fff;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,.4);
-  padding-bottom: 2px;
-  transition: border-color var(--w-ease);
-}
-.wh-aythnyk__link:hover { border-color: #fff; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
