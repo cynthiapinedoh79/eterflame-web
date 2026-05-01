@@ -49,17 +49,22 @@ Eterflame is a dual-brand creative platform combining **Eterflame Works** (Creat
 Eterflame is built around two complementary brands:
 
 **Eterflame Works** — A creative & digital production studio offering:
-- Web Design & Development (EF Design)
-- Media Production (EF Media)
-- Creative Studio (EF Studio)
-- Contact & project enquiry system
+- Works Home — services overview
+- EF Design — web design & development
+- EF Media — media production
+- EF Studio — creative studio
+- Works Resources (`/works/resources/`) — B2B affiliate tools
+- Contact — project enquiry form
+- About — team & collaborate form
 
 **Aythnyk** — A Spanish-language poetry & music experience featuring:
-- Curated poem collections with ES/EN toggle
-- Song detail pages with YouTube, streaming & reels
-- Digital PDF shop (via Gumroad)
-- Blog, favorites, and collaborate form
-- AI chat assistant
+- Poems — curated collections with ES/EN toggle, favorites, PDF sales
+- Blog — creative writing & reflections
+- Shop (`/shop/`) — digital products via Gumroad
+- Sonic — songs with YouTube, streaming & reels
+- Tools (`/aythnyk/tools/`) — ElevenLabs, DistroKid, Canva and more
+- AI Chat — AI assistant
+- Favorites — authenticated users saved poems
 
 **Core Technologies:**
 1. **Django 5.2 (Python 3.11)** — Full-stack web framework
@@ -115,6 +120,15 @@ All pages are designed with **Mobile-First Responsive Design** across all screen
 #### EF Design
 ![EF Design](static/images/readme/screenshots/ef_design.png)
 
+#### EF Media
+![EF Media](static/images/readme/screenshots/ef_media.png)
+
+#### EF Studio
+![EF Studio](static/images/readme/screenshots/ef_studio.png)
+
+#### Works Resources (`/works/resources/`)
+![Works Resources](static/images/readme/screenshots/works_resources.png)
+
 #### Contact Form
 ![Contact](static/images/readme/screenshots/contact.png)
 
@@ -133,9 +147,12 @@ All pages are designed with **Mobile-First Responsive Design** across all screen
 #### Poem Detail — Mobile
 ![Poem Detail Mobile](static/images/readme/screenshots/poem_detail_mobile.png)
 
+#### Favorites
+![Favorites](static/images/readme/screenshots/favorites.png)
+
 </details>
 
-### Aythnyk — Songs
+### Aythnyk — Sonic (Songs)
 <details>
 <summary>View Songs screenshots</summary>
 
@@ -144,6 +161,85 @@ All pages are designed with **Mobile-First Responsive Design** across all screen
 
 #### Song Detail
 ![Song Detail](static/images/readme/screenshots/song_detail.png)
+
+</details>
+
+### Aythnyk — Shop
+<details>
+<summary>View Shop screenshots</summary>
+
+#### Shop Home
+![Shop](static/images/readme/screenshots/shop.png)
+
+#### PDF Purchase Modal
+![Shop Modal](static/images/readme/screenshots/shop_modal.png)
+
+</details>
+
+### Aythnyk — Tools (`/aythnyk/tools/`)
+<details>
+<summary>View Tools screenshots</summary>
+
+*Tools used by Aythnyk — ElevenLabs, DistroKid, Canva and more*
+
+#### Aythnyk Tools
+![Aythnyk Tools](static/images/readme/screenshots/aythnyk_tools.png)
+
+</details>
+
+### Aythnyk — Blog
+<details>
+<summary>View Blog screenshots</summary>
+
+#### Blog List
+![Blog](static/images/readme/screenshots/blog.png)
+
+#### Blog Post Detail
+![Blog Post](static/images/readme/screenshots/blog_detail.png)
+
+</details>
+
+### Aythnyk — About
+<details>
+<summary>View About screenshots</summary>
+
+#### About Page
+![About](static/images/readme/screenshots/about.png)
+
+#### Collaborate Form
+![Collaborate](static/images/readme/screenshots/collaborate.png)
+
+</details>
+
+### AI Chat
+<details>
+<summary>View AI Chat screenshots</summary>
+
+#### AI Chat Assistant
+![AI Chat](static/images/readme/screenshots/ai_chat.png)
+
+</details>
+
+### Aythnyk — Tools & Resources
+<details>
+<summary>View Tools screenshots</summary>
+
+#### Aythnyk Tools (`/aythnyk/tools/`)
+*ElevenLabs, DistroKid, Canva — herramientas que usa Aythnyk*
+![Tools](static/images/readme/screenshots/aythnyk_tools.png)
+
+#### Works Resources (`/works/resources/`)
+*Affiliate links for B2B tools*
+![Resources](static/images/readme/screenshots/works_resources.png)
+
+</details>
+
+### AI Chat
+<details>
+<summary>View AI Chat screenshots</summary>
+
+#### AI Chat Assistant
+![AI Chat](static/images/readme/screenshots/ai_chat.png)
 
 </details>
 
@@ -224,6 +320,10 @@ All pages are designed with **Mobile-First Responsive Design** across all screen
 | As a logged-in user, I can favorite poems | Should-Have | ✅ Done |
 | As a visitor, I can toggle poems between ES/EN | Should-Have | ✅ Done |
 | As a visitor, I can purchase poem PDFs | Could-Have | ✅ Done |
+| As a visitor, I can explore the digital shop | Could-Have | ✅ Done |
+| As a visitor, I can see Aythnyk's creative tools | Could-Have | ✅ Done |
+| As a visitor, I can explore Works affiliate resources | Could-Have | ✅ Done |
+| As a visitor, I can use the AI chat assistant | Could-Have | ✅ Done |
 | As an admin, I can generate PDFs via staff tool | Must-Have | ✅ Done |
 | As a visitor, I can read the blog | Should-Have | ✅ Done |
 | As a visitor, I can view the about/team page | Should-Have | ✅ Done |
@@ -316,23 +416,37 @@ Eterflame uses two distinct visual identities within one platform:
 
 ### App Responsibilities
 
+**🏢 Eterflame Works**
+
 | App | Purpose |
 |---|---|
-| `works` | Eterflame Works home, contact form |
-| `design_app` | EF Design division page |
-| `media_app` | EF Media division page |
-| `studio_app` | EF Studio division page |
+| `works` | Works home, contact form, resources (`/works/resources/`) |
+| `design_app` | EF Design division |
+| `media_app` | EF Media division |
+| `studio_app` | EF Studio division |
+
+**🔥 Aythnyk**
+
+| App | Purpose |
+|---|---|
 | `aythnyk` | Aythnyk home, navigation hub |
-| `poetry` | Poems, collections, favorites, PDF generator |
-| `songs` | Songs, streaming, reels |
+| `poetry` | Poems, collections, favorites, PDF generator, tools (`/aythnyk/tools/`) |
+| `songs` | Sonic — songs, streaming, reels |
 | `blog` | Blog posts |
-| `shop` | Digital shop (Gumroad integration) |
+| `shop` | Digital shop (Gumroad) |
 | `about` | About page, collaborate form |
-| `core` | Shared utilities, adapters |
 | `chat` | AI chat assistant |
+
+**⚙️ Shared**
+
+| App | Purpose |
+|---|---|
+| `core` | Shared utilities, OAuth adapters |
 | `facebook_integration` | Facebook OAuth helpers |
 
 ### URL Map
+
+**🏢 Eterflame Works**
 
 | Path | App | Public? |
 |---|---|---|
@@ -340,7 +454,14 @@ Eterflame uses two distinct visual identities within one platform:
 | `/works/design/` | design_app | ✅ Public |
 | `/works/media/` | media_app | ✅ Public |
 | `/works/studio/` | studio_app | ✅ Public |
+| `/works/resources/` | works | ✅ Public |
 | `/contact/` | works | ✅ Public |
+| `/about/` | about | ✅ Public |
+
+**🔥 Aythnyk**
+
+| Path | App | Public? |
+|---|---|---|
 | `/aythnyk/` | aythnyk | ✅ Public |
 | `/aythnyk/poems/` | poetry | ✅ Public |
 | `/aythnyk/poems/<slug>/` | poetry | ✅ Public |
@@ -349,9 +470,15 @@ Eterflame uses two distinct visual identities within one platform:
 | `/aythnyk/songs/<slug>/` | songs | ✅ Public |
 | `/blog/` | blog | ✅ Public |
 | `/shop/` | shop | ✅ Public |
-| `/about/` | about | ✅ Public |
+| `/aythnyk/tools/` | poetry | ✅ Public |
 | `/aythnyk/pdf-tool/` | poetry | 🔒 Staff only |
+
+**⚙️ System**
+
+| Path | App | Public? |
+|---|---|---|
 | `/admin/` | Django admin | 🔒 Admin |
+| `/accounts/` | allauth | ✅ Public |
 
 ### CRUD Map
 
