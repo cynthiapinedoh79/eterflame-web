@@ -176,14 +176,6 @@ All pages are designed with **Mobile-First Responsive Design** across all screen
 
 </details>
 
-### Aythnyk — Tools (`/aythnyk/tools/`)
-<details>
-<summary>View Tools screenshots</summary>
-
-*Tools used by Aythnyk — ElevenLabs, DistroKid, Canva and more*
-
-#### Aythnyk Tools
-![Aythnyk Tools](static/images/readme/screenshots/aythnyk_tools.png)
 
 </details>
 
@@ -211,14 +203,6 @@ All pages are designed with **Mobile-First Responsive Design** across all screen
 
 </details>
 
-### AI Chat
-<details>
-<summary>View AI Chat screenshots</summary>
-
-#### AI Chat Assistant
-![AI Chat](static/images/readme/screenshots/ai_chat.png)
-
-</details>
 
 ### Aythnyk — Tools & Resources
 <details>
