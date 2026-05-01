@@ -1,89 +1,206 @@
 /* ================================================
-   AYTHNYK HOME — Navigation Cards (Opción C)
+   AYTHNYK HOME — Navigation Cards Luxury Editorial
 ================================================= */
 .aythnyk-nav-sections {
-  padding: 5rem 0 6rem;
+  padding: 6rem 2rem 7rem;
   background: #0a0804;
 }
+
+.aythnyk-nav-sections .container {
+  max-width: 1460px;
+}
+
+.aythnyk-nav-sections .row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  background: #0a0804;
+  border-top: 1px solid rgba(196,154,64,.16);
+  border-bottom: 1px solid rgba(196,154,64,.16);
+}
+
+.aythnyk-nav-sections .row > [class*="col-"] {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+
 .aythnyk-nav-card {
   display: flex;
   flex-direction: column;
-  padding: 2rem 1.5rem;
-  background: #0a0804;
-  border: 0.5px solid rgba(196,154,64,.15);
-  border-radius: 4px;
+  justify-content: space-between;
+  min-height: 360px;
+  padding: 3.5rem 2rem 2.4rem;
+  background:
+    radial-gradient(circle at top right, rgba(200,16,46,.08), transparent 35%),
+    #0a0804;
+  border-right: 1px solid rgba(196,154,64,.14);
+  border-radius: 0;
   text-decoration: none;
-  transition: border-color .25s ease, background .25s ease, transform .2s ease;
-  height: 100%;
   position: relative;
   overflow: hidden;
+  transition: background .35s ease, transform .3s ease, box-shadow .35s ease;
 }
+
+.aythnyk-nav-sections .row > [class*="col-"]:last-child .aythnyk-nav-card {
+  border-right: none;
+}
+
 .aythnyk-nav-card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
+  inset: 0;
   background: #c8102e;
+  opacity: 0;
+  transition: opacity .35s ease;
+  z-index: 0;
+}
+
+.aythnyk-nav-card::after {
+  content: '';
+  position: absolute;
+  left: 2rem;
+  right: 2rem;
+  top: 0;
+  height: 2px;
+  background: #f0c96e;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform .3s ease;
+  transition: transform .35s ease;
+  z-index: 1;
 }
+
 .aythnyk-nav-card:hover {
-  border-color: #c8102e;
-  background: #c8102e;
-  transform: translateY(-3px);
-  text-decoration: none;
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(200,16,46,.18);
 }
-.aythnyk-nav-card:hover::before { transform: scaleX(1); }
-.aythnyk-nav-card:hover .aythnyk-nav-num { color: rgba(255,255,255,.6); }
+
+.aythnyk-nav-card:hover::before {
+  opacity: 1;
+}
+
+.aythnyk-nav-card:hover::after {
+  transform: scaleX(1);
+}
+
+.aythnyk-nav-num,
+.aythnyk-nav-title,
+.aythnyk-nav-desc,
+.aythnyk-nav-cta {
+  position: relative;
+  z-index: 2;
+}
+
+.aythnyk-nav-num {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .58rem;
+  letter-spacing: 5px;
+  color: #c8102e;
+  margin-bottom: 1.4rem;
+  display: block;
+}
+
+.aythnyk-nav-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: 2.5px;
+  color: #f5e0b0;
+  margin: 0 0 .9rem;
+  transition: color .3s ease;
+}
+
+.aythnyk-nav-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .9rem;
+  color: #6b5f45;
+  line-height: 1.75;
+  max-width: 310px;
+  margin: 0 0 2rem;
+  flex: 1;
+  transition: color .3s ease;
+}
+
+.aythnyk-nav-cta {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c49a40;
+  margin-top: auto;
+  display: inline-block;
+  transition: letter-spacing .3s ease, color .3s ease;
+}
+
+.aythnyk-nav-card:hover .aythnyk-nav-num {
+  color: rgba(255,255,255,.62);
+}
+
+.aythnyk-nav-card:hover .aythnyk-nav-title {
+  color: #fff;
+}
+
+.aythnyk-nav-card:hover .aythnyk-nav-desc {
+  color: rgba(255,255,255,.78);
+}
+
+.aythnyk-nav-card:hover .aythnyk-nav-cta {
+  color: #f0c96e;
+  letter-spacing: 5px;
+}
 
 .aythnyk-nav-card--soon {
   opacity: 1;
   cursor: pointer;
 }
-.aythnyk-nav-icon { display: none; }
 
-.aythnyk-nav-num {
-  font-family: 'DM Sans', sans-serif;
-  font-size: .6rem;
-  letter-spacing: 4px;
-  color: #c8102e;
-  margin-bottom: .75rem;
-  display: block;
+.aythnyk-nav-icon,
+.aythnyk-coming-soon {
+  display: none;
 }
-.aythnyk-nav-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
-  font-weight: 400;
-  letter-spacing: 2px;
-  color: #f5e0b0;
-  margin: 0 0 .4rem;
-  transition: color .25s;
+
+/* Tablet */
+@media (max-width: 991.98px) {
+  .aythnyk-nav-sections .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .aythnyk-nav-card {
+    min-height: 310px;
+    border-bottom: 1px solid rgba(196,154,64,.14);
+  }
+
+  .aythnyk-nav-sections .row > [class*="col-"]:nth-child(2n) .aythnyk-nav-card {
+    border-right: none;
+  }
+
+  .aythnyk-nav-sections .row > [class*="col-"]:nth-last-child(-n+2) .aythnyk-nav-card {
+    border-bottom: none;
+  }
 }
-.aythnyk-nav-card:hover .aythnyk-nav-title { color: #fff; }
-.aythnyk-nav-desc {
-  font-family: 'DM Sans', sans-serif;
-  font-size: .78rem;
-  color: #6b5f45;
-  margin: 0 0 1rem;
-  line-height: 1.5;
-  flex: 1;
-  transition: color .25s;
+
+/* Mobile */
+@media (max-width: 575.98px) {
+  .aythnyk-nav-sections {
+    padding: 4.5rem 1.25rem 5rem;
+  }
+
+  .aythnyk-nav-sections .row {
+    grid-template-columns: 1fr;
+  }
+
+  .aythnyk-nav-card {
+    min-height: 260px;
+    padding: 2.5rem 1.5rem 2rem;
+    border-right: none;
+    border-bottom: 1px solid rgba(196,154,64,.14);
+  }
+
+  .aythnyk-nav-sections .row > [class*="col-"]:last-child .aythnyk-nav-card {
+    border-bottom: none;
+  }
 }
-.aythnyk-nav-card:hover .aythnyk-nav-desc { color: rgba(255,255,255,.75); }
-.aythnyk-nav-cta {
-  font-family: 'DM Sans', sans-serif;
-  font-size: .62rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #c49a40;
-  transition: letter-spacing .25s ease, color .25s;
-}
-.aythnyk-nav-card:hover .aythnyk-nav-cta {
-  color: #f0c96e;
-  letter-spacing: 5px;
-}
-.aythnyk-coming-soon { display: none; }
 
 /* ================================================
    AYTHNYK HOME — Section Accent
@@ -619,11 +736,17 @@
 
 /* ── TOOLS STRIP ── */
 .ah-tools-strip {
-  background: #c49a40;
+  background: linear-gradient(
+    180deg,
+    rgba(196,154,64,.9),
+    rgba(196,154,64,.75)
+  );
   border-top: none;
   border-bottom: none;
   padding: 3rem 2rem;
 }
+
+
 .ah-tools-strip__inner {
   max-width: 900px;
   margin: 0 auto;

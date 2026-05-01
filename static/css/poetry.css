@@ -2152,3 +2152,206 @@ gmpx-icon-button,
     letter-spacing: 3px !important;
   }
 }
+
+/* ================================================
+   POEM LIST — Series musicales premium
+=================================================== */
+.poem-series-section {
+  padding: 6rem 2rem;
+  background: #080604;
+  border-top: 1px solid rgba(196,154,64,.14);
+}
+
+.poem-series-section .container {
+  max-width: 1260px;
+}
+
+.poem-series-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .63rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #c8102e;
+  text-align: center;
+  margin-bottom: .85rem;
+}
+
+.poem-series-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 300;
+  color: #f5e0b0;
+  text-align: center;
+  margin: 0 0 .75rem;
+}
+
+.poem-series-title span {
+  color: #c49a40;
+}
+
+.poem-series-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .9rem;
+  color: #6b5f45;
+  text-align: center;
+  margin: 0 0 3rem;
+}
+
+.poem-series-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(196,154,64,.14);
+  border-bottom: 1px solid rgba(196,154,64,.14);
+}
+
+.poem-series-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  padding: 2.5rem 2rem;
+  background:
+    radial-gradient(circle at top right, rgba(200,16,46,.08), transparent 35%),
+    #0a0804;
+  border-right: 1px solid rgba(196,154,64,.14);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .35s ease;
+}
+
+.poem-series-card:last-child {
+  border-right: none;
+}
+
+.poem-series-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #c8102e;
+  opacity: 0;
+  transition: opacity .35s ease;
+  z-index: 0;
+}
+
+.poem-series-card::after {
+  content: '';
+  position: absolute;
+  left: 2rem;
+  right: 2rem;
+  bottom: 0;
+  height: 2px;
+  background: #f0c96e;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s ease;
+  z-index: 1;
+}
+
+.poem-series-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 60px rgba(200,16,46,.16);
+}
+
+.poem-series-card:hover::before {
+  opacity: 1;
+}
+
+.poem-series-card:hover::after {
+  transform: scaleX(1);
+}
+
+.poem-series-card__num,
+.poem-series-card__name,
+.poem-series-card__cta {
+  position: relative;
+  z-index: 2;
+}
+
+.poem-series-card__num {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .58rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #c8102e;
+  margin-bottom: 1rem;
+}
+
+.poem-series-card__name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.45rem, 2vw, 1.85rem);
+  font-weight: 300;
+  color: #f5e0b0;
+  margin: 0 0 1.5rem;
+}
+
+.poem-series-card__cta {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c49a40;
+  transition: letter-spacing .3s ease, color .3s ease;
+}
+
+.poem-series-card:hover .poem-series-card__num {
+  color: rgba(255,255,255,.65);
+}
+
+.poem-series-card:hover .poem-series-card__name {
+  color: #fff;
+}
+
+.poem-series-card:hover .poem-series-card__cta {
+  color: #f0c96e;
+  letter-spacing: 5px;
+}
+
+.poem-series-empty {
+  grid-column: 1 / -1;
+  color: #6b5f45;
+  text-align: center;
+  padding: 3rem;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+  .poem-series-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .poem-series-card {
+    border-bottom: 1px solid rgba(196,154,64,.14);
+  }
+
+  .poem-series-card:nth-child(2n) {
+    border-right: none;
+  }
+
+  .poem-series-card:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 575.98px) {
+  .poem-series-section {
+    padding: 4.5rem 1.25rem;
+  }
+
+  .poem-series-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .poem-series-card {
+    min-height: 190px;
+    padding: 2.2rem 1.5rem;
+    border-right: none;
+    border-bottom: 1px solid rgba(196,154,64,.14);
+  }
+
+  .poem-series-card:last-child {
+    border-bottom: none;
+  }
+}
