@@ -7,7 +7,11 @@
 {% endblock %}
 
 {% block content %}
-<a href="{% url 'works:works_home' %}" class="page-back">← Inicio</a>
+<div class="eter-breadcrumb">
+  <a href="{% url 'works:works_home' %}" class="eter-back-link">← Eterflame Works</a>
+  <span style="color:#c8102e;margin:0 8px;">·</span>
+  <a href="{% url 'about' %}" class="eter-back-link">About</a>
+</div>
 <div class="container about-page">
 
     <section class="about-hero">
