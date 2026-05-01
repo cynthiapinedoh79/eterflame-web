@@ -13,7 +13,7 @@ Eterflame is a dual-brand creative platform combining **Eterflame Works** (Creat
 ![GitHub last commit](https://img.shields.io/github/last-commit/cynthiapinedoh79/eterflame-web)
 [![View Demo](https://img.shields.io/badge/View-Demo-brightgreen)](https://eterflame-web-ab680e12c17d.herokuapp.com/)
 
-![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![Django](https://img.shields.io/badge/Django-5.2-darkgreen)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-DB-blue)
 ![Heroku](https://img.shields.io/badge/Heroku-Deploy-purple)
@@ -67,7 +67,7 @@ Eterflame is built around two complementary brands:
 - Favorites — authenticated users saved poems
 
 **Core Technologies:**
-1. **Django 5.2 (Python 3.11)** — Full-stack web framework
+1. **Django 5.2 (Python 3.12)** — Full-stack web framework
 2. **PostgreSQL** — Production database (Heroku)
 3. **SendGrid HTTP API** — Email delivery (not SMTP — Heroku blocks SMTP)
 4. **Cloudinary** — Media storage
@@ -529,7 +529,7 @@ Eterflame uses two distinct visual identities within one platform:
 
 | Language | Role |
 |---|---|
-| **Python 3.11** | Backend logic, views, models |
+| **Python 3.12** | Backend logic, views, models |
 | **HTML5** | Templates structure |
 | **CSS3** | Custom design system |
 | **JavaScript** | Quote banner, PDF modal, poem toggle |
