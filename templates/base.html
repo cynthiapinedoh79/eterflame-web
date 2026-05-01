@@ -11,7 +11,7 @@
 <html lang="en">
 
 <head>
-    <title>ETER FLAME — Aythnyk</title>
+    <title>{% block head_title %}ETER FLAME — Aythnyk{% endblock head_title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover">
 
     <!-- Google tag (gtag.js) -->
@@ -210,6 +210,7 @@
     <script src="{% static 'js/script.js' %}"></script>
 
     {% block extras %}
+    {% block extra_body %}{% endblock extra_body %}
     {% endblock extras %}
 
     <script src="{% static 'js/chat.js' %}"></script>
