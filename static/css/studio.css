@@ -29,7 +29,7 @@
   text-align: center; overflow: hidden;
   padding: 6rem 2rem 4rem;
   background: radial-gradient(ellipse at center,
-    #141414 0%, #0a0a0a 60%, #060606 100%);
+    #343434 0%, #181818 60%, #060606 100%);
 }
 .es-hero__bg-text {
   position: absolute;
