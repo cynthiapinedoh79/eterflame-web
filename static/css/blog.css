@@ -102,10 +102,12 @@
     transition: all 0.2s ease;
 }
 
-.page-link:hover {
-    background: rgba(200, 16, 46, 0.1);
-    border-color: rgba(200, 16, 46, 0.4);
-    color: #c8102e;
+.page-link:hover,
+.page-link:focus {
+    background: rgba(200, 16, 46, 0.1) !important;
+    border-color: rgba(200, 16, 46, 0.4) !important;
+    color: #c8102e !important;
+    box-shadow: none;
 }
 
 .pagination {
