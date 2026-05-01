@@ -4,7 +4,6 @@
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'css/media.css' %}">
 {% endblock %}
-
 {% block content %}
 <div class="em-page">
 
@@ -16,12 +15,11 @@
       <a href="{% url 'works:works_home' %}" class="em-back">← Eterflame Works</a>
       <p class="em-eyebrow">Eterflame Works · División</p>
       <h1 class="em-title">EF Media</h1>
-      <p class="em-subtitle">Video · Audio · Content</p>
+      <p class="em-subtitle">Photography · Video · Podcast · Content</p>
       <p class="em-desc">
-        Photography, video production, podcast, and digital content
-        strategy built to move audiences.
+        Visual storytelling and audio production built to move audiences.<br>
+        From brand photography to podcast strategy — we make your story visible.
       </p>
-      <span class="em-badge">Coming Soon</span>
     </div>
   </section>
 
@@ -31,13 +29,13 @@
     <div class="em-grid">
       <div class="em-card">
         <span class="em-card__num">01</span>
-        <h3 class="em-card__title">Video Production</h3>
-        <p class="em-card__desc">Brand films, reels, documentary-style content, and social video that stops the scroll.</p>
+        <h3 class="em-card__title">Photography</h3>
+        <p class="em-card__desc">Editorial, product, and brand photography that communicates identity at first glance.</p>
       </div>
       <div class="em-card">
         <span class="em-card__num">02</span>
-        <h3 class="em-card__title">Photography</h3>
-        <p class="em-card__desc">Editorial, product, and brand photography that communicates identity at first glance.</p>
+        <h3 class="em-card__title">Video Production</h3>
+        <p class="em-card__desc">Brand films, reels, documentary-style content, and social video that stops the scroll.</p>
       </div>
       <div class="em-card">
         <span class="em-card__num">03</span>
@@ -52,11 +50,47 @@
     </div>
   </section>
 
+  <!-- VISUAL SAMPLE -->
+  <section class="em-sample">
+    <p class="em-section-label">Our Approach</p>
+    <div class="em-sample__card">
+      <div class="em-sample__meta">
+        <p class="em-sample__tag">Visual · Audio · Strategy</p>
+        <h2 class="em-sample__title">Every frame tells a story.</h2>
+        <div class="em-sample__divider"></div>
+        <p class="em-sample__note">
+          We don't just create content — we build visual languages.
+          Whether it's a single photograph or a full podcast series,
+          every piece of EF Media work is crafted to communicate
+          who you are before you say a word.
+        </p>
+        <p class="em-sample__note">
+          Currently building our portfolio — early clients receive
+          priority pricing and dedicated creative direction.
+        </p>
+        <a href="{% url 'works:contact' %}" class="em-sample__link">Let's talk about your project →</a>
+      </div>
+      <div class="em-visual">
+        <div class="em-visual__grid">
+          <div class="em-visual__block em-visual__block--tall">
+            <span class="em-visual__label">Photography</span>
+          </div>
+          <div class="em-visual__block">
+            <span class="em-visual__label">Video</span>
+          </div>
+          <div class="em-visual__block">
+            <span class="em-visual__label">Podcast</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="em-cta">
-    <p class="em-cta__eyebrow">Interested?</p>
-    <h2 class="em-cta__title">Join the waitlist.<br>Be first when we launch.</h2>
-    <a href="{% url 'works:contact' %}" class="em-cta__btn">Get in touch →</a>
+    <p class="em-cta__eyebrow">Let's Work Together</p>
+    <h2 class="em-cta__title">Your story deserves<br>to be seen and heard.</h2>
+    <a href="{% url 'works:contact' %}" class="em-cta__btn">Request a Quote →</a>
   </section>
 
 </div>

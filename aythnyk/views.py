@@ -29,3 +29,15 @@ def aythnyk_home(request):
         "hide_page_title": True,
     }
     return render(request, "aythnyk/home.html", ctx)
+
+from works.models import AffiliateLink
+
+def aythnyk_tools(request):
+    links = AffiliateLink.objects.filter(active=True).order_by('category', 'name')
+    categories = {}
+    for link in links.filter(featured=False):
+        categories.setdefault(link.category, []).append(link)
+    return render(request, 'aythnyk/tools.html', {
+        'categories': categories,
+        'featured': links.filter(featured=True),
+    })

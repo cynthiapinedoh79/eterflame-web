@@ -29,7 +29,7 @@
   text-align: center; overflow: hidden;
   padding: 6rem 2rem 4rem;
   background: radial-gradient(ellipse at center,
-    #373a2f 0%, #0d1106 60%, #000000 100%);
+    #1d280b 0%, #070803 60%, #000000 100%);
 }
 .es-hero__bg-text {
   position: absolute;
@@ -73,15 +73,7 @@
   color: var(--es-muted); line-height: 1.8;
   max-width: 480px; margin: 0 auto 2rem;
 }
-.es-badge {
-  display: inline-block;
-  padding: .45rem 1.4rem;
-  border: 1px solid var(--es-silver);
-  color: var(--es-silver);
-  font-family: var(--es-sans); font-size: .65rem;
-  letter-spacing: 4px; text-transform: uppercase;
-  border-radius: 2px;
-}
+
 
 /* ── STUDIO WATERMARK — PREMIUM SYSTEM ── */
 .es__logo-watermark {
@@ -246,18 +238,17 @@
 .es-cta__btn {
   display: inline-block;
   padding: .9rem 2.5rem;
-  background: transparent;
-  color: #d0d0d0;
+  background: #1a0c04; color: var(--es-lime);
   font-family: var(--es-sans); font-size: .72rem;
   font-weight: 600; letter-spacing: 3px;
   text-transform: uppercase; text-decoration: none;
-  border-radius: 2px; border: 1px solid rgba(180,180,180,.5);
-  transition: all var(--es-ease);
+  border-radius: 2px;
+  transition: background var(--es-ease), color var(--es-ease);
 }
+
 .es-cta__btn:hover {
-  background: rgba(127,186,0,.08);
-  border-color: #5e684d;
-  color: #a0e020;
+  background: #1a0c04;
+  color: var(--es-lime-lt);
 }
 
 /* RESPONSIVE */
