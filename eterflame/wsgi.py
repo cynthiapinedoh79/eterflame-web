@@ -1,5 +1,5 @@
 """
-WSGI config for eterpoetic project.
+WSGI config for eterflame project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -12,7 +12,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 from whitenoise import WhiteNoise  # <-- 1. Import Whitenoise
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "eterpoetic.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "eterflame.settings")
 
 # 2. Get the default application first
 application = get_wsgi_application()

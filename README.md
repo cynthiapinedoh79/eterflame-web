@@ -646,7 +646,7 @@ GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 FACEBOOK_APP_ID=your_facebook_app_id
 FACEBOOK_APP_SECRET=your_facebook_app_secret
-DJANGO_SETTINGS_MODULE=eterpoetic.settings
+DJANGO_SETTINGS_MODULE=eterflame.settings
 ```
 
 ### Heroku Config Vars
@@ -677,7 +677,7 @@ DJANGO_SETTINGS_MODULE=eterpoetic.settings
 ```text
 eterflame-web/
 │
-├── eterpoetic/              # Django settings package
+├── eterflame/               # Django settings package
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
@@ -729,7 +729,7 @@ eterflame-web/
 │   └── shop/
 │
 ├── requirements.txt
-├── Procfile                 # web: gunicorn eterpoetic.wsgi
+├── Procfile                 # web: gunicorn eterflame.wsgi
 ├── runtime.txt
 └── .env                     # Local only — in .gitignore
 ```
@@ -796,7 +796,7 @@ eterflame-web/
 
 | File | Result |
 |---|---|
-| eterpoetic/settings.py | ✅ Passed |
+| eterflame/settings.py | ✅ Passed |
 | works/views.py | ✅ Passed |
 | poetry/views.py | ✅ Passed |
 | songs/views.py | ✅ Passed |
@@ -875,7 +875,7 @@ eterflame-web/
 ### ⚙️ Procfile
 
 ```
-web: gunicorn eterpoetic.wsgi
+web: gunicorn eterflame.wsgi
 ```
 
 ### Heroku Deployment

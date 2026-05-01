@@ -119,7 +119,7 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
-ROOT_URLCONF = "eterpoetic.urls"
+ROOT_URLCONF = "eterflame.urls"
 
 TEMPLATES = [
     {
@@ -143,7 +143,7 @@ TEMPLATES = [
 
 TEMPLATES[0]["DIRS"] = [BASE_DIR / "templates"]
 
-WSGI_APPLICATION = "eterpoetic.wsgi.application"
+WSGI_APPLICATION = "eterflame.wsgi.application"
 
 # --- Database: robust local/Heroku + safe tests ---
 DEFAULT_SQLITE_PATH = BASE_DIR / "db.sqlite3"

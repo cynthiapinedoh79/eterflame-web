@@ -1,1 +1,1 @@
-web: gunicorn eterpoetic.wsgi
+web: gunicorn eterflame.wsgi

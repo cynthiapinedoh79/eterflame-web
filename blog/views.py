@@ -1,4 +1,4 @@
-# /workspaces/p4_eterpoetic/blog/views.py
+# /workspaces/eterflame-web/blog/views.py
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib import messages
@@ -65,7 +65,7 @@ def post_detail(request, slug):
         request,
         "blog/post_detail.html",
         {"post": post,
-         "coder": "Eterpoetic",
+         "coder": "Eterflame",
          "comments": comments,
          "comment_count": comment_count,
          "comment_form": comment_form, },
