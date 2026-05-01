@@ -3,6 +3,28 @@
 {% block extra_css %}
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'css/works.css' %}">
+
+<script>
+const services = {
+  design: ['Web Development','UI/UX Design','Branding','E-commerce','Data Visualization','API Integration'],
+  media:  ['Photography','Video Production','Podcast Production','Content Strategy'],
+  studio: ['Copywriting','Ghostwriting','Brand Voice','Creative Writing'],
+  other:  ['Other']
+};
+function updateServices(division) {
+  var wrapper = document.getElementById('service-wrapper');
+  var select  = document.getElementById('service');
+  select.innerHTML = '<option value="">Select a service...</option>';
+  if (!division || division === 'other') { wrapper.style.display = 'none'; return; }
+  services[division].forEach(function(s) {
+    var opt = document.createElement('option');
+    opt.value = division.toUpperCase() + ' — ' + s;
+    opt.textContent = s;
+    select.appendChild(opt);
+  });
+  wrapper.style.display = 'block';
+}
+</script>
 {% endblock %}
 {% block content %}
 <div class="eter-breadcrumb">
@@ -44,16 +66,20 @@
 
           <div class="wc-row">
             <div class="wc-field">
-              <label class="wc-label" for="service">Service</label>
-              <select class="wc-input wc-select" id="service" name="service">
-                <option value="">Select a service...</option>
-                <option>EF Design — Web Development</option>
-                <option>EF Design — UI/UX</option>
-                <option>EF Design — Branding</option>
-                <option>EF Media — Photography/Video</option>
-                <option>EF Studio — Copywriting</option>
-                <option>Other</option>
+              <label class="wc-label" for="division">Division</label>
+              <select class="wc-input wc-select" id="division" name="division" onchange="updateServices(this.value)">
+                <option value="">Select a division...</option>
+                <option value="design">EF Design</option>
+                <option value="media">EF Media</option>
+                <option value="studio">EF Studio</option>
+                <option value="other">Other</option>
               </select>
+              <div id="service-wrapper" style="display:none;margin-top:1rem;">
+                <label class="wc-label" for="service">Service</label>
+                <select class="wc-input wc-select" id="service" name="service">
+                  <option value="">Select a service...</option>
+                </select>
+              </div>
             </div>
             <div class="wc-field">
               <label class="wc-label" for="budget">Budget Range</label>
