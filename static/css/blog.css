@@ -87,9 +87,25 @@
     color: var(--color-text-dark);
 }
 
-.post-link:hover,
-.page-link {
+.post-link:hover {
     color: var(--color-primary-brand);
+}
+
+.page-link {
+    background: var(--bg-card, #1a1208);
+    border-color: rgba(200, 16, 46, 0.15);
+    color: #c49a40;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.page-link:hover {
+    background: rgba(200, 16, 46, 0.1);
+    border-color: rgba(200, 16, 46, 0.4);
+    color: #c8102e;
 }
 
 
