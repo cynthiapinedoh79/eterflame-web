@@ -2,89 +2,101 @@
 {% load static %}
 
 {% block extra_css %}
-<style>
-  .ef-coming-soon {
-    background: var(--bg-body, #0a0804);
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  .ef-eyebrow {
-    font-family: var(--font-mono, 'Courier Prime', monospace);
-    font-size: .72rem;
-    letter-spacing: 4px;
-    color: #b87333;
-    text-transform: uppercase;
-    margin-bottom: .8rem;
-  }
-  .ef-page-title {
-    font-family: var(--font-display, 'Cormorant Garamond', serif);
-    font-size: clamp(2.4rem, 6vw, 4.5rem);
-    font-weight: 300;
-    color: #d4924d;
-    letter-spacing: 6px;
-    margin-bottom: .5rem;
-  }
-  .ef-subtitle {
-    font-family: var(--font-mono, 'Courier Prime', monospace);
-    font-size: .8rem;
-    letter-spacing: 3px;
-    color: #b87333;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-  }
-  .ef-body-text {
-    font-family: var(--font-body, 'DM Sans', sans-serif);
-    font-size: 1rem;
-    color: #d4b896;
-    max-width: 500px;
-    margin: 0 auto 2rem;
-    line-height: 1.7;
-  }
-  .ef-badge-soon {
-    display: inline-block;
-    font-family: var(--font-mono, 'Courier Prime', monospace);
-    font-size: .72rem;
-    letter-spacing: 3px;
-    color: #c49a40;
-    border: 0.5px solid rgba(184,115,51,0.2);
-    padding: .4rem 1.2rem;
-    text-transform: uppercase;
-    border-radius: 2px;
-    margin-bottom: 2rem;
-  }
-  .ef-back-link {
-    font-family: var(--font-mono, 'Courier Prime', monospace);
-    font-size: .75rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #c49a40;
-    text-decoration: none;
-    transition: color .2s;
-  }
-  .ef-back-link:hover { color: #84CC16; }
-</style>
+<link rel="stylesheet" href="{% static 'css/studio.css' %}">
 {% endblock %}
 
 {% block content %}
+
 <div class="eter-breadcrumb">
   <a href="{% url 'works:works_home' %}" class="eter-back-link">← Eterflame Works</a>
 </div>
-<div class="ef-coming-soon section-studio">
-  <div class="container">
-    <p class="ef-eyebrow">Eterflame Works</p>
-    <h1 class="ef-page-title">EF STUDIO</h1>
-    <p class="ef-subtitle">Creative Writing &amp; Storytelling</p>
-    <div style="width:40px;height:1px;background:rgba(184,115,51,0.4);margin:0 auto 2rem;"></div>
-    <p class="ef-body-text">
-      Copywriting, editorial, ghostwriting, and narrative brand voice for
-      projects that need a soul. Currently in development — launching soon.
+
+<section class="efs-hero section-studio">
+  <div class="container text-center">
+    <p class="efs-eyebrow">Eterflame Works</p>
+    <h1 class="efs-title">EF STUDIO</h1>
+    <p class="efs-subtitle">Copywriting · Ghostwriting · Brand Voice · Creative Writing</p>
+    <div class="efs-divider"></div>
+    <p class="efs-lead">
+      Words that move. Stories that stay.<br>
+      From brand narratives to deeply personal creative work —
+      EF Studio crafts language with intention.
     </p>
-    <div class="ef-badge-soon">Próximamente</div>
-    <br>
-    <a href="{% url 'works:works_home' %}" class="ef-back-link">← Back to Eterflame Works</a>
+    <a href="{% url 'works:contact' %}" class="efs-cta-btn">Request a Quote</a>
   </div>
-</div>
+</section>
+
+<section class="efs-services">
+  <div class="container">
+    <p class="efs-section-label">What We Do</p>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="efs-service-card">
+          <div class="efs-service-icon">✍</div>
+          <h3 class="efs-service-title">Copywriting</h3>
+          <p class="efs-service-text">Ads, landing pages, email campaigns, and product descriptions that convert attention into action.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="efs-service-card">
+          <div class="efs-service-icon">👁</div>
+          <h3 class="efs-service-title">Ghostwriting</h3>
+          <p class="efs-service-text">Your ideas, your voice, your name. Books, articles, speeches, and long-form content written for you — invisibly.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="efs-service-card">
+          <div class="efs-service-icon">◈</div>
+          <h3 class="efs-service-title">Brand Voice</h3>
+          <p class="efs-service-text">Editorial identity and tone guidelines so every word your brand speaks feels consistent, intentional, and unmistakably yours.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="efs-service-card">
+          <div class="efs-service-icon">🔥</div>
+          <h3 class="efs-service-title">Creative Writing</h3>
+          <p class="efs-service-text">Poetry, narrative, and literary content for projects that need a soul — not just a message.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="efs-sample">
+  <div class="container">
+    <p class="efs-section-label">Writing Sample</p>
+    <div class="efs-sample-card">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+          <p class="efs-sample-collection">Colección · Duelo</p>
+          <h2 class="efs-sample-title">Desolate Love</h2>
+          <p class="efs-sample-author">Cynthia Pinedo · Aythnyk</p>
+          <div class="efs-sample-divider"></div>
+          <p class="efs-sample-note">A poem from the <em>Duelo</em> collection — written in the space between grief and memory, where love lingers long after it's gone. This is the voice EF Studio brings to every project.</p>
+          <a href="{% url 'aythnyk:aythnyk_home' %}" class="efs-sample-link">Explore Aythnyk poetry →</a>
+        </div>
+        <div class="col-lg-7">
+          <div class="efs-poem">
+            <p>Nunca pensé<br>que te perdería corazón<br>que ese abrazo que te di<br>sería el adios<br>y con ese beso<br>al marcharte<br>te llevaste mi vida<br>mi ilusión<br>todo mi corazón.</p>
+            <p>¿Que voy a hacer mi amor<br>si para mi ya no habrá sol?<br>¿Como decirle a mi mente<br>que ya no existirás?<br>¿Como podré parar el dolor?</p>
+            <p>Que lejos estas de mi<br>no puedo alejar el dolor,<br>no puedo dejar de llorar<br>llorar por que perdí tu amor.</p>
+            <p class="efs-poem-credit">© 2025 Aythnyk · Eterflame.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="efs-cta-section">
+  <div class="container text-center">
+    <p class="efs-eyebrow">Let's Work Together</p>
+    <h2 class="efs-cta-title">Every project starts with a conversation.</h2>
+    <p class="efs-cta-text">Tell us what you need — we'll craft the words that make it real.</p>
+    <a href="{% url 'works:contact' %}" class="efs-cta-btn">Request a Quote</a>
+    <br>
+    <a href="{% url 'works:works_home' %}" class="efs-back-link mt-4 d-inline-block">← Back to Eterflame Works</a>
+  </div>
+</section>
+
 {% endblock %}

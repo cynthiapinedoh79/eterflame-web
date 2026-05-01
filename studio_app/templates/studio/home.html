@@ -4,7 +4,6 @@
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'css/studio.css' %}">
 {% endblock %}
-
 {% block content %}
 <div class="es-page">
 
@@ -16,12 +15,13 @@
       <a href="{% url 'works:works_home' %}" class="es-back">← Eterflame Works</a>
       <p class="es-eyebrow">Eterflame Works · División</p>
       <h1 class="es-title">EF Studio</h1>
-      <p class="es-subtitle">Creative Writing · Storytelling</p>
+      <p class="es-subtitle">Copywriting · Ghostwriting · Brand Voice · Creative Writing</p>
       <p class="es-desc">
-        Copywriting, editorial, ghostwriting, and narrative brand voice
-        for projects that need a soul.
+        Words that move. Stories that stay.<br>
+        From brand narratives to deeply personal creative work —
+        EF Studio crafts language with intention.
       </p>
-      <span class="es-badge">Coming Soon</span>
+      <a href="{% url 'works:contact' %}" class="es-cta__btn" style="margin-top:1.5rem;">Request a Quote →</a>
     </div>
   </section>
 
@@ -32,31 +32,52 @@
       <div class="es-card">
         <span class="es-card__num">01</span>
         <h3 class="es-card__title">Copywriting</h3>
-        <p class="es-card__desc">Website copy, landing pages, email sequences, and ad creative that converts and resonates.</p>
+        <p class="es-card__desc">Ads, landing pages, email campaigns, and product descriptions that convert attention into action.</p>
       </div>
       <div class="es-card">
         <span class="es-card__num">02</span>
-        <h3 class="es-card__title">Editorial</h3>
-        <p class="es-card__desc">Long-form articles, thought leadership, and editorial content that positions you as an authority.</p>
+        <h3 class="es-card__title">Ghostwriting</h3>
+        <p class="es-card__desc">Your ideas, your voice, your name. Books, articles, speeches, and long-form content written for you — invisibly.</p>
       </div>
       <div class="es-card">
         <span class="es-card__num">03</span>
-        <h3 class="es-card__title">Ghostwriting</h3>
-        <p class="es-card__desc">Books, memoirs, essays, and scripts — your voice, your story, crafted with precision.</p>
+        <h3 class="es-card__title">Brand Voice</h3>
+        <p class="es-card__desc">Editorial identity and tone guidelines so every word your brand speaks feels consistent, intentional, and unmistakably yours.</p>
       </div>
       <div class="es-card">
         <span class="es-card__num">04</span>
-        <h3 class="es-card__title">Brand Narrative</h3>
-        <p class="es-card__desc">The story behind your brand — tone of voice, messaging framework, and brand bible.</p>
+        <h3 class="es-card__title">Creative Writing</h3>
+        <p class="es-card__desc">Poetry, narrative, and literary content for projects that need a soul — not just a message.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITING SAMPLE -->
+  <section class="es-sample">
+    <p class="es-section-label">Writing Sample</p>
+    <div class="es-sample__card">
+      <div class="es-sample__meta">
+        <p class="es-sample__collection">Colección · Duelo</p>
+        <h2 class="es-sample__title">Desolate Love</h2>
+        <p class="es-sample__author">Cynthia Pinedo · Aythnyk</p>
+        <div class="es-sample__divider"></div>
+        <p class="es-sample__note">A poem from the <em>Duelo</em> collection — written in the space between grief and memory, where love lingers long after it's gone. This is the voice EF Studio brings to every project.</p>
+        <a href="{% url 'aythnyk:aythnyk_home' %}" class="es-sample__link">Explore Aythnyk poetry →</a>
+      </div>
+      <div class="es-poem">
+        <p>Nunca pensé<br>que te perdería corazón<br>que ese abrazo que te di<br>sería el adios<br>y con ese beso<br>al marcharte<br>te llevaste mi vida<br>mi ilusión<br>todo mi corazón.</p>
+        <p>¿Que voy a hacer mi amor<br>si para mi ya no habrá sol?<br>¿Como decirle a mi mente<br>que ya no existirás?<br>¿Como podré parar el dolor?</p>
+        <p>Que lejos estas de mi<br>no puedo alejar el dolor,<br>no puedo dejar de llorar<br>llorar por que perdí tu amor.</p>
+        <p class="es-poem__credit">© 2025 Aythnyk · Eterflame.com</p>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="es-cta">
-    <p class="es-cta__eyebrow">Interested?</p>
-    <h2 class="es-cta__title">Your story deserves<br>to be told well.</h2>
-    <a href="{% url 'works:contact' %}" class="es-cta__btn">Get in touch →</a>
+    <p class="es-cta__eyebrow">Let's Work Together</p>
+    <h2 class="es-cta__title">Every project starts<br>with a conversation.</h2>
+    <a href="{% url 'works:contact' %}" class="es-cta__btn">Request a Quote →</a>
   </section>
 
 </div>
