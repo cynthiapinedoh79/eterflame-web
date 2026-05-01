@@ -368,8 +368,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 760px;
-  height: 760px;
+  width: clamp(280px, 80vw, 760px);
+  height: clamp(280px, 80vw, 760px);
 
   pointer-events: none;
   z-index: 1;
@@ -2273,4 +2273,5 @@
   z-index: 10;
   pointer-events: auto;
 }
+
 

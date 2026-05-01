@@ -729,6 +729,7 @@
   color: #c49a40;
   text-decoration: none;
   transition: all .25s ease;
+  margin-top: auto;
 }
 
 .about-profile-btn:hover {
@@ -766,4 +767,27 @@
 
 .about-profile-card:hover .card-title {
   transform: translateY(-4px);
+}
+/* ── Profile cards equal height fix at 992px ── */
+.about-profile-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.about-profile-card .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.about-profile-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+/* ── Profile card button always at bottom ── */
+.about-profile-card .card-body .btn,
+.about-profile-card .card-body a.btn {
+  margin-top: auto;
 }
