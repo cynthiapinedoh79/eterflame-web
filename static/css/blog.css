@@ -108,6 +108,24 @@
     color: #c8102e;
 }
 
+.pagination {
+    --bs-pagination-bg: transparent;
+    --bs-pagination-border-color: rgba(200, 16, 46, 0.15);
+    --bs-pagination-color: #c49a40;
+    --bs-pagination-hover-bg: rgba(200, 16, 46, 0.1);
+    --bs-pagination-hover-color: #c8102e;
+    --bs-pagination-hover-border-color: rgba(200, 16, 46, 0.4);
+    --bs-pagination-active-bg: #c8102e;
+    --bs-pagination-active-border-color: #c8102e;
+    --bs-pagination-disabled-bg: transparent;
+    --bs-pagination-disabled-color: rgba(196, 154, 64, 0.4);
+}
+
+.pagination li,
+.pagination .page-item {
+    background: transparent;
+}
+
 
 /* ================================================
    5. Comment Helper States
