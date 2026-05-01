@@ -3,7 +3,7 @@ from django.conf import settings
 from weasyprint import HTML
 
 
-def generate_poem_pdf(poem):
+def generate_poem_pdf(poem, lang='es'):
     # Prefer STATIC_ROOT after collectstatic; fall back to source static dir
     static_base = settings.STATIC_ROOT
     logo_path = os.path.join(
@@ -27,14 +27,34 @@ def generate_poem_pdf(poem):
     logo_url = f"file://{logo_path}"
     collection_name = str(poem.collection) if poem.collection else "Aythnyk"
 
+    # Language selection
+    if lang == 'en':
+        title_text = poem.title_en or poem.title_es
+        body_text = poem.body_en or poem.body_es
+        collection_label = "Collection"
+    else:
+        title_text = poem.title_es or poem.title_en
+        body_text = poem.body_es or poem.body_en
+        collection_label = "Colección" 
+
+    # Language selection
+    if lang == 'en':
+        title_text = poem.title_en or poem.title_es
+        body_text = poem.body_en or poem.body_es
+        collection_label = "Collection"
+    else:
+        title_text = poem.title_es or poem.title_en
+        body_text = poem.body_es or poem.body_en
+        collection_label = "Colección" 
+
     # Build stanza blocks instead of only <br>, so WeasyPrint can handle page flow better
-    stanzas = [s.strip() for s in poem.body.split("\n\n") if s.strip()]
+    stanzas = [s.strip() for s in body_text.split("\n\n") if s.strip()]
     body_html = "".join(
         f'<p class="poem-stanza">{stanza.replace(chr(10), "<br>")}</p>'
         for stanza in stanzas
     )
 
-    title_parts = poem.title.split()
+    title_parts = title_text.split()
     if len(title_parts) >= 2:
         title_html = (
             f'<span style="color:#c8102e">{title_parts[0]}</span> '
@@ -242,7 +262,7 @@ def generate_poem_pdf(poem):
       <div class="inner">
         <div class="left-bar"></div>
 
-        <div class="collection">Colección · {collection_name}</div>
+        <div class="collection">{collection_label} · {collection_name}</div>
         <h1 class="title">{title_html}</h1>
         <p class="author">Cynthia Pinedo</p>
 

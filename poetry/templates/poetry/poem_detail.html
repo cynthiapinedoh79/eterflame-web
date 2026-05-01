@@ -225,12 +225,20 @@
 
   {% if user.is_staff %}
   <hr class="song-panel__divider">
-  <a href="{% url 'poetry:download_pdf' poem.slug %}"
+  <a href="{% url 'poetry:download_pdf' poem.slug %}?lang=es"
+     class="song-panel__pdf-btn"
+     target="_blank"
+     style="display:block;text-align:center;text-decoration:none;margin-bottom:.5rem;">
+    PDF — ES →
+  </a>
+  {% if poem.body_en %}
+  <a href="{% url 'poetry:download_pdf' poem.slug %}?lang=en"
      class="song-panel__pdf-btn"
      target="_blank"
      style="display:block;text-align:center;text-decoration:none;">
-    Descargar PDF →
+    PDF — EN →
   </a>
+  {% endif %}
   {% endif %}
 
   {% if song.pdf_price and song.pdf_buy_url %}

@@ -336,10 +336,11 @@ def pdf_tool(request):
 
 def download_poem_pdf(request, slug):
     poem = get_object_or_404(Poem, slug=slug)
+    lang = request.GET.get('lang', 'es')
     from .pdf_generator import generate_poem_pdf
-    pdf_bytes = generate_poem_pdf(poem)
+    pdf_bytes = generate_poem_pdf(poem, lang=lang)
     response = HttpResponse(pdf_bytes, content_type='application/pdf')
-    response['Content-Disposition'] = f'attachment; filename="{poem.slug}.pdf"'
+    response['Content-Disposition'] = f'attachment; filename="{poem.slug}-{lang}.pdf"'
     return response
 
 
