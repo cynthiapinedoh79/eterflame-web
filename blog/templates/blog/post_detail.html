@@ -33,7 +33,8 @@
 </section>
 
 <!-- ── ARTICLE BODY ── -->
-<article class="bpd-body blog-post-body">
+<article class="bpd-body blog-post-body" style="position:relative;">
+  <img src="{% static 'images/aythnyk/a_logo.png' %}" class="ah-logo-watermark-img ah-body-watermark" aria-hidden="true">
   {{ post.content | safe }}
   <a href="javascript:history.back()" class="blog-back-link">← Back to Blog</a>
 </article>

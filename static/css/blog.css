@@ -744,3 +744,14 @@
   border: 1px solid rgba(196,154,64,0.2) !important;
   border-radius: 4px !important;
 }
+
+/* ── Blog body watermark ── */
+.ah-body-watermark {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 900px !important;
+  height: 900px !important;
+  opacity: 0.09 !important;
+  filter: blur(2px) !important;
+}
