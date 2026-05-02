@@ -2236,3 +2236,201 @@ gmpx-icon-button,
   font-size: 0.9rem;
   color: #c8102e !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   AYTHNYK — Poetry Cards v4 FINAL+  (branch: feature/css-poetry)
+
+   INSTRUCCIONES:
+   1. Borra TODOS los bloques anteriores que pegaste al final
+      (cualquier bloque desde el comentario "AYTHNYK —" hacia abajo)
+   2. Pega SOLO este bloque al final de poetry.css
+   ═══════════════════════════════════════════════════════════════════ */
+
+
+/* ─── POEM CARDS — estado base ───────────────────────────────────── */
+
+.poetry-list .card-title a.post-link {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  color: #f5e6c8 !important;
+}
+
+.poetry-list .card .text-muted.small {
+  font-size: 0.62rem !important;
+  letter-spacing: 2px !important;
+  color: #c8102e !important;
+}
+
+.poetry-list .card .text-muted:not(.small) {
+  font-size: 0.65rem !important;
+  letter-spacing: 1.5px !important;
+  color: #c49a40 !important;
+}
+
+.poetry-list .card-text {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: normal !important;           /* ← sin cursiva */
+  font-size: 0.80rem !important;
+  color: rgba(196, 154, 64, 0.7) !important;
+  line-height: 1.5 !important;
+}
+
+.poetry-list .card .card-footer {
+  background: rgba(10, 8, 4, 0.5) !important;
+  border-top: 1px solid rgba(196, 154, 64, 0.1) !important;
+  transition: background 0.3s ease, border-color 0.3s ease !important;
+}
+
+.poetry-list .card .card-footer span:not(.favorites-bar-heart) {
+  color: #5a4020 !important;
+}
+
+
+/* ─── POEM CARDS — hover dark + footer rojo (sin border glow) ────── */
+
+.poetry-list .card:not(.collection-album-card):hover {
+  background: var(--bg-card) !important;
+  border-color: rgba(196, 154, 64, 0.25) !important;  /* sutil, sin glow */
+  transform: translateY(-5px) scale(1.018) !important;
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.55) !important;
+  z-index: 3;
+}
+
+.poetry-list .card:not(.collection-album-card):hover .card-title a.post-link {
+  color: #fff8e7 !important;
+}
+
+.poetry-list .card:not(.collection-album-card):hover .card-text {
+  color: rgba(245, 230, 200, 0.78) !important;
+  font-style: normal !important;
+}
+
+.poetry-list .card:not(.collection-album-card):hover .text-muted.small {
+  color: #e8314f !important;
+}
+
+.poetry-list .card:not(.collection-album-card):hover .text-muted:not(.small) {
+  color: #d4aa50 !important;
+}
+
+.poetry-list .card:not(.collection-album-card):hover .card-img-top {
+  transform: scale(1.06) !important;
+  filter: brightness(1.04) !important;
+}
+
+/* Footer rojo + fecha blanca + ES·EN dorado */
+.poetry-list .card:not(.collection-album-card):hover .card-footer {
+  background: #c8102e !important;
+  border-top-color: #c8102e !important;
+}
+
+.poetry-list .card:not(.collection-album-card):hover .card-footer span:not(.favorites-bar-heart) {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.poetry-list .card:not(.collection-album-card):hover .card-footer a,
+.poetry-list .card:not(.collection-album-card):hover .card-footer .lang-link {
+  color: #f0c96e !important;
+}
+
+.poetry-list .card:not(.collection-album-card):hover .card-footer .btn-like i,
+.poetry-list .card:not(.collection-album-card):hover .card-footer i.far.fa-heart,
+.poetry-list .card:not(.collection-album-card):hover .card-footer i.fas.fa-heart {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+
+/* ─── COLLECTION CARDS — base legible ────────────────────────────── */
+
+.poetry-list .collection-album-card .card-title {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 2.5px !important;
+  text-transform: uppercase !important;
+  color: #f5e6c8 !important;
+  line-height: 1.2 !important;
+  margin-bottom: 0.4rem !important;
+}
+
+.poetry-list .collection-album-card .card-text {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: normal !important;           /* ← sin cursiva */
+  font-size: 0.76rem !important;
+  color: rgba(245, 230, 200, 0.72) !important;
+  line-height: 1.5 !important;
+  opacity: 1 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* ─── COLLECTION CARDS — hover ROJO ──────────────────────────────── */
+
+.poetry-list .collection-album-card:hover {
+  background: #c8102e !important;
+  border-color: rgba(232, 49, 79, 0.8) !important;
+  transform: translateY(-5px) scale(1.018) !important;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(200, 16, 46, 0.25) !important;
+  z-index: 3;
+}
+
+.poetry-list .collection-album-card:hover .card-title,
+.poetry-list .collection-album-card:hover .card-title a {
+  color: #fff8e7 !important;
+}
+
+.poetry-list .collection-album-card:hover .card-text {
+  color: rgba(255, 240, 210, 0.9) !important;
+  font-style: normal !important;
+}
+
+.poetry-list .collection-album-card:hover .card-img-top {
+  transform: scale(1.05) !important;
+  filter: brightness(1.03) !important;
+}
+
+
+/* ─── FEATURED CARD ───────────────────────────────────────────────── */
+
+.poetry-list .card.is-featured {
+  border-color: rgba(196, 154, 64, 0.45) !important;
+  box-shadow: 0 0 20px rgba(196, 154, 64, 0.1), 0 4px 16px rgba(0,0,0,0.4) !important;
+}
+
+
+/* ─── COLLECTION DETAIL BANNER ───────────────────────────────────── */
+
+.collection-detail-card {
+  border-color: rgba(196, 154, 64, 0.2) !important;
+}
+
+.collection-detail-card h3,
+.collection-detail-card .collection-title {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: clamp(1.3rem, 3vw, 2rem) !important;
+  font-weight: 700 !important;
+  color: #f5e6c8 !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  line-height: 1.15 !important;
+}
+
+.collection-detail-card p,
+.collection-detail-card .text-muted {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: normal !important;
+  font-size: 0.92rem !important;
+  color: rgba(245, 230, 200, 0.65) !important;
+  line-height: 1.7 !important;
+}
+
+.collection-detail-card img {
+  filter: grayscale(12%) contrast(1.05) !important;
+  border-radius: 6px !important;
+}
