@@ -1307,7 +1307,7 @@ gmpx-icon-button,
   transform: translate(-50%, -50%);
   width: 75%;
   max-width: 380px;
-  opacity: 0.18 !important;
+  opacity: 0.28 !important;
   pointer-events: none !important;
   z-index: 0 !important;
   mix-blend-mode: multiply !important;
@@ -1851,7 +1851,7 @@ gmpx-icon-button,
 
   .poem-card-watermark {
     width: 78% !important;
-    opacity: 0.14 !important;
+    opacity: 0.28 !important;
   }
 
   .poem-card-footer {
@@ -1915,7 +1915,7 @@ gmpx-icon-button,
 
   .poem-page-btn {
     width: 100% !important;
-    max-width: 220px !important;
+    max-width: 600px !important;
     text-align: center !important;
     font-size: 8px !important;
     letter-spacing: 3px !important;
@@ -1996,6 +1996,8 @@ gmpx-icon-button,
    POEM LIST — Series musicales premium
 =================================================== */
 .poem-series-section {
+  position: relative;
+  overflow: hidden;
   padding: 6rem 2rem;
   background: #080604;
   border-top: 1px solid rgba(196,154,64,.14);
@@ -2033,7 +2035,7 @@ gmpx-icon-button,
   font-size: .9rem;
   color: #6b5f45;
   text-align: center;
-  margin: 0 0 3rem;
+  margin: 0 0 6rem;
 }
 
 .poem-series-grid {
@@ -2199,8 +2201,15 @@ gmpx-icon-button,
    POEM LIST — Hero title (songs-hero reuse)
 =================================================== */
 .songs-hero {
+  position: relative;
+  overflow: hidden;
   text-align: center;
   padding: 4rem 2rem 2rem;
+  min-height: 280px;
+}
+.songs-hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .songs-hero__eyebrow {

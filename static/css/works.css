@@ -545,11 +545,13 @@
 
 /* ── 8. AYTHNYK ── */
 .wh-aythnyk {
+  position: relative;
+  overflow: hidden;
   background: var(--w-crimson);
   padding: 6rem 2rem;
   text-align: center;
 }
-.wh-aythnyk__inner { max-width: 600px; margin: 0 auto; }
+.wh-aythnyk__inner { max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
 .wh-aythnyk__eyebrow {
   font-family: var(--w-sans);
   font-size: .65rem;
@@ -1140,4 +1142,22 @@
   .res-grid { grid-template-columns: 1fr; }
   .res-section { padding: 1.5rem 1rem; }
   .res-hero { padding: 4rem 1rem 2rem; }
+}
+
+/* ── Aythnyk watermark in works home ── */
+.wh-aythnyk .ah-logo-watermark-img {
+  position: absolute !important;
+  top: 45% !important;
+  left: 50.75% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 700px !important;
+  height: 700px !important;
+  opacity: 0.175 !important;
+  filter: blur(1.5px) brightness(3) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+.wh-aythnyk__inner {
+  position: relative !important;
+  z-index: 1 !important;
 }

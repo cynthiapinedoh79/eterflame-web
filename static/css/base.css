@@ -1156,3 +1156,51 @@ p.text-end.m-3 {
   color: #c49a40 !important;
 }
 
+
+/* ═══════════════════════════════════════════
+   AYTHNYK — A Logo Watermark (global)
+═══════════════════════════════════════════ */
+.ah-logo-watermark-img {
+  position: absolute !important;
+  top: -50% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 600px !important;
+  height: 600px !important;
+  object-fit: contain !important;
+  opacity: 0.14 !important;
+  filter: blur(2px) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* ── Aythnyk hero sections z-index fix ── */
+.songs-hero > *:not(.ah-logo-watermark-img),
+.shop-hero > *:not(.ah-logo-watermark-img),
+.bpd-hero > *:not(.ah-logo-watermark-img) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Shop hero watermark position fix ── */
+.shop-hero .ah-logo-watermark-img {
+  top: -17% !important;
+}
+
+/* ── Series section watermark position fix ── */
+.poem-series-section .ah-logo-watermark-img {
+  top: -17% !important;
+}
+
+/* ── Series watermark centered with title ── */
+.poem-series-section .ah-logo-watermark-img {
+  top: -17% !important;
+}
+
+/* ── Works Aythnyk section watermark ── */
+.wh-aythnyk .ah-logo-watermark-img {
+  opacity: 0.03 !important;
+  filter: brightness(3) !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
