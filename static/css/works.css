@@ -1253,3 +1253,26 @@
     max-height: 22px;
   }
 }
+
+/* ── WORKS TECH STACK — brand colors on hover ── */
+.ef-stack-logos .ef-stack-item:nth-child(1):hover img {
+  filter: invert(30%) sepia(80%) saturate(400%) hue-rotate(190deg) brightness(1.2) !important;
+}
+.ef-stack-logos .ef-stack-item:nth-child(2):hover img {
+  filter: invert(40%) sepia(60%) saturate(300%) hue-rotate(100deg) brightness(1.1) !important;
+}
+.ef-stack-logos .ef-stack-item:nth-child(3):hover img {
+  filter: invert(30%) sepia(80%) saturate(300%) hue-rotate(200deg) brightness(1.2) !important;
+}
+.ef-stack-logos .ef-stack-item:nth-child(4):hover img {
+  filter: invert(85%) sepia(60%) saturate(500%) hue-rotate(10deg) brightness(1.1) !important;
+}
+.ef-stack-logos .ef-stack-item:nth-child(5):hover img {
+  filter: invert(30%) sepia(60%) saturate(500%) hue-rotate(260deg) brightness(1.1) !important;
+}
+.ef-stack-logos .ef-stack-item:nth-child(6):hover img {
+  filter: invert(50%) sepia(80%) saturate(500%) hue-rotate(10deg) brightness(1.1) !important;
+}
+.ef-stack-logos .ef-stack-item:nth-child(7):hover img {
+  filter: invert(30%) sepia(50%) saturate(400%) hue-rotate(260deg) brightness(1.2) !important;
+}
