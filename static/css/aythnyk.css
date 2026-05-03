@@ -901,3 +901,40 @@
   pointer-events: none !important;
   z-index: 0 !important;
 }
+
+/* ── AYTHNYK CREATIVE TOOLS STRIP ── */
+.ef-stack-strip--aythnyk {
+  background: #0a0804;
+  border-top: 1px solid rgba(200,16,46,0.15);
+  border-bottom: 1px solid rgba(200,16,46,0.15);
+  padding: 3.5rem 2rem;
+}
+.ef-stack-strip--aythnyk .ef-stack-label {
+  color: rgba(196,154,64,0.55);
+}
+.ef-stack-badge--crimson {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(200,16,46,0.4);
+  border-radius: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #c8102e;
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+.ef-stack-item:hover .ef-stack-badge--crimson {
+  border-color: #c8102e;
+  color: #f5e6c8;
+  background: rgba(200,16,46,0.15);
+}
+.ef-stack-strip--aythnyk .ef-stack-item span:last-child {
+  color: rgba(245,230,200,0.35);
+}
+.ef-stack-strip--aythnyk .ef-stack-item:hover span:last-child {
+  color: rgba(245,230,200,0.85);
+}
