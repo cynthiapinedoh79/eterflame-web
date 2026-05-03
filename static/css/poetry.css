@@ -2313,7 +2313,7 @@ a.text-decoration-none:hover {
   color: #c8102e !important;
 }
 
-/* Autor dorado — clase poem-author-grid */
+/* Autor dorado — firma artística */
 .poetry-list .poems-grid .poem-author-grid {
   font-family: 'DM Sans', sans-serif !important;
   font-size: 9px !important;
@@ -2322,6 +2322,26 @@ a.text-decoration-none:hover {
   color: #c49a40 !important;
   -webkit-text-fill-color: #c49a40 !important;
   margin-bottom: 0 !important;
+  opacity: .82 !important;
+
+  transition:
+    color .3s ease,
+    -webkit-text-fill-color .3s ease,
+    text-shadow .35s ease,
+    opacity .3s ease,
+    letter-spacing .3s ease;
+}
+
+/* Hover dorado tipo firma */
+.poetry-list .poems-grid .card:not(.collection-album-card):hover .poem-author-grid {
+  color: #f0c96e !important;
+  -webkit-text-fill-color: #f0c96e !important;
+  opacity: 1 !important;
+  letter-spacing: 4px !important;
+
+  text-shadow:
+    0 0 6px rgba(196,154,64,.35),
+    0 0 12px rgba(196,154,64,.15);
 }
 
 /* Autor fallback — text-muted */
