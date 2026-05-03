@@ -31,10 +31,6 @@
     font-weight: 700;
 }
 
-.scale {
-    width: 100%;
-    height: auto;
-}
 
 
 /* ================================================
@@ -52,16 +48,6 @@
     color: var(--color-danger-text);
 }
 
-.link {
-    color: var(--color-link);
-    text-decoration: none;
-}
-
-.link:hover,
-.link:active {
-    color: var(--color-link-hover);
-    text-decoration: underline;
-}
 
 .btn-delete {
     color: var(--color-danger-text);
@@ -133,17 +119,6 @@
     background: transparent;
 }
 
-
-/* ================================================
-   5. Comment Helper States
-=================================================== */
-.faded {
-    color: rgb(172, 175, 175);
-}
-
-.approval {
-    color: rgb(222, 146, 168);
-}
 
 /* ================================================
    6. Component-Specific Styles (Blog)
@@ -232,14 +207,6 @@
     line-height: 1.5;
 }
 
-.back-link {
-    color: var(--color-text-dark);
-    text-decoration: none;
-}
-.back-link:hover {
-    text-decoration: underline;
-    color: var(--color-text-dark);
-}
 
 .left .card-img-top {
     display: block;
@@ -274,73 +241,15 @@
 }
 
 /* ================================================
-   8. BLOG HOVER — KEEP ORIGINAL TEXT COLORS
+   8. BLOG HOVER — TRANSITIONS ONLY
 =================================================== */
 
-/* CARD HOVER (se mantiene) */
-.left .card:hover {
-    transform: translateY(-8px) scale(1.01);
-    background: linear-gradient(180deg, #d4a843, #b9912f);
-    border-color: #d4a843;
-    box-shadow:
-        0 30px 60px rgba(0,0,0,0.5),
-        0 0 25px rgba(212,168,67,0.35);
-}
-
-/* 🚫 NO CAMBIAR COLORES — SOLO TRANSICIONES SUAVES */
 .left .card-title,
 .left .card-text,
 .left .text-muted,
 .left .card-footer,
 .left p.text-muted {
     transition: color 0.3s ease;
-}
-
-/* 🔥 IMAGE */
-.left .card:hover .card-img-top {
-    transform: scale(1.05);
-    filter: brightness(1.05);
-}
-
-/* 🔥 AUTHOR LABEL (esto sí cambia porque da contraste arriba) */
-.left .card:hover .image-flash {
-    background: #0b0d10;
-    color: #d4a843;
-}
-
-/* 🔥 HR */
-.left .card:hover hr {
-    border-color: rgba(0,0,0,0.2);
-}
-
-.left .card:hover {
-    filter: brightness(1.02) contrast(1.05);
-}
-
-/* ================================================
-   9. BLOG HOVER — CONTRAST BOOST (SUBTLE)
-=================================================== */
-
-/* 🔥 TÍTULO — mismo tono, más presencia */
-.left .card:hover .card-title {
-    filter: brightness(1.25) contrast(1.1);
-}
-
-/* ✨ EXCERPT — más contraste sin romper estética */
-.left .card:hover .card-text {
-    color: #3c2c07; /* beige claro elegante */
-}
-
-/* 🪶 FOOTER — más visible pero sigue sutil */
-.left .card:hover .text-muted,
-.left .card:hover .card-footer,
-.left .card:hover p.text-muted {
-    filter: brightness(1.2);
-}
-
-/* 🔥 OPCIONAL — mejora general del bloque */
-.left .card:hover {
-    filter: brightness(1.03) contrast(1.08);
 }
 
 /* ================================================
@@ -411,10 +320,14 @@
     font-weight: 700 !important;
     letter-spacing: 4px !important;
     line-height: 1.15 !important;
-    color: #c49a40 !important;
     margin-bottom: auto !important;
     color: #d8ccb2 !important;
-  -webkit-text-fill-color: #d8ccb2 !important;
+    -webkit-text-fill-color: #d8ccb2 !important;
+    transition:
+        color .35s ease,
+        -webkit-text-fill-color .35s ease,
+        text-shadow .4s ease,
+        letter-spacing .35s ease;
 }
 
 /* ── Card excerpt ── */
@@ -424,10 +337,13 @@
     font-size: 0.95rem !important;
     line-height: 1.45 !important;
     letter-spacing: 0.8px !important;
-    color: rgba(245, 230, 200, 0.65) !important;
+    color: rgba(245, 230, 200, 0.58) !important;
     margin-top: 0.5rem !important;
-    opacity: 0.7;
-    transition: opacity 0.35s ease;
+    opacity: .72;
+    transition:
+        color .35s ease,
+        opacity .35s ease,
+        text-shadow .35s ease;
 }
 
 /* ── Post link ── */
@@ -438,9 +354,15 @@
 
 /* ── Author label (image-flash) ── */
 .blog-grid .image-flash {
-    background: rgba(8, 5, 2, 0.85);
-    color: #c49a40;
-    border-left: 2px solid rgba(196, 154, 64, 0.4);
+    background: rgba(8, 5, 2, .88) !important;
+    color: #c49a40 !important;
+    border-left: 2px solid rgba(196, 154, 64, .35) !important;
+    opacity: .88 !important;
+    transition:
+        background .35s ease,
+        color .35s ease,
+        border-color .35s ease,
+        text-shadow .35s ease;
 }
 
 /* ── Card footer ── */
@@ -462,10 +384,21 @@
     font-family: 'Courier Prime', monospace !important;
     font-size: 9px !important;
     letter-spacing: 2px !important;
-    color: rgba(196, 154, 64, 0.45) !important;
+    color: rgba(196, 154, 64, .42) !important;
     position: relative;
     z-index: 2;
     margin: 0 !important;
+    transition:
+        color .35s ease,
+        text-shadow .35s ease,
+        opacity .35s ease;
+}
+
+.blog-grid .card-footer,
+.blog-grid .card-footer .text-muted,
+.blog-grid .card-footer p,
+.blog-grid .card-footer span {
+    font-style: normal !important;
 }
 
 /* ── Red vertical stripe: slides up from bottom-right on hover ── */
@@ -476,21 +409,22 @@
     right: 0;
     width: 5px;
     height: 100%;
-    background: linear-gradient(180deg, #c8102e, rgba(200, 16, 46, 0.55));
+    background: linear-gradient(180deg, rgba(200,16,46,.85), rgba(200,16,46,.35));
     transform: scaleY(0);
     transform-origin: bottom;
     transition: transform 0.35s ease;
-    opacity: 0.82;
+    opacity: .75;
     z-index: 5;
 }
 
 .blog-grid .card:hover::before {
     transform: scaleY(1);
+    opacity: .9 !important;
 }
 
 /* ── Card hover ── */
 .blog-grid .card:hover {
-    transform: scale(1.015) !important;
+    transform: scale(1.012) !important;
     background: #0a0804 !important;
     background-image: none !important;
     border-color: transparent !important;
@@ -500,13 +434,15 @@
 }
 
 .blog-grid .card:hover .card-img-top {
-    transform: scale(1.03) !important;
-    filter: brightness(1.05) !important;
+    transform: scale(1.035) !important;
+    filter: brightness(1.06) contrast(1.02) !important;
 }
 
 .blog-grid .card:hover .card-title {
-    color: #f0c96e !important;
+    color: #f4d27a !important;
+    -webkit-text-fill-color: #f4d27a !important;
     filter: none !important;
+    letter-spacing: 4.5px !important;
     text-shadow:
       0 0 4px rgba(244,210,122,.35),
       0 0 12px rgba(244,210,122,.18);
@@ -517,31 +453,34 @@
 }
 
 .blog-grid .card:hover .card-text {
-    color: #f0c96e !important;
-    opacity: 1 !important;
-    text-shadow: 0 0 6px rgba(240, 201, 110, 0.18);
+    color: rgba(245,230,200,.78) !important;
+    opacity: .92 !important;
+    text-shadow: 0 0 5px rgba(240,201,110,.08);
 }
 
 /* ── Footer hover: red bg + gold inset shadow (no layout shift) ── */
 .blog-grid .card:hover .card-footer {
-    background: rgba(200,16,46,0.85) !important;
+    background: rgba(184,15,42,.88) !important;
     border-top: none !important;
     padding-bottom: 5px !important;
     box-shadow:
       inset 0 -3px 0 0 #d4a843,
-      0 -6px 20px rgba(200,16,46,.25);
-    }
+      0 -6px 20px rgba(200,16,46,.25) !important;
+}
 
 .blog-grid .card:hover .card-footer .text-muted,
 .blog-grid .card:hover .card-footer p.text-muted,
 .blog-grid .card:hover .card-footer p.text-muted.h6 {
-    color: #ffffff !important;
+    color: #f5e6c8 !important;
+    text-shadow: 0 0 6px rgba(245,230,200,.22);
 }
 
 /* ── Author label hover ── */
 .blog-grid .card:hover .image-flash {
     background: #0a0804 !important;
-    color: #c49a40 !important;
+    color: #f4d27a !important;
+    border-left-color: #c8102e !important;
+    opacity: 1 !important;
 }
 
 /* ── Responsive ── */
@@ -922,213 +861,3 @@
   }
 }
 
-/* ================================================
-   FINAL POLISH — Blog Luxury Editorial Hover
-=================================================== */
-
-/* 1. Title base: cooler, quieter */
-.blog-grid .card-title,
-.blog-grid .card-title .post-link,
-.blog-grid .post-link .card-title {
-  color: #d8ccb2 !important;
-  -webkit-text-fill-color: #d8ccb2 !important;
-  transition:
-    color .35s ease,
-    -webkit-text-fill-color .35s ease,
-    text-shadow .4s ease,
-    letter-spacing .35s ease;
-}
-
-/* 2. Title hover: warmer gold */
-.blog-grid .card:hover .card-title,
-.blog-grid .card:hover .card-title .post-link,
-.blog-grid .card:hover .post-link .card-title {
-  color: #f4d27a !important;
-  -webkit-text-fill-color: #f4d27a !important;
-  letter-spacing: 4.5px !important;
-  text-shadow:
-    0 0 6px rgba(244,210,122,.35),
-    0 0 18px rgba(244,210,122,.22);
-}
-
-/* 3. Author label base */
-.blog-grid .image-flash {
-  background: rgba(8, 5, 2, .88) !important;
-  color: #c49a40 !important;
-  border-left: 2px solid rgba(196,154,64,.35) !important;
-  opacity: .88 !important;
-  transition:
-    background .35s ease,
-    color .35s ease,
-    border-color .35s ease,
-    text-shadow .35s ease;
-}
-
-/* 4. Author label hover */
-.blog-grid .card:hover .image-flash {
-  background: #0a0804 !important;
-  color: #f0c96e !important;
-  border-left-color: #c8102e !important;
-  text-shadow:
-    0 0 6px rgba(196,154,64,.3),
-    0 0 12px rgba(196,154,64,.14);
-    opacity: 1;
-}
-
-/* 5. Excerpt base */
-.blog-grid .card-text {
-  margin-top: .6rem;
-  color: rgba(245,230,200,.58) !important;
-  opacity: .72 !important;
-  transition:
-    color .35s ease,
-    opacity .35s ease,
-    text-shadow .35s ease;
-}
-
-/* 6. Excerpt hover */
-.blog-grid .card:hover .card-text {
-  color: rgba(245, 230, 200, .78) !important;
-  opacity: .92 !important;
-  text-shadow: 0 0 5px rgba(240,201,110,.08);
-}
-
-/* 7. Footer base */
-.blog-grid .card-footer .text-muted,
-.blog-grid .card-footer p.text-muted,
-.blog-grid .card-footer p.text-muted.h6 {
-  color: rgba(196,154,64,.42) !important;
-  transition:
-    color .35s ease,
-    text-shadow .35s ease,
-    opacity .35s ease;
-}
-
-/* 8. Footer hover: softer red */
-.blog-grid .card:hover .card-footer {
-  background: rgba(184,15,42,.88) !important;
-  box-shadow: inset 0 -4px 0 0 #d4a843 !important;
-}
-
-/* 9. Footer text hover */
-.blog-grid .card:hover .card-footer .text-muted,
-.blog-grid .card:hover .card-footer p.text-muted,
-.blog-grid .card:hover .card-footer p.text-muted.h6 {
-  color: #f5e6c8 !important;
-  text-shadow: 0 0 6px rgba(245,230,200,.22);
-}
-
-/* 10. Image hover: cinematic */
-.blog-grid .card:hover .card-img-top,
-.blog-grid .card:hover img {
-  transform: scale(1.035) !important;
-  filter: brightness(1.06) contrast(1.02) !important;
-}
-
-/* 11. Card hover: controlled elevation */
-.blog-grid .card:hover {
-  transform: scale(1.012) !important;
-  z-index: 10 !important;
-}
-
-/* 12. Red side line: softer */
-.blog-grid .card::before {
-  background: linear-gradient(
-    180deg,
-    rgba(200,16,46,.85),
-    rgba(200,16,46,.35)
-  ) !important;
-  opacity: .75 !important;
-}
-
-.blog-grid .card:hover::before {
-  opacity: .9 !important;
-}
-
-/* 13. Detail page hero title: slightly warmer */
-.bpd-hero__title {
-  color: #f5e6c8 !important;
-  text-shadow:
-    0 2px 10px rgba(0,0,0,.55),
-    0 0 18px rgba(196,154,64,.08);
-}
-
-/* 14. Detail page body links/headings */
-.blog-post-body strong,
-.blog-post-body h2,
-.blog-post-body h3,
-.blog-post-body h4 {
-  color: #d4a843 !important;
-}
-
-.bpd-body a,
-.blog-back-link {
-  color: #c49a40 !important;
-}
-
-.bpd-body a:hover,
-.blog-back-link:hover {
-  color: #f0c96e !important;
-}
-
-/* ================================================
-   FINAL SAFE POLISH — BLOG LIST ONLY
-=================================================== */
-
-.blog-grid .card-title,
-.blog-grid .card-title .post-link,
-.blog-grid .post-link .card-title {
-  color: var(--gold-soft) !important;
-  -webkit-text-fill-color: var(--gold-soft) !important;
-}
-
-.blog-grid .card:hover .card-title,
-.blog-grid .card:hover .card-title .post-link,
-.blog-grid .card:hover .post-link .card-title {
-  color: var(--gold-hover) !important;
-  -webkit-text-fill-color: var(--gold-hover) !important;
-  letter-spacing: 4.5px !important;
-  text-shadow:
-    0 0 4px rgba(244,210,122,.35),
-    0 0 12px rgba(244,210,122,.18);
-}
-
-.blog-grid .image-flash {
-  background: rgba(8, 5, 2, .88) !important;
-  color: var(--gold-base) !important;
-  border-left: 2px solid rgba(196,154,64,.35) !important;
-  opacity: .88 !important;
-}
-
-.blog-grid .card:hover .image-flash {
-  background: #0a0804 !important;
-  color: var(--gold-hover) !important;
-  border-left-color: #c8102e !important;
-  opacity: 1 !important;
-}
-
-.blog-grid .card-text {
-  font-style: italic !important;
-  color: rgba(245,230,200,.58) !important;
-  opacity: .72 !important;
-}
-
-.blog-grid .card:hover .card-text {
-  color: rgba(245,230,200,.78) !important;
-  opacity: .92 !important;
-  text-shadow: 0 0 5px rgba(240,201,110,.08);
-}
-
-.blog-grid .card:hover .card-footer {
-  background: rgba(184,15,42,.88) !important;
-  box-shadow:
-    inset 0 -3px 0 0 #d4a843,
-    0 -6px 20px rgba(200,16,46,.25) !important;
-}
-
-.blog-grid .card-footer,
-.blog-grid .card-footer .text-muted,
-.blog-grid .card-footer p,
-.blog-grid .card-footer span {
-  font-style: normal !important;
-}

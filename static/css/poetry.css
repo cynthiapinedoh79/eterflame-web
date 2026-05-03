@@ -130,7 +130,7 @@
   font-family: 'Courier Prime', monospace;
   font-size: 10px;
   letter-spacing: 1px;
-  color: #5a4020;
+  color: var(--ay-primary) !important;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 
@@ -148,8 +148,8 @@
   transform: translateY(-4px) scale(1.018);
   z-index: 3;
   box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.6),
-    0 0 20px rgba(200, 16, 46, 0.15);
+    0 22px 50px rgba(0, 0, 0, 0.48),
+    0 0 24px rgba(212, 168, 67, 0.10);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -273,8 +273,8 @@
   transform: translateY(-5px) scale(1.018);
   z-index: 3;
   box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.6),
-    0 0 40px rgba(200, 16, 46, 0.2);
+    0 22px 50px rgba(0, 0, 0, 0.48),
+    0 0 24px rgba(212, 168, 67, 0.10);
 }
 
 /* force right-side ribbon */
@@ -344,6 +344,8 @@
   overflow-wrap: break-word;
   word-break: normal;
   hyphens: auto;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
 }
 
 .poetry-list .collection-album-card .card-title {
@@ -365,6 +367,7 @@
 .poetry-list .collection-album-card:hover .card-body,
 .poetry-list .collection-album-card:hover .card-text {
   color: rgba(255, 232, 190, 0.88) !important;
+  opacity: 1;
 }
 
 /* --- 2.6. XXL Tweaks --- */
@@ -677,7 +680,7 @@ a.text-decoration-none:hover {
 /* ================================================
    4. COMPONENT: QUOTE BAR SLIDER
 =================================================== */
-:root{
+:root {
   --qb-radius: 14px;
   --qb-pad: 12px 18px;
 }
@@ -1031,9 +1034,6 @@ a.text-decoration-none:hover {
 .poetry-list select:focus, .poetry-list .form-select:focus { border-color: var(--ay-primary); outline: none; box-shadow: 0 0 0 3px rgba(200,16,46,0.1); }
 .poetry-list select option, .poetry-list .form-select option { background: var(--bg-card); color: var(--text-body); }
 
-/* Poem card image hover zoom */
-.poetry-list .card-img-top { transition: transform 0.35s ease; }
-.poetry-list .collection-album-card .card-img-top { transition: transform 0.4s ease; }
 
 /* Poem list h2 title */
 .poetry-list h2 { color: #f5e6c8 !important; font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-spacing: 3px; }
@@ -1087,7 +1087,6 @@ a.text-decoration-none:hover {
 .poem-detail-card::before {
   display: none;
 }
-.poem-detail-overlay { position: relative; z-index: 1; }
 
 /* Watermark logo inside gold card */
 .poem-card-watermark {
@@ -1211,19 +1210,6 @@ a.text-decoration-none:hover {
   transform: scale(1.2) !important;
 }
 
-/* ES/EN badges in card footer */
-.poetry-list .card-footer span:not(.favorites-bar-heart) {
-  font-family: 'Courier Prime', monospace;
-  font-size: 9px;
-  letter-spacing: 1px;
-}
-
-/* Author name (non-small text-muted) */
-.poetry-list .card .text-muted:not(.small) {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
-  color: #7a6035 !important;
-}
 
 /* Poem list / favorites page h1 title */
 .poetry-list h1 {
@@ -1236,171 +1222,8 @@ a.text-decoration-none:hover {
   text-align: center;
 }
 
-/* ================================================
-   FORCE COLLECTION LABEL TO THE RIGHT
-=================================================== */
 
-.poetry-list .collection-album-card {
-  position: relative;
-  overflow: hidden;
-}
 
-/* banda roja SIEMPRE a la derecha */
-.poetry-list .collection-album-card::before {
-  content: "COLLECTION";
-  position: absolute;
-  top: 0;
-  right: 0 !important;
-  left: auto !important;
-
-  width: 34px;
-  height: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-
-  background: #c8102e;
-  color: #ffffff;
-
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-
-  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 10;
-}
-
-/* imagen deja espacio para la banda derecha */
-.poetry-list .collection-album-card .card-img-top {
-  display: block;
-  width: calc(100% - 34px) !important;
-  margin-right: 34px !important;
-  margin-left: 0 !important;
-  height: auto;
-  aspect-ratio: 5 / 4;
-  object-fit: cover;
-  border-top-right-radius: 0 !important;
-}
-
-/* contenido deja espacio para la banda derecha */
-.poetry-list .collection-album-card .card-body {
-  padding-right: calc(1rem + 34px) !important;
-  padding-left: 1rem !important;
-  position: relative;
-  z-index: 2;
-}
-
-/* texto visible */
-.poetry-list .collection-album-card .card-title,
-.poetry-list .collection-album-card .card-text {
-  overflow-wrap: break-word;
-  word-break: normal;
-  hyphens: auto;
-  opacity: 0.85;
-  transition: opacity 0.3s ease;
-}
-
-.poetry-list .collection-album-card:hover .card-text {
-  opacity: 1;
-}
-
-/* ================================================
-   FINAL HOVER FIX — POEMS + COLLECTIONS
-=================================================== */
-
-/* ---------- 1. Poem cards: stronger image zoom ---------- */
-.poetry-list .card .card-img-top,
-.poetry-list .collection-album-card .card-img-top {
-  transition: transform 0.4s ease, filter 0.4s ease;
-}
-
-/* ---------- 2. Standard poem cards: text contrast on red hover ---------- */
-.poetry-list .card:hover .card-title,
-.poetry-list .card:hover .card-title a.post-link {
-  color: #fff5df !important; /* title visible on red */
-}
-
-.poetry-list .card:hover .card-text {
-  color: rgba(255, 232, 190, 0.88) !important; /* body visible but lower hierarchy */
-}
-
-.poetry-list .card:hover .card-footer,
-.poetry-list .card:hover .text-muted,
-.poetry-list .card:hover .text-muted.small,
-.poetry-list .card:hover .card .text-muted:not(.small),
-.poetry-list .card:hover .card-footer span:not(.favorites-bar-heart) {
-  color: rgba(255, 235, 205, 0.78) !important;
-}
-
-.poetry-list .card:hover .card-footer {
-  border-top-color: rgba(255, 255, 255, 0.18) !important;
-}
-
-/* ---------- 3. Collection album cards: title must NOT stay red ---------- */
-.poetry-list .collection-album-card:hover .card-title,
-.poetry-list .collection-album-card:hover .card-title a,
-.poetry-list .collection-album-card:hover .card-title a.post-link {
-  color: #fff5df !important;
-}
-
-/* excerpt on collection hover */
-.poetry-list .collection-album-card:hover .card-text,
-.poetry-list .collection-album-card:hover .card-body {
-  color: rgba(255, 232, 190, 0.88) !important;
-}
-
-/* keep collection ribbon readable */
-.poetry-list .collection-album-card:hover::before {
-  color: #ffffff !important;
-}
-
-/* ---------- 5. Optional: slightly stronger hover glow ---------- */
-.poetry-list .card:hover,
-.poetry-list .collection-album-card:hover {
-  box-shadow:
-    0 22px 50px rgba(0, 0, 0, 0.48),
-    0 0 24px rgba(212, 168, 67, 0.10);
-}
-
-/* ================================================
-   POEM CARDS — INVERT RED TEXT TO BLACK ON HOVER
-=================================================== */
-
-/* base: oscuro + rojo */
-.poetry-list .card .text-muted.small,
-.poetry-list .card .card-footer,
-.poetry-list .card .card-footer span:not(.favorites-bar-heart),
-.poetry-list .card .card .text-muted:not(.small) {
-  color: var(--ay-primary) !important;
-}
-
-/* hover: rojo + negro */
-.poetry-list .card:hover .text-muted.small,
-.poetry-list .card:hover .card-footer,
-.poetry-list .card:hover .card-footer span:not(.favorites-bar-heart),
-.poetry-list .card:hover .card .text-muted:not(.small) {
-  color: #0a0804 !important;
-}
-
-/* footer line on hover */
-.poetry-list .card:hover .card-footer {
-  border-top-color: rgba(10, 8, 4, 0.18) !important;
-}
-
-/* body text (poem) → negro en hover */
-.poetry-list .card:hover .card-text {
-  color: #f2dfb9 !important;
-}
 
 /* quitar fondo rojo del botón like */
 .poetry-list .btn-like {
