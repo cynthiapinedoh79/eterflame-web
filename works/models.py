@@ -19,8 +19,10 @@ class AffiliateLink(models.Model):
         ('both',    'Both sections'),
     ]
 
-    name          = models.CharField(max_length=100)
-    logo          = CloudinaryField('logo', blank=True)
+    name              = models.CharField(max_length=100)
+    logo              = CloudinaryField('logo', blank=True)
+    simpleicons_slug  = models.CharField(max_length=100, blank=True,
+                          help_text="Simple Icons slug e.g. 'canva', 'notion', 'framer'")
     tagline       = models.CharField(max_length=200,
                       help_text="One line: what it does")
     description   = models.TextField(

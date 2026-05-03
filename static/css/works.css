@@ -1276,3 +1276,13 @@
 .ef-stack-logos .ef-stack-item:nth-child(7):hover img {
   filter: invert(30%) sepia(50%) saturate(400%) hue-rotate(260deg) brightness(1.2) !important;
 }
+
+/* ── RES CARD — Simple Icons logos ── */
+.res-card__logo--si {
+  opacity: 0.75;
+  transition: opacity 0.25s ease, filter 0.25s ease;
+}
+.res-card:hover .res-card__logo--si {
+  opacity: 1;
+  filter: brightness(1.15);
+}

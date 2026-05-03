@@ -22,6 +22,11 @@
        class="res-card res-card--featured">
       {% if link.logo %}
       <img src="{{ link.logo.url }}" alt="{{ link.name }}" class="res-card__logo">
+      {% elif link.simpleicons_slug %}
+      <img src="https://cdn.simpleicons.org/{{ link.simpleicons_slug }}/c49a40"
+           alt="{{ link.name }}" class="res-card__logo res-card__logo--si"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="res-card__logo-placeholder" style="display:none">{{ link.name|slice:":2"|upper }}</div>
       {% else %}
       <div class="res-card__logo-placeholder">{{ link.name|slice:":2"|upper }}</div>
       {% endif %}
@@ -48,6 +53,11 @@
        class="res-card">
       {% if link.logo %}
       <img src="{{ link.logo.url }}" alt="{{ link.name }}" class="res-card__logo">
+      {% elif link.simpleicons_slug %}
+      <img src="https://cdn.simpleicons.org/{{ link.simpleicons_slug }}/c49a40"
+           alt="{{ link.name }}" class="res-card__logo res-card__logo--si"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="res-card__logo-placeholder" style="display:none">{{ link.name|slice:":2"|upper }}</div>
       {% else %}
       <div class="res-card__logo-placeholder">{{ link.name|slice:":2"|upper }}</div>
       {% endif %}
