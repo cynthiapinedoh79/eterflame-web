@@ -2274,3 +2274,108 @@
 }
 
 
+
+/* ── Portfolio card link wrapper ── */
+.ef-portfolio-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+/* ── Portfolio tech tags ── */
+.ef-portfolio-tags {
+  display: block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(196, 154, 64, 0.7);
+  margin-top: 0.5rem;
+}
+
+/* ── PORTFOLIO WORKS — Clean card grid (image + info below) ── */
+.ef-pw-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto 4rem;
+}
+.ef-pw-card {
+  background: #080e1a;
+  border: 1px solid rgba(0,188,212,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.ef-pw-card:hover {
+  border-color: rgba(0,188,212,0.35);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 20px rgba(0,188,212,0.08);
+}
+.ef-pw-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+.ef-pw-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.ef-pw-card:hover .ef-pw-image img {
+  transform: scale(1.04);
+}
+.ef-pw-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+.ef-pw-kicker {
+  display: block;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #00BCD4;
+  margin-bottom: 0.5rem;
+}
+.ef-pw-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #c8dcf5;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+.ef-pw-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(200,220,245,0.6);
+  line-height: 1.55;
+  margin: 0;
+}
+.ef-pw-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.85rem;
+}
+.ef-pw-tags span {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #c49a40;
+  border: 1px solid rgba(196,154,64,0.3);
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .ef-pw-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .ef-pw-grid { grid-template-columns: 1fr; }
+}

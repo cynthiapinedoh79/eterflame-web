@@ -75,50 +75,66 @@
   <!-- PORTFOLIO — contenido centrado -->
   <section class="ed-portfolio">
     <p class="ed-label">Selected Work</p>
-    <div class="ef-portfolio-grid">
-      <article class="ef-portfolio-card ef-portfolio-card-featured">
-        <img src="{% static 'images/works/design/portfolio-1.png' %}" alt="Brand identity">
-        <div class="ef-portfolio-overlay">
-          <span class="ef-portfolio-kicker">Featured Project</span>
-          <h4>Brand Identity &amp; Digital Presence</h4>
-          <p>Visual system, interface direction, and premium digital execution.</p>
+    <div class="ef-pw-grid">
+
+      <article class="ef-pw-card">
+        <div class="ef-pw-image">
+          <img src="{% static 'images/works/design/portfolio-1.png' %}" alt="Brand Identity">
+        </div>
+        <div class="ef-pw-body">
+          <span class="ef-pw-kicker">Featured Project</span>
+          <h4 class="ef-pw-title">Brand Identity &amp; Digital Presence</h4>
+          <p class="ef-pw-desc">Visual system, interface direction, and premium digital execution.</p>
         </div>
       </article>
-      <article class="ef-portfolio-card">
-        <img src="{% static 'images/works/design/portfolio-2.png' %}" alt="Web experience">
-        <div class="ef-portfolio-overlay">
-          <span class="ef-portfolio-kicker">Web</span>
-          <h4>Immersive Web Experience</h4>
-          <p>UI/UX architecture with seamless frontend development.</p>
+
+      <article class="ef-pw-card">
+        <div class="ef-pw-image">
+          <img src="{% static 'images/works/design/portfolio-2.png' %}" alt="Web Experience">
+        </div>
+        <div class="ef-pw-body">
+          <span class="ef-pw-kicker">Web</span>
+          <h4 class="ef-pw-title">Immersive Web Experience</h4>
+          <p class="ef-pw-desc">UI/UX architecture with seamless frontend development.</p>
         </div>
       </article>
-      <article class="ef-portfolio-card">
-        <img src="{% static 'images/works/design/portfolio-3.png' %}" alt="Visual campaign">
-        <div class="ef-portfolio-overlay">
-          <span class="ef-portfolio-kicker">Creative</span>
-          <h4>Visual Campaign Direction</h4>
-          <p>Concept design, storytelling, and cinematic visual language.</p>
+
+      <article class="ef-pw-card">
+        <div class="ef-pw-image">
+          <img src="{% static 'images/works/design/portfolio-3.png' %}" alt="Visual Campaign">
+        </div>
+        <div class="ef-pw-body">
+          <span class="ef-pw-kicker">Creative</span>
+          <h4 class="ef-pw-title">Visual Campaign Direction</h4>
+          <p class="ef-pw-desc">Concept design, storytelling, and cinematic visual language.</p>
         </div>
       </article>
-      <article class="ef-portfolio-card">
-        <img src="{% static 'images/works/design/portfolio-4.png' %}" alt="Interface system">
-        <div class="ef-portfolio-overlay">
-          <span class="ef-portfolio-kicker">System</span>
-          <h4>Interface Architecture System</h4>
-          <p>Design systems, components, and structured user flows.</p>
+
+      <article class="ef-pw-card">
+        <div class="ef-pw-image">
+          <img src="{% static 'images/works/design/portfolio-4.png' %}" alt="Interface System">
+        </div>
+        <div class="ef-pw-body">
+          <span class="ef-pw-kicker">System</span>
+          <h4 class="ef-pw-title">Interface Architecture System</h4>
+          <p class="ef-pw-desc">Design systems, components, and structured user flows.</p>
         </div>
       </article>
-      <article class="ef-portfolio-card">
-        <a href="https://digital-marketing-conversion-p-baa19eafc972.herokuapp.com/" target="_blank" rel="noopener" class="ef-portfolio-link">
-          <img src="{% static 'images/works/design/portfolio-5.png' %}" alt="Digital Marketing Conversion Predictor dashboard">
-          <div class="ef-portfolio-overlay">
-            <span class="ef-portfolio-kicker">Data · ML</span>
-            <h4>Digital Marketing Conversion Predictor</h4>
-            <p>ML pipeline predicting lead conversion — F1-score 0.8767. Interactive Streamlit dashboard with real-time predictions.</p>
-            <span class="ef-portfolio-tags">Python · Scikit-learn · Streamlit · Plotly · Heroku</span>
+
+      <article class="ef-pw-card">
+        <div class="ef-pw-image">
+          <img src="{% static 'images/works/design/portfolio-5.png' %}" alt="Conversion Predictor">
+        </div>
+        <div class="ef-pw-body">
+          <span class="ef-pw-kicker">Data · ML</span>
+          <h4 class="ef-pw-title">Digital Marketing Conversion Predictor</h4>
+          <p class="ef-pw-desc">ML pipeline — F1-score 0.8767. Interactive Streamlit dashboard with real-time predictions.</p>
+          <div class="ef-pw-tags">
+            <span>Python</span><span>Scikit-learn</span><span>Streamlit</span><span>Plotly</span>
           </div>
-        </a>
+        </div>
       </article>
+
     </div>
   </section>
 
