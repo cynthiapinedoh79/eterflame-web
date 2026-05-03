@@ -2433,8 +2433,8 @@ a.text-decoration-none:hover {
 .poetry-list .poems-grid .card:not(.collection-album-card):hover .card-footer {
   background: #c8102e !important;
   border-top: none !important;
-  padding-bottom: 4px !important;
-  box-shadow: inset 0 -4px 0 0 #d4a843 !important;
+  padding-bottom: 8px !important;
+  box-shadow: inset 0 -8px 0 0 #d4a843 !important;
 }
 
 .poetry-list .poems-grid .card:not(.collection-album-card):hover .card-footer span:not(.favorites-bar-heart) {
