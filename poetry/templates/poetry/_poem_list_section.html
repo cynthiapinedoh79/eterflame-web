@@ -149,7 +149,7 @@
                   </a>
                 </h5>
                 {% if poem.collection %}<p class="text-muted small mb-1"> {{ poem.collection.name_es|default:poem.collection.name_en }}</p>{% endif %}
-                {% if poem.author %}<p class="text-muted small mb-2"> {{ poem.author.name }}</p>{% endif %}
+                {% if poem.author %}<p class="poem-author-grid mb-2"> {{ poem.author.name }}</p>{% endif %}
                 <p class="card-text text-muted">{{ poem.body_es|default:poem.body_en|striptags|truncatechars:140 }}</p>
               </div>
               <div class="card-footer bg-white d-flex justify-content-between small text-muted align-items-center">
