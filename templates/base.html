@@ -20,11 +20,11 @@
     <meta property="og:title"       content="{% block og_title %}Eterflame Works — Creative & Digital Production Studio{% endblock %}">
     <meta property="og:description" content="{% block og_description %}Creative studio building digital experiences where technology, design, and storytelling move together — poetry, music, and brand identity.{% endblock %}">
     <meta property="og:url"         content="{{ request.build_absolute_uri }}">
-    <meta property="og:image"       content="{% block og_image %}{% static 'images/works/ef_logo.png' %}{% endblock %}">
+    <meta property="og:image"       content="{% block og_image %}{% static 'images/og-default.webp' %}{% endblock %}">
     <meta name="twitter:card"        content="summary_large_image">
     <meta name="twitter:title"       content="{% block tw_title %}Eterflame Works — Creative & Digital Production Studio{% endblock %}">
     <meta name="twitter:description" content="{% block tw_description %}Creative studio building digital experiences where technology, design, and storytelling move together — poetry, music, and brand identity.{% endblock %}">
-    <meta name="twitter:image"       content="{% block tw_image %}{% static 'images/works/ef_logo.png' %}{% endblock %}">
+    <meta name="twitter:image"       content="{% block tw_image %}{% static 'images/og-default.webp' %}{% endblock %}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover">
 
@@ -67,7 +67,7 @@
         <div class="container-fluid">
             <!-- Brand goes to Works home -->
             <a class="navbar-brand ef-brand" href="{{ home_url }}">
-                <img src="{% static 'images/works/ef_logo.png' %}" alt="Eterflame Works" class="ef-brand-icon">
+                <img src="{% static 'images/og-default.webp' %}" alt="Eterflame Works" class="ef-brand-icon">
 
                 <div class="ef-brand-text">
                     <span class="ef-brand-main">ETERFLAME WORKS</span>
