@@ -79,7 +79,7 @@
 
 .poetry-list .card-title a.post-link {
   text-decoration: none;
-  color: #f5e6c8;
+  color: #d6c7a1;
   font-family: 'Cormorant Garamond', serif;
   font-size: 0.95rem;
   font-weight: 600;
@@ -2359,7 +2359,7 @@ a.text-decoration-none:hover {
   font-size: 0.95rem !important;
   line-height: 1.45 !important;
   letter-spacing: 0.8px !important;
-  color: #a88a46 !important;
+  color: rgba(196, 154, 64, 0.55) !important; /* antes #a88a46 */
   font-style: italic !important;
   margin-top: 0.5rem !important;
 }
@@ -2415,6 +2415,19 @@ a.text-decoration-none:hover {
   color: rgba(200, 16, 46, 0.4) !important;
 }
 
+/* TITLE → GOLD on hover (poems grid) */
+.poetry-list .poems-grid .card:not(.collection-album-card):hover
+.card-title a.post-link {
+  color: #f0c96e !important;
+  -webkit-text-fill-color: #f0c96e !important;
+
+  text-shadow:
+    0 0 6px rgba(240,201,110,.35),
+    0 0 14px rgba(240,201,110,.2);
+
+  transition: color .3s ease, text-shadow .3s ease;
+}
+
 /* Footer hover — rojo + línea dorada abajo */
 .poetry-list .poems-grid .card:not(.collection-album-card):hover .card-footer {
   background: #c8102e !important;
@@ -2456,6 +2469,17 @@ a.text-decoration-none:hover {
 .poetry-list .poems-grid .card:not(.collection-album-card):hover .card-img-top {
   transform: scale(1.06) !important;
   filter: brightness(1.05) !important;
+}
+
+.poetry-list .poems-grid .card:not(.collection-album-card):hover .card-text {
+  color: #f0c96e !important;
+
+  text-shadow:
+    0 0 6px rgba(240,201,110,.18);
+}
+
+.poetry-list .poems-grid .card-footer span:not(.favorites-bar-heart) {
+  color: rgba(196, 154, 64, 0.38) !important;
 }
 
 
@@ -2520,4 +2544,29 @@ a.text-decoration-none:hover {
 .poetry-list .poems-grid .collection-album-card .text-muted.small {
   color: rgba(245, 230, 200, 0.62) !important;
   -webkit-text-fill-color: rgba(245, 230, 200, 0.62) !important;
+}
+
+/* Autor poem cards — dorado */
+.poetry-list .poems-grid .poem-author-grid,
+.poetry-list .poems-grid .card .card-body .text-muted:not(.small) {
+  color: #c49a40 !important;
+  -webkit-text-fill-color: #c49a40 !important;
+}
+
+.poetry-list .poems-grid .card:not(.collection-album-card):hover 
+.card-footer span:not(.favorites-bar-heart) {
+  color: #f5e6c8 !important;
+}
+
+/* Footer base — quieter */
+.poetry-list .poems-grid .card-footer span:not(.favorites-bar-heart) {
+  color: rgba(196, 154, 64, 0.38) !important;
+  transition: color .3s ease, text-shadow .3s ease;
+}
+
+/* Footer hover — clearer / warmer */
+.poetry-list .poems-grid .card:not(.collection-album-card):hover 
+.card-footer span:not(.favorites-bar-heart) {
+  color: #f5e6c8 !important;
+  text-shadow: 0 0 6px rgba(245, 230, 200, .22);
 }
