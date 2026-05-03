@@ -1227,6 +1227,14 @@
   border-color: #c49a40;
   color: #d4aa50;
 }
+.ef-stack-badge--cyan {
+  border-color: rgba(0,188,212,0.4);
+  color: #00BCD4;
+}
+.ef-stack-item:hover .ef-stack-badge--cyan {
+  border-color: #00BCD4;
+  color: #4dd9ec;
+}
 .ef-stack-item span:last-child {
   font-family: 'DM Mono', monospace;
   font-size: 0.52rem;
