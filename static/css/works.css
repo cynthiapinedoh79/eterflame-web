@@ -1183,7 +1183,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 2.5rem 3.5rem;
+  gap: 2rem 3rem;
   max-width: 860px;
   margin: 0 auto;
 }
@@ -1192,13 +1192,15 @@
   flex-direction: column;
   align-items: center;
   gap: 0.6rem;
-  opacity: 0.4;
+  opacity: 0.45;
   transition: opacity 0.3s ease;
 }
 .ef-stack-item:hover { opacity: 1; }
 .ef-stack-item img {
-  width: 38px;
-  height: 38px;
+  width: 28px;
+  height: 28px;
+  max-width: 28px;
+  max-height: 28px;
   filter: grayscale(100%) brightness(2);
   transition: filter 0.3s ease;
   object-fit: contain;
@@ -1210,12 +1212,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 28px;
+  height: 28px;
   border: 1px solid rgba(196,154,64,0.4);
   border-radius: 6px;
   font-family: 'DM Mono', monospace;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 1px;
   color: #c49a40;
@@ -1236,5 +1238,10 @@
 .ef-stack-item:hover span:last-child { color: rgba(200,220,245,0.9); }
 @media (max-width: 600px) {
   .ef-stack-logos { gap: 1.5rem 2rem; }
-  .ef-stack-item img, .ef-stack-badge { width: 30px; height: 30px; }
+  .ef-stack-item img, .ef-stack-badge {
+    width: 22px;
+    height: 22px;
+    max-width: 22px;
+    max-height: 22px;
+  }
 }
