@@ -346,7 +346,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5px;
-    row-gap: 4px;
+    row-gap: 3px;
     background: rgba(196, 154, 64, 0.08);
     border-top: 1px solid rgba(196, 154, 64, 0.18);
     border-bottom: 1px solid rgba(196, 154, 64, 0.18);
@@ -367,9 +367,9 @@
     overflow: visible !important;
     position: relative;
     transition:
-        transform 0.28s ease,
-        box-shadow 0.28s ease,
-        background-color 0.28s ease;
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background-color 0.35s ease;
 }
 
 /* ── Image ── */
@@ -381,7 +381,7 @@
     aspect-ratio: 4 / 3;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.42s ease, filter 0.42s ease;
+    transition: transform 0.35s ease, filter 0.35s ease;
     will-change: transform;
 }
 
@@ -406,7 +406,7 @@
     font-weight: 700 !important;
     letter-spacing: 4px !important;
     line-height: 1.15 !important;
-    color: #f5e6c8 !important;
+    color: #c49a40 !important;
     margin-bottom: auto !important;
 }
 
@@ -417,8 +417,10 @@
     font-size: 0.95rem !important;
     line-height: 1.45 !important;
     letter-spacing: 0.8px !important;
-    color: rgba(196, 154, 64, 0.55) !important;
+    color: rgba(245, 230, 200, 0.65) !important;
     margin-top: 0.5rem !important;
+    opacity: 0.7;
+    transition: opacity 0.35s ease;
 }
 
 /* ── Post link ── */
@@ -444,7 +446,7 @@
     position: relative !important;
     overflow: visible !important;
     z-index: 2 !important;
-    transition: background 0.28s ease;
+    transition: background 0.35s ease;
 }
 
 .blog-grid .card-footer .text-muted,
@@ -453,7 +455,7 @@
     font-family: 'Courier Prime', monospace !important;
     font-size: 9px !important;
     letter-spacing: 2px !important;
-    color: rgba(196, 154, 64, 0.65) !important;
+    color: rgba(196, 154, 64, 0.45) !important;
     position: relative;
     z-index: 2;
     margin: 0 !important;
@@ -491,7 +493,7 @@
 }
 
 .blog-grid .card:hover .card-img-top {
-    transform: scale(1.06) !important;
+    transform: scale(1.03) !important;
     filter: brightness(1.05) !important;
 }
 
@@ -509,12 +511,13 @@
 
 .blog-grid .card:hover .card-text {
     color: #f0c96e !important;
+    opacity: 1 !important;
     text-shadow: 0 0 6px rgba(240, 201, 110, 0.18);
 }
 
 /* ── Footer hover: red bg + gold inset shadow (no layout shift) ── */
 .blog-grid .card:hover .card-footer {
-    background: #c8102e !important;
+    background: rgba(200,16,46,0.85) !important;
     border-top: none !important;
     padding-bottom: 5px !important;
     box-shadow: inset 0 -5px 0 0 #d4a843 !important;
