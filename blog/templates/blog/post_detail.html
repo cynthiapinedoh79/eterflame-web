@@ -2,6 +2,13 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block og_title %}{{ post.title }} · Eterflame Blog{% endblock %}
+{% block og_description %}{{ post.content|striptags|truncatechars:160 }}{% endblock %}
+{% block og_image %}{% if post.featured_image and "placeholder" not in post.featured_image.url %}{{ post.featured_image.url }}{% else %}{% static 'images/works/ef_logo.png' %}{% endif %}{% endblock %}
+{% block tw_title %}{{ post.title }} · Eterflame Blog{% endblock %}
+{% block tw_description %}{{ post.content|striptags|truncatechars:160 }}{% endblock %}
+{% block tw_image %}{% if post.featured_image and "placeholder" not in post.featured_image.url %}{{ post.featured_image.url }}{% else %}{% static 'images/works/ef_logo.png' %}{% endif %}{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/blog.css' %}?v={% now 'U' %}">
 {% endblock %}

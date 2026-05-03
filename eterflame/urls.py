@@ -20,9 +20,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns   # i18n
+from django.http import Http404
+
+handler404 = 'django.views.defaults.page_not_found'
+
+
+def trigger_404(request):
+    raise Http404
+
 
 urlpatterns = [
     path("api/chat/", include(("chat.urls", "chat"), namespace="chat")),
+    path("test-404/", trigger_404),
 ]
 
 # Translatable, language-prefixed routes

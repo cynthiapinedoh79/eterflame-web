@@ -13,6 +13,19 @@
 <head>
     <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
     <title>{% block head_title %}ETER FLAME — Aythnyk{% endblock head_title %}</title>
+
+    <!-- Open Graph + Twitter Card -->
+    <meta property="og:type"        content="website">
+    <meta property="og:site_name"   content="Eterflame Works">
+    <meta property="og:title"       content="{% block og_title %}ETER FLAME — Aythnyk{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Creative & Digital Production — Poetry, Music, Art by Aythnyk.{% endblock %}">
+    <meta property="og:url"         content="{{ request.build_absolute_uri }}">
+    <meta property="og:image"       content="{% block og_image %}{% static 'images/works/ef_logo.png' %}{% endblock %}">
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="{% block tw_title %}ETER FLAME — Aythnyk{% endblock %}">
+    <meta name="twitter:description" content="{% block tw_description %}Creative & Digital Production — Poetry, Music, Art by Aythnyk.{% endblock %}">
+    <meta name="twitter:image"       content="{% block tw_image %}{% static 'images/works/ef_logo.png' %}{% endblock %}">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover">
 
     <!-- Google tag (gtag.js) -->
@@ -38,6 +51,7 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}?v={% now 'U' %}">
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}?v={% now 'U' %}">
 
     {# per-page styles (about.css, blog.css,poetry.css,) #}
     {% block extra_css %}{% endblock %}
@@ -80,20 +94,24 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-contact {% if '/contact' in request.path %}active{% endif %}"
-                           href="{% url 'works:contact' %}">Contact Us</a>
+                           href="{% url 'works:contact' %}">Start a Project</a>
                     </li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                    <li class="nav-item dropdown nav-user-dropdown">
+                        <a class="nav-link dropdown-toggle nav-user-icon" href="#"
+                           id="navUserDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle"></i>
+                            {% if user.is_authenticated %}<span class="nav-user-name">{{ user.username }}</span>{% endif %}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navUserDropdown">
+                            {% if user.is_authenticated %}
+                                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                            {% else %}
+                                <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                                <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+                            {% endif %}
+                        </ul>
                     </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                    </li>
-                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -118,12 +136,6 @@
 
     <main class="flex-grow-1 main-bg mb-3">
 
-        {% if user.is_authenticated %}
-        <p class="text-end m-3">You are logged in as {{ user }}</p>
-        {% else %}
-        <p class="text-end m-3">You are not logged in</p>
-        {% endif %}
-
         {% block content %}
         {% endblock content %}
 
@@ -139,14 +151,14 @@
         <div class="footer-top__inner">
 
           <!-- Brand + tagline -->
-          <div class="footer-col footer-col--brand">
+          <div class="footer-col footer-col--brand fade-in-up">
             <p class="footer-logo">ETERFLAME</p>
             <p class="footer-tagline">Creative &amp; Digital Production</p>
             <p class="footer-tagline-sub">Design · Media · Studio</p>
           </div>
 
           <!-- Navigation -->
-          <div class="footer-col">
+          <div class="footer-col fade-in-up">
             <p class="footer-col__title">Navigate</p>
             <ul class="footer-links">
               <li><a href="{% url 'works:works_home' %}">Etherflame Works</a></li>
@@ -158,14 +170,14 @@
           </div>
 
           <!-- Aythnyk -->
-          <div class="footer-col">
+          <div class="footer-col fade-in-up">
             <p class="footer-col__title">Aythnyk</p>
             <ul class="footer-links">
-              <li><a href="{% url 'aythnyk:aythnyk_home' %}">Inicio</a></li>
-              <li><a href="{% url 'poetry:poem_list' %}">Poemas</a></li>
-              <li><a href="{% url 'songs:song_list' %}">Canciones</a></li>
+              <li><a href="{% url 'aythnyk:aythnyk_home' %}">Home</a></li>
+              <li><a href="{% url 'poetry:poem_list' %}">Poems</a></li>
+              <li><a href="{% url 'songs:song_list' %}">Songs</a></li>
               <li><a href="{% url 'blog:bloghome' %}">Blog</a></li>
-              <li><a href="{% url 'poetry:tools' %}">Herramientas</a></li>
+              <li><a href="{% url 'poetry:tools' %}">Tools</a></li>
             </ul>
           </div>
 
@@ -209,6 +221,7 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
         </script>
     <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/animations.js' %}"></script>
 
     {% block extras %}
     {% block extra_body %}{% endblock extra_body %}

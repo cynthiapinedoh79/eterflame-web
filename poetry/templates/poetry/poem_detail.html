@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block og_title %}{{ poem.title_es|default:poem.title_en }} · Aythnyk{% endblock %}
+{% block og_description %}Disponible como PDF en eterflame.com{% endblock %}
+{% block tw_title %}{{ poem.title_es|default:poem.title_en }} · Aythnyk{% endblock %}
+{% block tw_description %}Disponible como PDF en eterflame.com{% endblock %}
+
 {% block extra_css %}
-<!-- Open Graph meta tags for better social sharing -->
 {% block extra_head %}
 <meta name="robots" content="noindex, nofollow">
-<meta property="og:title" content="Aythnyk — Poesía · Eterflame">
-<meta property="og:description" content="Disponible como PDF en eterflame.com">
 {% endblock %}
 
 <link rel="stylesheet" href="{% static 'css/poetry.css' %}?v={% now 'U' %}">

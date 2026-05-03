@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_title %}404 — Page Not Found · Eterflame{% endblock %}
+
+{% block og_title %}404 — Page Not Found · Eterflame{% endblock %}
+{% block og_description %}This page doesn't exist — or it never did.{% endblock %}
+
+{% block content %}
+<section class="e404-hero" style="position:relative;">
+  <img src="{% static 'images/aythnyk/a_logo.png' %}" class="ah-logo-watermark-img" aria-hidden="true">
+  <p class="e404__eyebrow">Eterflame · 404</p>
+  <h1 class="e404__code">404</h1>
+  <p class="e404__message">This page doesn't exist — or it never did.</p>
+  <a href="{% url 'works:works_home' %}" class="e404__btn">← Back to Home</a>
+</section>
+{% endblock %}

@@ -12,7 +12,7 @@
   <!-- ══════════════════════════════════════
        1. HERO — full viewport, texto gigante
   ══════════════════════════════════════ -->
-  <section class="wh-hero">
+  <section class="wh-hero parallax-hero">
     <div class="wh-hero__logo-watermark"></div>
 
     <div class="wh-hero__bg-text" aria-hidden="true">WORKS</div>
@@ -62,7 +62,7 @@
        3. STATEMENT — una frase que golpea
   ══════════════════════════════════════ -->
   <section class="wh-statement">
-    <div class="wh-statement__inner">
+    <div class="wh-statement__inner fade-in-up">
       <p class="wh-statement__label">Who We Are</p>
       <h2 class="wh-statement__text">
         A creative studio for brands<br>
@@ -82,22 +82,22 @@
   <section class="wh-why">
     <p class="wh-section-label">Why Etherflame</p>
     <div class="wh-why__grid">
-      <div class="wh-why__item">
+      <div class="wh-why__item fade-in-up">
         <span class="wh-why__num">01</span>
         <h3>Design with direction</h3>
         <p>Every visual choice is connected to purpose, positioning, and brand perception.</p>
       </div>
-      <div class="wh-why__item">
+      <div class="wh-why__item fade-in-up">
         <span class="wh-why__num">02</span>
         <h3>Technical execution</h3>
         <p>We do not only make things look good — we build systems that work underneath.</p>
       </div>
-      <div class="wh-why__item">
+      <div class="wh-why__item fade-in-up">
         <span class="wh-why__num">03</span>
         <h3>Story-first thinking</h3>
         <p>Your brand should not feel generic. It should communicate voice, identity, and emotion.</p>
       </div>
-      <div class="wh-why__item">
+      <div class="wh-why__item fade-in-up">
         <span class="wh-why__num">04</span>
         <h3>Small studio focus</h3>
         <p>Intentional collaboration, refined detail, and work shaped around each project.</p>
@@ -112,7 +112,7 @@
     <p class="wh-section-label">Our Divisions</p>
     <div class="wh-divisions__grid">
 
-      <a href="{% url 'works:design' %}" class="wh-div-card wh-div-card--design">
+      <a href="{% url 'works:design' %}" class="wh-div-card wh-div-card--design fade-in-up">
         <div class="wh-div-card__num">01</div>
         <div class="wh-div-card__body">
           <h3 class="wh-div-card__name">EF Design</h3>
@@ -122,7 +122,7 @@
         <span class="wh-div-card__cta">View Services →</span>
       </a>
 
-      <a href="{% url 'works:media' %}" class="wh-div-card wh-div-card--media">
+      <a href="{% url 'works:media' %}" class="wh-div-card wh-div-card--media fade-in-up">
         <div class="wh-div-card__num">02</div>
         <div class="wh-div-card__body">
           <h3 class="wh-div-card__name">EF Media</h3>
@@ -132,7 +132,7 @@
         <span class="wh-div-card__cta">View Services →</span>
       </a>
 
-      <a href="{% url 'works:studio' %}" class="wh-div-card wh-div-card--studio">
+      <a href="{% url 'works:studio' %}" class="wh-div-card wh-div-card--studio fade-in-up">
         <div class="wh-div-card__num">03</div>
         <div class="wh-div-card__body">
           <h3 class="wh-div-card__name">EF Studio</h3>
@@ -149,12 +149,12 @@
        6. MISSION / VISION — lado a lado
   ══════════════════════════════════════ -->
   <section class="wh-mv">
-    <div class="wh-mv__card">
+    <div class="wh-mv__card fade-in-up">
       <p class="wh-mv__label">Mission</p>
       <p class="wh-mv__text">To create digital work that feels intentional, elegant, and alive — where technical structure meets visual identity and emotional clarity.</p>
     </div>
     <div class="wh-mv__divider"></div>
-    <div class="wh-mv__card">
+    <div class="wh-mv__card fade-in-up">
       <p class="wh-mv__label">Vision</p>
       <p class="wh-mv__text">To be the creative studio that founders, artists, and brands trust when they want a presence that feels premium, personal, and built to last.</p>
     </div>
@@ -174,7 +174,7 @@
        8b. RESOURCES CTA
   ══════════════════════════════════════ -->
   <section class="wh-resources-cta">
-    <div class="wh-resources-cta__inner">
+    <div class="wh-resources-cta__inner fade-in-up">
       <p class="wh-resources-cta__label">Etherflame Works · Tools</p>
       <h3 class="wh-resources-cta__title">Tools We Recommend</h3>
       <p class="wh-resources-cta__desc">
@@ -192,11 +192,11 @@
   ══════════════════════════════════════ -->
   <section class="wh-aythnyk">
     <img src="{% static 'images/aythnyk/a_logo.png' %}" class="ah-logo-watermark-img" aria-hidden="true">
-    <div class="wh-aythnyk__inner">
+    <div class="wh-aythnyk__inner fade-in-up">
       <p class="wh-aythnyk__eyebrow">The Artist Behind the Work</p>
       <h2 class="wh-aythnyk__name">Aythnyk</h2>
       <p class="wh-aythnyk__desc">Alongside our studio work lives a poetic universe — a space of verses, silence, and stories in Spanish. Etherflame Works is the structure; Aythnyk is the spirit.</p>
-      <a href="{% url 'aythnyk:aythnyk_home' %}" class="wh-aythnyk__btn">Visitar Aythnyk →</a>
+      <a href="{% url 'aythnyk:aythnyk_home' %}" class="wh-aythnyk__btn">Explore Aythnyk →</a>
     </div>
   </section>
 

@@ -1156,6 +1156,46 @@ p.text-end.m-3 {
   color: #c49a40 !important;
 }
 
+/* ── NAV USER ICON DROPDOWN ── */
+.nav-user-icon {
+  color: #c8b090;
+  padding: .35rem .6rem !important;
+}
+.nav-user-icon i {
+  font-size: 1.15rem;
+}
+.nav-user-name {
+  font-size: .7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-left: .35rem;
+  vertical-align: middle;
+}
+.nav-user-dropdown .dropdown-menu {
+  background: #0e0b08;
+  border: 1px solid rgba(196,154,64,.2);
+  border-radius: 2px;
+  min-width: 130px;
+  padding: .25rem 0;
+}
+.nav-user-dropdown .dropdown-item {
+  color: #c8b090;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: .5rem 1rem;
+}
+.nav-user-dropdown .dropdown-item:hover,
+.nav-user-dropdown .dropdown-item:focus {
+  background: rgba(196,154,64,.1);
+  color: #f4d27a;
+}
+/* hide Bootstrap's dropdown caret on the icon */
+.nav-user-dropdown .dropdown-toggle::after {
+  display: none;
+}
+
 
 /* ═══════════════════════════════════════════
    AYTHNYK — A Logo Watermark (global)
@@ -1203,4 +1243,67 @@ p.text-end.m-3 {
   filter: brightness(3) !important;
   top: 50% !important;
   transform: translate(-50%, -50%) !important;
+}
+
+
+/* ═══════════════════════════════════════════
+   404 PAGE
+═══════════════════════════════════════════ */
+.e404-hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1rem;
+  overflow: hidden;
+}
+.e404__eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c49a40;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+.e404__code {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(6rem, 20vw, 14rem);
+  font-weight: 300;
+  color: #c49a40;
+  line-height: 1;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+.e404__message {
+  font-family: 'DM Sans', sans-serif;
+  color: #c8b090;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+.e404__btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c49a40;
+  border: 1px solid rgba(196,154,64,.3);
+  border-radius: 2px;
+  padding: .6rem 1.5rem;
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+  position: relative;
+  z-index: 1;
+}
+.e404__btn:hover {
+  background: rgba(196,154,64,.1);
+  border-color: #c49a40;
+  color: #f4d27a;
 }
