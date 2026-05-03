@@ -15,13 +15,17 @@ def resources(request):
         active=True,
         channel__in=['b2b', 'both']
     )
+    featured = links.filter(featured=True)
+    featured_ids = set(featured.values_list('id', flat=True))
     categories = {}
     for link in links:
+        if link.id in featured_ids:
+            continue  # skip featured items from category grid
         cat = link.get_category_display()
         categories.setdefault(cat, []).append(link)
     return render(request, 'works/resources.html', {
         'categories': categories,
-        'featured': links.filter(featured=True),
+        'featured': featured,
     })
 
 
