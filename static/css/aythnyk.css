@@ -938,3 +938,78 @@
 .ef-stack-strip--aythnyk .ef-stack-item:hover span:last-child {
   color: rgba(245,230,200,0.85);
 }
+
+/* ── AYTHNYK CREATIVE TOOLS STRIP — full scoped override ── */
+.ef-stack-strip--aythnyk {
+  background: #0a0804 !important;
+  border-top: 1px solid rgba(200,16,46,0.15) !important;
+  border-bottom: 1px solid rgba(200,16,46,0.15) !important;
+  padding: 3.5rem 2rem !important;
+  text-align: center !important;
+}
+.ef-stack-strip--aythnyk .ef-stack-label {
+  display: block !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.6rem !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  color: rgba(196,154,64,0.55) !important;
+  margin-bottom: 2.5rem !important;
+}
+.ef-stack-strip--aythnyk .ef-stack-logos {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 2rem 3rem !important;
+  max-width: 700px !important;
+  margin: 0 auto !important;
+}
+.ef-stack-strip--aythnyk .ef-stack-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+  opacity: 0.5 !important;
+  transition: opacity 0.3s ease !important;
+}
+.ef-stack-strip--aythnyk .ef-stack-item:hover {
+  opacity: 1 !important;
+}
+.ef-stack-badge--crimson {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  border: 1px solid rgba(200,16,46,0.4) !important;
+  border-radius: 6px !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.55rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  color: #c8102e !important;
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease !important;
+}
+.ef-stack-strip--aythnyk .ef-stack-item:hover .ef-stack-badge--crimson {
+  border-color: #c8102e !important;
+  color: #f5e6c8 !important;
+  background: rgba(200,16,46,0.15) !important;
+}
+.ef-stack-strip--aythnyk .ef-stack-item span:last-child {
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.52rem !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: rgba(245,230,200,0.35) !important;
+  transition: color 0.3s ease !important;
+}
+.ef-stack-strip--aythnyk .ef-stack-item:hover span:last-child {
+  color: rgba(245,230,200,0.85) !important;
+}
+@media (max-width: 600px) {
+  .ef-stack-strip--aythnyk .ef-stack-logos {
+    gap: 1.5rem 2rem !important;
+  }
+}
