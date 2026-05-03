@@ -23,12 +23,16 @@
       {% if link.logo %}
       <img src="{{ link.logo.url }}" alt="{{ link.name }}" class="res-card__logo">
       {% elif link.simpleicons_slug %}
-      {% with 'images/icons/brands/'|add:link.simpleicons_slug|add:'.svg' as icon_path %}
-      <img src="{% static icon_path %}"
-           alt="{{ link.name }}" class="res-card__logo res-card__logo--si"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      {% endwith %}
-      <div class="res-card__logo-placeholder" style="display:none">{{ link.name|slice:":2"|upper }}</div>
+{% if link.simpleicons_slug == 'canva' %}<img src="{% static 'images/icons/brands/canva.svg' %}" alt="Canva" class="res-card__logo res-card__logo--si">
+      {% elif link.simpleicons_slug == 'distrokid' %}<img src="{% static 'images/icons/brands/distrokid.svg' %}" alt="DistroKid" class="res-card__logo res-card__logo--si">
+      {% elif link.simpleicons_slug == 'elevenlabs' %}<img src="{% static 'images/icons/brands/elevenlabs.svg' %}" alt="ElevenLabs" class="res-card__logo res-card__logo--si">
+      {% elif link.simpleicons_slug == 'framer' %}<img src="{% static 'images/icons/brands/framer.svg' %}" alt="Framer" class="res-card__logo res-card__logo--si">
+      {% elif link.simpleicons_slug == 'hostinger' %}<img src="{% static 'images/icons/brands/hostinger.svg' %}" alt="Hostinger" class="res-card__logo res-card__logo--si">
+      {% elif link.simpleicons_slug == 'notion' %}<img src="{% static 'images/icons/brands/notion.svg' %}" alt="Notion" class="res-card__logo res-card__logo--si">
+      {% elif link.simpleicons_slug == 'spotify' %}<img src="{% static 'images/icons/brands/spotify.svg' %}" alt="Spotify" class="res-card__logo res-card__logo--si">
+      {% elif link.simpleicons_slug == 'suno' %}<img src="{% static 'images/icons/brands/suno.svg' %}" alt="Suno AI" class="res-card__logo res-card__logo--si">
+      {% else %}<div class="res-card__logo-placeholder">{{ link.name|slice:":2"|upper }}</div>
+      {% endif %}
       {% else %}
       <div class="res-card__logo-placeholder">{{ link.name|slice:":2"|upper }}</div>
       {% endif %}
@@ -56,12 +60,16 @@
       {% if link.logo %}
       <img src="{{ link.logo.url }}" alt="{{ link.name }}" class="res-card__logo">
       {% elif link.simpleicons_slug %}
-      {% with 'images/icons/brands/'|add:link.simpleicons_slug|add:'.svg' as icon_path %}
-      <img src="{% static icon_path %}"
-           alt="{{ link.name }}" class="res-card__logo res-card__logo--si"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      {% endwith %}
-      <div class="res-card__logo-placeholder" style="display:none">{{ link.name|slice:":2"|upper }}</div>
+{% if link.simpleicons_slug == 'canva' %}<img src="{% static 'images/icons/brands/canva.svg' %}" alt="Canva" class="res-card__logo res-card__logo--si">
+      {% elif link.simpleicons_slug == 'distrokid' %}<img src="{% static 'images/icons/brands/distrokid.svg' %}" alt="DistroKid" class="res-card__logo res-card__logo--si">
+      {% elif link.simpleicons_slug == 'elevenlabs' %}<img src="{% static 'images/icons/brands/elevenlabs.svg' %}" alt="ElevenLabs" class="res-card__logo res-card__logo--si">
+      {% elif link.simpleicons_slug == 'framer' %}<img src="{% static 'images/icons/brands/framer.svg' %}" alt="Framer" class="res-card__logo res-card__logo--si">
+      {% elif link.simpleicons_slug == 'hostinger' %}<img src="{% static 'images/icons/brands/hostinger.svg' %}" alt="Hostinger" class="res-card__logo res-card__logo--si">
+      {% elif link.simpleicons_slug == 'notion' %}<img src="{% static 'images/icons/brands/notion.svg' %}" alt="Notion" class="res-card__logo res-card__logo--si">
+      {% elif link.simpleicons_slug == 'spotify' %}<img src="{% static 'images/icons/brands/spotify.svg' %}" alt="Spotify" class="res-card__logo res-card__logo--si">
+      {% elif link.simpleicons_slug == 'suno' %}<img src="{% static 'images/icons/brands/suno.svg' %}" alt="Suno AI" class="res-card__logo res-card__logo--si">
+      {% else %}<div class="res-card__logo-placeholder">{{ link.name|slice:":2"|upper }}</div>
+      {% endif %}
       {% else %}
       <div class="res-card__logo-placeholder">{{ link.name|slice:":2"|upper }}</div>
       {% endif %}
