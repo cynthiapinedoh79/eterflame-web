@@ -102,3 +102,13 @@ def media(request):
 
 def studio(request):
     return render(request, 'works/studio.html')
+
+
+from django.views.decorators.http import require_POST
+
+@require_POST
+def subscribe_lead(request):
+    name = request.POST.get('name', '').strip()
+    email = request.POST.get('email', '').strip()
+    messages.success(request, f"Thanks {name}! Check {email} for your guide.")
+    return redirect(request.META.get('HTTP_REFERER', '/blog/'))

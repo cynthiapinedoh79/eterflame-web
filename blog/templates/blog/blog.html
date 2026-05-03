@@ -45,6 +45,37 @@
     {% endfor %}
   </div>
 
+  <!-- LEAD MAGNET -->
+  <section class="ef-lead-magnet">
+    <div class="ef-lead-magnet__inner">
+      <div class="ef-lead-magnet__text">
+        <p class="ef-lead-magnet__eyebrow">Free Resource</p>
+        <h3 class="ef-lead-magnet__title">Branding Guide 2026</h3>
+        <p class="ef-lead-magnet__desc">
+          The essentials of building a digital brand that converts —
+          typography, color systems, voice, and launch strategy.
+          Free for founders and creators.
+        </p>
+        <ul class="ef-lead-magnet__list">
+          <li>Brand identity fundamentals</li>
+          <li>Color &amp; typography systems</li>
+          <li>Digital presence checklist</li>
+          <li>Launch strategy framework</li>
+        </ul>
+      </div>
+      <div class="ef-lead-magnet__form">
+        <p class="ef-lead-magnet__form-label">Get the free guide →</p>
+        <form class="ef-lead-form" action="{% url 'works:subscribe_lead' %}" method="POST">
+          {% csrf_token %}
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="your@email.com" required>
+          <button type="submit">Download Free Guide</button>
+        </form>
+        <p class="ef-lead-magnet__note">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
   {% if is_paginated %}
   <nav aria-label="Page navigation" class="mt-4">
     <ul class="pagination justify-content-center">
