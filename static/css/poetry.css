@@ -1,3 +1,8 @@
+:root {
+  --gold-base: #c49a40;
+  --gold-soft: #d8ccb2;
+  --gold-hover: #f4d27a;
+}
 
 /* ================================================
    2. PAGE: POETRY LIST
@@ -539,7 +544,7 @@ a.page-link {
   font-size: clamp(1.6rem, 4.5vw, 3rem) !important;
   font-weight: 700 !important;
   letter-spacing: 4px !important;
-  color: #c49a40 !important;
+  color: var(--gold-base) !important;
   text-transform: uppercase !important;
   line-height: 1.05 !important;
   margin-bottom: 10px !important;
@@ -577,7 +582,7 @@ a.page-link {
   font-size: 0.75rem !important;
   letter-spacing: 4px !important;
   text-transform: uppercase !important;
-  color: #c49a40 !important;
+  color: var(--gold-base) !important;
   text-decoration: none !important;
   font-style: normal !important;
   transition: color 0.2s ease !important;
@@ -1802,7 +1807,7 @@ a.text-decoration-none:hover {
 }
 
 .poem-series-title span {
-  color: #c49a40;
+  color: var(--gold-base);
 }
 
 .poem-series-sub {
@@ -1907,7 +1912,7 @@ a.text-decoration-none:hover {
   font-size: .65rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #c49a40;
+  color: var(--gold-base);
   transition: letter-spacing .3s ease, color .3s ease;
 }
 
@@ -2004,7 +2009,7 @@ a.text-decoration-none:hover {
   margin: 0 0 0.5rem;
 }
 
-.songs-hero__title span { color: #c49a40; }
+.songs-hero__title span { color: var(--gold-base); }
 
 .songs-hero__sub {
   font-family: 'DM Sans', sans-serif;
@@ -2032,7 +2037,7 @@ a.text-decoration-none:hover {
   font-size: 0.82rem !important;
   font-weight: 700 !important;
   letter-spacing: 2px !important;
-  color: #c49a40 !important;
+  color: var(--gold-base) !important;
   text-decoration: none !important;
 }
 
@@ -2045,7 +2050,7 @@ a.text-decoration-none:hover {
 .poetry-list .card .text-muted:not(.small) {
   font-size: 0.65rem !important;
   letter-spacing: 1.5px !important;
-  color: #c49a40 !important;
+  color: var(--gold-base) !important;
 }
 
 .poetry-list .card .card-body .text-muted:not(.small) {
@@ -2111,7 +2116,7 @@ a.text-decoration-none:hover {
 
 .poetry-list .collection-album-card::before {
   background: rgba(8, 5, 2, 0.85) !important;
-  color: #c49a40 !important;
+  color: var(--gold-base) !important;
   box-shadow: none !important;
   border-left: 1px solid rgba(196, 154, 64, 0.2) !important;
   transition: background 0.28s ease, color 0.28s ease !important;
@@ -2151,7 +2156,7 @@ a.text-decoration-none:hover {
 
 .poetry-list .collection-album-card:hover .card-title,
 .poetry-list .collection-album-card:hover h5.card-title {
-  color: #f0c96e !important;
+  color: var(--gold-hover) !important;
 }
 
 .poetry-list .collection-album-card:hover .card-body p.card-text,
@@ -2324,8 +2329,8 @@ a.text-decoration-none:hover {
   font-size: 9px !important;
   letter-spacing: 3px !important;
   text-transform: uppercase !important;
-  color: #c49a40 !important;
-  -webkit-text-fill-color: #c49a40 !important;
+  color: var(--gold-base) !important;
+  -webkit-text-fill-color: var(--gold-base) !important;
   margin-bottom: 0 !important;
   opacity: 0.9 !important;
 
@@ -2339,8 +2344,8 @@ a.text-decoration-none:hover {
 
 /* Hover dorado tipo firma */
 .poetry-list .poems-grid .card:not(.collection-album-card):hover .poem-author-grid {
-  color: #f0c96e !important;
-  -webkit-text-fill-color: #f0c96e !important;
+  color: var(--gold-hover) !important;
+  -webkit-text-fill-color: var(--gold-hover) !important;
   opacity: 1 !important;
   letter-spacing: 4px !important;
 
@@ -2354,8 +2359,8 @@ a.text-decoration-none:hover {
 .poetry-list .poems-grid .card .text-muted:not(.small) {
   font-size: 9px !important;
   letter-spacing: 3px !important;
-  color: #c49a40 !important;
-  -webkit-text-fill-color: #c49a40 !important;
+  color: var(--gold-base) !important;
+  -webkit-text-fill-color: var(--gold-base) !important;
 }
 
 /* Excerpt */
@@ -2365,7 +2370,7 @@ a.text-decoration-none:hover {
   line-height: 1.45 !important;
   letter-spacing: 0.8px !important;
   color: rgba(245, 230, 200, 0.65) !important;
-  font-style: italic !important;
+  font-style: normal !important;
   margin-top: 0.5rem !important;
 }
 
@@ -2425,19 +2430,19 @@ a.text-decoration-none:hover {
 /* TITLE → GOLD on hover (poems grid) */
 .poetry-list .poems-grid .card:not(.collection-album-card):hover
 .card-title a.post-link {
-  color: #f0c96e !important;
-  -webkit-text-fill-color: #f0c96e !important;
+  color: var(--gold-hover) !important;
+  -webkit-text-fill-color: var(--gold-hover) !important;
 
   text-shadow:
-    0 0 6px rgba(240,201,110,.35),
-    0 0 14px rgba(240,201,110,.2);
+    0 0 4px rgba(244,210,122,.35),
+    0 0 12px rgba(244,210,122,.18);
 
   transition: color .3s ease, text-shadow .3s ease;
 }
 
 /* Footer hover — rojo + línea dorada abajo */
 .poetry-list .poems-grid .card:not(.collection-album-card):hover .card-footer {
-  background: rgba(200,16,46,0.85) !important;
+  background: rgba(184,15,42,.88) !important;
   border-top: none !important;
   padding-bottom: 5px !important;
   box-shadow: inset 0 -5px 0 0 #d4a843 !important;
@@ -2448,7 +2453,7 @@ a.text-decoration-none:hover {
 }
 
 .poetry-list .poems-grid .card:not(.collection-album-card):hover .card-footer a {
-  color: #f0c96e !important;
+  color: var(--gold-hover) !important;
 }
 
 .poetry-list .poems-grid .card:not(.collection-album-card):hover .card-footer .btn-like i,
@@ -2471,7 +2476,7 @@ a.text-decoration-none:hover {
 }
 
 .poetry-list .poems-grid .card:not(.collection-album-card):hover .card-text {
-  color: #f0c96e !important;
+  color: var(--gold-hover) !important;
   opacity: 1 !important;
 
   text-shadow:
@@ -2545,8 +2550,8 @@ a.text-decoration-none:hover {
 /* Autor poem cards — dorado */
 .poetry-list .poems-grid .poem-author-grid,
 .poetry-list .poems-grid .card .card-body .text-muted:not(.small) {
-  color: #c49a40 !important;
-  -webkit-text-fill-color: #c49a40 !important;
+  color: var(--gold-base) !important;
+  -webkit-text-fill-color: var(--gold-base) !important;
 }
 
 .poetry-list .poems-grid .card:not(.collection-album-card):hover 
@@ -2565,4 +2570,138 @@ a.text-decoration-none:hover {
 .card-footer span:not(.favorites-bar-heart) {
   color: #f5e6c8 !important;
   text-shadow: 0 0 6px rgba(245, 230, 200, .22);
+}
+
+/* ================================================
+   FINAL POLISH — Luxury Editorial Hover System
+=================================================== */
+
+/* 1. Title base: cooler, quieter gold */
+.poetry-list .poems-grid .card-title a.post-link {
+  color: var(--gold-soft) !important;
+  -webkit-text-fill-color: var(--gold-soft) !important;
+  transition:
+    color .35s ease,
+    -webkit-text-fill-color .35s ease,
+    text-shadow .4s ease,
+    letter-spacing .35s ease;
+}
+
+/* 2. Title hover: warmer gold glow */
+.poetry-list .poems-grid .card:not(.collection-album-card):hover .card-title a.post-link {
+  color: var(--gold-hover) !important;
+  -webkit-text-fill-color: var(--gold-hover) !important;
+  letter-spacing: 4.5px !important;
+  text-shadow:
+    0 0 4px rgba(244,210,122,.35),
+    0 0 12px rgba(244,210,122,.18);
+}
+
+/* 3. Category: red, but quieter */
+.poetry-list .poems-grid .card .text-muted.small {
+  color: #c8102e !important;
+  opacity: .68 !important;
+}
+
+/* 4. Category hover: clearer but not loud */
+.poetry-list .poems-grid .card:not(.collection-album-card):hover .text-muted.small {
+  opacity: .95 !important;
+  color: #e0163a !important;
+}
+
+/* 5. Author: signature, below title hierarchy */
+.poetry-list .poems-grid .poem-author-grid {
+  color: var(--gold-base) !important;
+  -webkit-text-fill-color: var(--gold-base) !important;
+  opacity: .88 !important;
+}
+
+/* 6. Author hover: warm signature glow */
+.poetry-list .poems-grid .card:not(.collection-album-card):hover .poem-author-grid {
+  color: var(--gold-hover) !important;
+  -webkit-text-fill-color: var(--gold-hover) !important;
+  opacity: 1 !important;
+  text-shadow:
+    0 0 6px rgba(196,154,64,.32),
+    0 0 14px rgba(196,154,64,.16);
+}
+
+/* 7. Excerpt base: readable but secondary */
+.poetry-list .poems-grid .card-text {
+  margin-top: .6rem;
+  color: rgba(245,230,200,.58) !important;
+  opacity: .72 !important;
+  transition:
+    color .35s ease,
+    opacity .35s ease,
+    text-shadow .35s ease;
+}
+
+/* 8. Excerpt hover: appears emotionally */
+.poetry-list .poems-grid .card:not(.collection-album-card):hover .card-text {
+  color: rgba(245, 230, 200, .78) !important;
+  opacity: .92 !important;
+  text-shadow: 0 0 5px rgba(240,201,110,.08);
+}
+
+/* 9. Footer base: muted, quiet metadata */
+.poetry-list .poems-grid .card:not(.collection-album-card) .card-footer span:not(.favorites-bar-heart),
+.poetry-list .poems-grid .card:not(.collection-album-card) .card-footer a {
+  color: rgba(196,154,64,.42) !important;
+  transition:
+    color .35s ease,
+    text-shadow .35s ease,
+    opacity .35s ease;
+}
+
+/* 10. Footer hover: softer red, less aggressive */
+.poetry-list .poems-grid .card:not(.collection-album-card):hover .card-footer {
+  background: rgba(184,15,42,.88) !important;
+  box-shadow:
+  inset 0 -3px 0 0 #d4a843,
+  0 -6px 20px rgba(200,16,46,.25) !important;
+}
+
+/* 11. Footer text hover */
+.poetry-list .poems-grid .card:not(.collection-album-card):hover .card-footer span:not(.favorites-bar-heart) {
+  color: #f5e6c8 !important;
+  text-shadow: 0 0 6px rgba(245,230,200,.22);
+}
+
+/* 12. Heart quieter until hover */
+.poetry-list .poems-grid .card:not(.collection-album-card) .card-footer .btn-like i {
+  color: rgba(200,16,46,.42) !important;
+  opacity: .45 !important;
+}
+
+.poetry-list .poems-grid .card:not(.collection-album-card):hover .card-footer .btn-like i,
+.poetry-list .poems-grid .card:not(.collection-album-card):hover .card-footer i {
+  color: #fff5df !important;
+  opacity: 1 !important;
+}
+
+/* 13. Image hover: cinematic, not too much */
+.poetry-list .poems-grid .card:not(.collection-album-card):hover .card-img-top {
+  transform: scale(1.035) !important;
+  filter: brightness(1.06) contrast(1.02) !important;
+}
+
+/* 14. Card hover: controlled elevation */
+.poetry-list .poems-grid .card:not(.collection-album-card):hover {
+  transform: scale(1.012) !important;
+  z-index: 10 !important;
+}
+
+/* 15. Red side line: elegant, less aggressive */
+.poetry-list .poems-grid .card:not(.collection-album-card)::before {
+  background: linear-gradient(
+    180deg,
+    rgba(200,16,46,.85),
+    rgba(200,16,46,.35)
+  ) !important;
+  opacity: .75 !important;
+}
+
+.poetry-list .poems-grid .card:not(.collection-album-card):hover::before {
+  opacity: .9 !important;
 }

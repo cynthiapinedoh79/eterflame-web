@@ -18,7 +18,7 @@
   <div class="bpd-hero__overlay"></div>
 
   <nav class="bpd-hero__nav">
-    <a href="{% url 'poetry:poetry_home' %}" class="bpd-hero__back">← Aythnyk</a>
+    <a href="{% url 'aythnyk:aythnyk_home' %}" class="bpd-hero__back">← Aythnyk</a>
     <span class="bpd-hero__back-sep">·</span>
     <a href="{% url 'blog:bloghome' %}" class="bpd-hero__back">Blog</a>
   </nav>
@@ -27,7 +27,9 @@
     <div class="bpd-hero__text-box">
       <p class="bpd-hero__eyebrow">Blog · Aythnyk</p>
       <h1 class="bpd-hero__title">{{ post.title }}</h1>
-      <p class="bpd-hero__meta">{{ post.author }} · {{ post.created_on }}</p>
+      <p class="bpd-hero__meta">
+        By {{ post.author }} · {{ post.created_on|date:"M d, Y" }}
+      </p>
     </div>
   </div>
 </section>
@@ -36,7 +38,7 @@
 <article class="bpd-body blog-post-body" style="position:relative;">
   <img src="{% static 'images/aythnyk/a_logo.png' %}" class="ah-logo-watermark-img ah-body-watermark" aria-hidden="true">
   {{ post.content | safe }}
-  <a href="javascript:history.back()" class="blog-back-link">← Back to Blog</a>
+  <a href="{% url 'blog:bloghome' %}" class="blog-back-link">← Back to Blog</a>
 </article>
 
 <!-- ── AUTHOR STRIP ── -->
