@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
+from django.core.paginator import Paginator
+
+from .models import PortfolioItem
 
 
 def design_home(request):
@@ -34,7 +37,12 @@ def design_home(request):
         else:
             messages.error(request, "Please fill in all required fields.")
 
+    items = PortfolioItem.objects.filter(is_active=True).order_by('order')
+    paginator = Paginator(items, 6)
+    page_obj = paginator.get_page(request.GET.get('page'))
+
     return render(request, 'design/home.html', {
         'page_title': 'EF Design',
         'section': 'design',
+        'page_obj': page_obj,
     })

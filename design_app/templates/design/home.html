@@ -77,65 +77,46 @@
     <p class="ed-label">Selected Work</p>
     <div class="ef-pw-grid">
 
-      <article class="ef-pw-card">
+      {% for item in page_obj %}
+      <article class="ef-pw-card{% if item.is_screenshot %} ef-pw-card--screenshot{% endif %}">
         <div class="ef-pw-image">
-          <img src="{% static 'images/works/design/portfolio-1.png' %}" alt="Brand Identity">
+          {% if item.image %}
+          <img src="{{ item.image.url }}" alt="{{ item.title }}">
+          {% else %}
+          <img src="{% static 'images/works/design/portfolio-placeholder.png' %}" alt="{{ item.title }}">
+          {% endif %}
         </div>
         <div class="ef-pw-body">
-          <span class="ef-pw-kicker">Featured Project</span>
-          <h4 class="ef-pw-title">Brand Identity &amp; Digital Presence</h4>
-          <p class="ef-pw-desc">Visual system, interface direction, and premium digital execution.</p>
-        </div>
-      </article>
-
-      <article class="ef-pw-card">
-        <div class="ef-pw-image">
-          <img src="{% static 'images/works/design/portfolio-2.png' %}" alt="Web Experience">
-        </div>
-        <div class="ef-pw-body">
-          <span class="ef-pw-kicker">Web</span>
-          <h4 class="ef-pw-title">Immersive Web Experience</h4>
-          <p class="ef-pw-desc">UI/UX architecture with seamless frontend development.</p>
-        </div>
-      </article>
-
-      <article class="ef-pw-card">
-        <div class="ef-pw-image">
-          <img src="{% static 'images/works/design/portfolio-3.png' %}" alt="Visual Campaign">
-        </div>
-        <div class="ef-pw-body">
-          <span class="ef-pw-kicker">Creative</span>
-          <h4 class="ef-pw-title">Visual Campaign Direction</h4>
-          <p class="ef-pw-desc">Concept design, storytelling, and cinematic visual language.</p>
-        </div>
-      </article>
-
-      <article class="ef-pw-card">
-        <div class="ef-pw-image">
-          <img src="{% static 'images/works/design/portfolio-4.png' %}" alt="Interface System">
-        </div>
-        <div class="ef-pw-body">
-          <span class="ef-pw-kicker">System</span>
-          <h4 class="ef-pw-title">Interface Architecture System</h4>
-          <p class="ef-pw-desc">Design systems, components, and structured user flows.</p>
-        </div>
-      </article>
-
-      <article class="ef-pw-card ef-pw-card--screenshot">
-        <div class="ef-pw-image">
-          <img src="{% static 'images/works/design/portfolio-5.png' %}" alt="Conversion Predictor">
-        </div>
-        <div class="ef-pw-body">
-          <span class="ef-pw-kicker">Data · ML</span>
-          <h4 class="ef-pw-title">Digital Marketing Conversion Predictor</h4>
-          <p class="ef-pw-desc">ML pipeline — F1-score 0.8767. Interactive Streamlit dashboard with real-time predictions.</p>
+          <span class="ef-pw-kicker">{{ item.kicker }}</span>
+          <h4 class="ef-pw-title">{{ item.title }}</h4>
+          <p class="ef-pw-desc">{{ item.description }}</p>
+          {% if item.tags %}
           <div class="ef-pw-tags">
-            <span>Python</span><span>Scikit-learn</span><span>Streamlit</span><span>Plotly</span>
+            {% for tag in item.tag_list %}
+            <span>{{ tag }}</span>
+            {% endfor %}
           </div>
+          {% endif %}
         </div>
       </article>
+      {% empty %}
+      <p class="ef-pw-empty">Portfolio coming soon.</p>
+      {% endfor %}
 
     </div>
+
+    {% if page_obj.paginator.num_pages > 1 %}
+    <nav class="ef-pw-pagination" aria-label="Portfolio pages">
+      {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}" class="ef-pw-pagination__btn">← Previous</a>
+      {% endif %}
+      <span class="ef-pw-pagination__info">{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+      {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}" class="ef-pw-pagination__btn">Next →</a>
+      {% endif %}
+    </nav>
+    {% endif %}
+
   </section>
 
   <!-- CTA — full width -->
