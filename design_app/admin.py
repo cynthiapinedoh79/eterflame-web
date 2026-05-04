@@ -16,8 +16,8 @@ class CaseStudyAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': []}
     fieldsets = (
         ('Link & Identity', {
-            'fields': ('portfolio_item', 'slug', 'eyebrow', 'subtitle',
-                       'live_url', 'github_url', 'is_published')
+            'fields': ('portfolio_item', 'slug', 'title_line1', 'title_line2',
+                       'eyebrow', 'subtitle', 'live_url', 'github_url', 'is_published')
         }),
         ('Metrics', {
             'fields': (

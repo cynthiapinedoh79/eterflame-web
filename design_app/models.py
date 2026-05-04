@@ -37,6 +37,10 @@ class CaseStudy(models.Model):
         null=True, blank=True
     )
     slug = models.SlugField(max_length=200, unique=True, blank=True)
+    title_line1 = models.CharField(max_length=200, blank=True,
+        help_text="First line of hero title e.g. 'Digital Marketing'")
+    title_line2 = models.CharField(max_length=200, blank=True,
+        help_text="Second line in italic cyan e.g. 'Conversion Predictor'")
     eyebrow = models.CharField(max_length=200, default='Case Study',
         help_text="e.g. 'Data · ML · Case Study'")
     subtitle = models.CharField(max_length=300, blank=True)
