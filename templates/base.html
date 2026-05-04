@@ -63,7 +63,7 @@
 <body class="d-flex flex-column">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top ef-navbar-sticky">
         <div class="container-fluid">
             <!-- Brand goes to Works home -->
             <a class="navbar-brand ef-brand" href="{{ home_url }}">
@@ -228,6 +228,15 @@
     {% endblock extras %}
 
     <script src="{% static 'js/chat.js' %}"></script>
+    <script>
+      (function(){
+        var nav = document.querySelector('.ef-navbar-sticky');
+        if(!nav) return;
+        window.addEventListener('scroll', function(){
+          nav.classList.toggle('scrolled', window.scrollY > 40);
+        }, {passive: true});
+      })();
+    </script>
 </body>
 
 </html>

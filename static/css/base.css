@@ -1307,3 +1307,20 @@ p.text-end.m-3 {
   border-color: #c49a40;
   color: #f4d27a;
 }
+
+/* ── STICKY NAVBAR — blur + scroll effect ── */
+.ef-navbar-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(5, 8, 16, 0.92) !important;
+  border-bottom: 1px solid rgba(196,154,64,0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.ef-navbar-sticky.scrolled {
+  background-color: rgba(3, 5, 12, 0.98) !important;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  border-bottom-color: rgba(196,154,64,0.2);
+}
