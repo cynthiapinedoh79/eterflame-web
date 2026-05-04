@@ -200,9 +200,13 @@
     <div class="ef-faq__inner">
       <p class="ef-faq__eyebrow">FAQ</p>
       <h2 class="ef-faq__title">Questions we <em>always</em> get.</h2>
-      <span class="ef-faq__scroll-hint">Scroll to explore</span>
-
-      <div class="ef-faq__list">
+      <details class="ef-faq__toggle">
+        <summary class="ef-faq__toggle-btn">
+          <svg class="ef-faq__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 6l5 5 5-5" stroke="#c49a40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </summary>
+        <div class="ef-faq__list">
 
         <details class="ef-faq__item">
           <summary class="ef-faq__question">How long does a project take?</summary>
@@ -244,7 +248,8 @@
           <p class="ef-faq__answer">We're a small studio that works like a strategic partner, not a vendor. Every project gets senior-level attention, intentional design, and technical execution that actually holds up. We care about the work — not just the deliverable.</p>
         </details>
 
-      </div>
+        </div>
+      </details>
     </div>
   </section>
 

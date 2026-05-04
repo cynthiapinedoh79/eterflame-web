@@ -1504,3 +1504,22 @@ a:hover .res-card__logo--si {
   padding: 0 2rem 1.5rem 0;
   margin: 0;
 }
+
+/* ── FAQ TOGGLE ── */
+.ef-faq__toggle {
+  border: none;
+}
+.ef-faq__toggle-btn {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0 2rem;
+}
+.ef-faq__toggle-btn::-webkit-details-marker { display: none; }
+.ef-faq__chevron {
+  transition: transform 0.35s ease;
+}
+.ef-faq__toggle[open] .ef-faq__chevron {
+  transform: rotate(180deg);
+}
