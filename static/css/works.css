@@ -1392,7 +1392,7 @@ a:hover .res-card__logo--si {
   transform: translateY(-4px);
 }
 .ef-process__step:hover .ef-process__step-title {
-  color: #00BCD4;
+  color: #c49a40;
   transition: color 0.3s ease;
 }
 .ef-process__step:hover .ef-process__step-desc {
