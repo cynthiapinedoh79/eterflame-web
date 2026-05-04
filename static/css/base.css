@@ -1359,3 +1359,20 @@ p.text-end.m-3 {
 .ef-nav-dropdown:hover .dropdown-toggle::after {
   border-top-color: #c49a40 !important;
 }
+
+/* ── AYTHNYK DROPDOWN — crimson/gold palette ── */
+.ef-dropdown-menu--ay {
+  background: rgba(8, 3, 3, 0.97) !important;
+  border-color: rgba(200,16,46,0.2) !important;
+}
+.ef-dropdown-item--ay {
+  color: rgba(245,230,200,0.75) !important;
+}
+.ef-dropdown-item--ay:hover,
+.ef-dropdown-item--ay:focus {
+  color: #c8102e !important;
+  background: rgba(200,16,46,0.08) !important;
+}
+.ef-dropdown-divider--ay {
+  border-color: rgba(200,16,46,0.15) !important;
+}

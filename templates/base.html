@@ -102,12 +102,13 @@
                            data-bs-toggle="dropdown" aria-expanded="false">
                             Aythnyk
                         </a>
-                        <ul class="dropdown-menu ef-dropdown-menu" aria-labelledby="aythnykDropdown">
-                            <li><a class="dropdown-item ef-dropdown-item" href="{% url 'poetry:poem_list' %}">Poems</a></li>
-                            <li><a class="dropdown-item ef-dropdown-item" href="{% url 'songs:song_list' %}">Sonic</a></li>
-                            <li><a class="dropdown-item ef-dropdown-item" href="{% url 'blog:bloghome' %}">Blog</a></li>
-                            <li><hr class="dropdown-divider ef-dropdown-divider"></li>
-                            <li><a class="dropdown-item ef-dropdown-item" href="{% url 'aythnyk:aythnyk_tools' %}">Tools</a></li>
+                        <ul class="dropdown-menu ef-dropdown-menu ef-dropdown-menu--ay" aria-labelledby="aythnykDropdown">
+                            <li><a class="dropdown-item ef-dropdown-item ef-dropdown-item--ay" href="{% url 'poetry:poem_list' %}">Poems</a></li>
+                            <li><a class="dropdown-item ef-dropdown-item ef-dropdown-item--ay" href="{% url 'blog:bloghome' %}">Blog</a></li>
+                            <li><a class="dropdown-item ef-dropdown-item ef-dropdown-item--ay" href="{% url 'songs:song_list' %}">Sonic</a></li>
+                            <li><a class="dropdown-item ef-dropdown-item ef-dropdown-item--ay" href="/shop/">Shop</a></li>
+                            <li><hr class="dropdown-divider ef-dropdown-divider ef-dropdown-divider--ay"></li>
+                            <li><a class="dropdown-item ef-dropdown-item ef-dropdown-item--ay" href="{% url 'aythnyk:aythnyk_tools' %}">Tools</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
