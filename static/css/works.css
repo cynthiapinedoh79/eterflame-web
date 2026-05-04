@@ -1436,8 +1436,25 @@ a:hover .res-card__logo--si {
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 300;
   color: rgba(245,225,190,0.9);
-  margin-bottom: 3rem;
+  margin-bottom: 0.75rem;
   line-height: 1.2;
+}
+.ef-faq__scroll-hint {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(196,154,64,0.5);
+  margin-bottom: 2.5rem;
+  animation: ef-bounce 2s infinite;
+}
+.ef-faq__scroll-hint::after {
+  content: ' ↓';
+}
+@keyframes ef-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(4px); opacity: 1; }
 }
 .ef-faq__title em {
   font-style: italic;
