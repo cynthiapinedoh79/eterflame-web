@@ -1382,3 +1382,24 @@ a:hover .res-card__logo--si {
 @media (max-width: 600px) {
   .ef-process__steps { grid-template-columns: 1fr; }
 }
+
+/* ── PROCESS STEP HOVER ── */
+.ef-process__step {
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+.ef-process__step:hover {
+  transform: translateY(-4px);
+}
+.ef-process__step:hover .ef-process__step-title {
+  color: #00BCD4;
+  transition: color 0.3s ease;
+}
+.ef-process__step:hover .ef-process__step-desc {
+  color: rgba(200,220,245,0.85);
+  transition: color 0.3s ease;
+}
+.ef-process__step:hover .ef-process__number {
+  color: #d4aa50;
+  transition: color 0.3s ease;
+}
