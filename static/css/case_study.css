@@ -1,12 +1,12 @@
 /* ── CASE STUDY PAGE ── */
 :root {
-  --cs-gold: #c49a40;
-  --cs-gold-lt: #e8c06a;
-  --cs-bg: #060409;
-  --cs-bg2: #0a0804;
-  --cs-border: rgba(196,154,64,0.12);
-  --cs-beige: rgba(245,225,190,0.85);
-  --cs-muted: rgba(245,225,190,0.5);
+  --cs-gold: #00BCD4;
+  --cs-gold-lt: #4dd9ec;
+  --cs-bg: #050b16;
+  --cs-bg2: #080e1a;
+  --cs-border: rgba(0,188,212,0.12);
+  --cs-beige: #c8dcf5;
+  --cs-muted: rgba(200,220,245,0.55);
 }
 
 .ef-cs-page {
@@ -79,8 +79,8 @@
   font-size: 0.55rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--cs-gold);
-  border: 1px solid rgba(196,154,64,0.3);
+  color: #00BCD4;
+  border: 1px solid rgba(0,188,212,0.25);
   padding: 3px 10px;
   border-radius: 2px;
 }
@@ -122,7 +122,7 @@
 
 /* METRICS BAR */
 .ef-cs-metrics {
-  background: var(--cs-bg2);
+  background: #060c18;
   border-bottom: 1px solid var(--cs-border);
 }
 .ef-cs-metrics__inner {
@@ -214,9 +214,9 @@
 }
 .ef-cs-list strong { color: var(--cs-beige); }
 .ef-cs-insight {
-  border-left: 2px solid var(--cs-gold);
+  border-left: 2px solid #00BCD4;
   padding: 1rem 1.5rem;
-  background: rgba(196,154,64,0.05);
+  background: rgba(0,188,212,0.05);
   border-radius: 0 3px 3px 0;
   margin-top: 1.5rem;
 }
@@ -238,8 +238,8 @@
   margin: 1.5rem 0;
 }
 .ef-cs-result {
-  background: rgba(196,154,64,0.05);
-  border: 1px solid var(--cs-border);
+  background: rgba(0,188,212,0.05);
+  border: 1px solid rgba(0,188,212,0.12);
   border-radius: 3px;
   padding: 1.25rem;
   display: flex;
@@ -247,7 +247,7 @@
   gap: 0.4rem;
   transition: border-color 0.3s ease;
 }
-.ef-cs-result:hover { border-color: rgba(196,154,64,0.4); }
+.ef-cs-result:hover { border-color: rgba(0,188,212,0.5); }
 .ef-cs-result__metric {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.2rem;
@@ -262,7 +262,7 @@
 /* CTA */
 .ef-cs-cta {
   padding: 6rem 2rem;
-  background: var(--cs-bg2);
+  background: #060c18;
   border-top: 1px solid var(--cs-border);
   text-align: center;
 }
