@@ -80,13 +80,35 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/' or '/works' in request.path %}active{% endif %}"
-                           href="{% url 'works:works_home' %}">Works</a>
+                    <li class="nav-item dropdown ef-nav-dropdown">
+                        <a class="nav-link dropdown-toggle {% if request.path == '/' or '/works' in request.path %}active{% endif %}"
+                           href="{% url 'works:works_home' %}"
+                           id="worksDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Works
+                        </a>
+                        <ul class="dropdown-menu ef-dropdown-menu" aria-labelledby="worksDropdown">
+                            <li><a class="dropdown-item ef-dropdown-item" href="{% url 'works:design' %}">EF Design</a></li>
+                            <li><a class="dropdown-item ef-dropdown-item" href="{% url 'works:media' %}">EF Media</a></li>
+                            <li><a class="dropdown-item ef-dropdown-item" href="{% url 'works:studio' %}">EF Studio</a></li>
+                            <li><hr class="dropdown-divider ef-dropdown-divider"></li>
+                            <li><a class="dropdown-item ef-dropdown-item" href="{% url 'works:resources' %}">Resources</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if '/aythnyk' in request.path or '/blog' in request.path or '/songs' in request.path or '/poems' in request.path %}active{% endif %}"
-                           href="{% url 'aythnyk:aythnyk_home' %}">Aythnyk</a>
+                    <li class="nav-item dropdown ef-nav-dropdown">
+                        <a class="nav-link dropdown-toggle {% if '/aythnyk' in request.path or '/blog' in request.path or '/songs' in request.path or '/poems' in request.path %}active{% endif %}"
+                           href="{% url 'aythnyk:aythnyk_home' %}"
+                           id="aythnykDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Aythnyk
+                        </a>
+                        <ul class="dropdown-menu ef-dropdown-menu" aria-labelledby="aythnykDropdown">
+                            <li><a class="dropdown-item ef-dropdown-item" href="{% url 'poetry:poem_list' %}">Poems</a></li>
+                            <li><a class="dropdown-item ef-dropdown-item" href="{% url 'songs:song_list' %}">Sonic</a></li>
+                            <li><a class="dropdown-item ef-dropdown-item" href="{% url 'blog:bloghome' %}">Blog</a></li>
+                            <li><hr class="dropdown-divider ef-dropdown-divider"></li>
+                            <li><a class="dropdown-item ef-dropdown-item" href="{% url 'aythnyk:aythnyk_tools' %}">Tools</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if '/about' in request.path %}active{% endif %}"
