@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/design.css' %}">
+<link rel="stylesheet" href="{% static 'css/case_study.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="ef-cs-page">
+
+  <!-- BACK -->
+  <div class="ef-cs-back">
+    <a href="{% url 'design:design_home' %}" class="ef-cs-back__link">← EF Design</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="ef-cs-hero">
+    <div class="ef-cs-hero__inner">
+      <p class="ef-cs-eyebrow">Data · ML · Case Study</p>
+      <h1 class="ef-cs-title">Digital Marketing<br><em>Conversion Predictor</em></h1>
+      <p class="ef-cs-subtitle">ML pipeline to predict which leads convert — deployed as an interactive Streamlit dashboard.</p>
+      <div class="ef-cs-tags">
+        <span>Python</span>
+        <span>Scikit-learn</span>
+        <span>Streamlit</span>
+        <span>Plotly</span>
+        <span>Pandas</span>
+        <span>SMOTE</span>
+        <span>Heroku</span>
+      </div>
+      <div class="ef-cs-hero__links">
+        <a href="https://digital-marketing-conversion-p-baa19eafc972.herokuapp.com/" target="_blank" class="ef-cs-btn ef-cs-btn--primary">View Live App →</a>
+        <a href="https://github.com/cynthiapinedoh79/digital-marketing-conversion-predictor" target="_blank" class="ef-cs-btn ef-cs-btn--ghost">GitHub Repo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS BAR -->
+  <section class="ef-cs-metrics">
+    <div class="ef-cs-metrics__inner">
+      <div class="ef-cs-metric">
+        <span class="ef-cs-metric__value">0.8767</span>
+        <span class="ef-cs-metric__label">F1-Score</span>
+      </div>
+      <div class="ef-cs-metric">
+        <span class="ef-cs-metric__value">0.8395</span>
+        <span class="ef-cs-metric__label">Recall (Converted)</span>
+      </div>
+      <div class="ef-cs-metric">
+        <span class="ef-cs-metric__value">0.7339</span>
+        <span class="ef-cs-metric__label">ROC-AUC</span>
+      </div>
+      <div class="ef-cs-metric">
+        <span class="ef-cs-metric__value">8,000</span>
+        <span class="ef-cs-metric__label">Leads Analysed</span>
+      </div>
+      <div class="ef-cs-metric">
+        <span class="ef-cs-metric__value">15</span>
+        <span class="ef-cs-metric__label">Features</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT GRID -->
+  <section class="ef-cs-content">
+    <div class="ef-cs-content__inner">
+
+      <!-- 01 CHALLENGE -->
+      <div class="ef-cs-block">
+        <div class="ef-cs-block__number">01</div>
+        <div class="ef-cs-block__body">
+          <h2 class="ef-cs-block__title">Challenge</h2>
+          <p class="ef-cs-block__text">
+            ConvertIQ, a digital marketing agency, needed a data-driven solution to identify
+            which leads were most likely to convert. Their sales team was spending equal effort
+            on all leads — wasting resources on low-probability prospects while missing
+            high-intent customers.
+          </p>
+          <p class="ef-cs-block__text">
+            The core business problem: <strong>predict conversion likelihood in real time</strong>
+            so the sales team could prioritise outreach, optimise campaign spend, and
+            increase ROI without increasing headcount.
+          </p>
+        </div>
+      </div>
+
+      <!-- 02 APPROACH -->
+      <div class="ef-cs-block">
+        <div class="ef-cs-block__number">02</div>
+        <div class="ef-cs-block__body">
+          <h2 class="ef-cs-block__title">Approach</h2>
+          <p class="ef-cs-block__text">
+            We built an end-to-end ML pipeline across three business requirements:
+            customer behaviour analysis, conversion prediction, and campaign ROI intelligence.
+          </p>
+          <ul class="ef-cs-list">
+            <li>Exploratory analysis on 8,000 leads — 16 features after cleaning</li>
+            <li>Statistical hypothesis validation using Pearson, Spearman, and Chi-square tests</li>
+            <li>Feature engineering with OrdinalEncoder and SMOTE to handle class imbalance</li>
+            <li>Random Forest Classifier tuned via RandomizedSearchCV across 7 hyperparameters</li>
+            <li>Pipeline serialised with joblib and deployed to Heroku via Streamlit</li>
+          </ul>
+          <div class="ef-cs-insight">
+            <p class="ef-cs-insight__text">
+              Key finding: engagement metrics (TimeOnSite, PagesPerVisit) are stronger
+              predictors than campaign channel or ad spend. Converted leads spend
+              <strong>47% more time on site</strong> on average.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 DELIVERABLES -->
+      <div class="ef-cs-block">
+        <div class="ef-cs-block__number">03</div>
+        <div class="ef-cs-block__body">
+          <h2 class="ef-cs-block__title">Deliverables</h2>
+          <ul class="ef-cs-list">
+            <li><strong>Interactive Streamlit dashboard</strong> — 6 pages covering project summary, behaviour analysis, real-time predictor, model performance, ROI analysis, and hypothesis validation</li>
+            <li><strong>Conversion Predictor</strong> — input 15 lead features, get instant binary prediction + probability score</li>
+            <li><strong>ML Pipeline</strong> — Random Forest model with full preprocessing, serialised with joblib</li>
+            <li><strong>Statistical Analysis</strong> — 3 validated hypotheses with visualisations and business recommendations</li>
+            <li><strong>ROI Dashboard</strong> — campaign spend vs revenue, average ROI per category, monthly trends</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 04 RESULTS -->
+      <div class="ef-cs-block">
+        <div class="ef-cs-block__number">04</div>
+        <div class="ef-cs-block__body">
+          <h2 class="ef-cs-block__title">Results</h2>
+          <p class="ef-cs-block__text">
+            The model exceeded both defined success criteria:
+          </p>
+          <div class="ef-cs-results-grid">
+            <div class="ef-cs-result">
+              <span class="ef-cs-result__metric">F1-score 0.8767</span>
+              <span class="ef-cs-result__desc">Exceeded target of ≥ 0.80</span>
+            </div>
+            <div class="ef-cs-result">
+              <span class="ef-cs-result__metric">Recall 0.8395</span>
+              <span class="ef-cs-result__desc">Exceeded minimum of ≥ 0.75</span>
+            </div>
+            <div class="ef-cs-result">
+              <span class="ef-cs-result__metric">ROC-AUC 0.7339</span>
+              <span class="ef-cs-result__desc">Strong class discrimination</span>
+            </div>
+          </div>
+          <p class="ef-cs-block__text">
+            The pipeline enables the sales team to rank leads by conversion probability,
+            focus outreach on high-intent prospects, and reduce acquisition costs —
+            transforming raw engagement data into actionable business intelligence.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="ef-cs-cta">
+    <div class="ef-cs-cta__inner">
+      <p class="ef-cs-cta__eyebrow">Ready to build something like this?</p>
+      <h2 class="ef-cs-cta__title">Let's turn your data into <em>direction.</em></h2>
+      <a href="{% url 'works:contact' %}" class="ef-cs-btn ef-cs-btn--primary">Start a Project →</a>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

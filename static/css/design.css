@@ -2432,3 +2432,16 @@
 .ef-pw-pagination span {
   color: rgba(200,220,245,0.4);
 }
+
+.ef-pw-case-link {
+  display: inline-block;
+  margin-top: 0.85rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #00BCD4;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.ef-pw-case-link:hover { color: #4dd9ec; }

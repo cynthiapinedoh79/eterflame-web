@@ -97,6 +97,9 @@
             {% endfor %}
           </div>
           {% endif %}
+          {% if item.order == 5 %}
+          <a href="{% url 'design:case_study_conversion' %}" class="ef-pw-case-link">View Case Study →</a>
+          {% endif %}
         </div>
       </article>
       {% empty %}

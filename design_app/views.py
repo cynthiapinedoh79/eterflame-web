@@ -46,3 +46,10 @@ def design_home(request):
         'section': 'design',
         'page_obj': page_obj,
     })
+
+
+def case_study_conversion(request):
+    return render(request, 'design/case_study_conversion.html', {
+        'page_title': 'Case Study — Digital Marketing Conversion Predictor',
+        'section': 'design',
+    })
