@@ -1,12 +1,15 @@
 from django.db import models
-from cloudinary.models import CloudinaryField
 
 
 class PortfolioItem(models.Model):
     title        = models.CharField(max_length=200)
     kicker       = models.CharField(max_length=100, help_text="e.g. 'Featured Project', 'Web', 'Data · ML'")
     description  = models.TextField()
-    image        = CloudinaryField('image', blank=True)
+    image_url    = models.URLField(
+                     blank=True,
+                     default='',
+                     help_text="Paste the full Cloudinary URL or any image URL"
+                   )
     tags         = models.CharField(max_length=300, blank=True,
                      help_text="Comma-separated e.g. Python,Scikit-learn")
     is_screenshot = models.BooleanField(default=False,

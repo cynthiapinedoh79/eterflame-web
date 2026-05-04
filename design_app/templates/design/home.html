@@ -80,8 +80,8 @@
       {% for item in page_obj %}
       <article class="ef-pw-card{% if item.is_screenshot %} ef-pw-card--screenshot{% endif %}">
         <div class="ef-pw-image">
-          {% if item.image %}
-          <img src="{{ item.image.url }}" alt="{{ item.title }}">
+          {% if item.image_url %}
+          <img src="{{ item.image_url }}" alt="{{ item.title }}">
           {% else %}
           <img src="{% static 'images/works/design/portfolio-placeholder.png' %}" alt="{{ item.title }}">
           {% endif %}
