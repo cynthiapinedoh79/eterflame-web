@@ -1,7 +1,5 @@
 from django.urls import path
 from . import views
-from media_app import views as media_views
-from studio_app import views as studio_views
 
 app_name = 'works'
 
@@ -10,6 +8,4 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('contact/subscribe/', views.subscribe_lead, name='subscribe_lead'),
     path('works/resources/', views.resources, name='resources'),
-    path('works/media/', media_views.media_home, name='media'),
-    path('works/studio/', studio_views.studio_home, name='studio'),
 ]
