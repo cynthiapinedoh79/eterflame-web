@@ -1412,3 +1412,78 @@ a:hover .res-card__logo--si {
   color: #e8c56a;
   transition: color 0.3s ease;
 }
+
+/* ── FAQ ── */
+.ef-faq {
+  padding: 6rem 2rem;
+  background: #06030a;
+  border-top: 1px solid rgba(196,154,64,0.1);
+}
+.ef-faq__inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.ef-faq__eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(196,154,64,0.6);
+  margin-bottom: 1rem;
+}
+.ef-faq__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 300;
+  color: rgba(245,225,190,0.9);
+  margin-bottom: 3rem;
+  line-height: 1.2;
+}
+.ef-faq__title em {
+  font-style: italic;
+  color: #c49a40;
+}
+.ef-faq__item {
+  border-bottom: 1px solid rgba(196,154,64,0.12);
+  padding: 0;
+}
+.ef-faq__item:first-of-type {
+  border-top: 1px solid rgba(196,154,64,0.12);
+}
+.ef-faq__question {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(245,225,190,0.85);
+  padding: 1.25rem 2rem 1.25rem 0;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.2s ease;
+  position: relative;
+}
+.ef-faq__question::-webkit-details-marker { display: none; }
+.ef-faq__question::after {
+  content: '+';
+  font-family: 'DM Mono', monospace;
+  font-size: 1.1rem;
+  color: #c49a40;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+.ef-faq__item[open] .ef-faq__question::after {
+  transform: rotate(45deg);
+}
+.ef-faq__item[open] .ef-faq__question {
+  color: #c49a40;
+}
+.ef-faq__answer {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(245,225,190,0.6);
+  line-height: 1.75;
+  padding: 0 2rem 1.5rem 0;
+  margin: 0;
+}
