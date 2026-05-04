@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
 from django.core.paginator import Paginator
 
-from .models import PortfolioItem
+from .models import PortfolioItem, CaseStudy
 
 
 def design_home(request):
@@ -51,5 +51,14 @@ def design_home(request):
 def case_study_conversion(request):
     return render(request, 'design/case_study_conversion.html', {
         'page_title': 'Case Study — Digital Marketing Conversion Predictor',
+        'section': 'design',
+    })
+
+
+def case_study_detail(request, slug):
+    case_study = get_object_or_404(CaseStudy, slug=slug, is_published=True)
+    return render(request, 'design/case_study_detail.html', {
+        'cs': case_study,
+        'page_title': f'Case Study — {case_study.portfolio_item.title}',
         'section': 'design',
     })

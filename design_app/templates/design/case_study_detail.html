@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/design.css' %}">
+<link rel="stylesheet" href="{% static 'css/case_study.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="ef-cs-page">
+
+  <!-- BACK -->
+  <div class="ef-cs-back">
+    <a href="{% url 'design:design_home' %}" class="ef-cs-back__link">← EF Design</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="ef-cs-hero">
+    <div class="ef-cs-hero__inner">
+      <p class="ef-cs-eyebrow">{{ cs.eyebrow }}</p>
+      <h1 class="ef-cs-title">{{ cs.portfolio_item.title }}</h1>
+      {% if cs.subtitle %}<p class="ef-cs-subtitle">{{ cs.subtitle }}</p>{% endif %}
+      {% with tags=cs.portfolio_item.tag_list %}
+      {% if tags %}
+      <div class="ef-cs-tags">
+        {% for tag in tags %}<span>{{ tag }}</span>{% endfor %}
+      </div>
+      {% endif %}
+      {% endwith %}
+      <div class="ef-cs-hero__links">
+        {% if cs.live_url %}
+        <a href="{{ cs.live_url }}" target="_blank" class="ef-cs-btn ef-cs-btn--primary">View Live App →</a>
+        {% endif %}
+        {% if cs.github_url %}
+        <a href="{{ cs.github_url }}" target="_blank" class="ef-cs-btn ef-cs-btn--ghost">GitHub Repo →</a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS BAR -->
+  {% with metrics=cs.get_metrics %}
+  {% if metrics %}
+  <section class="ef-cs-metrics">
+    <div class="ef-cs-metrics__inner">
+      {% for m in metrics %}
+      <div class="ef-cs-metric">
+        <span class="ef-cs-metric__value">{{ m.value }}</span>
+        <span class="ef-cs-metric__label">{{ m.label }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+  {% endwith %}
+
+  <!-- CONTENT GRID -->
+  <section class="ef-cs-content">
+    <div class="ef-cs-content__inner">
+
+      <!-- 01 CHALLENGE -->
+      {% if cs.challenge %}
+      <div class="ef-cs-block">
+        <div class="ef-cs-block__number">01</div>
+        <div class="ef-cs-block__body">
+          <h2 class="ef-cs-block__title">Challenge</h2>
+          <p class="ef-cs-block__text">{{ cs.challenge }}</p>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- 02 APPROACH -->
+      {% if cs.approach or cs.get_approach_bullets or cs.approach_insight %}
+      <div class="ef-cs-block">
+        <div class="ef-cs-block__number">02</div>
+        <div class="ef-cs-block__body">
+          <h2 class="ef-cs-block__title">Approach</h2>
+          {% if cs.approach %}
+          <p class="ef-cs-block__text">{{ cs.approach }}</p>
+          {% endif %}
+          {% with bullets=cs.get_approach_bullets %}
+          {% if bullets %}
+          <ul class="ef-cs-list">
+            {% for bullet in bullets %}<li>{{ bullet }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+          {% endwith %}
+          {% if cs.approach_insight %}
+          <div class="ef-cs-insight">
+            <p class="ef-cs-insight__text">{{ cs.approach_insight }}</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- 03 DELIVERABLES -->
+      {% with deliverables=cs.get_deliverables %}
+      {% if deliverables %}
+      <div class="ef-cs-block">
+        <div class="ef-cs-block__number">03</div>
+        <div class="ef-cs-block__body">
+          <h2 class="ef-cs-block__title">Deliverables</h2>
+          <ul class="ef-cs-list">
+            {% for item in deliverables %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+      {% endwith %}
+
+      <!-- 04 RESULTS -->
+      {% if cs.results_intro or cs.results_outro %}
+      <div class="ef-cs-block">
+        <div class="ef-cs-block__number">04</div>
+        <div class="ef-cs-block__body">
+          <h2 class="ef-cs-block__title">Results</h2>
+          {% if cs.results_intro %}
+          <p class="ef-cs-block__text">{{ cs.results_intro }}</p>
+          {% endif %}
+          {% if cs.results_outro %}
+          <p class="ef-cs-block__text">{{ cs.results_outro }}</p>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="ef-cs-cta">
+    <div class="ef-cs-cta__inner">
+      <p class="ef-cs-cta__eyebrow">Ready to build something like this?</p>
+      <h2 class="ef-cs-cta__title">{{ cs.cta_title }}</h2>
+      <a href="{% url 'works:contact' %}" class="ef-cs-btn ef-cs-btn--primary">Start a Project →</a>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

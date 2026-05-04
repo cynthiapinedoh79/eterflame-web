@@ -97,8 +97,8 @@
             {% endfor %}
           </div>
           {% endif %}
-          {% if item.order == 5 %}
-          <a href="{% url 'design:case_study_conversion' %}" class="ef-pw-case-link">View Case Study →</a>
+          {% if item.case_study and item.case_study.is_published %}
+          <a href="{% url 'design:case_study_detail' item.case_study.slug %}" class="ef-pw-case-link">View Case Study →</a>
           {% endif %}
         </div>
       </article>
