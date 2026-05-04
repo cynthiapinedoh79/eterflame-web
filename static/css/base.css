@@ -1389,3 +1389,16 @@ p.text-end.m-3 {
 .ef-dropdown-caret:hover {
   color: #c49a40 !important;
 }
+
+/* ── NAV DROPDOWN CARET — separate from link ── */
+.ef-dropdown-caret {
+  color: rgba(196,154,64,0.6) !important;
+  font-size: 0.8rem !important;
+  padding: 0 0.25rem !important;
+  text-decoration: none !important;
+  vertical-align: middle !important;
+  transition: color 0.2s ease !important;
+}
+.ef-dropdown-caret:hover {
+  color: #c49a40 !important;
+}
