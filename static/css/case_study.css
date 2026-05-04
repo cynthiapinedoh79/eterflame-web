@@ -103,21 +103,27 @@
   display: inline-block;
 }
 .ef-cs-btn--primary {
-  background: var(--cs-gold);
-  color: var(--cs-bg);
-  font-weight: 700;
+  background: rgba(0,188,212,0.1);
+  color: #00BCD4;
+  border: 1px solid rgba(0,188,212,0.4);
+  font-weight: 600;
 }
 .ef-cs-btn--primary:hover {
-  background: var(--cs-gold-lt);
+  background: #00BCD4;
+  color: #050b16;
+  border-color: #00BCD4;
   transform: translateY(-2px);
 }
 .ef-cs-btn--ghost {
-  border: 1px solid rgba(196,154,64,0.4);
-  color: var(--cs-gold);
+  border: 1px solid rgba(0,188,212,0.25);
+  color: rgba(0,188,212,0.7);
+  background: transparent;
 }
 .ef-cs-btn--ghost:hover {
-  border-color: var(--cs-gold);
-  background: rgba(196,154,64,0.08);
+  border-color: #00BCD4;
+  color: #00BCD4;
+  background: rgba(0,188,212,0.08);
+  transform: translateY(-2px);
 }
 
 /* METRICS BAR */
