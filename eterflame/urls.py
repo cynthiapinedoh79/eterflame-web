@@ -44,6 +44,7 @@ urlpatterns += i18n_patterns(
 
     path("about/", include("about.urls")),
     path("", include(("works.urls", "works"), namespace="works")),
+    path("works/design/", include(("design_app.urls", "design"), namespace="design")),
     path("aythnyk/", include(("aythnyk.urls", "aythnyk"), namespace="aythnyk")),
     path("aythnyk/", include(("poetry.urls", "poetry"), namespace="poetry")),
     path("aythnyk/songs/", include(("songs.urls", "songs"), namespace="songs")),
