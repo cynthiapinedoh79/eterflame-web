@@ -2313,6 +2313,7 @@
 .ef-pw-card:hover {
   border-color: rgba(0,188,212,0.6);
   box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,188,212,0.15), 0 0 30px rgba(0,188,212,0.1);
+  transform: translateY(-4px);
 }
 .ef-pw-image {
   width: 100%;
@@ -2335,7 +2336,7 @@
   background: #f8f9fa;
 }
 .ef-pw-card:hover .ef-pw-image img {
-  transform: scale(1.04);
+  transform: scale(1.08);
 }
 .ef-pw-body {
   padding: 1.25rem 1.5rem 1.5rem;
