@@ -2304,6 +2304,7 @@
 }
 .ef-pw-card {
   background: #080e1a;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
   border: 1px solid rgba(0,188,212,0.1);
   border-radius: 4px;
   overflow: hidden;
@@ -2311,6 +2312,7 @@
   cursor: pointer;
 }
 .ef-pw-card:hover {
+  transform: translateY(-4px);
   border-color: rgba(0,188,212,0.6);
   box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,188,212,0.15), 0 0 30px rgba(0,188,212,0.1);
   transform: translateY(-4px);
@@ -2336,7 +2338,7 @@
   background: #f8f9fa;
 }
 .ef-pw-card:hover .ef-pw-image img {
-  transform: scale(1.08);
+  transform: scale(1.12);
 }
 .ef-pw-body {
   padding: 1.25rem 1.5rem 1.5rem;
