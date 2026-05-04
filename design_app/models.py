@@ -66,6 +66,10 @@ class CaseStudy(models.Model):
         help_text="One bullet per line")
     results_intro = models.TextField(blank=True)
     results_outro = models.TextField(blank=True)
+    result_1_desc = models.CharField(max_length=200, blank=True,
+        help_text="e.g. 'Exceeded target of ≥ 0.80'")
+    result_2_desc = models.CharField(max_length=200, blank=True)
+    result_3_desc = models.CharField(max_length=200, blank=True)
 
     # CTA
     cta_title = models.CharField(max_length=200,
@@ -95,6 +99,16 @@ class CaseStudy(models.Model):
             if val and label:
                 metrics.append({'value': val, 'label': label})
         return metrics
+
+    def get_result_cards(self):
+        cards = []
+        for i in range(1, 4):
+            val = getattr(self, f'metric_{i}_value')
+            label = getattr(self, f'metric_{i}_label')
+            desc = getattr(self, f'result_{i}_desc')
+            if val and label:
+                cards.append({'value': val, 'label': label, 'desc': desc})
+        return cards
 
     def get_approach_bullets(self):
         return [b.strip() for b in self.approach_bullets.split('\n') if b.strip()]

@@ -118,6 +118,20 @@
           {% if cs.results_intro %}
           <p class="ef-cs-block__text">{{ cs.results_intro }}</p>
           {% endif %}
+
+          {% with cards=cs.get_result_cards %}
+          {% if cards %}
+          <div class="ef-cs-results-grid">
+            {% for card in cards %}
+            <div class="ef-cs-result">
+              <span class="ef-cs-result__metric">{{ card.label }} {{ card.value }}</span>
+              <span class="ef-cs-result__desc">{{ card.desc }}</span>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% endwith %}
+
           {% if cs.results_outro %}
           <p class="ef-cs-block__text">{{ cs.results_outro }}</p>
           {% endif %}

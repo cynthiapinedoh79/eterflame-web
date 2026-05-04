@@ -31,6 +31,7 @@ class CaseStudyAdmin(admin.ModelAdmin):
         ('Content', {
             'fields': ('challenge', 'approach', 'approach_bullets',
                        'approach_insight', 'deliverables',
-                       'results_intro', 'results_outro', 'cta_title')
+                       'results_intro', 'result_1_desc', 'result_2_desc',
+                       'result_3_desc', 'results_outro', 'cta_title')
         }),
     )
