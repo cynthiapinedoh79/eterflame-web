@@ -117,6 +117,7 @@
                         <a class="nav-link nav-contact {% if '/contact' in request.path %}active{% endif %}"
                            href="{% url 'works:contact' %}">Start a Project</a>
                     </li>
+                    {% if '/aythnyk' in request.path or '/blog' in request.path or '/songs' in request.path or '/poems' in request.path or '/shop' in request.path or user.is_authenticated %}
                     <li class="nav-item dropdown nav-user-dropdown">
                         <a class="nav-link dropdown-toggle nav-user-icon" href="#"
                            id="navUserDropdown" role="button"
@@ -133,6 +134,7 @@
                             {% endif %}
                         </ul>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
