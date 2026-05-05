@@ -13,7 +13,7 @@
   var CONFIG = {
     works: {
       accent:      '#c49a40',
-      title:       'Etherflame Works',
+      title:       'Eterflame Works',
       subtitle:    'How can we help you?',
       placeholder: 'Tell us more...',
       send:        'Send',
@@ -23,7 +23,7 @@
         { label: 'Explore Studio services',  msg: 'I want to learn about EF Studio creative direction.' },
         { label: 'Get a project estimate',   msg: 'I have a project and need a cost estimate.' },
       ],
-      farewell: 'Ready to start? <a href="/works/" style="color:#c49a40">Visit Etherflame Works →</a>',
+      farewell: 'Ready to start? <a href="/works/" style="color:#c49a40">Visit Eterflame Works →</a>',
     },
     aythnyk: {
       accent:      '#e0163a',
