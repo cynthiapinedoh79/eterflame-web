@@ -1429,3 +1429,13 @@ select:-webkit-autofill:focus {
   caret-color: rgba(245,225,190,0.9) !important;
   transition: background-color 5000s ease-in-out 0s !important;
 }
+
+/* ── Fix Bootstrap alert-light in dark theme ── */
+.alert-light {
+  background-color: rgba(255,255,255,0.04) !important;
+  border-color: rgba(255,255,255,0.08) !important;
+  color: rgba(200,220,245,0.6) !important;
+}
+.text-secondary {
+  color: rgba(200,220,245,0.5) !important;
+}
