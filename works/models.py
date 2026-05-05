@@ -14,7 +14,7 @@ class AffiliateLink(models.Model):
         ('org',       'Organization'),
     ]
     CHANNEL_CHOICES = [
-        ('b2b',     'Etherflame Works only'),
+        ('b2b',     'Eterflame Works only'),
         ('aythnyk', 'Aythnyk only'),
         ('both',    'Both sections'),
     ]
