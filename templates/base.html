@@ -140,21 +140,19 @@
         </div>
     </nav>
 
-    <!-- displaying Django messages -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible fade show mt-3" 
-                     id="msg" role="alert">
-
-                    {{ message | safe }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                {% endfor %}
-            </div>
+    <!-- Toast notifications (Django messages) -->
+    {% if messages %}
+    <div class="ef-toast-stack" role="status" aria-live="polite">
+        {% for message in messages %}
+        <div class="ef-toast ef-toast--{{ message.tags|default:'success' }}" data-toast>
+            <span class="ef-toast__icon" aria-hidden="true">{% if message.tags == 'error' %}✕{% else %}✓{% endif %}</span>
+            <span class="ef-toast__msg">{{ message|safe }}</span>
+            <button type="button" class="ef-toast__close" aria-label="Close">&times;</button>
+            <div class="ef-toast__progress" aria-hidden="true"></div>
         </div>
+        {% endfor %}
     </div>
+    {% endif %}
 
 
     <main class="flex-grow-1 main-bg mb-3">
@@ -360,6 +358,8 @@
 
   })();
   </script>
+    <!-- EF Toast system -->
+    <script src="{% static 'js/toast.js' %}?v={% now 'U' %}"></script>
 </body>
 
 </html>

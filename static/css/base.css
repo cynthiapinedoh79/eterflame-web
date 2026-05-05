@@ -1527,3 +1527,119 @@ body.aythnyk-section .footer svg {
   color: rgba(255, 250, 240, 0.92);
   fill: rgba(255, 250, 240, 0.92);
 }
+
+/* ── EF TOAST SYSTEM — confirmación post-action ─────────────────
+   Usado por Django messages (success, error, info, warning).
+   Auto-dismiss 6s, click X para cerrar manual, max 5 stacked.
+   Responsive: full-width en móvil.
+─────────────────────────────────────────────────────────────────── */
+.ef-toast-stack {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+  max-width: 440px;
+}
+.ef-toast {
+  pointer-events: auto;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--gold);
+  border-radius: 6px;
+  padding: 16px 44px 16px 20px;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  animation: ef-toast-in 0.35s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateX(40px);
+  overflow: hidden;
+}
+.ef-toast.is-leaving {
+  animation: ef-toast-out 0.25s ease forwards;
+}
+.ef-toast--success { border-left-color: var(--gold); }
+.ef-toast--error   { border-left-color: var(--ay-primary); }
+.ef-toast--warning { border-left-color: var(--gold-bright); }
+.ef-toast--info    { border-left-color: var(--design-primary); }
+
+.ef-toast__icon {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 16px;
+  vertical-align: top;
+  font-weight: bold;
+}
+.ef-toast--success .ef-toast__icon { color: var(--gold-bright); }
+.ef-toast--error   .ef-toast__icon { color: var(--ay-light); }
+.ef-toast--warning .ef-toast__icon { color: var(--gold-bright); }
+.ef-toast--info    .ef-toast__icon { color: var(--design-light); }
+
+.ef-toast__msg {
+  display: inline-block;
+  max-width: calc(100% - 30px);
+}
+.ef-toast__close {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  transition: color 0.15s;
+  font-family: inherit;
+}
+.ef-toast__close:hover { color: var(--gold-bright); }
+.ef-toast__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--gold);
+  width: 100%;
+  animation: ef-toast-progress 6s linear forwards;
+  transform-origin: left center;
+}
+.ef-toast--error   .ef-toast__progress { background: var(--ay-primary); }
+.ef-toast--warning .ef-toast__progress { background: var(--gold-bright); }
+.ef-toast--info    .ef-toast__progress { background: var(--design-primary); }
+
+@keyframes ef-toast-in {
+  0%   { opacity: 0; transform: translateX(40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes ef-toast-out {
+  0%   { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(40px); }
+}
+@keyframes ef-toast-progress {
+  0%   { transform: scaleX(1); }
+  100% { transform: scaleX(0); }
+}
+
+/* Mobile: toast queda arriba full-width en lugar de esquina */
+@media (max-width: 600px) {
+  .ef-toast-stack {
+    top: 12px;
+    right: 12px;
+    left: 12px;
+    max-width: none;
+  }
+}

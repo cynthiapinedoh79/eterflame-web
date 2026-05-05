@@ -43,12 +43,6 @@ function updateServices(division) {
     <div class="wc-body__inner">
 
       <div>
-        {% if messages %}
-        {% for msg in messages %}
-        <div class="wc-alert wc-alert--{{ msg.tags }}">{{ msg }}</div>
-        {% endfor %}
-        {% endif %}
-
         <form method="POST" action="{% url 'works:contact' %}" class="wc-form">
           {% csrf_token %}
 
