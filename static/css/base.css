@@ -7,10 +7,31 @@
    1. ROOT VARIABLES
 =================================================== */
 :root {
-  /* Brand core */
-  --ew-primary: #d4a843;
-  --ew-light: #ebc874;
-  --ew-dark: #8f6a1f;
+  /* ────────────────────────────────────────────────
+     GOLD SYSTEM — Eterflame brand (single source of truth)
+     ────────────────────────────────────────────────
+     --gold        #c49a40  → DEFAULT for everything dorado
+                              (text, headings, eyebrows, borders,
+                               icons at rest, button surfaces)
+
+     --gold-bright #d4a843  → ACCENT for hover/active/focus only
+                              (link hovers, button hovers, focus ring,
+                               text highlights "destello", glow effects)
+
+     --gold-deep   #8f6a1f  → DEEPER shade for shadows, dim states,
+                              text on light gold backgrounds
+
+     Rule of thumb: if you're hardcoding #c49a40 or #d4a843
+     anywhere in CSS, replace with var(--gold) or var(--gold-bright).
+     ──────────────────────────────────────────────── */
+  --gold: #c49a40;
+  --gold-bright: #d4a843;
+  --gold-deep: #8f6a1f;
+
+  /* Brand core (legacy aliases — kept for backwards compat) */
+  --ew-primary: var(--gold);
+  --ew-light: var(--gold-bright);
+  --ew-dark: var(--gold-deep);
 
   /* Global dark system */
   --bg-base: #070708;
