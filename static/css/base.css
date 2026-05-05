@@ -1439,3 +1439,11 @@ select:-webkit-autofill:focus {
 .text-secondary {
   color: rgba(200,220,245,0.5) !important;
 }
+
+/* ── Checkbox dark theme ── */
+input[type="checkbox"] {
+  accent-color: #c49a40 !important;
+  width: 16px !important;
+  height: 16px !important;
+  cursor: pointer !important;
+}
