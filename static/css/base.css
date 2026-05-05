@@ -1440,10 +1440,36 @@ select:-webkit-autofill:focus {
   color: rgba(200,220,245,0.5) !important;
 }
 
-/* ── Checkbox dark theme ── */
+/* ── Checkbox custom dark theme ── */
 input[type="checkbox"] {
-  accent-color: #c49a40 !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
   width: 16px !important;
   height: 16px !important;
+  min-width: 16px !important;
+  background: transparent !important;
+  border: 1px solid rgba(196,154,64,0.5) !important;
+  border-radius: 3px !important;
   cursor: pointer !important;
+  position: relative !important;
+  vertical-align: middle !important;
+  transition: border-color 0.2s ease, background 0.2s ease !important;
+}
+input[type="checkbox"]:checked {
+  background: #c49a40 !important;
+  border-color: #c49a40 !important;
+}
+input[type="checkbox"]:checked::after {
+  content: '✓' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: #0a0804 !important;
+  font-size: 11px !important;
+  font-weight: bold !important;
+  line-height: 1 !important;
+}
+input[type="checkbox"]:hover {
+  border-color: #c49a40 !important;
 }
