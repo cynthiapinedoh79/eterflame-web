@@ -87,7 +87,7 @@
           {% with bullets=cs.get_approach_bullets %}
           {% if bullets %}
           <ul class="ef-cs-list">
-            {% for bullet in bullets %}<li>{{ bullet }}</li>{% endfor %}
+            {% for bullet in bullets %}<li>{{ bullet|safe }}</li>{% endfor %}
           </ul>
           {% endif %}
           {% endwith %}
@@ -108,7 +108,7 @@
         <div class="ef-cs-block__body">
           <h2 class="ef-cs-block__title">Deliverables</h2>
           <ul class="ef-cs-list">
-            {% for item in deliverables %}<li>{{ item }}</li>{% endfor %}
+            {% for item in deliverables %}<li>{{ item|safe }}</li>{% endfor %}
           </ul>
         </div>
       </div>
