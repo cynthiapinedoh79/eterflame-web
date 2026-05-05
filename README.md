@@ -311,6 +311,13 @@ All pages are designed with **Mobile-First Responsive Design** across all screen
 | As an admin, I can generate PDFs via staff tool | Must-Have | ✅ Done |
 | As a visitor, I can read the blog | Should-Have | ✅ Done |
 | As a visitor, I can view the about/team page | Should-Have | ✅ Done |
+| As a visitor, I can browse the dynamic portfolio grid (paginated 6/page) | Should-Have | ✅ Done |
+| As a visitor, I can read case studies for selected portfolio projects | Should-Have | ✅ Done |
+| As a visitor, I can explore FAQ & Our Process sections on Works home | Could-Have | ✅ Done |
+| As a visitor, I can sign up for the lead magnet on the Blog page | Could-Have | ✅ Done |
+| As a visitor, I can navigate Works sub-brands via dropdown nav | Should-Have | ✅ Done |
+| As a visitor, I can navigate Aythnyk sections via dropdown nav | Should-Have | ✅ Done |
+| As a visitor, I can download/view the Eterflame NDA PDF | Could-Have | ✅ Done |
 
 ### Testing User Stories
 
@@ -344,8 +351,9 @@ All pages are designed with **Mobile-First Responsive Design** across all screen
 |---|---|---|
 | More Printful products (posters, t-shirts) | Could-Have | Backlog |
 | PDF improvements — page 2+ breathing room | Could-Have | Backlog |
-| EF Media / EF Studio full content | Should-Have | Backlog |
-| Google Analytics data visible | Should-Have | In Progress (24-48hr wait) |
+| EF Media full content & portfolio | Should-Have | Backlog |
+| EF Studio full content & portfolio | Should-Have | Backlog |
+| Google Analytics data visible | Should-Have | In Progress |
 
 ##### Back to [top](#-table-of-contents)
 
@@ -361,6 +369,7 @@ Eterflame uses two distinct visual identities within one platform:
 |---|---|---|---|
 | Eterflame Works | Gold `#c49a40` | Dark `#0a0804` | Dark editorial |
 | Aythnyk | Crimson `#c8102e` | Gold `#c49a40` | Dark `#0a0804` |
+| EF Design (case studies) | Cyan `#00bcd4` / Teal `#009688` | Dark | Dark editorial |
 
 ### Typography
 
@@ -402,24 +411,24 @@ Eterflame uses two distinct visual identities within one platform:
 
 **🏢 Eterflame Works**
 
-| App | Purpose |
-|---|---|
-| `works` | Works home, contact form, resources (`/works/resources/`) |
-| `design_app` | EF Design division |
-| `media_app` | EF Media division |
-| `studio_app` | EF Studio division |
+| App | Purpose | Namespace |
+|---|---|---|
+| `works` | Works home, contact, resources | `works` |
+| `design_app` | EF Design, portfolio grid, case studies | `design` |
+| `media_app` | EF Media | `media` |
+| `studio_app` | EF Studio | `studio` |
 
 **🔥 Aythnyk**
 
-| App | Purpose |
-|---|---|
-| `aythnyk` | Aythnyk home, navigation hub |
-| `poetry` | Poems, collections, favorites, PDF generator, tools (`/aythnyk/tools/`) |
-| `songs` | Sonic — songs, streaming, reels |
-| `blog` | Blog posts |
-| `shop` | Digital shop (Gumroad) |
-| `about` | About page, collaborate form |
-| `chat` | AI chat assistant |
+| App | Purpose | Namespace |
+|---|---|---|
+| `aythnyk` | Aythnyk home, poems, tools | `aythnyk` |
+| `poetry` | Poems, collections, favorites, PDF generator, tools (`/aythnyk/tools/`) | — |
+| `songs` | Sonic — songs, streaming, reels | — |
+| `blog` | Blog posts | — |
+| `shop` | Digital shop (Gumroad) | — |
+| `about` | About page, collaborate form | — |
+| `chat` | AI chat assistant | — |
 
 **⚙️ Shared**
 
@@ -439,6 +448,7 @@ Eterflame uses two distinct visual identities within one platform:
 | `/works/media/` | media_app | ✅ Public |
 | `/works/studio/` | studio_app | ✅ Public |
 | `/works/resources/` | works | ✅ Public |
+| `/works/design/case-study/<slug>/` | design_app | ✅ Public |
 | `/contact/` | works | ✅ Public |
 | `/about/` | about | ✅ Public |
 
@@ -474,8 +484,57 @@ Eterflame uses two distinct visual identities within one platform:
 | Favorites | ✅ User | ✅ User | ❌ N/A | ✅ User |
 | CollaborateRequest | ✅ Public | ✅ Admin | ❌ N/A | ✅ Admin |
 | Product (Shop) | ✅ Admin | ✅ Public | ✅ Admin | ✅ Admin |
+| PortfolioItem | ✅ Admin | ✅ Public | ✅ Admin | ✅ Admin |
+| CaseStudy | ✅ Admin | ✅ Public | ✅ Admin | ✅ Admin |
 
 ### Data Models (ERD)
+
+#### PortfolioItem Model (design_app)
+
+| Field | Type | Notes |
+|---|---|---|
+| `title` | CharField | |
+| `kicker` | CharField | |
+| `description` | TextField | |
+| `image_url` | URLField | |
+| `tags` | CharField | Comma-separated |
+| `is_screenshot` | BooleanField | |
+| `order` | IntegerField | Display order in grid |
+| `is_active` | BooleanField | Controls visibility |
+
+#### CaseStudy Model (design_app)
+
+| Field | Type | Notes |
+|---|---|---|
+| `portfolio_item` | OneToOneField → PortfolioItem | CASCADE |
+| `slug` | SlugField | Unique, used in URL |
+| `eyebrow` / `subtitle` | CharField | Hero sub-labels |
+| `live_url` / `github_url` | URLField | |
+| `title_line1` / `title_line2` | CharField | Split hero title |
+| `metrics` (×5 slots) | CharField | Key numbers display |
+| `challenge` | TextField | |
+| `approach` | TextField | |
+| `approach_bullets` | TextField | Pipe-separated list |
+| `approach_insight` | TextField | |
+| `deliverables` | TextField | |
+| `results_intro` / `results_outro` | TextField | |
+| `result_1/2/3_desc` | TextField | Three result cards |
+| `cta_title` | CharField | |
+| `is_published` | BooleanField | Controls public visibility |
+
+#### Portfolio Items in DB (9 active)
+
+| # | Title | Kicker | Notes |
+|---|---|---|---|
+| 1 | The Incredible Journey of the Potato | Web · HTML · CSS | HTML, CSS, GitHub Pages — **Case Study published** |
+| 2 | Needs Bookkeeping? — Interactive Quiz | Web · JavaScript | Vanilla JavaScript — **Case Study published** |
+| 3 | Digital Stress & Screen Time Survey | Data · Python | Python, CLI, Google Sheets — **Case Study published** |
+| 4 | EterPoetic — Poetry Platform | System · Django | Django, PostgreSQL, Heroku |
+| 5 | Digital Marketing Conversion Predictor | Data · ML | Python, ML, Streamlit — **Case Study published** |
+| 6 | Visual Campaign Direction | Creative | |
+| 7 | Immersive Web Experience | Web | |
+| 8 | Brand Identity & Digital Presence | Featured Project | |
+| 9 | E-commerce Experience Design | E-Commerce | |
 
 #### Poem Model (poetry app)
 
@@ -683,12 +742,13 @@ eterflame-web/
 │
 ├── static/
 │   ├── css/
-│   │   ├── base.css         # Global styles + navbar
+│   │   ├── base.css         # Global fixes (autofill, checkbox, alert-light, sa-alert)
 │   │   ├── aythnyk.css      # Aythnyk home
 │   │   ├── poetry.css       # Poems list + detail
 │   │   ├── songs.css        # Songs + poem-with-panel grid
 │   │   ├── design.css       # EF Design page
-│   │   ├── works.css        # Works home
+│   │   ├── case_study.css   # Design app case study — cyan/teal palette
+│   │   ├── works.css        # Works palette (gold)
 │   │   ├── about.css        # About page
 │   │   ├── blog.css         # Blog
 │   │   └── shop.css         # Shop
@@ -698,6 +758,10 @@ eterflame-web/
 │   │   ├── quote_banner.js  # Sliding quote banner
 │   │   └── poem_toggle.js   # ES/EN poem toggle
 │   └── images/
+│       ├── icons/
+│       │   └── brands/      # SVG brand logos (Tech Stack & Creative Tools strips)
+│       └── works/
+│           └── docts/       # Eterflame_NDA.pdf and other documents
 │
 ├── staticfiles/             # Collected static (Heroku deployment)
 │
@@ -799,6 +863,20 @@ eterflame-web/
 | Poem detail | `noindex, nofollow` present in `<head>` | ✅ Verified |
 | Song detail | `og:title`, `og:description`, `og:type`, `og:url` | ✅ Verified |
 | All pages | GA4 tag `G-QNBJ6BH1ZK` present | ✅ Verified |
+
+### GA4 Custom Events (9 tracked)
+
+| Event Name | Trigger |
+|---|---|
+| `contact_form_submit` | Works contact form submitted |
+| `cta_click` | Any CTA button clicked |
+| `card_click` | Portfolio / service card clicked |
+| `faq_open` | FAQ accordion item opened |
+| `lead_magnet_submit` | Blog lead magnet form submitted |
+| `portfolio_view` | Portfolio item detail viewed |
+| `song_play` | Song link clicked (YouTube / Spotify) |
+| `shop_click` | Shop product clicked |
+| `poem_read` | Poem detail page opened |
 
 ### Email Testing
 
@@ -927,6 +1005,13 @@ Domain `eterflame.com` verified with these DNS records:
 4. Upload to Gumroad → copy link
 5. Admin → Songs → set `pdf_buy_url` + `pdf_price`
 
+### 📋 Professional NDA Document
+
+- Generated with **ReportLab**
+- Stored at `static/images/works/docts/Eterflame_NDA.pdf`
+- White background, EF logo header, watermark, signature fields
+- Linked from Works Resources page for B2B enquiries
+
 ##### Back to [top](#-table-of-contents)
 
 ---
@@ -1000,3 +1085,4 @@ echo 'eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519 2>/dev/null' >> ~/.bas
 *studio@eterflame.com · eterflame.com*
 
 ##### Back to [top](#-table-of-contents)
+
