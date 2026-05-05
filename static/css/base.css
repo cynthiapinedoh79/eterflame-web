@@ -1473,3 +1473,36 @@ input[type="checkbox"]:checked::after {
 input[type="checkbox"]:hover {
   border-color: #c49a40 !important;
 }
+
+/* ── FOOTER — Aythnyk variant (red) ─────────────────── */
+body.aythnyk-section .footer {
+  background: rgba(184, 15, 42, 0.88);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── FOOTER — Aythnyk text colors (red background contrast) ─── */
+body.aythnyk-section .footer p,
+body.aythnyk-section .footer h1,
+body.aythnyk-section .footer h2,
+body.aythnyk-section .footer h3,
+body.aythnyk-section .footer h4,
+body.aythnyk-section .footer h5,
+body.aythnyk-section .footer h6,
+body.aythnyk-section .footer span,
+body.aythnyk-section .footer li {
+  color: rgba(255, 250, 240, 0.92);
+}
+
+body.aythnyk-section .footer a {
+  color: rgba(255, 250, 240, 0.92);
+}
+
+body.aythnyk-section .footer a:hover {
+  color: var(--ew-primary);
+}
+
+body.aythnyk-section .footer i,
+body.aythnyk-section .footer svg {
+  color: rgba(255, 250, 240, 0.92);
+  fill: rgba(255, 250, 240, 0.92);
+}

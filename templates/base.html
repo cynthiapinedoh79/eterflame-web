@@ -60,7 +60,7 @@
 
 </head>
 
-<body class="d-flex flex-column">
+<body class="d-flex flex-column{% if '/aythnyk' in request.path or '/blog' in request.path or '/songs' in request.path or '/poems' in request.path %} aythnyk-section{% endif %}">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top ef-navbar-sticky">
