@@ -47,3 +47,7 @@ Thumbs.db
 # ==== NODE / STATIC ====
 node_modules/.env
 .env.save
+.env.*
+*.backup
+*.bak
+staticfiles/

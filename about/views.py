@@ -67,7 +67,8 @@ def about_me(request):
         "about/about.html",
         {
             "about": about,
-            "collaborate_form": collaborate_form
+            "collaborate_form": collaborate_form,
+            "profiles_count": About.objects.count(),
         },
     )
 
@@ -117,6 +118,7 @@ def profile_detail(request, profile_title):
         "about/about.html",
         {
             "about": about,
+            "profiles_count": About.objects.count(),
             # collaborate_form is explicitly NOT passed here,
             # separating it from this view
         },
