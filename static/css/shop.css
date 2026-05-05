@@ -31,7 +31,7 @@
   font-size: 0.7rem;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: #c49a40;
+  color: var(--gold);
   text-decoration: none;
   margin-bottom: 2rem;
   transition: color 0.2s;
@@ -53,7 +53,7 @@
   line-height: 1;
   margin: 0 0 1rem;
   /* Alternating white and gold like App Sonic */
-  background: linear-gradient(135deg, #ffffff 40%, #c49a40 100%);
+  background: linear-gradient(135deg, #ffffff 40%, var(--gold) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -94,21 +94,21 @@
   color: #fff;
 }
 .shop-btn--gold {
-  border: 1px solid #c49a40;
-  color: #c49a40;
+  border: 1px solid var(--gold);
+  color: var(--gold);
   background: transparent;
 }
 .shop-btn--gold:hover {
-  background: #c49a40;
+  background: var(--gold);
   color: #070708;
 }
 .shop-btn--outline {
   border: 1px solid rgba(196,154,64,0.4);
-  color: #c49a40;
+  color: var(--gold);
   background: transparent;
 }
 .shop-btn--outline:hover {
-  border-color: #c49a40;
+  border-color: var(--gold);
   background: rgba(196,154,64,0.06);
 }
 .shop-btn--crimson-fill {
@@ -131,7 +131,7 @@
   text-align: center;
   margin-bottom: 3rem;
 }
-.shop-label--gold { color: #c49a40; }
+.shop-label--gold { color: var(--gold); }
 
 /* ── SECTIONS ── */
 .shop-section {
@@ -220,7 +220,7 @@
 .shop-card__price {
   font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
-  color: #c49a40;
+  color: var(--gold);
   margin: 0 0 1.25rem;
   font-weight: 500;
 }
@@ -290,8 +290,8 @@
   letter-spacing: 2px;
 }
 .shop-title--gold {
-  color: #c49a40;
-  -webkit-text-fill-color: #c49a40;
+  color: var(--gold);
+  -webkit-text-fill-color: var(--gold);
 }
 .shop-commission__desc {
   font-family: 'DM Sans', sans-serif;
@@ -322,7 +322,7 @@
   font-size: 0.65rem;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: #c49a40;
+  color: var(--gold);
   margin-bottom: 0.6rem;
 }
 .shop-form__hint {
@@ -350,7 +350,7 @@
 .shop-commission-form select:focus,
 .shop-commission-form textarea:focus {
   outline: none;
-  border-color: #c49a40;
+  border-color: var(--gold);
 }
 .shop-commission-form textarea {
   min-height: 140px;
@@ -387,7 +387,7 @@
 .shop-success__icon {
   display: block;
   font-size: 3rem;
-  color: #c49a40;
+  color: var(--gold);
   margin-bottom: 1.5rem;
 }
 .shop-success__title {

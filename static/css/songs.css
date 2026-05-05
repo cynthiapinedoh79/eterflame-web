@@ -9,7 +9,7 @@
   --s-border:    #1e1e1e;
   --s-crimson:   #e0163a;
   --s-crimson-bg:rgba(224,22,58,.12);
-  --s-gold:      #c49a40;
+  --s-gold:      var(--gold);
   --s-gold-bg:   rgba(196,154,64,.1);
   --s-white:     #f5f5f5;
   --s-muted:     #666666;
@@ -241,8 +241,8 @@
   width: 100%;
   padding: .85rem;
   background: transparent;
-  color: #c49a40;
-  border: 1px solid #c49a40;
+  color: var(--gold);
+  border: 1px solid var(--gold);
   border-radius: 3px;
   font-family: var(--s-sans);
   font-size: .72rem;
@@ -253,13 +253,13 @@
   transition: all 0.25s ease;
 }
 .song-panel__pdf-btn:hover {
-  background: #c49a40;
+  background: var(--gold);
   color: #0a0804;
 }
 .song-panel__pdf-btn--paid {
-  background: #c49a40;
+  background: var(--gold);
   color: #0a0804;
-  border: 1px solid #c49a40;
+  border: 1px solid var(--gold);
   transition: all 0.25s ease;
 }
 .song-panel__pdf-btn--paid:hover {
@@ -559,8 +559,8 @@
   display: inline-block;
   padding: 12px 30px;
   background: transparent;
-  color: #c49a40;
-  border: 1px solid #c49a40;
+  color: var(--gold);
+  border: 1px solid var(--gold);
   border-radius: 3px;
   font-family: var(--s-sans);
   font-size: 0.65rem;
