@@ -405,8 +405,8 @@ pre {
    6. ALERTS
 =================================================== */
 .sa-alert {
-  background: #fff4f4;
-  border: 1px solid #f7c6c6;
+  background: rgba(200,16,46,0.08);
+  border: 1px solid rgba(200,16,46,0.25);
   padding: 10px 12px;
   border-radius: 10px;
   margin-bottom: 16px;
