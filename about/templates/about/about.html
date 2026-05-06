@@ -29,9 +29,9 @@
     <div class="row">
         <div class="col-12 col-md-4 text-center">
             {% if "placeholder" in about.profile_image.url %}
-                <img src="{% static 'images/nobody.jpg' %}" class="profile-image" alt="{{ about.title }}" onerror="this.style.display='none'">
+                <img src="{% static 'images/nobody.jpg' %}" class="profile-image" alt="{{ about.title }}" onerror="this.style.display='none'" loading="lazy">
             {% else %}
-                <img src="{{ about.profile_image.url }}" class="profile-image" alt="{{ about.title }}" onerror="this.style.display='none'">
+                <img src="{{ about.profile_image.url }}" class="profile-image" alt="{{ about.title }}" onerror="this.style.display='none'" loading="lazy">
             {% endif %}
         </div>
         <div class="col-12 col-md-8">

@@ -14,7 +14,7 @@
 
   <div class="author-profile">
     {% if author.photo %}
-      <img src="{{ author.photo.url }}" alt="{{ author.name }}" class="author-profile__photo">
+      <img src="{{ author.photo.url }}" alt="{{ author.name }}" class="author-profile__photo" loading="lazy">
     {% else %}
       <div class="author-profile__photo author-profile__photo--empty">
         <i class="fas fa-feather-alt"></i>

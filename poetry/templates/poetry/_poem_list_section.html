@@ -68,9 +68,9 @@
             <a href="?collection={{ collection.slug }}#poems-search" class="card text-decoration-none collection-album-card h-100 shadow-sm">
               
               {% if collection.collection_image and "placeholder" not in collection.collection_image.url %}
-                <img src="{{ collection.collection_image.url }}" class="card-img-top" alt="{{ collection.name_en }}">
+                <img src="{{ collection.collection_image.url }}" class="card-img-top" alt="{{ collection.name_en }}" loading="lazy">
               {% else %}
-                <img src="{{ PLACEHOLDER_COLL_IMG }}" class="card-img-top" alt="Placeholder image">
+                <img src="{{ PLACEHOLDER_COLL_IMG }}" class="card-img-top" alt="Placeholder image" loading="lazy">
               {% endif %}
 
               <div class="card-body">
@@ -104,11 +104,13 @@
                 {% if current_collection.collection_image and "placeholder" not in current_collection.collection_image.url %}
                   <img src="{{ current_collection.collection_image.url }}" 
                       alt="{{ current_collection.name_en }} collection image" 
-                      class="img-fluid rounded-3 shadow-sm">
+                      class="img-fluid rounded-3 shadow-sm"
+      loading="lazy">
                 {% else %}
                   <img src="{{ PLACEHOLDER_COLL_IMG }}" 
                       alt="Placeholder image" 
-                      class="img-fluid rounded-3 shadow-sm">
+                      class="img-fluid rounded-3 shadow-sm"
+      loading="lazy">
                 {% endif %}
               </div>
 
@@ -132,9 +134,9 @@
                 
                 {# --- 2. MODIFIED: Using the URL check --- #}
                 {% if poem.featured_image and "placeholder" not in poem.featured_image.url %}
-                  <img src="{{ poem.featured_image.url }}" class="card-img-top" alt="{{ poem.title }}">
+                  <img src="{{ poem.featured_image.url }}" class="card-img-top" alt="{{ poem.title }}" loading="lazy">
                 {% else %}
-                  <img src="{{ PLACEHOLDER_IMG }}" class="card-img-top" alt="Placeholder image">
+                  <img src="{{ PLACEHOLDER_IMG }}" class="card-img-top" alt="Placeholder image" loading="lazy">
                 {% endif %}
               </div>
               <div class="card-body">

@@ -34,7 +34,7 @@
             <div class="about-profile-card">
 
                 {% if "placeholder" not in profile.profile_image.url %}
-                <img src="{{ profile.profile_image.url }}" class="card-img-top" alt="{{ profile.title }}">
+                <img src="{{ profile.profile_image.url }}" class="card-img-top" alt="{{ profile.title }}" loading="lazy">
                 {% endif %}
 
                 <div class="card-body">

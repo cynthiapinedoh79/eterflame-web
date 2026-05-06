@@ -28,7 +28,7 @@
           {% for product in prints %}
           <div class="shop-card">
             {% if product.image_url %}
-            <img src="{{ product.image_url }}" alt="{{ product.name }}" class="shop-card__img">
+            <img src="{{ product.image_url }}" alt="{{ product.name }}" class="shop-card__img" loading="lazy">
             {% else %}<div class="shop-card__img-placeholder"></div>{% endif %}
             <div class="shop-card__body">
               <span class="shop-card__badge">Print</span>
@@ -63,7 +63,7 @@
           {% for product in digital %}
           <div class="shop-card">
             {% if product.image_url %}
-            <img src="{{ product.image_url }}" alt="{{ product.name }}" class="shop-card__img">
+            <img src="{{ product.image_url }}" alt="{{ product.name }}" class="shop-card__img" loading="lazy">
             {% else %}<div class="shop-card__img-placeholder"></div>{% endif %}
             <div class="shop-card__body">
               <span class="shop-card__badge">Digital</span>

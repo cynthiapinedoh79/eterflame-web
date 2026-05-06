@@ -26,7 +26,7 @@
   <!-- REEL — full width -->
   <div class="ef-design-reel--fw">
     <div class="ef-design-reel-media">
-      <img src="{% static 'images/works/design/hero_design4.png' %}" alt="Design Direction" class="ef-design-reel-image">
+      <img src="{% static 'images/works/design/hero_design4.png' %}" alt="Design Direction" class="ef-design-reel-image" loading="lazy">
       <div class="ef-design-reel-overlay">
       <div class="ef-design-reel-overlay-inner">
         <span class="ef-design-reel-kicker">Design Direction</span>
@@ -82,9 +82,9 @@
       <article class="ef-pw-card{% if item.is_screenshot %} ef-pw-card--screenshot{% endif %}">
         <div class="ef-pw-image">
           {% if item.image_url %}
-          <img src="{{ item.image_url }}" alt="{{ item.title }}">
+          <img src="{{ item.image_url }}" alt="{{ item.title }}" loading="lazy">
           {% else %}
-          <img src="{% static 'images/works/design/portfolio-placeholder.png' %}" alt="{{ item.title }}">
+          <img src="{% static 'images/works/design/portfolio-placeholder.png' %}" alt="{{ item.title }}" loading="lazy">
           {% endif %}
         </div>
         <div class="ef-pw-body">
