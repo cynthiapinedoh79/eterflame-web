@@ -4,10 +4,10 @@
 
 {% block og_title %}{{ post.title }} · Eterflame Blog{% endblock %}
 {% block og_description %}{{ post.content|striptags|truncatechars:160 }}{% endblock %}
-{% block og_image %}{% if post.featured_image and "placeholder" not in post.featured_image.url %}{{ post.featured_image.url }}{% else %}{% static 'images/works/ef_logo.png' %}{% endif %}{% endblock %}
+{% block og_image %}{% if post.featured_image and "placeholder" not in post.featured_image.url %}{{ post.featured_image.url }}{% else %}{% static 'images/ef_logo.webp' %}{% endif %}{% endblock %}
 {% block tw_title %}{{ post.title }} · Eterflame Blog{% endblock %}
 {% block tw_description %}{{ post.content|striptags|truncatechars:160 }}{% endblock %}
-{% block tw_image %}{% if post.featured_image and "placeholder" not in post.featured_image.url %}{{ post.featured_image.url }}{% else %}{% static 'images/works/ef_logo.png' %}{% endif %}{% endblock %}
+{% block tw_image %}{% if post.featured_image and "placeholder" not in post.featured_image.url %}{{ post.featured_image.url }}{% else %}{% static 'images/ef_logo.webp' %}{% endif %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/blog.css' %}?v={% now 'U' %}">
@@ -20,7 +20,7 @@
   {% if post.featured_image and "placeholder" not in post.featured_image.url %}
   style="background-image:url('{{ post.featured_image.url }}')"
   {% else %}
-  style="background-image:url('{% static 'images/default.png' %}')"
+  style="background-image:url('{% static 'images/default.webp' %}')"
   {% endif %}>
   <div class="bpd-hero__overlay"></div>
 
@@ -43,7 +43,7 @@
 
 <!-- ── ARTICLE BODY ── -->
 <article class="bpd-body blog-post-body" style="position:relative;">
-  <img src="{% static 'images/aythnyk/a_logo.png' %}" class="ah-logo-watermark-img ah-body-watermark" aria-hidden="true">
+  <img src="{% static 'images/aythnyk/a_logo.webp' %}" class="ah-logo-watermark-img ah-body-watermark" aria-hidden="true">
   {{ post.content | safe }}
   <a href="{% url 'blog:bloghome' %}" class="blog-back-link">← Back to Blog</a>
 </article>

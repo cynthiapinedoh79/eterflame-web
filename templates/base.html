@@ -67,7 +67,7 @@
         <div class="container-fluid">
             <!-- Brand goes to Works home -->
             <a class="navbar-brand ef-brand" href="{{ home_url }}">
-                <img src="{% static 'images/og-default.webp' %}" alt="Eterflame Works" class="ef-brand-icon">
+                <img src="{% static 'images/ef_logo.webp' %}" alt="Eterflame Works" class="ef-brand-icon">
 
                 <div class="ef-brand-text">
                     <span class="ef-brand-main">ETERFLAME WORKS</span>
@@ -196,8 +196,9 @@
             <ul class="footer-links">
               <li><a href="{% url 'aythnyk:aythnyk_home' %}">Home</a></li>
               <li><a href="{% url 'poetry:poem_list' %}">Poems</a></li>
-              <li><a href="{% url 'songs:song_list' %}">Songs</a></li>
               <li><a href="{% url 'blog:bloghome' %}">Blog</a></li>
+              <li><a href="{% url 'songs:song_list' %}">Songs</a></li>
+              <li><a href="{% url 'shop:shop_home' %}">Shop</a></li>
               <li><a href="{% url 'poetry:tools' %}">Tools</a></li>
             </ul>
           </div>
