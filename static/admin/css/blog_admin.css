@@ -1,0 +1,39 @@
+/* ════════════════════════════════════════════════════════════
+   BLOG ADMIN — Editor width override
+   Makes the Summernote content field wider for comfortable
+   editing. Affects only the blog Post change form.
+   ════════════════════════════════════════════════════════════ */
+
+/* Expand the form row that contains the content editor */
+.field-content {
+    max-width: none !important;
+}
+
+/* The Summernote iframe wrapper */
+.field-content .note-editor.note-frame {
+    max-width: 100% !important;
+    width: 100% !important;
+    min-width: 800px;
+}
+
+/* Inside iframe — give content area generous padding */
+.field-content .note-editing-area {
+    min-height: 650px;
+}
+
+/* Make the entire admin form wider on large screens */
+@media (min-width: 1280px) {
+    #content-main {
+        max-width: 1400px !important;
+    }
+    .field-content .note-editor.note-frame {
+        min-width: 1000px;
+    }
+}
+
+/* On very wide screens give even more room */
+@media (min-width: 1600px) {
+    #content-main {
+        max-width: 1600px !important;
+    }
+}

@@ -357,3 +357,36 @@ SOCIALACCOUNT_PROVIDERS = {
 
 # To allow iframe embedding (Am I responsive?)
 # X_FRAME_OPTIONS = 'ALLOWALL'
+
+
+# ════════════════════════════════════════════════════════════
+# SUMMERNOTE — Editorial-focused minimal toolbar
+# ────────────────────────────────────────────────────────────
+# Forces semantic HTML output (h2, h3, blockquote real tags
+# instead of <p><b>...</b></p>). Hides distracting buttons
+# (color, font-size, table, image-from-url) to enforce
+# editorial discipline when writing posts.
+# ════════════════════════════════════════════════════════════
+SUMMERNOTE_CONFIG = {
+    'iframe': True,
+    'summernote': {
+        'width': '100%',
+        'height': '500',
+        'lang': 'es-ES',
+        'placeholder': 'Escribe tu post...',
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'italic']],
+            ['para', ['ul', 'ol']],
+            ['insert', ['link']],
+            ['view', ['undo', 'redo', 'codeview']],
+        ],
+        'styleTags': [
+            'p',
+            {'title': 'Título principal', 'tag': 'h2', 'className': '', 'value': 'h2'},
+            {'title': 'Subtítulo', 'tag': 'h3', 'className': '', 'value': 'h3'},
+            {'title': 'Cita', 'tag': 'blockquote', 'className': '', 'value': 'blockquote'},
+        ],
+        'disableDragAndDrop': True,
+    },
+}
