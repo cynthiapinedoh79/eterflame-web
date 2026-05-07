@@ -2,9 +2,11 @@
 {% load static %}
 
 {% block og_title %}{{ poem.title_es|default:poem.title_en }} · Aythnyk{% endblock %}
-{% block og_description %}Disponible como PDF en eterflame.com{% endblock %}
+{% block og_description %}{{ poem.body_es|default:poem.body_en|striptags|truncatewords:25 }}{% endblock %}
+{% block og_image %}https://res.cloudinary.com/dam7n1lk3/image/upload/v1778125252/rectangule_aythE_x0u7b0.webp{% endblock %}
 {% block tw_title %}{{ poem.title_es|default:poem.title_en }} · Aythnyk{% endblock %}
-{% block tw_description %}Disponible como PDF en eterflame.com{% endblock %}
+{% block tw_description %}{{ poem.body_es|default:poem.body_en|striptags|truncatewords:25 }}{% endblock %}
+{% block tw_image %}https://res.cloudinary.com/dam7n1lk3/image/upload/v1778125252/rectangule_aythE_x0u7b0.webp{% endblock %}
 
 {% block extra_css %}
 {% block extra_head %}

@@ -1,19 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_css %}
-<!-- SEO & OG Meta Tags -->
-{% block extra_head %}
-<meta property="og:title" content="{{ song.title }} — Aythnyk · Eterflame">
-<meta property="og:description" content="{{ song.get_series_display }} · Poesía & Música">
-{% if song.reel_thumbnail %}
-<meta property="og:image" content="{{ song.reel_thumbnail.url }}">
-{% endif %}
-<meta property="og:type" content="music.song">
-<meta property="og:url" content="{{ request.build_absolute_uri }}">
-{% endblock %}
+{% block og_title %}{{ song.title }} · Aythnyk{% endblock %}
+{% block og_description %}{{ song.get_series_display }} · Poesía & Música{% endblock %}
+{% block og_image %}{% if song.reel_thumbnail %}{{ song.reel_thumbnail.url }}{% else %}https://res.cloudinary.com/dam7n1lk3/image/upload/v1778125252/rectangule_aythE_x0u7b0.webp{% endif %}{% endblock %}
 
-{{ block.super }}
+{% block tw_title %}{{ song.title }} · Aythnyk{% endblock %}
+{% block tw_description %}{{ song.get_series_display }} · Poesía & Música{% endblock %}
+{% block tw_image %}{% if song.reel_thumbnail %}{{ song.reel_thumbnail.url }}{% else %}https://res.cloudinary.com/dam7n1lk3/image/upload/v1778125252/rectangule_aythE_x0u7b0.webp{% endif %}{% endblock %}
+
+{% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/songs.css' %}">
 {% endblock %}
 

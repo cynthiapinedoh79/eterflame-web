@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block og_title %}{{ author.name }} · Aythnyk{% endblock %}
+{% block og_description %}{{ author.bio_es|default:author.bio_en|striptags|truncatewords:30 }}{% endblock %}
+{% block og_image %}https://res.cloudinary.com/dam7n1lk3/image/upload/v1778125252/rectangule_aythE_x0u7b0.webp{% endblock %}
+
+{% block tw_title %}{{ author.name }} · Aythnyk{% endblock %}
+{% block tw_description %}{{ author.bio_es|default:author.bio_en|striptags|truncatewords:30 }}{% endblock %}
+{% block tw_image %}https://res.cloudinary.com/dam7n1lk3/image/upload/v1778125252/rectangule_aythE_x0u7b0.webp{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/poetry.css' %}?v={% now 'U' %}">
 {% endblock %}

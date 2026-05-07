@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block og_title %}{{ cs.title_line1 }} {{ cs.title_line2 }} · EF Design{% endblock %}
+{% block og_description %}{{ cs.subtitle|default:cs.eyebrow|truncatewords:30 }}{% endblock %}
+{% block og_image %}https://res.cloudinary.com/dam7n1lk3/image/upload/v1777998886/og-default_f6d0tp.webp{% endblock %}
+
+{% block tw_title %}{{ cs.title_line1 }} {{ cs.title_line2 }} · EF Design{% endblock %}
+{% block tw_description %}{{ cs.subtitle|default:cs.eyebrow|truncatewords:30 }}{% endblock %}
+{% block tw_image %}https://res.cloudinary.com/dam7n1lk3/image/upload/v1777998886/og-default_f6d0tp.webp{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/design.css' %}">
 <link rel="stylesheet" href="{% static 'css/case_study.css' %}">
