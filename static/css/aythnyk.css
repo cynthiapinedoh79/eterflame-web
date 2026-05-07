@@ -1088,11 +1088,33 @@ a:hover .res-card__logo--si {
   transform: translate(-50%, -50%) !important;
   width: 580px !important;
   height: 580px !important;
-  opacity: 0.12 !important;
-  filter: blur(2px) brightness(0) invert(1) !important;
+  opacity: 0.15 !important;
+  filter: blur(2px) brightness(3) !important;
   z-index: 0 !important;
   pointer-events: none !important;
 }
+
+@media (max-width: 1134px) {
+  .ah-works-cta .ah-logo-watermark-img {
+    width: 480px !important;
+    height: 480px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .ah-works-cta .ah-logo-watermark-img {
+    width: 380px !important;
+    height: 380px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .ah-works-cta .ah-logo-watermark-img {
+    width: 340px !important;
+    height: 340px !important;
+  }
+}
+
 .ah-works-cta__inner {
   position: relative !important;
   z-index: 1 !important;
