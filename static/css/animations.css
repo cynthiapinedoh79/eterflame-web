@@ -34,3 +34,45 @@
   background-attachment: fixed;
   will-change: background-position;
 }
+
+
+/* ─────────────────────────────────────────────
+   INITIAL FADE-IN — for hero/above-fold elements
+   Uses pure CSS animation (no JS observer needed).
+   Use this on elements that are ALWAYS visible on
+   page load (hero, navbar elements, etc.).
+   
+   Stagger via nth-child like .fade-in-up.
+───────────────────────────────────────────── */
+@keyframes fadeInUpInitial {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up-initial {
+  opacity: 0;
+  animation: fadeInUpInitial 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.1s; /* small delay so page is mounted */
+}
+
+/* Stagger for children of same parent */
+.fade-in-up-initial:nth-child(1) { animation-delay: 0.1s; }
+.fade-in-up-initial:nth-child(2) { animation-delay: 0.25s; }
+.fade-in-up-initial:nth-child(3) { animation-delay: 0.40s; }
+.fade-in-up-initial:nth-child(4) { animation-delay: 0.55s; }
+.fade-in-up-initial:nth-child(5) { animation-delay: 0.70s; }
+.fade-in-up-initial:nth-child(6) { animation-delay: 0.85s; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up-initial {
+    opacity: 1;
+    animation: none;
+  }
+}
