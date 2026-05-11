@@ -61,6 +61,7 @@
 </head>
 
 <body class="d-flex flex-column{% if '/aythnyk' in request.path or '/blog' in request.path or '/songs' in request.path or '/poems' in request.path %} aythnyk-section{% endif %}">
+    <a id="top" aria-hidden="true"></a>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top ef-navbar-sticky">
@@ -361,6 +362,31 @@
   </script>
     <!-- EF Toast system -->
     <script src="{% static 'js/toast.js' %}?v={% now 'U' %}"></script>
+
+    <!-- Back to top button -->
+    {% include 'components/back_to_top.html' %}
+    
+    <script>
+      // Back to top — visibility toggle on scroll
+      (function() {
+        const btn = document.querySelector('[data-back-to-top]');
+        if (!btn) return;
+        
+        const SCROLL_THRESHOLD = 400; // pixels before showing
+        
+        function toggleVisibility() {
+          if (window.scrollY > SCROLL_THRESHOLD) {
+            btn.classList.add('is-visible');
+          } else {
+            btn.classList.remove('is-visible');
+          }
+        }
+        
+        // Passive listener for better scroll performance
+        window.addEventListener('scroll', toggleVisibility, { passive: true });
+        toggleVisibility(); // Initial check on page load
+      })();
+    </script>
 </body>
 
 </html>

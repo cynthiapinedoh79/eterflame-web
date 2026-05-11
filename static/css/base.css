@@ -1643,3 +1643,115 @@ body.aythnyk-section .footer svg {
     max-width: none;
   }
 }
+
+
+/* ================================================
+   N. BACK TO TOP BUTTON — glass morphism
+   Appears after scrolling, smooth animations,
+   reduced-motion accessibility respect.
+=================================================== */
+.ef-back-to-top {
+  /* Position fixed above the chat button (#ef-btn at bottom: 1.75rem) */
+  position: fixed;
+  bottom: 96px;
+  right: 30px;
+  z-index: 1040; /* above sticky navbar (1030) */
+
+  /* Circle dimensions */
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+
+  /* Center the SVG icon */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Glass morphism effect */
+  background: rgba(3, 5, 12, 0.65);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(196, 154, 64, 0.35); /* gold border at 35% */
+  
+  /* Gold icon */
+  color: var(--gold);
+
+  /* Subtle shadow for depth */
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+
+  /* Hidden by default, fade in when active */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+
+  /* Smooth transitions */
+  transition: 
+    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  
+  /* Cursor + remove underline */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Visible state — toggled by JS via .is-visible class */
+.ef-back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Hover state — gold glow */
+.ef-back-to-top:hover {
+  background: rgba(196, 154, 64, 0.18);
+  border-color: var(--gold-bright);
+  color: var(--gold-bright);
+  box-shadow: 
+    0 12px 40px rgba(196, 154, 64, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+/* Active state — subtle press effect */
+.ef-back-to-top:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* Focus state — accessibility */
+.ef-back-to-top:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+/* SVG icon animation on hover */
+.ef-back-to-top svg {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ef-back-to-top:hover svg {
+  transform: translateY(-2px);
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .ef-back-to-top {
+    bottom: 84px;
+    right: 22px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .ef-back-to-top,
+  .ef-back-to-top svg {
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    transform: none !important;
+  }
+}
