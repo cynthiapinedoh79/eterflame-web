@@ -2330,11 +2330,77 @@
   display: block;
   transition: transform 0.45s ease;
 }
+/* ─────────────────────────────────────────
+   SCREENSHOT MOCKUP — Browser-style frame
+   Wraps screenshots in a minimalist Chrome-like
+   browser window for professional portfolio look.
+   ──────────────────────────────────────────── */
+.ef-pw-card--screenshot .ef-pw-image {
+  position: relative;
+  background: #0d1421; /* darker than card bg for contrast */
+  padding: 32px 12px 12px 12px; /* room for top bar */
+  aspect-ratio: 16 / 10; /* slightly taller for browser chrome */
+}
+
+/* Top bar with traffic light dots */
+.ef-pw-card--screenshot .ef-pw-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: linear-gradient(180deg, #1a2333 0%, #131a28 100%);
+  border-bottom: 1px solid rgba(0, 188, 212, 0.15);
+}
+
+/* Traffic light dots */
+.ef-pw-card--screenshot .ef-pw-image::after {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 12px;
+  width: 36px;
+  height: 10px;
+  background:
+    radial-gradient(circle at 5px center, #ff5f57 4px, transparent 4.5px),
+    radial-gradient(circle at 18px center, #febc2e 4px, transparent 4.5px),
+    radial-gradient(circle at 31px center, #28c840 4px, transparent 4.5px);
+}
+
 .ef-pw-card--screenshot .ef-pw-image img {
-  object-fit: contain;
-  object-position: center;
-  padding: 0.5rem;
-  background: #f8f9fa;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) inset;
+}
+
+/* Hover: subtle lift of the screenshot */
+.ef-pw-card--screenshot:hover .ef-pw-image::before {
+  border-bottom-color: rgba(0, 188, 212, 0.35);
+}
+
+/* Mobile: reduce padding to maintain proportion */
+@media (max-width: 600px) {
+  .ef-pw-card--screenshot .ef-pw-image {
+    padding: 26px 8px 8px 8px;
+  }
+  
+  .ef-pw-card--screenshot .ef-pw-image::before {
+    height: 22px;
+  }
+  
+  .ef-pw-card--screenshot .ef-pw-image::after {
+    top: 6px;
+    left: 8px;
+    width: 30px;
+    height: 8px;
+    background:
+      radial-gradient(circle at 4px center, #ff5f57 3px, transparent 3.5px),
+      radial-gradient(circle at 15px center, #febc2e 3px, transparent 3.5px),
+      radial-gradient(circle at 26px center, #28c840 3px, transparent 3.5px);
+  }
 }
 .ef-pw-card:hover .ef-pw-image img {
   transform: scale(1.12);
