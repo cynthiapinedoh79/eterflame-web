@@ -28,4 +28,7 @@ def show_testimonials(division, limit=6):
         is_active=True
     ).order_by('-is_featured', 'order')[:limit]
     
-    return {'testimonials': testimonials}
+    return {
+        'testimonials': testimonials,
+        'division': division,
+    }

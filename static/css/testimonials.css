@@ -154,3 +154,76 @@
     transform: none;
   }
 }
+
+
+/* ================================================
+   DIVISION-SPECIFIC THEMING
+   Each division gets unique accent colors
+   while maintaining structural consistency.
+=================================================== */
+
+/* ─── DESIGN — Navy metallic → Turquoise glow ─── */
+.ef-testimonials[data-division="design"] .ef-testimonial-card {
+  border-color: rgba(70, 130, 180, 0.25);
+}
+.ef-testimonials[data-division="design"] .ef-testimonial-card:hover {
+  border-color: rgba(64, 224, 208, 0.6);
+  box-shadow: 0 8px 32px rgba(64, 224, 208, 0.15);
+}
+.ef-testimonials[data-division="design"] .ef-testimonial-card__rating {
+  color: rgb(135, 206, 235);
+}
+.ef-testimonials[data-division="design"] .ef-testimonial-card__quote {
+  border-left-color: rgba(70, 130, 180, 0.4);
+}
+.ef-testimonials[data-division="design"] .ef-testimonial-card--featured {
+  border-color: rgba(64, 224, 208, 0.4);
+}
+.ef-testimonials[data-division="design"] .ef-testimonial-card--featured:hover {
+  border-color: rgb(64, 224, 208);
+  box-shadow: 0 12px 40px rgba(64, 224, 208, 0.25);
+}
+
+/* ─── MEDIA — Copper → Purple glow ─── */
+.ef-testimonials[data-division="media"] .ef-testimonial-card {
+  border-color: rgba(184, 115, 51, 0.3);
+}
+.ef-testimonials[data-division="media"] .ef-testimonial-card:hover {
+  border-color: rgba(138, 43, 226, 0.6);
+  box-shadow: 0 8px 32px rgba(138, 43, 226, 0.18);
+}
+.ef-testimonials[data-division="media"] .ef-testimonial-card__rating {
+  color: rgb(205, 127, 50);
+}
+.ef-testimonials[data-division="media"] .ef-testimonial-card__quote {
+  border-left-color: rgba(184, 115, 51, 0.45);
+}
+.ef-testimonials[data-division="media"] .ef-testimonial-card--featured {
+  border-color: rgba(184, 115, 51, 0.5);
+}
+.ef-testimonials[data-division="media"] .ef-testimonial-card--featured:hover {
+  border-color: rgb(138, 43, 226);
+  box-shadow: 0 12px 40px rgba(138, 43, 226, 0.3);
+}
+
+/* ─── STUDIO — Silver metallic → Lime glow ─── */
+.ef-testimonials[data-division="studio"] .ef-testimonial-card {
+  border-color: rgba(192, 192, 192, 0.25);
+}
+.ef-testimonials[data-division="studio"] .ef-testimonial-card:hover {
+  border-color: rgba(50, 205, 50, 0.55);
+  box-shadow: 0 8px 32px rgba(50, 205, 50, 0.15);
+}
+.ef-testimonials[data-division="studio"] .ef-testimonial-card__rating {
+  color: rgb(192, 192, 192);
+}
+.ef-testimonials[data-division="studio"] .ef-testimonial-card__quote {
+  border-left-color: rgba(192, 192, 192, 0.4);
+}
+.ef-testimonials[data-division="studio"] .ef-testimonial-card--featured {
+  border-color: rgba(192, 192, 192, 0.45);
+}
+.ef-testimonials[data-division="studio"] .ef-testimonial-card--featured:hover {
+  border-color: rgb(50, 205, 50);
+  box-shadow: 0 12px 40px rgba(50, 205, 50, 0.25);
+}
