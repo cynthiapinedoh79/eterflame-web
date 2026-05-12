@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block head_title %}EF Design — Creative Technology & Design · Eterflame{% endblock %}
 {% load static %}
+{% load testimonial_tags %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/design.css' %}?v={% now 'U' %}">
+<link rel="stylesheet" href="{% static 'css/testimonials.css' %}?v={% now 'U' %}">
 {% endblock %}
 
 {% block content %}
@@ -122,6 +124,9 @@
     {% endif %}
 
   </section>
+
+  <!-- TESTIMONIALS -->
+  {% show_testimonials 'design' %}
 
   <!-- CTA — full width -->
   <section class="ef-design-cta">

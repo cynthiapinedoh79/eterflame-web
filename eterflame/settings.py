@@ -90,6 +90,7 @@ INSTALLED_APPS = [
     'blog',
     'about',
     'poetry',
+    'testimonials',
     'works',
     'aythnyk',
     'design_app',

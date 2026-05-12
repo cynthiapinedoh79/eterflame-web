@@ -1,0 +1,42 @@
+{% load static %}
+
+{% comment %}
+=================================================
+Testimonials section partial
+Usage: {% include 'components/testimonials_section.html' with division='design' %}
+
+Required context variable from view (or template tag):
+  testimonials: queryset of active Testimonial objects for this division
+=================================================
+{% endcomment %}
+
+{% if testimonials %}
+<section class="ef-testimonials">
+  <p class="ef-testimonials__label fade-in-up">Client Voices</p>
+  <h2 class="ef-testimonials__heading fade-in-up">
+    What clients say<br>
+    <em>about working with us.</em>
+  </h2>
+  
+  <div class="ef-testimonials__grid">
+    {% for t in testimonials %}
+    <article class="ef-testimonial-card fade-in-up{% if t.is_featured %} ef-testimonial-card--featured{% endif %}">
+      <div class="ef-testimonial-card__rating" aria-label="Rating: {{ t.rating }} out of 5 stars">
+        {{ t.stars }}
+      </div>
+      
+      <blockquote class="ef-testimonial-card__quote">
+        {{ t.quote }}
+      </blockquote>
+      
+      <footer class="ef-testimonial-card__author">
+        <p class="ef-testimonial-card__name">{{ t.author_name }}</p>
+        <p class="ef-testimonial-card__role">
+          {{ t.author_role }}{% if t.author_company %} · {{ t.author_company }}{% endif %}
+        </p>
+      </footer>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
