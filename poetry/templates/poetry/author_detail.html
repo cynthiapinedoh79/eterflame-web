@@ -20,7 +20,7 @@
     <a href="{% url 'aythnyk:aythnyk_home' %}" class="author-back__link">← Aythnyk</a>
   </div>
 
-  <div class="author-profile">
+  <div class="author-profile fade-in-up-initial">
     {% if author.photo %}
       <img src="{{ author.photo.url }}" alt="{{ author.name }}" class="author-profile__photo" loading="lazy">
     {% else %}

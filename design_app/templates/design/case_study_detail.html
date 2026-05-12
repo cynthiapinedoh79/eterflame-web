@@ -25,7 +25,7 @@
   <!-- HERO -->
   <section class="ef-cs-hero">
     <div class="ef-cs-hero__inner">
-      <p class="ef-cs-eyebrow">{{ cs.eyebrow }}</p>
+      <p class="ef-cs-eyebrow fade-in-up-initial">{{ cs.eyebrow }}</p>
       <h1 class="ef-cs-title">
         {% if cs.title_line1 %}
           {{ cs.title_line1 }}<br><em>{{ cs.title_line2 }}</em>
@@ -33,7 +33,7 @@
           {{ cs.portfolio_item.title }}
         {% endif %}
       </h1>
-      {% if cs.subtitle %}<p class="ef-cs-subtitle">{{ cs.subtitle }}</p>{% endif %}
+      {% if cs.subtitle %}<p class="ef-cs-subtitle fade-in-up-initial">{{ cs.subtitle }}</p>{% endif %}
       {% with tags=cs.portfolio_item.tag_list %}
       {% if tags %}
       <div class="ef-cs-tags">

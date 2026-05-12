@@ -18,8 +18,8 @@
 <!-- 1. HERO -->
 <header class="sd-hero">
   <a href="{% url 'songs:song_list' %}" class="sd-back">← Canciones</a>
-  <p class="sd-series-tag">{{ song.get_series_display }}</p>
-  <h1 class="sd-title">
+  <p class="sd-series-tag fade-in-up-initial">{{ song.get_series_display }}</p>
+  <h1 class="sd-title fade-in-up-initial">
     {% with words=song.title.split %}
       {% if words|length >= 2 %}
         <span style="color:#ffffff">{{ words.0 }}</span>&nbsp;<span style="color:#c49a40">{{ words|slice:"1:"|join:" " }}</span>
