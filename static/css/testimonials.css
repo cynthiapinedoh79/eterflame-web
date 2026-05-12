@@ -158,72 +158,75 @@
 
 /* ================================================
    DIVISION-SPECIFIC THEMING
-   Each division gets unique accent colors
-   while maintaining structural consistency.
+   Uses each division's actual brand colors for
+   visual coherence across the site.
 =================================================== */
 
 /* ─── DESIGN — Navy metallic → Turquoise glow ─── */
+/* Brand colors: --design-primary #2d6a9f, --design-light #4ecdc4 */
 .ef-testimonials[data-division="design"] .ef-testimonial-card {
-  border-color: rgba(70, 130, 180, 0.25);
+  border-color: rgba(45, 106, 159, 0.3);
 }
 .ef-testimonials[data-division="design"] .ef-testimonial-card:hover {
-  border-color: rgba(64, 224, 208, 0.6);
-  box-shadow: 0 8px 32px rgba(64, 224, 208, 0.15);
+  border-color: rgba(78, 205, 196, 0.6);
+  box-shadow: 0 8px 32px rgba(78, 205, 196, 0.15);
 }
 .ef-testimonials[data-division="design"] .ef-testimonial-card__rating {
-  color: rgb(135, 206, 235);
+  color: #4ecdc4;
 }
 .ef-testimonials[data-division="design"] .ef-testimonial-card__quote {
-  border-left-color: rgba(70, 130, 180, 0.4);
+  border-left-color: rgba(45, 106, 159, 0.5);
 }
 .ef-testimonials[data-division="design"] .ef-testimonial-card--featured {
-  border-color: rgba(64, 224, 208, 0.4);
+  border-color: rgba(78, 205, 196, 0.4);
 }
 .ef-testimonials[data-division="design"] .ef-testimonial-card--featured:hover {
-  border-color: rgb(64, 224, 208);
-  box-shadow: 0 12px 40px rgba(64, 224, 208, 0.25);
+  border-color: #4ecdc4;
+  box-shadow: 0 12px 40px rgba(78, 205, 196, 0.25);
 }
 
 /* ─── MEDIA — Copper → Purple glow ─── */
+/* Brand colors: --em-copper #c4622a, --em-purple #6B2FD9 */
 .ef-testimonials[data-division="media"] .ef-testimonial-card {
-  border-color: rgba(184, 115, 51, 0.3);
+  border-color: rgba(196, 98, 42, 0.3);
 }
 .ef-testimonials[data-division="media"] .ef-testimonial-card:hover {
-  border-color: rgba(138, 43, 226, 0.6);
-  box-shadow: 0 8px 32px rgba(138, 43, 226, 0.18);
+  border-color: rgba(107, 47, 217, 0.6);
+  box-shadow: 0 8px 32px rgba(107, 47, 217, 0.18);
 }
 .ef-testimonials[data-division="media"] .ef-testimonial-card__rating {
-  color: rgb(205, 127, 50);
+  color: #e8824a;
 }
 .ef-testimonials[data-division="media"] .ef-testimonial-card__quote {
-  border-left-color: rgba(184, 115, 51, 0.45);
+  border-left-color: rgba(196, 98, 42, 0.5);
 }
 .ef-testimonials[data-division="media"] .ef-testimonial-card--featured {
-  border-color: rgba(184, 115, 51, 0.5);
+  border-color: rgba(196, 98, 42, 0.5);
 }
 .ef-testimonials[data-division="media"] .ef-testimonial-card--featured:hover {
-  border-color: rgb(138, 43, 226);
-  box-shadow: 0 12px 40px rgba(138, 43, 226, 0.3);
+  border-color: #6B2FD9;
+  box-shadow: 0 12px 40px rgba(107, 47, 217, 0.3);
 }
 
 /* ─── STUDIO — Silver metallic → Lime glow ─── */
+/* Brand colors: --es-silver #8a8a8a, --es-lime #7FBA00 */
 .ef-testimonials[data-division="studio"] .ef-testimonial-card {
-  border-color: rgba(192, 192, 192, 0.25);
+  border-color: rgba(138, 138, 138, 0.3);
 }
 .ef-testimonials[data-division="studio"] .ef-testimonial-card:hover {
-  border-color: rgba(50, 205, 50, 0.55);
-  box-shadow: 0 8px 32px rgba(50, 205, 50, 0.15);
+  border-color: rgba(127, 186, 0, 0.6);
+  box-shadow: 0 8px 32px rgba(127, 186, 0, 0.15);
 }
 .ef-testimonials[data-division="studio"] .ef-testimonial-card__rating {
-  color: rgb(192, 192, 192);
+  color: #b0b0b0;
 }
 .ef-testimonials[data-division="studio"] .ef-testimonial-card__quote {
-  border-left-color: rgba(192, 192, 192, 0.4);
+  border-left-color: rgba(138, 138, 138, 0.4);
 }
 .ef-testimonials[data-division="studio"] .ef-testimonial-card--featured {
-  border-color: rgba(192, 192, 192, 0.45);
+  border-color: rgba(138, 138, 138, 0.45);
 }
 .ef-testimonials[data-division="studio"] .ef-testimonial-card--featured:hover {
-  border-color: rgb(50, 205, 50);
-  box-shadow: 0 12px 40px rgba(50, 205, 50, 0.25);
+  border-color: #7FBA00;
+  box-shadow: 0 12px 40px rgba(127, 186, 0, 0.25);
 }
