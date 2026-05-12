@@ -95,6 +95,10 @@ class CaseStudy(models.Model):
             self.slug = slugify(self.portfolio_item.title)
         super().save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('design:case_study_detail', kwargs={'slug': self.slug})
+    
     def get_metrics(self):
         metrics = []
         for i in range(1, 6):

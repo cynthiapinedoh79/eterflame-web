@@ -19,6 +19,9 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.sitemaps.views import sitemap
+from django.views.generic import TemplateView
+from core.sitemaps import sitemaps
 from django.conf.urls.i18n import i18n_patterns   # i18n
 from django.http import Http404
 
@@ -32,6 +35,9 @@ def trigger_404(request):
 urlpatterns = [
     path("api/chat/", include(("chat.urls", "chat"), namespace="chat")),
     path("test-404/", trigger_404),
+    # SEO: sitemap and robots — NOT inside i18n_patterns (must be at root)
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain'), name='robots'),
 ]
 
 # Translatable, language-prefixed routes

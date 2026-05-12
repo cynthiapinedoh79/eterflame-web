@@ -26,6 +26,10 @@ class Post(models.Model):
     class Meta:
         ordering = ["-created_on"]
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('blog:post_detail', kwargs={'slug': self.slug})
+
     def __str__(self):
         return f"{self.title} | written by {self.author}"
 
