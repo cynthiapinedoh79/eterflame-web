@@ -82,12 +82,13 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown ef-nav-dropdown">
-                        <a class="nav-link {% if request.path == '/' or '/works' in request.path %}active{% endif %}"
-                           href="{% url 'works:works_home' %}">Works</a>
-                        <a class="ef-dropdown-caret" href="#"
+                        <a class="nav-link dropdown-toggle ef-nav-link-toggle {% if request.path == '/' or '/works' in request.path %}active{% endif %}"
+                           href="#"
                            id="worksDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">&#8964;</a>
+                           data-bs-toggle="dropdown" aria-expanded="false">Works</a>
                         <ul class="dropdown-menu ef-dropdown-menu" aria-labelledby="worksDropdown">
+                            <li><a class="dropdown-item ef-dropdown-item ef-dropdown-item--ay" href="{% url 'works:works_home' %}">Eterflame Works</a></li>
+                            <li><hr class="dropdown-divider ef-dropdown-divider"></li>
                             <li><a class="dropdown-item ef-dropdown-item ef-dropdown-item--ay" href="{% url 'design:design_home' %}">EF Design</a></li>
                             <li><a class="dropdown-item ef-dropdown-item ef-dropdown-item--ay" href="{% url 'media:media_home' %}">EF Media</a></li>
                             <li><a class="dropdown-item ef-dropdown-item ef-dropdown-item--ay" href="{% url 'studio:studio_home' %}">EF Studio</a></li>
@@ -96,12 +97,13 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown ef-nav-dropdown">
-                        <a class="nav-link {% if '/aythnyk' in request.path or '/blog' in request.path or '/songs' in request.path or '/poems' in request.path %}active{% endif %}"
-                           href="{% url 'aythnyk:aythnyk_home' %}">Aythnyk</a>
-                        <a class="ef-dropdown-caret" href="#"
+                        <a class="nav-link dropdown-toggle ef-nav-link-toggle {% if '/aythnyk' in request.path or '/blog' in request.path or '/songs' in request.path or '/poems' in request.path %}active{% endif %}"
+                           href="#"
                            id="aythnykDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">&#8964;</a>
+                           data-bs-toggle="dropdown" aria-expanded="false">Aythnyk</a>
                         <ul class="dropdown-menu ef-dropdown-menu ef-dropdown-menu--ay" aria-labelledby="aythnykDropdown">
+                            <li><a class="dropdown-item ef-dropdown-item ef-dropdown-item--ay" href="{% url 'aythnyk:aythnyk_home' %}">Aythnyk</a></li>
+                            <li><hr class="dropdown-divider ef-dropdown-divider ef-dropdown-divider--ay"></li>
                             <li><a class="dropdown-item ef-dropdown-item ef-dropdown-item--ay" href="{% url 'poetry:poem_list' %}">Poems</a></li>
                             <li><a class="dropdown-item ef-dropdown-item ef-dropdown-item--ay" href="{% url 'blog:bloghome' %}">Blog</a></li>
                             <li><a class="dropdown-item ef-dropdown-item ef-dropdown-item--ay" href="{% url 'songs:song_list' %}">Sonic</a></li>
@@ -195,10 +197,10 @@
           <div class="footer-col fade-in-up">
             <p class="footer-col__title">Aythnyk</p>
             <ul class="footer-links">
-              <li><a href="{% url 'aythnyk:aythnyk_home' %}">Home</a></li>
+              <li><a href="{% url 'aythnyk:aythnyk_home' %}">Aythnyk</a></li>
               <li><a href="{% url 'poetry:poem_list' %}">Poems</a></li>
               <li><a href="{% url 'blog:bloghome' %}">Blog</a></li>
-              <li><a href="{% url 'songs:song_list' %}">Songs</a></li>
+              <li><a href="{% url 'songs:song_list' %}">Sonic</a></li>
               <li><a href="{% url 'shop:shop_home' %}">Shop</a></li>
               <li><a href="{% url 'poetry:tools' %}">Tools</a></li>
             </ul>
