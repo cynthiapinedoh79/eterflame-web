@@ -81,6 +81,30 @@
     <div class="ef-pw-grid">
 
       {% for item in page_obj %}
+      {% if item.case_study and item.case_study.is_published %}
+      <a href="{% url 'design:case_study_detail' item.case_study.slug %}" class="ef-pw-card ef-pw-card--linked{% if item.is_screenshot %} ef-pw-card--screenshot{% endif %}">
+        <div class="ef-pw-image">
+          {% if item.image_url %}
+          <img src="{{ item.image_url }}" alt="{{ item.title }}" loading="lazy">
+          {% else %}
+          <img src="{% static 'images/default.webp' %}" alt="{{ item.title }}" loading="lazy">
+          {% endif %}
+        </div>
+        <div class="ef-pw-body">
+          <span class="ef-pw-kicker">{{ item.kicker }}</span>
+          <h4 class="ef-pw-title">{{ item.title }}</h4>
+          <p class="ef-pw-desc">{{ item.description }}</p>
+          {% if item.tags %}
+          <div class="ef-pw-tags">
+            {% for tag in item.tag_list %}
+            <span>{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+          <span class="ef-pw-case-link">View Case Study →</span>
+        </div>
+      </a>
+      {% else %}
       <article class="ef-pw-card{% if item.is_screenshot %} ef-pw-card--screenshot{% endif %}">
         <div class="ef-pw-image">
           {% if item.image_url %}
@@ -100,11 +124,9 @@
             {% endfor %}
           </div>
           {% endif %}
-          {% if item.case_study and item.case_study.is_published %}
-          <a href="{% url 'design:case_study_detail' item.case_study.slug %}" class="ef-pw-case-link">View Case Study →</a>
-          {% endif %}
         </div>
       </article>
+      {% endif %}
       {% empty %}
       <p class="ef-pw-empty">Portfolio coming soon.</p>
       {% endfor %}

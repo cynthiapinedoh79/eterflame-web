@@ -2511,3 +2511,30 @@
   transition: color 0.3s ease;
 }
 .ef-pw-case-link:hover { color: #4dd9ec; }
+
+
+/* ================================================
+   PORTFOLIO CARD — LINKED VARIANT
+   Make the entire card clickable when it has a case study.
+=================================================== */
+.ef-pw-card--linked {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.ef-pw-card--linked:hover {
+  text-decoration: none;
+}
+
+/* Preserve original card hover effects via the linked variant */
+.ef-pw-card--linked:hover .ef-pw-title {
+  color: var(--design-light, #4ecdc4);
+}
+
+/* Style the inner "View Case Study" as visual only (not interactive) */
+.ef-pw-card--linked .ef-pw-case-link {
+  pointer-events: none; /* prevents nested click weirdness */
+}
