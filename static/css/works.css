@@ -1531,3 +1531,92 @@ a:hover .res-card__logo--si {
   transform: rotate(180deg);
 }
 
+
+
+/* ================================================
+   CONTACT FORM — Optional fields collapsible
+   Reduces form friction by hiding budget/timeline
+   behind a clickable "Add project details" toggle.
+=================================================== */
+
+.wc-optional {
+  margin: 1.5rem 0;
+  border-top: 1px solid rgba(245, 225, 190, 0.15);
+  padding-top: 1.5rem;
+}
+
+.wc-optional__summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(245, 225, 190, 0.65);
+  list-style: none;
+  user-select: none;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+.wc-optional__summary::-webkit-details-marker {
+  display: none;
+}
+
+.wc-optional__summary:hover {
+  color: rgba(245, 225, 190, 0.95);
+}
+
+.wc-optional__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(245, 225, 190, 0.4);
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+.wc-optional[open] .wc-optional__icon {
+  transform: rotate(45deg);
+  border-color: rgba(245, 225, 190, 0.7);
+}
+
+.wc-optional__hint {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  letter-spacing: 1px;
+  text-transform: none;
+  font-style: italic;
+}
+
+.wc-optional__body {
+  padding-top: 1.5rem;
+  animation: wc-optional-in 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes wc-optional-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wc-optional__icon,
+  .wc-optional__body {
+    transition: none;
+    animation: none;
+  }
+}

@@ -59,46 +59,21 @@ function updateServices(division) {
             </div>
           </div>
 
-          <div class="wc-row">
-            <div class="wc-field">
-              <label class="wc-label" for="division">Division</label>
-              <select class="wc-input wc-select" id="division" name="division" onchange="updateServices(this.value)">
-                <option value="">Select a division...</option>
-                <option value="design">EF Design</option>
-                <option value="media">EF Media</option>
-                <option value="studio">EF Studio</option>
-                <option value="other">Other</option>
-              </select>
-              <div id="service-wrapper" style="display:none;margin-top:1rem;">
-                <label class="wc-label" for="service">Service</label>
-                <select class="wc-input wc-select" id="service" name="service">
-                  <option value="">Select a service...</option>
-                </select>
-              </div>
-            </div>
-            <div class="wc-field">
-              <label class="wc-label" for="budget">Budget Range</label>
-              <select class="wc-input wc-select" id="budget" name="budget">
-                <option value="">Select a range...</option>
-                <option>Under $500</option>
-                <option>$500 – $1,000</option>
-                <option>$1,000 – $3,000</option>
-                <option>$3,000 – $5,000</option>
-                <option>$5,000+</option>
-              </select>
-            </div>
-          </div>
-
           <div class="wc-field">
-            <label class="wc-label" for="timeline">Timeline</label>
-            <select class="wc-input wc-select" id="timeline" name="timeline">
-              <option value="">Select a timeline...</option>
-              <option>ASAP</option>
-              <option>1 – 2 weeks</option>
-              <option>1 month</option>
-              <option>2 – 3 months</option>
-              <option>Flexible</option>
+            <label class="wc-label" for="division">Division</label>
+            <select class="wc-input wc-select" id="division" name="division" onchange="updateServices(this.value)">
+              <option value="">Select a division...</option>
+              <option value="design">EF Design</option>
+              <option value="media">EF Media</option>
+              <option value="studio">EF Studio</option>
+              <option value="other">Other</option>
             </select>
+            <div id="service-wrapper" style="display:none;margin-top:1rem;">
+              <label class="wc-label" for="service">Service</label>
+              <select class="wc-input wc-select" id="service" name="service">
+                <option value="">Select a service...</option>
+              </select>
+            </div>
           </div>
 
           <div class="wc-field">
@@ -107,6 +82,40 @@ function updateServices(division) {
                       placeholder="Tell us about your project — goals, audience, scope..."
                       required></textarea>
           </div>
+
+          <details class="wc-optional">
+            <summary class="wc-optional__summary">
+              <span class="wc-optional__icon">+</span>
+              Add project details
+              <span class="wc-optional__hint">(optional)</span>
+            </summary>
+            <div class="wc-optional__body">
+              <div class="wc-row">
+                <div class="wc-field">
+                  <label class="wc-label" for="budget">Budget Range</label>
+                  <select class="wc-input wc-select" id="budget" name="budget">
+                    <option value="">Select a range...</option>
+                    <option>Under $500</option>
+                    <option>$500 – $1,000</option>
+                    <option>$1,000 – $3,000</option>
+                    <option>$3,000 – $5,000</option>
+                    <option>$5,000+</option>
+                  </select>
+                </div>
+                <div class="wc-field">
+                  <label class="wc-label" for="timeline">Timeline</label>
+                  <select class="wc-input wc-select" id="timeline" name="timeline">
+                    <option value="">Select a timeline...</option>
+                    <option>ASAP</option>
+                    <option>1 – 2 weeks</option>
+                    <option>1 month</option>
+                    <option>2 – 3 months</option>
+                    <option>Flexible</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </details>
 
           <button type="submit" class="wh-btn-primary wc-submit">
             Send Enquiry →
