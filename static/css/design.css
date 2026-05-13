@@ -2604,8 +2604,14 @@
     0 0 60px rgba(0, 188, 212, 0.15);
 }
 
+/* Scale en hover SOLO para fotos (no screenshots) */
 .ef-pw-card--featured:hover .ef-pw-image img {
   transform: scale(1.05);
+}
+
+/* Anular scale para screenshots — preserva info del dashboard/UI */
+.ef-pw-card--featured.ef-pw-card--screenshot:hover .ef-pw-image img {
+  transform: scale(1.01);
 }
 
 .ef-pw-card--featured:hover .ef-pw-title {

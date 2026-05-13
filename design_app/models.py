@@ -24,6 +24,13 @@ class PortfolioItem(models.Model):
     class Meta:
         ordering = ['order']
 
+    def save(self, *args, **kwargs):
+        """Ensure only ONE featured project exists at a time."""
+        if self.is_featured:
+            # When marking this as featured, unmark all others
+            PortfolioItem.objects.exclude(pk=self.pk).update(is_featured=False)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.title
 
