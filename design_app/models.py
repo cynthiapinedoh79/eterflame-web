@@ -15,6 +15,8 @@ class PortfolioItem(models.Model):
                      help_text="Comma-separated e.g. Python,Scikit-learn")
     is_screenshot = models.BooleanField(default=False,
                      help_text="Use contain layout instead of cover (for screenshots/dashboards)")
+    is_featured  = models.BooleanField(default=False,
+                     help_text="Highlight this project as the main featured work (renders full-width)")
     order        = models.PositiveIntegerField(default=0)
     is_active    = models.BooleanField(default=True)
     created_at   = models.DateTimeField(auto_now_add=True)

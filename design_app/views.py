@@ -38,12 +38,20 @@ def design_home(request):
             messages.error(request, "Please fill in all required fields.")
 
     items = PortfolioItem.objects.filter(is_active=True).order_by('order')
-    paginator = Paginator(items, 6)
+    
+    # Separate featured project from regular items
+    featured = items.filter(is_featured=True).first()
+    if featured:
+        regular_items = items.exclude(id=featured.id)
+    else:
+        regular_items = items
+    
+    paginator = Paginator(regular_items, 6)
     page_obj = paginator.get_page(request.GET.get('page'))
-
     return render(request, 'design/home.html', {
         'page_title': 'EF Design',
         'section': 'design',
+        'featured': featured,
         'page_obj': page_obj,
     })
 

@@ -78,6 +78,43 @@
   <!-- PORTFOLIO — contenido centrado -->
   <section class="ed-portfolio">
     <p class="ed-label">Selected Work</p>
+    {% if featured %}
+    <div class="ef-pw-featured-wrap fade-in-up">
+      {% if featured.case_study and featured.case_study.is_published %}
+      <a href="{% url 'design:case_study_detail' featured.case_study.slug %}" class="ef-pw-card ef-pw-card--featured ef-pw-card--linked{% if featured.is_screenshot %} ef-pw-card--screenshot{% endif %}">
+      {% else %}
+      <article class="ef-pw-card ef-pw-card--featured{% if featured.is_screenshot %} ef-pw-card--screenshot{% endif %}">
+      {% endif %}
+        <div class="ef-pw-image">
+          {% if featured.image_url %}
+          <img src="{{ featured.image_url }}" alt="{{ featured.title }}" loading="eager">
+          {% else %}
+          <img src="{% static 'images/default.webp' %}" alt="{{ featured.title }}" loading="eager">
+          {% endif %}
+        </div>
+        <div class="ef-pw-body">
+          <span class="ef-pw-kicker">{{ featured.kicker }}</span>
+          <h3 class="ef-pw-title">{{ featured.title }}</h3>
+          <p class="ef-pw-desc">{{ featured.description }}</p>
+          {% if featured.tags %}
+          <div class="ef-pw-tags">
+            {% for tag in featured.tag_list %}
+            <span>{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if featured.case_study and featured.case_study.is_published %}
+          <span class="ef-pw-case-link">View Case Study →</span>
+          {% endif %}
+        </div>
+      {% if featured.case_study and featured.case_study.is_published %}
+      </a>
+      {% else %}
+      </article>
+      {% endif %}
+    </div>
+    {% endif %}
+
     <div class="ef-pw-grid">
 
       {% for item in page_obj %}

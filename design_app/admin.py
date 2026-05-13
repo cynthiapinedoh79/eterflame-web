@@ -4,8 +4,9 @@ from .models import PortfolioItem, CaseStudy
 
 @admin.register(PortfolioItem)
 class PortfolioItemAdmin(admin.ModelAdmin):
-    list_display  = ['title', 'kicker', 'order', 'is_active']
-    list_editable = ['order', 'is_active']
+    list_display  = ['title', 'kicker', 'order', 'is_featured', 'is_active']
+    list_editable = ['order', 'is_featured', 'is_active']
+    list_filter   = ['is_featured', 'is_active', 'is_screenshot']
     ordering      = ['order']
 
 
