@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{% static 'css/songs.css' %}">
 {% endblock %}
 {% block content %}
-<a href="{% url 'poetry:poetry_home' %}" class="page-back">← Aythnyk</a>
+<a href="{% url 'poetry:poem_list' %}" class="page-back">← Aythnyk</a>
 
 <section class="songs-hero">
   <img src="{% static 'images/aythnyk/a_logo.webp' %}" class="ah-logo-watermark-img" aria-hidden="true">
@@ -45,10 +45,28 @@
     </a>
   </div>
   {% empty %}
-  <div style="padding:4rem;text-align:center;color:#444;grid-column:1/-1">
-    <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#666">
-      Las canciones llegan pronto.
-    </p>
+  <div class="songs-empty" style="grid-column:1/-1">
+    <div class="songs-empty__inner">
+      <p class="songs-empty__eyebrow">⌁ En producción ⌁</p>
+      <h2 class="songs-empty__title">La música está en camino</h2>
+
+      <p class="songs-empty__lead">
+        Algunas canciones nacen de un poema.<br>
+        Otras nacen solas, con voz propia.
+      </p>
+
+      <p class="songs-empty__lead">
+        Todas pasan por el mismo viaje:
+        producción, distribución, y un hook
+        visual que las lleva a las redes.
+      </p>
+
+      <div class="songs-empty__divider" aria-hidden="true"></div>
+
+      <a href="{% url 'poetry:poem_list' %}" class="songs-empty__cta">
+        Leer poemas →
+      </a>
+    </div>
   </div>
   {% endfor %}
 </div>
