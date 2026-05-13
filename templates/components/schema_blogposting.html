@@ -1,0 +1,30 @@
+{% comment %}
+Schema.org BlogPosting — JSON-LD for individual blog posts.
+Loaded in blog/post_detail.html.
+Expects `post` context variable.
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "{{ request.build_absolute_uri }}#blogposting",
+  "headline": "{{ post.title|escapejs }}",
+  "description": "{{ post.excerpt|default:post.content|striptags|truncatewords:30|escapejs }}",
+  "datePublished": "{{ post.created_on|date:'c' }}",
+  "dateModified": "{{ post.updated_on|date:'c' }}",
+  "author": {
+    "@type": "Person",
+    "@id": "https://eterflame-web-ab680e12c17d.herokuapp.com/about/#person",
+    "name": "Cynthia Pinedo"
+  },
+  "publisher": {
+    "@id": "https://eterflame-web-ab680e12c17d.herokuapp.com/#organization"
+  },
+  "image": "{% if post.featured_image and 'placeholder' not in post.featured_image.url %}{{ post.featured_image.url }}{% else %}https://res.cloudinary.com/dam7n1lk3/image/upload/v1777998886/og-default_f6d0tp.webp{% endif %}",
+  "url": "{{ request.build_absolute_uri }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ request.build_absolute_uri }}"
+  }
+}
+</script>

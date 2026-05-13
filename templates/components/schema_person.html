@@ -1,0 +1,47 @@
+{% comment %}
+Schema.org Person — JSON-LD for Cynthia Pinedo
+Loaded in about/about.html only.
+
+NOTE: sameAs section is commented and ready for future activation.
+When LinkedIn/GitHub URLs are ready to publish, uncomment the lines.
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://eterflame-web-ab680e12c17d.herokuapp.com/about/#person",
+  "name": "Cynthia Pinedo",
+  "jobTitle": "Founder & Creative Director",
+  "description": "Creative technologist building digital experiences at the intersection of code, design, and poetry.",
+  "url": "https://eterflame-web-ab680e12c17d.herokuapp.com/about/",
+  "worksFor": {
+    "@id": "https://eterflame-web-ab680e12c17d.herokuapp.com/#organization"
+  }
+}
+</script>
+
+{% comment %}
+═══════════════════════════════════════════════════════
+FUTURE: When ready to publish social links, replace the
+JSON-LD above with this expanded version:
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://eterflame-web-ab680e12c17d.herokuapp.com/about/#person",
+  "name": "Cynthia Pinedo",
+  "jobTitle": "Founder & Creative Director",
+  "description": "Creative technologist building digital experiences at the intersection of code, design, and poetry.",
+  "url": "https://eterflame-web-ab680e12c17d.herokuapp.com/about/",
+  "worksFor": {
+    "@id": "https://eterflame-web-ab680e12c17d.herokuapp.com/#organization"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/REPLACE-WITH-YOUR-LINKEDIN/",
+    "https://github.com/cynthiapinedoh79"
+  ]
+}
+</script>
+═══════════════════════════════════════════════════════
+{% endcomment %}

@@ -54,6 +54,9 @@
     <link rel="stylesheet" href="{% static 'css/animations.css' %}?v={% now 'U' %}">
 
     {# per-page styles (about.css, blog.css,poetry.css,) #}
+    {# Schema.org JSON-LD — Organization + WebSite global #}
+    {% include "components/schema_organization.html" %}
+
     {% block extra_css %}{% endblock %}
 
     {% block extra_head %}{% endblock %}

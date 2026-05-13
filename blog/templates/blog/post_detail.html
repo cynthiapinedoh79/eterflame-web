@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block extra_head %}
+{% include "components/schema_blogposting.html" %}
+{% endblock %}
+
 {% load crispy_forms_tags %}
 
 {% block og_title %}{{ post.title }} · Eterflame Blog{% endblock %}

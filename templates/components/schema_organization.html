@@ -1,0 +1,38 @@
+{% comment %}
+Schema.org Organization + WebSite — Global JSON-LD
+Loaded in base.html, applies to ALL pages.
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://eterflame-web-ab680e12c17d.herokuapp.com/#organization",
+      "name": "Eterflame Works",
+      "url": "https://eterflame-web-ab680e12c17d.herokuapp.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://res.cloudinary.com/dam7n1lk3/image/upload/v1777998886/og-default_f6d0tp.webp",
+        "width": 1200,
+        "height": 630
+      },
+      "description": "Creative studio building digital experiences where technology, design, and storytelling move together — poetry, music, and brand identity.",
+      "founder": {
+        "@id": "https://eterflame-web-ab680e12c17d.herokuapp.com/about/#person"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://eterflame-web-ab680e12c17d.herokuapp.com/#website",
+      "url": "https://eterflame-web-ab680e12c17d.herokuapp.com/",
+      "name": "Eterflame Works",
+      "description": "Creative & Digital Production Studio",
+      "publisher": {
+        "@id": "https://eterflame-web-ab680e12c17d.herokuapp.com/#organization"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
