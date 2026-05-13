@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "signature": "0166f589c33ed92cea6c7d1c4add6fdd4ef296b41ed9d1829b079fc7daf39272",
-  "n8nacVersion": "2.1.0",
+  "signature": "cc5156288acda70d0897fc35180e38af02fda0fa1acd8cfbed0fc1ea639d869b",
+  "n8nacVersion": "2.1.2",
   "n8nVersion": "Unknown",
-  "generatedAt": "2026-05-11T17:17:43.119Z",
+  "generatedAt": "2026-05-12T14:18:23.943Z",
   "reason": "snapshot:startup"
 }
