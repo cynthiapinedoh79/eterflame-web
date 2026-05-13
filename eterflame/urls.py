@@ -38,6 +38,9 @@ urlpatterns = [
     # SEO: sitemap and robots — NOT inside i18n_patterns (must be at root)
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain'), name='robots'),
+    # PWA: manifest and service worker served at root
+    path('manifest.json', TemplateView.as_view(template_name='manifest.json', content_type='application/manifest+json'), name='pwa_manifest'),
+    path('sw.js', TemplateView.as_view(template_name='sw.js', content_type='application/javascript'), name='pwa_sw'),
 ]
 
 # Translatable, language-prefixed routes

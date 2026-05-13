@@ -1,0 +1,61 @@
+{
+  "name": "Eterflame Works",
+  "short_name": "Eterflame",
+  "description": "Creative studio building digital experiences where technology, design, and storytelling move together.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0a1428",
+  "background_color": "#020714",
+  "lang": "en",
+  "categories": ["business", "design", "lifestyle"],
+  "icons": [
+    {
+      "src": "/static/images/icon-192.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/images/icon-512.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/images/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+  {
+    "src": "/static/images/screenshots/screenshot-desktop.png",
+    "sizes": "1280x720",
+    "type": "image/png",
+    "form_factor": "wide",
+    "label": "Eterflame Works home page on desktop"
+  },
+  {
+    "src": "/static/images/screenshots/screenshot-mobile.png",
+    "sizes": "1082x2402",
+    "type": "image/png",
+    "form_factor": "narrow",
+    "label": "Eterflame Works home page on mobile"
+  }
+]
+}
