@@ -1909,3 +1909,14 @@ button,
   .footer-newsletter__form { flex-direction: column; align-items: stretch; }
   .footer-newsletter__btn { width: 100%; }
 }
+
+/* ────────────────────────────────────────────────
+   FOOTER — Newsletter band on red background
+   When body has .aythnyk-section, the gold borders
+   disappear into the red. Use dark borders matching
+   the social bar pattern (same as siblings).
+─────────────────────────────────────────────────── */
+body.aythnyk-section .footer-newsletter {
+  border-top: 1px solid #1a1510;
+  border-bottom: none;
+}
