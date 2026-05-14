@@ -446,7 +446,7 @@
         });
       }
     </script>
-    {# Newsletter form — AJAX submit with inline feedback #}
+    {# Newsletter form — AJAX submit + toast feedback (uses window.efToast) #}
     <script>
       (function() {
         const forms = document.querySelectorAll('[data-newsletter-form]');
@@ -454,16 +454,11 @@
           form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            const note = form.parentElement.querySelector('[data-newsletter-feedback]');
             const btn = form.querySelector('button[type="submit"]');
-            const originalNoteText = note ? note.textContent : '';
             const originalBtnText = btn.textContent;
 
             btn.disabled = true;
             btn.textContent = 'Sending…';
-            if (note) {
-              note.classList.remove('is-success', 'is-error');
-            }
 
             try {
               const response = await fetch(form.action, {
@@ -477,31 +472,21 @@
 
               if (response.ok && data.ok) {
                 form.reset();
-                if (note) {
-                  note.textContent = data.message;
-                  note.classList.add('is-success');
+                if (window.efToast) {
+                  window.efToast(data.message, 'success');
                 }
               } else {
-                if (note) {
-                  note.textContent = data.error || 'Something went wrong.';
-                  note.classList.add('is-error');
+                if (window.efToast) {
+                  window.efToast(data.error || 'Something went wrong.', 'error');
                 }
               }
             } catch (err) {
-              if (note) {
-                note.textContent = 'Network error. Please try again.';
-                note.classList.add('is-error');
+              if (window.efToast) {
+                window.efToast('Network error. Please try again.', 'error');
               }
             } finally {
               btn.disabled = false;
               btn.textContent = originalBtnText;
-
-              setTimeout(function() {
-                if (note) {
-                  note.classList.remove('is-success', 'is-error');
-                  note.textContent = originalNoteText;
-                }
-              }, 6000);
             }
           });
         });
