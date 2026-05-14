@@ -100,6 +100,7 @@ INSTALLED_APPS = [
     'songs',
     'chat',
     'shop',
+    'audience',
 ]
 
 SITE_ID = 1

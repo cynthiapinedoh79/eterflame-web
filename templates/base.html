@@ -217,6 +217,39 @@
         </div>
       </div>
 
+      <!-- Newsletter band — Aythnyk audience signup -->
+      {% if request.path == "/" or request.path == "/en/" or "aythnyk" in request.path or "blog" in request.path %}
+      <div class="footer-newsletter">
+        <div class="footer-newsletter__inner">
+          <p class="footer-newsletter__eyebrow">✦ Aythnyk in your inbox ✦</p>
+          <h2 class="footer-newsletter__lead">
+            Follow us for new poems, songs, blog posts and more.
+          </h2>
+
+          <form class="footer-newsletter__form"
+                action="{% url 'audience:subscribe' %}"
+                method="post"
+                data-newsletter-form>
+            {% csrf_token %}
+            <input type="hidden" name="source" value="footer">
+            <input type="email"
+                   name="email"
+                   placeholder="your@email.com"
+                   required
+                   aria-label="Your email"
+                   class="footer-newsletter__input">
+            <button type="submit" class="footer-newsletter__btn">
+              Subscribe
+            </button>
+          </form>
+
+          <p class="footer-newsletter__note" data-newsletter-feedback>
+            No spam. Unsubscribe anytime.
+          </p>
+        </div>
+      </div>
+      {% endif %}
+
       <!-- Social centered — between top and bottom -->
       <div class="footer-social-bar">
         <a href="https://instagram.com/aythnyk" target="_blank" rel="noopener" aria-label="Instagram">
@@ -252,7 +285,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="{% static 'js/script.js' %}"></script>
     <script src="{% static 'js/animations.js' %}"></script>
 
@@ -272,104 +305,105 @@
     </script>
 
   <!-- GA4 Custom Events -->
-  <script>
-  (function() {
-    // 1. Contact form submit
-    var contactForm = document.querySelector('form[action*="contact"]');
-    if (contactForm) {
-      contactForm.addEventListener('submit', function() {
-        gtag('event', 'contact_form_submit', {
-          'event_category': 'conversion',
-          'event_label': 'Contact Form'
-        });
-      });
-    }
-
-    // 2. Start a Project CTA clicks
-    document.querySelectorAll('a[href*="contact"]').forEach(function(el) {
-      el.addEventListener('click', function() {
-        gtag('event', 'cta_start_project_click', {
-          'event_category': 'engagement',
-          'event_label': el.textContent.trim().substring(0, 50)
-        });
-      });
-    });
-
-    // 3. Service card clicks
-    document.querySelectorAll('.wh-div-card, .ed-card, .ef-pw-card').forEach(function(el) {
-      el.addEventListener('click', function() {
-        gtag('event', 'service_card_click', {
-          'event_category': 'engagement',
-          'event_label': el.querySelector('h2,h3,h4')?.textContent.trim().substring(0, 50) || 'unknown'
-        });
-      });
-    });
-
-    // 4. Song play clicks
-    document.querySelectorAll('audio, .song-play, [class*="play"]').forEach(function(el) {
-      el.addEventListener('click', function() {
-        gtag('event', 'song_play_click', {
-          'event_category': 'media',
-          'event_label': document.title
-        });
-      });
-    });
-
-    // 5. Shop product clicks
-    document.querySelectorAll('.shop-product, [href*="shop"], [class*="product"]').forEach(function(el) {
-      el.addEventListener('click', function() {
-        gtag('event', 'shop_product_click', {
-          'event_category': 'ecommerce',
-          'event_label': el.textContent.trim().substring(0, 50)
-        });
-      });
-    });
-
-    // 6. Favorite poem clicks
-    document.querySelectorAll('.poem-favorite, [class*="favorite"], [class*="like"]').forEach(function(el) {
-      el.addEventListener('click', function() {
-        gtag('event', 'favorite_poem_click', {
-          'event_category': 'engagement',
-          'event_label': document.title
-        });
-      });
-    });
-
-    // 7. Lead magnet form submit (blog)
-    var leadForm = document.querySelector('.ef-lead-form');
-    if (leadForm) {
-      leadForm.addEventListener('submit', function() {
-        gtag('event', 'lead_magnet_submit', {
-          'event_category': 'conversion',
-          'event_label': 'Branding Guide 2026'
-        });
-      });
-    }
-
-    // 8. Portfolio card clicks
-    document.querySelectorAll('.ef-pw-card').forEach(function(el) {
-      el.addEventListener('click', function() {
-        gtag('event', 'portfolio_card_click', {
-          'event_category': 'engagement',
-          'event_label': el.querySelector('.ef-pw-title')?.textContent.trim() || 'unknown'
-        });
-      });
-    });
-
-    // 9. FAQ accordion opens
-    document.querySelectorAll('.ef-faq__item').forEach(function(el) {
-      el.addEventListener('toggle', function() {
-        if (el.open) {
-          gtag('event', 'faq_question_open', {
-            'event_category': 'engagement',
-            'event_label': el.querySelector('.ef-faq__question')?.textContent.trim().substring(0, 80) || 'unknown'
+    <script>
+      (function() {
+        // 1. Contact form submit
+        var contactForm = document.querySelector('form[action*="contact"]');
+        if (contactForm) {
+          contactForm.addEventListener('submit', function() {
+            gtag('event', 'contact_form_submit', {
+              'event_category': 'conversion',
+              'event_label': 'Contact Form'
+            });
           });
         }
-      });
-    });
 
-  })();
-  </script>
+        // 2. Start a Project CTA clicks
+        document.querySelectorAll('a[href*="contact"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'cta_start_project_click', {
+              'event_category': 'engagement',
+              'event_label': el.textContent.trim().substring(0, 50)
+            });
+          });
+        });
+
+        // 3. Service card clicks
+        document.querySelectorAll('.wh-div-card, .ed-card, .ef-pw-card').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'service_card_click', {
+              'event_category': 'engagement',
+              'event_label': el.querySelector('h2,h3,h4')?.textContent.trim().substring(0, 50) || 'unknown'
+            });
+          });
+        });
+
+        // 4. Song play clicks
+        document.querySelectorAll('audio, .song-play, [class*="play"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'song_play_click', {
+              'event_category': 'media',
+              'event_label': document.title
+            });
+          });
+        });
+
+        // 5. Shop product clicks
+        document.querySelectorAll('.shop-product, [href*="shop"], [class*="product"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'shop_product_click', {
+              'event_category': 'ecommerce',
+              'event_label': el.textContent.trim().substring(0, 50)
+            });
+          });
+        });
+
+        // 6. Favorite poem clicks
+        document.querySelectorAll('.poem-favorite, [class*="favorite"], [class*="like"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'favorite_poem_click', {
+              'event_category': 'engagement',
+              'event_label': document.title
+            });
+          });
+        });
+
+        // 7. Lead magnet form submit (blog)
+        var leadForm = document.querySelector('.ef-lead-form');
+        if (leadForm) {
+          leadForm.addEventListener('submit', function() {
+            gtag('event', 'lead_magnet_submit', {
+              'event_category': 'conversion',
+              'event_label': 'Branding Guide 2026'
+            });
+          });
+        }
+
+        // 8. Portfolio card clicks
+        document.querySelectorAll('.ef-pw-card').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'portfolio_card_click', {
+              'event_category': 'engagement',
+              'event_label': el.querySelector('.ef-pw-title')?.textContent.trim() || 'unknown'
+            });
+          });
+        });
+
+        // 9. FAQ accordion opens
+        document.querySelectorAll('.ef-faq__item').forEach(function(el) {
+          el.addEventListener('toggle', function() {
+            if (el.open) {
+              gtag('event', 'faq_question_open', {
+                'event_category': 'engagement',
+                'event_label': el.querySelector('.ef-faq__question')?.textContent.trim().substring(0, 80) || 'unknown'
+              });
+            }
+          });
+        });
+
+      })();
+    </script>
+
     <!-- EF Toast system -->
     <script src="{% static 'js/toast.js' %}?v={% now 'U' %}"></script>
 
@@ -412,6 +446,68 @@
         });
       }
     </script>
+    {# Newsletter form — AJAX submit with inline feedback #}
+    <script>
+      (function() {
+        const forms = document.querySelectorAll('[data-newsletter-form]');
+        forms.forEach(function(form) {
+          form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const note = form.parentElement.querySelector('[data-newsletter-feedback]');
+            const btn = form.querySelector('button[type="submit"]');
+            const originalNoteText = note ? note.textContent : '';
+            const originalBtnText = btn.textContent;
+
+            btn.disabled = true;
+            btn.textContent = 'Sending…';
+            if (note) {
+              note.classList.remove('is-success', 'is-error');
+            }
+
+            try {
+              const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                credentials: 'same-origin',
+              });
+
+              const data = await response.json();
+
+              if (response.ok && data.ok) {
+                form.reset();
+                if (note) {
+                  note.textContent = data.message;
+                  note.classList.add('is-success');
+                }
+              } else {
+                if (note) {
+                  note.textContent = data.error || 'Something went wrong.';
+                  note.classList.add('is-error');
+                }
+              }
+            } catch (err) {
+              if (note) {
+                note.textContent = 'Network error. Please try again.';
+                note.classList.add('is-error');
+              }
+            } finally {
+              btn.disabled = false;
+              btn.textContent = originalBtnText;
+
+              setTimeout(function() {
+                if (note) {
+                  note.classList.remove('is-success', 'is-error');
+                  note.textContent = originalNoteText;
+                }
+              }, 6000);
+            }
+          });
+        });
+      })();
+    </script>
+
 </body>
 
 </html>

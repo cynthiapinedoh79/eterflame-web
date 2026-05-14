@@ -41,6 +41,8 @@ urlpatterns = [
     # PWA: manifest and service worker served at root
     path('manifest.json', TemplateView.as_view(template_name='manifest.json', content_type='application/manifest+json'), name='pwa_manifest'),
     path('sw.js', TemplateView.as_view(template_name='sw.js', content_type='application/javascript'), name='pwa_sw'),
+    # Audience: newsletter subscription endpoint (no i18n needed)
+    path('aythnyk/subscribe/', include(('audience.urls', 'audience'), namespace='audience')),
 ]
 
 # Translatable, language-prefixed routes
