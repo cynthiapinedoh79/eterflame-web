@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
-from django.db.models import Q
-from django.http import HttpResponse
+from django.db.models import Q, F
+from django.http import HttpResponse, JsonResponse
 from django.templatetags.static import static
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
@@ -356,4 +356,29 @@ def aythnyk_tools(request):
     return render(request, 'poetry/tools.html', {
         'categories': categories,
         'featured': links.filter(featured=True),
+    })
+
+# ─────────────────────────────────────────────────────────────
+# Public anonymous likes for poems.
+# - No login required (public engagement metric)
+# - Atomic increment via F-expression
+# - Anti-spam handled client-side via localStorage
+# - Counter visibility threshold (>=2) decided in template/JS
+# ─────────────────────────────────────────────────────────────
+@require_POST
+def poem_like(request, slug):
+    """
+    Increment public like counter for a poem.
+    Returns JSON with new count and threshold flag.
+    """
+    poem = get_object_or_404(Poem, slug=slug)
+    Poem.objects.filter(pk=poem.pk).update(
+        likes_count=F("likes_count") + 1
+    )
+    poem.refresh_from_db(fields=["likes_count"])
+
+    return JsonResponse({
+        "ok": True,
+        "likes": poem.likes_count,
+        "show_count": poem.likes_count >= 2,
     })

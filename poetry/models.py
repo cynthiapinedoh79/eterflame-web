@@ -61,6 +61,12 @@ class Poem(models.Model):
         User, related_name='favorite_poems', blank=True)
     # ----------------------------------------
 
+    # Public likes (anonymous, no login required, browser-tracked via localStorage)
+    likes_count = models.PositiveIntegerField(
+        default=0,
+        help_text="Public anonymous likes (global counter, browser anti-spam)"
+    )
+
     def __str__(self):
         return self.title_es or self.title_en
 

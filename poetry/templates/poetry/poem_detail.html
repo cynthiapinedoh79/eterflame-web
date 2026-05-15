@@ -99,6 +99,23 @@
                   <i class="far fa-heart" style="color: var(--color-text-muted);"></i>
                 </a>
               {% endif %}
+
+              {# --- Public Like Button (anonymous, localStorage anti-spam) --- #}
+              <button type="button"
+                      class="btn btn-like p-0 border-0 fs-5 poem-like-btn"
+                      data-poem-like
+                      data-poem-slug="{{ poem.slug }}"
+                      data-likes-url="{% url 'poetry:poem_like' poem.slug %}"
+                      aria-label="Like this poem">
+                <i class="far fa-thumbs-up"></i>
+                <span class="poem-like-count"
+                      data-likes-display
+                      {% if poem.likes_count < 2 %}hidden{% endif %}>
+                  {{ poem.likes_count }}
+                </span>
+              </button>
+
+
               {# --- ES/EN toggle --- #}
               {% if poem.body_es and poem.body_en %}
                 <div class="btn-group btn-group-sm" role="group" aria-label="Poem language toggle">

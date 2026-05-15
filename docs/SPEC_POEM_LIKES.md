@@ -21,7 +21,7 @@ Necesitamos **datos sobre qué poemas resuenan más** con visitantes para:
 | Concepto       | Likes públicos              | Favoritos privados            |
 |----------------|----------------------------|-------------------------------|
 | **Audiencia**  | Cualquier visitante         | Usuario logged-in              |
-| **Símbolo**    | 👍 thumbs-up                | ⭐ (sistema existente)         |
+| **Símbolo**    | 👍 thumbs-up                | ❤ corazón (sistema existente)         |
 | **Persistencia** | localStorage del browser  | DB many-to-many user ↔ poem    |
 | **Estado**     | YA en DB hoy (campo nuevo)  | YA existe                      |
 | **Reversible** | No (one-way "me gustó")     | Sí (toggle favorito/no)         |

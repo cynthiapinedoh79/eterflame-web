@@ -66,11 +66,12 @@ class PoemAdmin(SummernoteModelAdmin):
         "primary_title",  # <-- Was "title_es"
         "author",
         "collection",
+        "likes_count",
         "is_featured_display",  # <-- Was "is_featured"
         "created"
     )
-
     list_filter = ("collection", "is_featured", "created")
+    ordering = ("-likes_count", "-created")
     search_fields = ("title_es", "title_en", "body_es", "body_en")
 
     # This will pre-fill the slug from the English title as you type
