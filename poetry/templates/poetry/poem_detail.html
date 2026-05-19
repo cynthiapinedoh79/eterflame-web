@@ -211,11 +211,35 @@
 </div>
 </div><!-- /poem-main-col -->
 
-{% if related_songs %}
-{% with song=related_songs.first %}
+{# ─── Right-side panel: always for admin (PDF review), conditionally for song ─── #}
+{% if user.is_staff or related_songs %}
 <aside class="song-panel">
 
+  {# ─── Admin PDF buttons: visible on ALL poems when staff is logged in ─── #}
+  {% if user.is_staff %}
+  <p class="song-panel__section-label">Internal review</p>
+  <a href="{% url 'poetry:download_pdf' poem.slug %}?lang=es"
+     class="song-panel__pdf-btn"
+     target="_blank"
+     style="display:block;text-align:center;text-decoration:none;margin-bottom:.5rem;">
+    PDF — ES →
+  </a>
+  {% if poem.body_en %}
+  <a href="{% url 'poetry:download_pdf' poem.slug %}?lang=en"
+     class="song-panel__pdf-btn"
+     target="_blank"
+     style="display:block;text-align:center;text-decoration:none;">
+    PDF — EN →
+  </a>
+  {% endif %}
+  {% endif %}
+
+  {# ─── Song-related content: only when poem has an associated song ─── #}
+  {% if related_songs %}
+  {% with song=related_songs.first %}
+
   {% if song.spotify_url or song.apple_music_url or song.pandora_url or song.youtube_music_url %}
+  {% if user.is_staff %}<hr class="song-panel__divider">{% endif %}
   <p class="song-panel__section-label">Escuchar canción</p>
   <div class="song-panel__links">
     {% if song.spotify_url %}
@@ -245,24 +269,6 @@
   </div>
   {% endif %}
 
-  {% if user.is_staff %}
-  <hr class="song-panel__divider">
-  <a href="{% url 'poetry:download_pdf' poem.slug %}?lang=es"
-     class="song-panel__pdf-btn"
-     target="_blank"
-     style="display:block;text-align:center;text-decoration:none;margin-bottom:.5rem;">
-    PDF — ES →
-  </a>
-  {% if poem.body_en %}
-  <a href="{% url 'poetry:download_pdf' poem.slug %}?lang=en"
-     class="song-panel__pdf-btn"
-     target="_blank"
-     style="display:block;text-align:center;text-decoration:none;">
-    PDF — EN →
-  </a>
-  {% endif %}
-  {% endif %}
-
   {% if song.pdf_price and song.pdf_buy_url %}
   <hr class="song-panel__divider">
   <button class="song-panel__pdf-btn song-panel__pdf-btn--paid" onclick="openPdfModal()">
@@ -278,8 +284,10 @@
     </a>
   </div>
 
+  {% endwith %}
+  {% endif %}
+
 </aside>
-{% endwith %}
 {% endif %}
 
 </div><!-- /poem-with-panel -->
