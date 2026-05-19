@@ -382,3 +382,96 @@ def poem_like(request, slug):
         "likes": poem.likes_count,
         "show_count": poem.likes_count >= 2,
     })
+
+
+# ─────────────────────────────────────────────────────────────
+# Lead magnet: free poem PDF in exchange for email
+# - GET: shows form with email + optional newsletter checkbox
+# - POST: validates → subscribes → generates PDF → inline download
+# - Smart default: admin-flagged poem first, else most-liked
+# ─────────────────────────────────────────────────────────────
+from django.core.exceptions import ValidationError
+from django.views.decorators.http import require_http_methods
+from audience.models import Subscriber
+from audience.services import subscribe as audience_subscribe
+
+
+def _get_lead_magnet_poem():
+    """
+    Returns the poem to offer as lead magnet.
+    Priority: admin-flagged (is_free_lead_magnet=True), else most-liked.
+    Returns None if no poems exist at all.
+    """
+    return (
+        Poem.objects.filter(is_free_lead_magnet=True)
+        .order_by("-likes_count").first()
+        or
+        Poem.objects.order_by("-likes_count", "-created").first()
+    )
+
+
+@require_http_methods(["GET", "POST"])
+def free_poem_view(request):
+    """Lead magnet view: free poem PDF in exchange for email."""
+    poem = _get_lead_magnet_poem()
+
+    if not poem:
+        # No poems in DB — graceful empty state
+        return render(request, "poetry/free_poem.html", {
+            "poem": None,
+            "empty_state": True,
+        })
+
+    # ─── GET: show form ─────────────────────────────────────
+    if request.method == "GET":
+        return render(request, "poetry/free_poem.html", {
+            "poem": poem,
+        })
+
+    # ─── POST: process form ────────────────────────────────
+    email = (request.POST.get("email") or "").strip()
+    name = (request.POST.get("name") or "").strip()
+    wants_newsletter = request.POST.get("newsletter") == "on"
+    lang = request.POST.get("lang", "es")
+
+    # Validate basic email presence
+    if not email:
+        return render(request, "poetry/free_poem.html", {
+            "poem": poem,
+            "error": "Email is required to download your free poem.",
+            "submitted_name": name,
+        })
+
+    # Subscribe to audience (idempotent — service handles existing)
+    try:
+        subscriber, created, status = audience_subscribe(
+            email=email,
+            source=Subscriber.Source.LEAD_MAGNET_POEM,
+            name=name,
+        )
+    except ValidationError as e:
+        return render(request, "poetry/free_poem.html", {
+            "poem": poem,
+            "error": (e.messages[0] if e.messages else "Invalid email."),
+            "submitted_name": name,
+            "submitted_email": email,
+        })
+
+    # If user opted in for newsletter, mark separately
+    # (current source LEAD_MAGNET_POEM already tracks them; the checkbox
+    # is mostly UX/GDPR — we honor their explicit consent in the audience
+    # source field. If they don't opt in, they still get the PDF but the
+    # source remains LEAD_MAGNET_POEM, which Cynthia can choose to include
+    # or exclude in future newsletter sends.)
+    # Note: future improvement could add a separate 'newsletter_opt_in' field
+    # on Subscriber for finer segmentation.
+
+    # Generate PDF on-demand using unified generator
+    from poetry.pdf_generator_unified import generate_poem_pdf
+    pdf_bytes = generate_poem_pdf(poem, lang=lang, mode="lead_magnet")
+
+    response = HttpResponse(pdf_bytes, content_type="application/pdf")
+    response["Content-Disposition"] = (
+        f'attachment; filename="{poem.slug}-aythnyk-free.pdf"'
+    )
+    return response

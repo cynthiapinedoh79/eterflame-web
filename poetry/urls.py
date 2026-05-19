@@ -20,4 +20,6 @@ urlpatterns = [
     path("tools/", views.aythnyk_tools, name="tools"),
     path("poem/<slug:slug>/pdf/", views.download_poem_pdf, name="download_pdf"),
     path("pdf-tool/", views.pdf_tool, name="pdf_tool"),
+    # Lead magnet: free poem PDF in exchange for email
+    path("free-poem/", views.free_poem_view, name="free_poem"),
 ]

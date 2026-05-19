@@ -59,6 +59,10 @@ class PoemAdmin(SummernoteModelAdmin):
     def is_featured_display(self, obj):
         return obj.is_featured
 
+    @admin.display(description="Free PDF?", boolean=True)
+    def is_free_lead_magnet_display(self, obj):
+        return obj.is_free_lead_magnet
+
     # --- 3. UPDATED LIST DISPLAY ---
     # We now use our custom function names
     list_display = (
@@ -68,9 +72,10 @@ class PoemAdmin(SummernoteModelAdmin):
         "collection",
         "likes_count",
         "is_featured_display",  # <-- Was "is_featured"
+        "is_free_lead_magnet_display",
         "created"
     )
-    list_filter = ("collection", "is_featured", "created")
+    list_filter = ("collection", "is_featured", "is_free_lead_magnet", "created")
     ordering = ("-likes_count", "-created")
     search_fields = ("title_es", "title_en", "body_es", "body_en")
 
@@ -83,7 +88,7 @@ class PoemAdmin(SummernoteModelAdmin):
         "featured_image",
         "title_en", "body_en",  # <-- English fields first
         "title_es", "body_es",  # <-- Spanish fields second
-        "slug", "is_featured",
+        "slug", "is_featured", "is_free_lead_magnet",
     )
 
     # rich editor for poem bodies

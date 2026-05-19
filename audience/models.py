@@ -14,6 +14,7 @@ class Subscriber(models.Model):
         BLOG = "blog", "Form del blog"
         USER_OPTIN = "user_optin", "Opt-in al registrarse"
         IMPORT = "import", "Importado manualmente"
+        LEAD_MAGNET_POEM = "lead_magnet_poem", "Lead magnet — Free poem PDF"
 
     email = models.EmailField(unique=True, db_index=True)
     name = models.CharField(max_length=120, blank=True)

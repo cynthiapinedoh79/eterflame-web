@@ -67,6 +67,16 @@ class Poem(models.Model):
         help_text="Public anonymous likes (global counter, browser anti-spam)"
     )
 
+    # --- Lead magnet: free PDF download ---
+    is_free_lead_magnet = models.BooleanField(
+        default=False,
+        help_text=(
+            "When True, this poem is offered as free downloadable PDF "
+            "in exchange for email at /aythnyk/free-poem/. "
+            "If multiple poems are marked, the most-liked is shown first."
+        ),
+    )
+
     def __str__(self):
         return self.title_es or self.title_en
 

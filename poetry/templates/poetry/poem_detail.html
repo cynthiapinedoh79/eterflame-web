@@ -285,6 +285,96 @@
 </div><!-- /poem-with-panel -->
 
 
+{# ─── Lead magnet CTA — free poem PDF in exchange for email ─── #}
+<div class="lead-magnet-cta-wrap">
+  <div class="lead-magnet-cta">
+    <p class="lead-magnet-cta__eyebrow">Aythnyk · Regalo</p>
+    <h3 class="lead-magnet-cta__heading">
+      <span class="lmc-red">Un poema</span>
+      <span class="lmc-gold">en tu correo, gratis.</span>
+    </h3>
+    <p class="lead-magnet-cta__body">
+      Recibe el PDF de un poema cuidado, sin costo.
+      Una muestra del catálogo Aythnyk.
+    </p>
+    <a href="{% url 'poetry:free_poem' %}" class="lead-magnet-cta__btn">
+      Recibir poema gratis →
+    </a>
+  </div>
+</div>
+
+<style>
+  .lead-magnet-cta-wrap {
+    max-width: 720px;
+    margin: 3rem auto 2rem;
+    padding: 0 1rem;
+  }
+  .lead-magnet-cta {
+    background: linear-gradient(180deg, #131313 0%, #0e0e0e 100%);
+    border: 1px solid rgba(196, 154, 64, 0.22);
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .lead-magnet-cta::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: #c8102e;
+    opacity: 0.6;
+  }
+  .lead-magnet-cta__eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    color: #c49a40;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .lead-magnet-cta__heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+  }
+  .lead-magnet-cta__heading .lmc-red { color: #c8102e; }
+  .lead-magnet-cta__heading .lmc-gold { color: #c49a40; }
+  .lead-magnet-cta__body {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: rgba(248, 245, 239, 0.65);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .lead-magnet-cta__btn {
+    display: inline-block;
+    background: #c8102e;
+    color: #ffffff !important;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .lead-magnet-cta__btn:hover {
+    background: #a80d24;
+    color: #ffffff !important;
+    text-decoration: none;
+  }
+</style>
+
+
 {# show the red banner above the footer #}
 <div class="my-4" >
   {% include "poetry/_quote_banner.html" with theme="banner--black" %}

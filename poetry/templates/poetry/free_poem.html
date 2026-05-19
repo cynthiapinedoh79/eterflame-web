@@ -1,0 +1,398 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{% if empty_state %}Free Poem{% else %}{{ poem.title }} — Free PDF{% endif %} · Aythnyk{% endblock %}
+
+{% block og_description %}Get a free Aythnyk poem PDF in exchange for your email. Crafted poetry, free to read and keep.{% endblock %}
+
+{% block content %}
+<style>
+  /* ─── Free Poem Lead Magnet Page ─── */
+  .free-poem-wrap {
+    background: #0a0a0a;
+    color: #f8f5ef;
+    min-height: 80vh;
+    padding: 6rem 1rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .free-poem-container {
+    max-width: 920px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .free-poem-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: #c49a40;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .free-poem-hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .free-poem-hero-title .red { color: #c8102e; }
+  .free-poem-hero-title .gold { color: #c49a40; }
+
+  .free-poem-hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: rgba(248, 245, 239, 0.65);
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+  }
+
+  /* ─── Empty state ─── */
+  .free-poem-empty {
+    text-align: center;
+    padding: 4rem 0;
+    color: rgba(248, 245, 239, 0.7);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+  }
+
+  /* ─── Poem preview card ─── */
+  .free-poem-card {
+    background: linear-gradient(180deg, #131313 0%, #0e0e0e 100%);
+    border: 1px solid rgba(196, 154, 64, 0.18);
+    border-radius: 4px;
+    padding: 3rem 2rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+
+  .free-poem-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: #c8102e;
+    opacity: 0.6;
+  }
+
+  .free-poem-collection {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    color: #c8102e;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+    opacity: 0.85;
+  }
+
+  .free-poem-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.1;
+    margin-bottom: 0.6rem;
+  }
+
+  .free-poem-title .red { color: #c8102e; }
+  .free-poem-title .gold { color: #c49a40; }
+
+  .free-poem-author {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: #c49a40;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+
+  .free-poem-rule {
+    width: 40px;
+    height: 1px;
+    background: #c49a40;
+    margin: 0 auto 1.8rem;
+    opacity: 0.5;
+  }
+
+  .free-poem-excerpt {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(248, 245, 239, 0.8);
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    font-style: italic;
+    white-space: pre-line;
+  }
+
+  /* ─── Form ─── */
+  .free-poem-form {
+    background: rgba(196, 154, 64, 0.04);
+    border: 1px solid rgba(196, 154, 64, 0.15);
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .free-poem-form__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #f8f5ef;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+  }
+
+  .free-poem-form__subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    text-align: center;
+    color: rgba(248, 245, 239, 0.55);
+    margin-bottom: 1.8rem;
+    letter-spacing: 0.02em;
+  }
+
+  .free-poem-form__error {
+    background: rgba(200, 16, 46, 0.1);
+    border-left: 3px solid #c8102e;
+    color: #f5c2c2;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+  }
+
+  .free-poem-form__field {
+    margin-bottom: 1.1rem;
+  }
+
+  .free-poem-form__label {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: rgba(248, 245, 239, 0.7);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .free-poem-form__input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(196, 154, 64, 0.25);
+    border-radius: 2px;
+    padding: 0.7rem 0.9rem;
+    color: #f8f5ef;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+  }
+
+  .free-poem-form__input:focus {
+    outline: none;
+    border-color: #c49a40;
+  }
+
+  .free-poem-form__checkbox-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin: 1.2rem 0 1.8rem;
+  }
+
+  .free-poem-form__checkbox {
+    margin-top: 0.2rem;
+    accent-color: #c49a40;
+    cursor: pointer;
+  }
+
+  .free-poem-form__checkbox-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(248, 245, 239, 0.7);
+    line-height: 1.5;
+    cursor: pointer;
+  }
+
+  .free-poem-form__lang-select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(196, 154, 64, 0.25);
+    border-radius: 2px;
+    padding: 0.7rem 0.9rem;
+    color: #f8f5ef;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+  }
+
+  .free-poem-form__submit {
+    width: 100%;
+    background: #c8102e;
+    color: #ffffff;
+    border: none;
+    padding: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 2px;
+  }
+
+  .free-poem-form__submit:hover {
+    background: #a80d24;
+  }
+
+  .free-poem-form__disclaimer {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: rgba(248, 245, 239, 0.45);
+    text-align: center;
+    margin-top: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .free-poem-form__disclaimer a {
+    color: #c49a40;
+    text-decoration: none;
+  }
+
+  /* Watermark */
+  .free-poem-watermark {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    opacity: 0.025;
+    z-index: 0;
+    pointer-events: none;
+  }
+</style>
+
+<div class="free-poem-wrap">
+  <img class="free-poem-watermark" src="{% static 'images/aythnyk/logoAyth_transp.png' %}" alt="">
+
+  <div class="free-poem-container">
+    <p class="free-poem-eyebrow">Aythnyk · Regalo</p>
+    <h1 class="free-poem-hero-title">
+      <span class="red">Un poema</span> <span class="gold">para llevarte.</span>
+    </h1>
+    <p class="free-poem-hero-subtitle">
+      Recibe el PDF de un poema cuidado, en tu correo, sin costo.
+      Una muestra del catálogo Aythnyk.
+    </p>
+
+    {% if empty_state %}
+      <div class="free-poem-empty">
+        <p>Estamos preparando el catálogo. Vuelve pronto.</p>
+      </div>
+    {% else %}
+
+      {# ─── Poem preview card ─── #}
+      <div class="free-poem-card">
+        {% if poem.collection %}
+          <p class="free-poem-collection">Colección · {{ poem.collection }}</p>
+        {% endif %}
+        <h2 class="free-poem-title">
+          {% with words=poem.title.split %}
+            {% if words|length >= 2 %}
+              <span class="red">{{ words.0 }}</span>
+              <span class="gold">{% for w in words %}{% if not forloop.first %}{{ w }} {% endif %}{% endfor %}</span>
+            {% else %}
+              <span class="red">{{ poem.title }}</span>
+            {% endif %}
+          {% endwith %}
+        </h2>
+        <p class="free-poem-author">Cynthia Pinedo</p>
+        <div class="free-poem-rule"></div>
+        <p class="free-poem-excerpt">
+          {{ poem.body|striptags|truncatewords:24 }}
+        </p>
+      </div>
+
+      {# ─── Email capture form ─── #}
+      <form method="post" class="free-poem-form" action="{% url 'poetry:free_poem' %}">
+        {% csrf_token %}
+
+        <h3 class="free-poem-form__title">Recibe tu PDF gratis</h3>
+        <p class="free-poem-form__subtitle">Diseñado con cuidado · listo para imprimir o leer</p>
+
+        {% if error %}
+          <div class="free-poem-form__error">{{ error }}</div>
+        {% endif %}
+
+        <div class="free-poem-form__field">
+          <label class="free-poem-form__label" for="lead-email">Email *</label>
+          <input type="email"
+                 id="lead-email"
+                 name="email"
+                 class="free-poem-form__input"
+                 placeholder="tu@correo.com"
+                 value="{{ submitted_email|default:'' }}"
+                 required>
+        </div>
+
+        <div class="free-poem-form__field">
+          <label class="free-poem-form__label" for="lead-name">Nombre (opcional)</label>
+          <input type="text"
+                 id="lead-name"
+                 name="name"
+                 class="free-poem-form__input"
+                 placeholder="Cómo te llamas"
+                 value="{{ submitted_name|default:'' }}">
+        </div>
+
+        <div class="free-poem-form__field">
+          <label class="free-poem-form__label" for="lead-lang">Idioma del PDF</label>
+          <select id="lead-lang" name="lang" class="free-poem-form__lang-select">
+            <option value="es" selected>Español</option>
+            {% if poem.body_en %}
+              <option value="en">English</option>
+            {% endif %}
+          </select>
+        </div>
+
+        <div class="free-poem-form__checkbox-wrap">
+          <input type="checkbox"
+                 id="lead-newsletter"
+                 name="newsletter"
+                 class="free-poem-form__checkbox">
+          <label for="lead-newsletter" class="free-poem-form__checkbox-label">
+            También quiero recibir nuevos poemas, canciones y noticias de Aythnyk en mi correo.
+          </label>
+        </div>
+
+        <button type="submit" class="free-poem-form__submit">
+          Descargar PDF gratis →
+        </button>
+
+        <p class="free-poem-form__disclaimer">
+          Tu correo está seguro. Sin spam. Cancela cuando quieras.
+        </p>
+      </form>
+
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
