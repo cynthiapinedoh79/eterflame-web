@@ -1,59 +1,133 @@
+"""
+Unified PDF generator for Aythnyk poems.
+
+Supports 3 modes:
+- 'paid'        → Sold via Gumroad ($2.99) — no badges, clean look
+- 'admin'       → Internal review by Cynthia — "DRAFT · REVISION COPY" badge
+- 'lead_magnet' → Free in exchange for email — "FREE COPY" badge + final CTA page
+
+Visual identity (header, watermark, footer, typography) is IDENTICAL across modes.
+Only badges and the optional CTA page differ.
+"""
+
 import os
 from django.conf import settings
 from weasyprint import HTML
 
 
-def generate_poem_pdf(poem, lang='es'):
-    # Prefer STATIC_ROOT after collectstatic; fall back to source static dir
+# ─────────────────────────────────────────────────────────────
+# Mode-specific configuration
+# ─────────────────────────────────────────────────────────────
+
+MODE_CONFIG = {
+    'paid': {
+        'badge_text': None,
+        'badge_color': None,
+        'show_cta_page': False,
+    },
+    'admin': {
+        'badge_text': 'INTERNAL COPY',
+        'badge_color': '#8a6a2f',  # gold-brown, sober
+        'show_cta_page': False,
+    },
+    'lead_magnet': {
+        'badge_text': 'FREE COPY',
+        'badge_color': '#c8102e',  # crimson, attention-getting
+        'show_cta_page': True,
+    },
+}
+
+CTA_TEXT = {
+    'es': {
+        'eyebrow': 'AYTHNYK · ETERFLAME',
+        'heading_red': '¿TE CONMOVIÓ',
+        'heading_gold': 'ESTE POEMA?',
+        'body': (
+            'Descubre más poemas, canciones y prints en la tienda Aythnyk. '
+            'Cada pieza es su propio mundo.'
+        ),
+        'button': 'EXPLORAR LA TIENDA →',
+        'link': 'AYTHNYK · ETERFLAME',
+        'footer_note': (
+            'Esta es una muestra gratuita del catálogo Aythnyk. '
+            'Los PDF de poemas individuales normalmente cuestan $2.99.'
+        ),
+    },
+    'en': {
+        'eyebrow': 'AYTHNYK · ETERFLAME',
+        'heading_red': 'DID THIS POEM',
+        'heading_gold': 'MOVE YOU?',
+        'body': (
+            'Discover more poems, songs and prints in the Aythnyk shop. '
+            'Each piece is its own world.'
+        ),
+        'button': 'EXPLORE THE SHOP →',
+        'link': 'AYTHNYK · ETERFLAME',
+        'footer_note': (
+            'This is a free sampler from the Aythnyk catalog. '
+            'Individual poem PDFs normally cost $2.99.'
+        ),
+    },
+}
+
+SHOP_URL = 'https://eterflame-web-ab680e12c17d.herokuapp.com/aythnyk/shop/'
+AYTHNYK_HOME_URL = 'https://eterflame-web-ab680e12c17d.herokuapp.com/aythnyk/'
+
+
+def generate_poem_pdf(poem, lang='es', mode='paid'):
+    """
+    Generate a PDF of a poem in one of three modes.
+
+    Args:
+        poem: Poem instance
+        lang: 'es' or 'en' (defaults to 'es')
+        mode: 'paid' | 'admin' | 'lead_magnet' (defaults to 'paid')
+
+    Returns:
+        bytes: PDF content
+    """
+    if mode not in MODE_CONFIG:
+        raise ValueError(
+            f"Invalid mode '{mode}'. Must be one of: {list(MODE_CONFIG.keys())}"
+        )
+
+    config = MODE_CONFIG[mode]
+
+    # Footer prefix: admin mode adds 'INTERNAL COPY · ' before the footer text.
+    # Always defined (empty string for non-admin modes) to avoid NameError.
+    footer_badge_prefix = ''
+    if mode == 'admin' and config['badge_text']:
+        footer_badge_prefix = f"{config['badge_text']}  ·  "
+
+
+    # ─── Logo path resolution (same strategy as legacy) ───────
     static_base = settings.STATIC_ROOT
     logo_path = os.path.join(
-        static_base,
-        "images",
-        "works",
-        "aythnyk",
-        "logoAyth_transp.png",
+        static_base, "images", "aythnyk", "logoAyth_transp.png",
     )
-
     if not os.path.exists(logo_path):
         static_base = os.path.join(settings.BASE_DIR, "static")
         logo_path = os.path.join(
-            static_base,
-            "images",
-            "works",
-            "aythnyk",
-            "logoAyth_transp.png",
+            static_base, "images", "aythnyk", "logoAyth_transp.png",
         )
-
+    # Fallback to .webp if .png is not available
+    if not os.path.exists(logo_path):
+        logo_path = logo_path.replace(".png", ".webp")
     logo_url = f"file://{logo_path}"
+
+    # ─── Language-aware content ───────────────────────────────
+    if lang == 'en':
+        title_text = poem.title_en or poem.title_es
+        body_text = poem.body_en or poem.body_es
+        collection_label = "Collection"
+    else:
+        title_text = poem.title_es or poem.title_en
+        body_text = poem.body_es or poem.body_en
+        collection_label = "Colección"
+
     collection_name = str(poem.collection) if poem.collection else "Aythnyk"
 
-    # Language selection
-    if lang == 'en':
-        title_text = poem.title_en or poem.title_es
-        body_text = poem.body_en or poem.body_es
-        collection_label = "Collection"
-    else:
-        title_text = poem.title_es or poem.title_en
-        body_text = poem.body_es or poem.body_en
-        collection_label = "Colección" 
-
-    # Language selection
-    if lang == 'en':
-        title_text = poem.title_en or poem.title_es
-        body_text = poem.body_en or poem.body_es
-        collection_label = "Collection"
-    else:
-        title_text = poem.title_es or poem.title_en
-        body_text = poem.body_es or poem.body_en
-        collection_label = "Colección" 
-
-    # Build stanza blocks instead of only <br>, so WeasyPrint can handle page flow better
-    stanzas = [s.strip() for s in body_text.split("\n\n") if s.strip()]
-    body_html = "".join(
-        f'<p class="poem-stanza">{stanza.replace(chr(10), "<br>")}</p>'
-        for stanza in stanzas
-    )
-
+    # ─── Title split: first word crimson, rest gold ───────────
     title_parts = title_text.split()
     if len(title_parts) >= 2:
         title_html = (
@@ -61,14 +135,61 @@ def generate_poem_pdf(poem, lang='es'):
             f'<span style="color:#c49a40">{" ".join(title_parts[1:])}</span>'
         )
     else:
-        title_html = f'<span style="color:#c8102e">{poem.title}</span>'
+        title_html = f'<span style="color:#c8102e">{title_text}</span>'
 
+    # ─── Body: stanzas as paragraphs (better page flow) ───────
+    stanzas = [s.strip() for s in body_text.split("\n\n") if s.strip()]
+    body_html = "".join(
+        f'<p class="poem-stanza">{stanza.replace(chr(10), "<br>")}</p>'
+        for stanza in stanzas
+    )
+
+    # ─── Badge HTML (only for admin / lead_magnet) ────────────
+    badge_html = ''
+    if config['badge_text']:
+        badge_html = f'''
+        <div class="mode-badge" style="
+            position: absolute;
+            top: -22mm;
+            right: 0;
+            background: {config['badge_color']};
+            color: #ffffff;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 5.5pt;
+            letter-spacing: 2pt;
+            padding: 2mm 6mm;
+            text-transform: uppercase;
+            z-index: 10;
+        ">{config['badge_text']}</div>
+        '''
+
+    # ─── CTA page HTML (only for lead_magnet) ─────────────────
+    cta_html = ''
+    if config['show_cta_page']:
+        t = CTA_TEXT[lang if lang in CTA_TEXT else 'es']
+        cta_html = f'''
+        <div class="cta-page">
+          <div class="cta-content">
+            <p class="cta-eyebrow">{t['eyebrow']}</p>
+            <h2 class="cta-heading">
+              <span style="color:#c8102e">{t['heading_red']}</span>
+              <span style="color:#c49a40">{t['heading_gold']}</span>
+            </h2>
+            <p class="cta-body">{t['body']}</p>
+            <a href="{SHOP_URL}" class="cta-button">{t['button']}</a>
+            <a href="{AYTHNYK_HOME_URL}" class="cta-link">{t['link']}</a>
+            <div class="cta-divider"></div>
+            <p class="cta-footer-note">{t['footer_note']}</p>
+          </div>
+        </div>
+        '''
+
+    # ─── Full HTML document ───────────────────────────────────
     html_content = f"""
     <!DOCTYPE html>
     <html>
     <head>
       <meta charset="UTF-8">
-
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400&display=swap');
 
@@ -108,13 +229,7 @@ def generate_poem_pdf(poem, lang='es'):
           }}
 
           @bottom-center {{
-            content: "";
-            border-top: 0.3mm solid #eee;
-            width: 100%;
-          }}
-
-          @bottom-center {{
-            content: "© 2025 Aythnyk  ·  eterfflame.com  ·  "    counter(page) " / " counter(pages);
+            content: "{footer_badge_prefix}© 2026 Aythnyk  ·  eterflame.com  ·  " counter(page) " / " counter(pages);
             font-family: 'DM Sans', sans-serif;
             font-size: 6pt;
             letter-spacing: 1.2pt;
@@ -253,6 +368,103 @@ def generate_poem_pdf(poem, lang='es'):
           background: #c8102e;
           opacity: 0.35;
         }}
+
+        /* ─── CTA Page (lead_magnet mode only) ─── */
+        .cta-page {{
+          page-break-before: always;
+          position: relative;
+          width: 100%;
+          min-height: 230mm;
+          padding: 20mm 30mm;
+          text-align: center;
+        }}
+
+        .cta-watermark {{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(1.1);
+          width: 180mm;
+          opacity: 0.04;
+          z-index: 0;
+        }}
+
+        .cta-content {{
+          position: relative;
+          z-index: 1;
+          padding-top: 30mm;
+        }}
+
+        .cta-eyebrow {{
+          font-family: 'DM Sans', sans-serif;
+          font-size: 7pt;
+          letter-spacing: 4pt;
+          color: #c49a40;
+          text-transform: uppercase;
+          margin-bottom: 12mm;
+        }}
+
+        .cta-heading {{
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 28pt;
+          font-weight: 600;
+          letter-spacing: 2pt;
+          text-transform: uppercase;
+          line-height: 1.15;
+          margin-bottom: 8mm;
+        }}
+
+        .cta-body {{
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 13pt;
+          color: #333;
+          line-height: 1.7;
+          max-width: 110mm;
+          margin: 0 auto 15mm;
+          font-style: italic;
+        }}
+
+        .cta-button {{
+          display: inline-block;
+          background: #c8102e;
+          color: #ffffff;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 9pt;
+          letter-spacing: 3pt;
+          padding: 5mm 14mm;
+          text-decoration: none;
+          text-transform: uppercase;
+          margin-bottom: 6mm;
+        }}
+
+        .cta-link {{
+          display: block;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 7pt;
+          letter-spacing: 3pt;
+          color: #c49a40;
+          text-decoration: none;
+          text-transform: uppercase;
+          margin-bottom: 18mm;
+        }}
+
+        .cta-divider {{
+          width: 25mm;
+          height: 0.35mm;
+          background: #c49a40;
+          margin: 0 auto 6mm;
+          opacity: 0.6;
+        }}
+
+        .cta-footer-note {{
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 9pt;
+          font-style: italic;
+          color: #8a6a2f;
+          max-width: 90mm;
+          margin: 0 auto;
+          line-height: 1.5;
+        }}
       </style>
     </head>
 
@@ -260,6 +472,7 @@ def generate_poem_pdf(poem, lang='es'):
       <img class="watermark" src="{logo_url}" alt="" />
 
       <div class="inner">
+        {badge_html}
         <div class="left-bar"></div>
 
         <div class="collection">{collection_label} · {collection_name}</div>
@@ -277,6 +490,8 @@ def generate_poem_pdf(poem, lang='es'):
           <div class="bottom-red"></div>
         </div>
       </div>
+
+      {cta_html}
     </body>
     </html>
     """
