@@ -467,7 +467,7 @@ def free_poem_view(request):
     # on Subscriber for finer segmentation.
 
     # Generate PDF on-demand using unified generator
-    from poetry.pdf_generator_unified import generate_poem_pdf
+    from poetry.pdf_generator import generate_poem_pdf
     pdf_bytes = generate_poem_pdf(poem, lang=lang, mode="lead_magnet")
 
     response = HttpResponse(pdf_bytes, content_type="application/pdf")
