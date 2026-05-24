@@ -284,7 +284,7 @@ else:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    SECURE_HSTS_SECONDS = 86400  # 1 day (gradual rollout - raise later)
+    SECURE_HSTS_SECONDS = 2592000  # 30 days (raised after verifying prod stable)
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
