@@ -17,6 +17,7 @@ from django.contrib.messages import constants as messages
 import dj_database_url
 from django.utils.translation import gettext_lazy as _
 from dotenv import load_dotenv  # pip install python-dotenv
+from csp.constants import SELF
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -83,6 +84,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'crispy_bootstrap5',
+    'csp',
 
     # 'sslserver',
     'core',
@@ -113,6 +115,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django_permissions_policy.PermissionsPolicyMiddleware",
+    "csp.middleware.CSPMiddleware",
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -299,6 +302,51 @@ PERMISSIONS_POLICY = {
     "camera": [],
 }
 
+# ----------------------------------------------------------------------
+# CONTENT-SECURITY-POLICY (B2) -- REPORT-ONLY MODE
+# Does NOT block anything yet. The browser only reports violations to
+# the DevTools console. Used to audit what an enforced policy would
+# block, before switching to enforcing mode.
+# Sources inventoried from base.html on 2026-05-24.
+# ----------------------------------------------------------------------
+
+CONTENT_SECURITY_POLICY_REPORT_ONLY = {
+    "DIRECTIVES": {
+        "default-src": [SELF],
+        "script-src": [
+            SELF,
+            "https://www.googletagmanager.com",
+            "https://cdn.jsdelivr.net",          # ← AGREGAR: Bootstrap JS bundle
+            "'unsafe-inline'",
+        ],
+        "style-src": [
+            SELF,
+            "https://fonts.googleapis.com",
+            "https://cdnjs.cloudflare.com",
+            "https://cdn.jsdelivr.net",
+            "'unsafe-inline'",  # provisional: inline style attributes
+        ],
+        "font-src": [
+            SELF,
+            "https://fonts.gstatic.com",
+            "https://cdnjs.cloudflare.com",
+        ],
+        "img-src": [
+            SELF,
+            "data:",
+            "https://res.cloudinary.com",
+            "https://cdn.simpleicons.org",
+            "https://cdn.jsdelivr.net",          # ← AGREGAR: devicon icons
+            "https://files.cdn.printful.com",    # ← AGREGAR: Printful product images
+        ],
+        "connect-src": [
+            SELF,
+            "https://www.google-analytics.com",
+        ],
+        "frame-ancestors": [SELF],
+        "form-action": [SELF],
+    },
+}
 
 MESSAGE_TAGS = {
     messages.SUCCESS: 'alert-success',
