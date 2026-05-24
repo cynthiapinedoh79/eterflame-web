@@ -267,23 +267,26 @@ CLOUDINARY = {
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # ----------------------------------------------------------------------
-# CONDITIONAL PRODUCTION SETTINGS (Applied when DEBUG is False/empty)
+# CONDITIONAL PRODUCTION SETTINGS (Applied when DEBUG is False)
 # ----------------------------------------------------------------------
-
-# if DEBUG:
-#     # Dev: HTTP only
-#     SECURE_SSL_REDIRECT = False
-#     SESSION_COOKIE_SECURE = False
-#     CSRF_COOKIE_SECURE = False
-#     SECURE_HSTS_SECONDS = 0
-# else:
-#     # Prod: enforce HTTPS + secure cookies
-#     SECURE_SSL_REDIRECT = True
-#     SESSION_COOKIE_SECURE = True
-#     CSRF_COOKIE_SECURE = True
-#     SECURE_HSTS_SECONDS = 31536000
-#     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-#     SECURE_HSTS_PRELOAD = True
+if DEBUG:
+    # Dev: HTTP only -- local Codespaces runs without HTTPS
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
+    SECURE_HSTS_SECONDS = 0
+else:
+    # Prod: enforce HTTPS + secure cookies + HSTS
+    # SECURE_PROXY_SSL_HEADER is REQUIRED on Heroku: without it,
+    # SECURE_SSL_REDIRECT causes an infinite redirect loop because
+    # Django can't detect it's already behind the Heroku HTTPS proxy.
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 86400  # 1 day (gradual rollout - raise later)
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
 
 MESSAGE_TAGS = {
     messages.SUCCESS: 'alert-success',
