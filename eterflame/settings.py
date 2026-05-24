@@ -112,6 +112,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "django_permissions_policy.PermissionsPolicyMiddleware",
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -287,6 +288,17 @@ else:
     SECURE_HSTS_SECONDS = 2592000  # 30 days (raised after verifying prod stable)
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
+
+# ----------------------------------------------------------------------
+# PERMISSIONS-POLICY (applies in all environments)
+# Disables browser features the site does not use. Empty list = disabled.
+# ----------------------------------------------------------------------
+PERMISSIONS_POLICY = {
+    "geolocation": [],
+    "microphone": [],
+    "camera": [],
+}
+
 
 MESSAGE_TAGS = {
     messages.SUCCESS: 'alert-success',
