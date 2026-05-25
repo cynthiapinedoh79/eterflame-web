@@ -68,7 +68,7 @@
 
 </head>
 
-<body class="d-flex flex-column{% if '/aythnyk' in request.path or '/blog' in request.path or '/songs' in request.path or '/poems' in request.path %} aythnyk-section{% endif %}">
+<body class="d-flex flex-column{% if '/aythnyk' in request.path or '/blog' in request.path or '/songs' in request.path or '/poems' in request.path %} aythnyk-section{% endif %}" data-sw-url="{% url 'pwa_sw' %}">
     <a id="top" aria-hidden="true"></a>
 
     <!-- Navigation -->
@@ -302,67 +302,6 @@
 
     <!-- Back to top button -->
     {% include 'components/back_to_top.html' %}
-
-    {# PWA — Service worker registration #}
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('{% url "pwa_sw" %}')
-            .then(function(reg) {
-              console.log('[PWA] SW registered:', reg.scope);
-            })
-            .catch(function(err) {
-              console.log('[PWA] SW registration failed:', err);
-            });
-        });
-      }
-    </script>
-    {# Newsletter form — AJAX submit + toast feedback (uses window.efToast) #}
-    <script>
-      (function() {
-        const forms = document.querySelectorAll('[data-newsletter-form]');
-        forms.forEach(function(form) {
-          form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            const btn = form.querySelector('button[type="submit"]');
-            const originalBtnText = btn.textContent;
-
-            btn.disabled = true;
-            btn.textContent = 'Sending…';
-
-            try {
-              const response = await fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                headers: { 'X-Requested-With': 'XMLHttpRequest' },
-                credentials: 'same-origin',
-              });
-
-              const data = await response.json();
-
-              if (response.ok && data.ok) {
-                form.reset();
-                if (window.efToast) {
-                  window.efToast(data.message, 'success');
-                }
-              } else {
-                if (window.efToast) {
-                  window.efToast(data.error || 'Something went wrong.', 'error');
-                }
-              }
-            } catch (err) {
-              if (window.efToast) {
-                window.efToast('Network error. Please try again.', 'error');
-              }
-            } finally {
-              btn.disabled = false;
-              btn.textContent = originalBtnText;
-            }
-          });
-        });
-      })();
-    </script>
 
 </body>
 

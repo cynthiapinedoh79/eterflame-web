@@ -125,3 +125,64 @@
   });
 })();
 
+/* --- Newsletter form: AJAX submit + toast feedback --- */
+(function () {
+  var forms = document.querySelectorAll('[data-newsletter-form]');
+  forms.forEach(function (form) {
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      var btn = form.querySelector('button[type="submit"]');
+      var originalBtnText = btn.textContent;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      try {
+        var response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'X-Requested-With': 'XMLHttpRequest' },
+          credentials: 'same-origin'
+        });
+
+        var data = await response.json();
+
+        if (response.ok && data.ok) {
+          form.reset();
+          if (window.efToast) {
+            window.efToast(data.message, 'success');
+          }
+        } else {
+          if (window.efToast) {
+            window.efToast(data.error || 'Something went wrong.', 'error');
+          }
+        }
+      } catch (err) {
+        if (window.efToast) {
+          window.efToast('Network error. Please try again.', 'error');
+        }
+      } finally {
+        btn.disabled = false;
+        btn.textContent = originalBtnText;
+      }
+    });
+  });
+})();
+
+/* --- PWA: register service worker --- */
+(function () {
+  if (!('serviceWorker' in navigator)) return;
+  var swUrl = document.body.getAttribute('data-sw-url');
+  if (!swUrl) return;
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register(swUrl)
+      .then(function (reg) {
+        console.log('[PWA] SW registered:', reg.scope);
+      })
+      .catch(function (err) {
+        console.log('[PWA] SW registration failed:', err);
+      });
+  });
+})();
+
