@@ -338,10 +338,16 @@ CONTENT_SECURITY_POLICY_REPORT_ONLY = {
             "https://cdn.simpleicons.org",
             "https://cdn.jsdelivr.net",          # ← AGREGAR: devicon icons
             "https://files.cdn.printful.com",    # ← AGREGAR: Printful product images
+            "https://www.googletagmanager.com",
         ],
         "connect-src": [
             SELF,
             "https://www.google-analytics.com",
+            "https://www.googletagmanager.com",
+            "https://fonts.googleapis.com",
+            "https://fonts.gstatic.com",
+            "https://cdnjs.cloudflare.com",
+            "https://cdn.jsdelivr.net",
         ],
         "frame-ancestors": [SELF],
         "form-action": [SELF],
