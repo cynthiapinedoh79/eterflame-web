@@ -310,14 +310,13 @@ PERMISSIONS_POLICY = {
 # Sources inventoried from base.html on 2026-05-24.
 # ----------------------------------------------------------------------
 
-CONTENT_SECURITY_POLICY_REPORT_ONLY = {
+CONTENT_SECURITY_POLICY = {
     "DIRECTIVES": {
         "default-src": [SELF],
         "script-src": [
             SELF,
             "https://www.googletagmanager.com",
             "https://cdn.jsdelivr.net",          # ← AGREGAR: Bootstrap JS bundle
-            "'unsafe-inline'",
         ],
         "style-src": [
             SELF,
