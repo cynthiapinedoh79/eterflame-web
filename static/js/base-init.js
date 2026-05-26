@@ -5,6 +5,12 @@
    can drop 'unsafe-inline' (B2 / Fase 4).
    ============================================================ */
 
+/* --- Google Analytics (gtag) — must run before GA4 event trackers --- */
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-QNBJ6BH1ZK');
+
 /* --- Sticky navbar: toggle 'scrolled' class on scroll --- */
 (function () {
   var nav = document.querySelector('.ef-navbar-sticky');
