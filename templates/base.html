@@ -30,13 +30,6 @@
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QNBJ6BH1ZK"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-QNBJ6BH1ZK');
-    </script>
 
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -68,7 +61,7 @@
 
 </head>
 
-<body class="d-flex flex-column{% if '/aythnyk' in request.path or '/blog' in request.path or '/songs' in request.path or '/poems' in request.path %} aythnyk-section{% endif %}">
+<body class="d-flex flex-column{% if '/aythnyk' in request.path or '/blog' in request.path or '/songs' in request.path or '/poems' in request.path %} aythnyk-section{% endif %}" data-sw-url="{% url 'pwa_sw' %}">
     <a id="top" aria-hidden="true"></a>
 
     <!-- Navigation -->
@@ -294,205 +287,14 @@
     {% endblock extras %}
 
     <script src="{% static 'js/chat.js' %}"></script>
-    <script>
-      (function(){
-        var nav = document.querySelector('.ef-navbar-sticky');
-        if(!nav) return;
-        window.addEventListener('scroll', function(){
-          nav.classList.toggle('scrolled', window.scrollY > 40);
-        }, {passive: true});
-      })();
-    </script>
-
-  <!-- GA4 Custom Events -->
-    <script>
-      (function() {
-        // 1. Contact form submit
-        var contactForm = document.querySelector('form[action*="contact"]');
-        if (contactForm) {
-          contactForm.addEventListener('submit', function() {
-            gtag('event', 'contact_form_submit', {
-              'event_category': 'conversion',
-              'event_label': 'Contact Form'
-            });
-          });
-        }
-
-        // 2. Start a Project CTA clicks
-        document.querySelectorAll('a[href*="contact"]').forEach(function(el) {
-          el.addEventListener('click', function() {
-            gtag('event', 'cta_start_project_click', {
-              'event_category': 'engagement',
-              'event_label': el.textContent.trim().substring(0, 50)
-            });
-          });
-        });
-
-        // 3. Service card clicks
-        document.querySelectorAll('.wh-div-card, .ed-card, .ef-pw-card').forEach(function(el) {
-          el.addEventListener('click', function() {
-            gtag('event', 'service_card_click', {
-              'event_category': 'engagement',
-              'event_label': el.querySelector('h2,h3,h4')?.textContent.trim().substring(0, 50) || 'unknown'
-            });
-          });
-        });
-
-        // 4. Song play clicks
-        document.querySelectorAll('audio, .song-play, [class*="play"]').forEach(function(el) {
-          el.addEventListener('click', function() {
-            gtag('event', 'song_play_click', {
-              'event_category': 'media',
-              'event_label': document.title
-            });
-          });
-        });
-
-        // 5. Shop product clicks
-        document.querySelectorAll('.shop-product, [href*="shop"], [class*="product"]').forEach(function(el) {
-          el.addEventListener('click', function() {
-            gtag('event', 'shop_product_click', {
-              'event_category': 'ecommerce',
-              'event_label': el.textContent.trim().substring(0, 50)
-            });
-          });
-        });
-
-        // 6. Favorite poem clicks
-        document.querySelectorAll('.poem-favorite, [class*="favorite"], [class*="like"]').forEach(function(el) {
-          el.addEventListener('click', function() {
-            gtag('event', 'favorite_poem_click', {
-              'event_category': 'engagement',
-              'event_label': document.title
-            });
-          });
-        });
-
-        // 7. Lead magnet form submit (blog)
-        var leadForm = document.querySelector('.ef-lead-form');
-        if (leadForm) {
-          leadForm.addEventListener('submit', function() {
-            gtag('event', 'lead_magnet_submit', {
-              'event_category': 'conversion',
-              'event_label': 'Branding Guide 2026'
-            });
-          });
-        }
-
-        // 8. Portfolio card clicks
-        document.querySelectorAll('.ef-pw-card').forEach(function(el) {
-          el.addEventListener('click', function() {
-            gtag('event', 'portfolio_card_click', {
-              'event_category': 'engagement',
-              'event_label': el.querySelector('.ef-pw-title')?.textContent.trim() || 'unknown'
-            });
-          });
-        });
-
-        // 9. FAQ accordion opens
-        document.querySelectorAll('.ef-faq__item').forEach(function(el) {
-          el.addEventListener('toggle', function() {
-            if (el.open) {
-              gtag('event', 'faq_question_open', {
-                'event_category': 'engagement',
-                'event_label': el.querySelector('.ef-faq__question')?.textContent.trim().substring(0, 80) || 'unknown'
-              });
-            }
-          });
-        });
-
-      })();
-    </script>
 
     <!-- EF Toast system -->
     <script src="{% static 'js/toast.js' %}?v={% now 'U' %}"></script>
     <script src="{% static 'js/poem-like.js' %}?v={% now 'U' %}"></script>
+    <script src="{% static 'js/base-init.js' %}?v={% now 'U' %}"></script>
 
     <!-- Back to top button -->
     {% include 'components/back_to_top.html' %}
-    
-    <script>
-      // Back to top — visibility toggle on scroll
-      (function() {
-        const btn = document.querySelector('[data-back-to-top]');
-        if (!btn) return;
-        
-        const SCROLL_THRESHOLD = 400; // pixels before showing
-        
-        function toggleVisibility() {
-          if (window.scrollY > SCROLL_THRESHOLD) {
-            btn.classList.add('is-visible');
-          } else {
-            btn.classList.remove('is-visible');
-          }
-        }
-        
-        // Passive listener for better scroll performance
-        window.addEventListener('scroll', toggleVisibility, { passive: true });
-        toggleVisibility(); // Initial check on page load
-      })();
-    </script>
-
-    {# PWA — Service worker registration #}
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('{% url "pwa_sw" %}')
-            .then(function(reg) {
-              console.log('[PWA] SW registered:', reg.scope);
-            })
-            .catch(function(err) {
-              console.log('[PWA] SW registration failed:', err);
-            });
-        });
-      }
-    </script>
-    {# Newsletter form — AJAX submit + toast feedback (uses window.efToast) #}
-    <script>
-      (function() {
-        const forms = document.querySelectorAll('[data-newsletter-form]');
-        forms.forEach(function(form) {
-          form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            const btn = form.querySelector('button[type="submit"]');
-            const originalBtnText = btn.textContent;
-
-            btn.disabled = true;
-            btn.textContent = 'Sending…';
-
-            try {
-              const response = await fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                headers: { 'X-Requested-With': 'XMLHttpRequest' },
-                credentials: 'same-origin',
-              });
-
-              const data = await response.json();
-
-              if (response.ok && data.ok) {
-                form.reset();
-                if (window.efToast) {
-                  window.efToast(data.message, 'success');
-                }
-              } else {
-                if (window.efToast) {
-                  window.efToast(data.error || 'Something went wrong.', 'error');
-                }
-              }
-            } catch (err) {
-              if (window.efToast) {
-                window.efToast('Network error. Please try again.', 'error');
-              }
-            } finally {
-              btn.disabled = false;
-              btn.textContent = originalBtnText;
-            }
-          });
-        });
-      })();
-    </script>
 
 </body>
 

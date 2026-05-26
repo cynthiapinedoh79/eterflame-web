@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block head_title %}{% trans "Sign Up" %}{% endblock %}
 
@@ -84,5 +85,9 @@
 
   </div>
 </div>
+{% endblock %}
+
+{% block extra_body %}
+<script src="{% static 'js/account-signup.js' %}?v={% now 'U' %}"></script>
 {% endblock %}
 
