@@ -347,6 +347,7 @@ CONTENT_SECURITY_POLICY = {
             "https://fonts.gstatic.com",
             "https://cdnjs.cloudflare.com",
             "https://cdn.jsdelivr.net",
+            "https://res.cloudinary.com",  # SW precachea imágenes vía fetch()
         ],
         "frame-ancestors": [SELF],
         "form-action": [SELF],
