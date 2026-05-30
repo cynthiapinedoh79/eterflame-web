@@ -615,6 +615,25 @@ a.link { color: #c49a40; text-decoration: none; }
 .login-subtitle a:hover,
 a.link:hover { color: #e8c06a; }
 
+/* Sign Up prompt — shown always in login, encourages account creation */
+.signup-prompt {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .85rem;
+  color: #6b5f45;
+  margin-bottom: 1.5rem;
+}
+.signup-link {
+  color: #c49a40;
+  text-decoration: underline;
+  text-decoration-color: rgba(196, 154, 64, 0.4);
+  text-underline-offset: 3px;
+  transition: color .2s, text-decoration-color .2s;
+}
+.signup-link:hover {
+  color: #e8c06a;
+  text-decoration-color: #e8c06a;
+}
+
 .login-card label {
   font-family: 'DM Sans', sans-serif;
   font-size: .6rem;
@@ -653,8 +672,17 @@ a.link:hover { color: #e8c06a; }
   font-size: .78rem;
   margin-bottom: 1rem;
 }
-.forgot-password a { color: #6b5f45; text-decoration: none; transition: color .2s; }
-.forgot-password a:hover { color: #c49a40; }
+.forgot-password a {
+  color: #c49a40;
+  text-decoration: underline;
+  text-decoration-color: rgba(196, 154, 64, 0.4);
+  text-underline-offset: 3px;
+  transition: color .2s, text-decoration-color .2s;
+}
+.forgot-password a:hover {
+  color: #e8c06a;
+  text-decoration-color: #e8c06a;
+}
 
 .field-error {
   font-family: 'DM Sans', sans-serif;

@@ -13,27 +13,27 @@
     {% if request.GET.next %}
         {% if fav_url in request.GET.next %}
             <div class="alert alert-info" role="alert">
-              Please sign in to view your "My Favorites" page.
+              {% trans "Please sign in to view your \"My Favorites\" page." %}
             </div>
         {% elif "/blog/" in request.GET.next %}
             <div class="alert alert-info" role="alert">
-              Please sign in to leave a comment on the blog.
+              {% trans "Please sign in to leave a comment on the blog." %}
             </div>
         {% else %}
             <div class="alert alert-info" role="alert">
-              You must be signed in to access that page.
+              {% trans "You must be signed in to access that page." %}
             </div>
         {% endif %}
     {% else %}
-        <div>
         <p class="login-subtitle">
-          {% blocktrans %}Welcome! To leave a comment on a post or save favorite poems, please Log in.
-
-        <p>If you have not created an account yet, then <a class="link" href="{{ signup_url }}">Sign Up</a> first.</p>{% endblocktrans %}
+          {% trans "Welcome! To leave a comment on a post or save favorite poems, please Log in." %}
         </p>
-        <hr>
-        <div>
     {% endif %}
+
+    <p class="signup-prompt">
+      {% blocktrans %}Don't have an account yet? <a class="signup-link" href="{{ signup_url }}">Create one</a>.{% endblocktrans %}
+    </p>
+    <hr>
 
     <form class="login" method="POST" action="{% url 'account_login' %}">
       {% csrf_token %}
