@@ -840,6 +840,32 @@ textarea::placeholder {
   font-size: 0.9rem;
 }
 
+/* ── Allauth form errors — visible red alert box ── */
+/* Applies to all allauth forms (signup, password reset, password change, etc.)
+   where errors render as <ul class="errorlist"> inside form fields. */
+.login-card .errorlist,
+.login-card ul.errorlist {
+  list-style: none;
+  padding: .7rem 1rem;
+  margin: 0 0 1rem;
+  background: rgba(200, 16, 46, 0.08);
+  border: 1px solid rgba(200, 16, 46, 0.3);
+  border-radius: 3px;
+  color: #e05070;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .82rem;
+  line-height: 1.5;
+}
+.login-card .errorlist li {
+  margin: 0;
+  padding: 0;
+}
+.login-card .errorlist li + li {
+  margin-top: .35rem;
+  padding-top: .35rem;
+  border-top: 1px solid rgba(200, 16, 46, 0.15);
+}
+
 
 /* ================================================
    12. UTILITIES / BREADCRUMBS / GLOBAL POLISH

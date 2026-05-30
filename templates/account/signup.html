@@ -10,17 +10,13 @@
     <h3 class="login-title">{% trans "Sign Up" %}</h3>
 
     <p class="login-subtitle">
-      {% blocktrans %}
-         
-        <div>
-        <p>Welcome! Do you already have an account?
-        <a class="link" href="{{ login_url }}">Sign Up</a>
-        instead.
-        </p>
-        <hr>
-        </div>
-      {% endblocktrans %}
+      {% trans "Create your account to leave comments and save your favorite poems." %}
     </p>
+
+    <p class="signup-prompt">
+      {% blocktrans %}Already have an account? <a class="signup-link" href="{{ login_url }}">Sign In</a> instead.{% endblocktrans %}
+    </p>
+    <hr>
 
     <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
       {% csrf_token %}
@@ -41,47 +37,6 @@
         {% trans "Sign Up" %} &raquo;
       </button>
     </form>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const form = document.getElementById('signup_form');
-        
-        // CORRECTED: Using id_password1 based on inspection
-        const pw1  = document.getElementById('id_password1');
-        const pw2  = document.getElementById('id_password2');
-
-        if (!form || !pw1 || !pw2) {
-          // Elements not found. Check HTML IDs or form rendering.
-          return; 
-        }
-
-        function validatePasswords() {
-          // Clear any previous custom error message
-          pw2.setCustomValidity(''); 
-
-          // Check for mismatch
-          if (pw1.value && pw2.value && pw1.value !== pw2.value) {
-            pw2.setCustomValidity('Passwords do not match.');
-          }
-        }
-
-        // Validate as the user types
-        pw1.addEventListener('input', validatePasswords);
-        pw2.addEventListener('input', validatePasswords);
-
-        // Final check on submit
-        form.addEventListener('submit', function (e) {
-          validatePasswords();
-
-          if (!form.checkValidity()) {
-            e.preventDefault();
-            // Show the error tooltip
-            pw2.reportValidity(); 
-          }
-        });
-      });
-    </script>
-
 
   </div>
 </div>
