@@ -53,9 +53,6 @@ ALLOWED_HOSTS = [
     "dev.local",
     '[::1]',
     '.herokuapp.com',
-    'eterflame-web-ab680e12c17d.herokuapp.com',
-    '*.codeinstitute-ide.net',
-    '*.githubpreview.dev',
 ]
 
 hostnames = os.environ.get('ALLOWED_HOSTS', '').split(',')
