@@ -1,0 +1,30 @@
+{% comment %}
+Schema.org CreativeWork — JSON-LD for Aythnyk
+Loaded in base.html ONLY for /aythnyk/* routes.
+Aythnyk = cuerpo artístico de Eterflame Works.
+Linked by @id to Eterflame Works Organization + Cynthia Person.
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "@id": "https://eterflame-web-ab680e12c17d.herokuapp.com/aythnyk/#creativework",
+  "name": "Aythnyk",
+  "alternateName": "Aythnyk by Eterflame Works",
+  "description": "Aythnyk es el cuerpo artístico de Eterflame Works: poesía en español con traducción al inglés y música que transforma emociones humanas en experiencias cinematográficas.",
+  "url": "https://eterflame-web-ab680e12c17d.herokuapp.com/aythnyk/",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://res.cloudinary.com/dam7n1lk3/image/upload/v1777324235/logoAyth_transp_bi98zn_k6btog.png"
+  },
+  "creator": {
+    "@id": "https://eterflame-web-ab680e12c17d.herokuapp.com/about/#person"
+  },
+  "publisher": {
+    "@id": "https://eterflame-web-ab680e12c17d.herokuapp.com/#organization"
+  },
+  "genre": ["Poetry", "Music", "Songwriting", "Emotional Storytelling"],
+  "keywords": "poetry, music, songwriting, songs, emotional, lyric, dramatic, cinematic, spanish poetry",
+  "inLanguage": ["es", "en"]
+}
+</script>
