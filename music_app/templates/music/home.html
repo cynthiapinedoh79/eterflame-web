@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block head_title %}EF Music — Record Label & Music Production · Eterflame{% endblock %}
+{% load static %}
+
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/music.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="efm-page">
+  <!-- HERO -->
+  <section class="efm-hero">
+    <div class="efm__logo-watermark"></div>
+    <div class="efm-hero__bg-text" aria-hidden="true">MUSIC</div>
+    <div class="efm-hero__inner">
+      <a href="{% url 'works:works_home' %}" class="efm-back">← Eterflame Works</a>
+      <p class="efm-eyebrow fade-in-up-initial">Eterflame Works · División</p>
+      <h1 class="efm-title fade-in-up-initial">EF Music</h1>
+      <p class="efm-subtitle fade-in-up-initial">Distribución · Promoción · Administración · Sync Licensing</p>
+      <p class="efm-desc fade-in-up-initial">
+        Where sound meets story.<br>
+        EF Music es el sello discográfico de Eterflame Works.<br>
+        Publicando actualmente el catálogo de Aythnyk.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section class="efm-services">
+    <p class="efm-section-label">What We Do</p>
+    <div class="efm-grid">
+      <div class="efm-card">
+        <span class="efm-card__num">01</span>
+        <h3 class="efm-card__title">Distribución</h3>
+        <p class="efm-card__desc">Publicamos la música en Spotify, Apple Music, YouTube Music y 150+ plataformas globales vía distribución digital profesional.</p>
+      </div>
+      <div class="efm-card">
+        <span class="efm-card__num">02</span>
+        <h3 class="efm-card__title">Promoción & Marketing</h3>
+        <p class="efm-card__desc">Estrategia de lanzamiento, contenido narrativo, presencia en redes y conexión con audiencias que valoran obra con alma.</p>
+      </div>
+      <div class="efm-card">
+        <span class="efm-card__num">03</span>
+        <h3 class="efm-card__title">Administración & Royalties</h3>
+        <p class="efm-card__desc">Gestión de derechos, cobro de regalías vía BMI y sociedades internacionales, contabilidad transparente y reportes al artista.</p>
+      </div>
+      <div class="efm-card">
+        <span class="efm-card__num">04</span>
+        <h3 class="efm-card__title">Sync Licensing</h3>
+        <p class="efm-card__desc">Colocación de música en cine, televisión, publicidad y contenido digital. Catálogo curado listo para uso creativo profesional.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECOSYSTEM -->
+  <section class="efm-ecosystem">
+    <p class="efm-section-label">Ecosistema Creativo</p>
+    <div class="efm-ecosystem__intro">
+      <h2 class="efm-ecosystem__title">Todo bajo un techo.</h2>
+      <p class="efm-ecosystem__desc">
+        A diferencia de otras disqueras que subcontratan servicios,
+        cada artista de EF Music tiene acceso completo al ecosistema Eterflame Works.
+      </p>
+    </div>
+    <div class="efm-ecosystem__grid">
+      <a href="{% url 'design:design_home' %}" class="efm-ecosystem__item">
+        <span class="efm-ecosystem__num">01</span>
+        <h3 class="efm-ecosystem__item-title">EF Design</h3>
+        <p class="efm-ecosystem__item-desc">Branding & sitios web del artista</p>
+      </a>
+      <a href="{% url 'media:media_home' %}" class="efm-ecosystem__item">
+        <span class="efm-ecosystem__num">02</span>
+        <h3 class="efm-ecosystem__item-title">EF Media</h3>
+        <p class="efm-ecosystem__item-desc">Videos, portadas y contenido visual</p>
+      </a>
+      <a href="{% url 'studio:studio_home' %}" class="efm-ecosystem__item">
+        <span class="efm-ecosystem__num">03</span>
+        <h3 class="efm-ecosystem__item-title">EF Studio</h3>
+        <p class="efm-ecosystem__item-desc">Producción musical, mezcla y mastering</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- CURRENT CATALOG -->
+  <section class="efm-catalog">
+    <p class="efm-section-label">Current Roster</p>
+    <div class="efm-catalog__card">
+      <p class="efm-catalog__eyebrow">Artista principal</p>
+      <h2 class="efm-catalog__title">Aythnyk</h2>
+      <p class="efm-catalog__desc">
+        Narradora emocional cinematográfica. Poesía en español con traducción al inglés
+        y música que transforma emociones humanas en experiencias cinematográficas.
+      </p>
+      <div class="efm-catalog__cta">
+        <a href="{% url 'aythnyk:aythnyk_home' %}" class="efm-btn efm-btn--primary">
+          Explorar Aythnyk →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IN DEVELOPMENT -->
+  <section class="efm-development">
+    <p class="efm-section-label">En Desarrollo</p>
+    <div class="efm-development__grid">
+      <div class="efm-development__item">
+        <h3 class="efm-development__title">A&R & Firma de Artistas</h3>
+        <p class="efm-development__desc">
+          Roster abierto próximamente. Buscando artistas que compartan
+          nuestra visión: obra con alma, sofisticación y libertad creativa.
+        </p>
+      </div>
+      <div class="efm-development__item">
+        <h3 class="efm-development__title">Desarrollo & Producción</h3>
+        <p class="efm-development__desc">
+          Contratos personalizados: desde artistas con obra terminada
+          hasta proyectos que requieren financiamiento y producción completa.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="efm-cta">
+    <p class="efm-cta__eyebrow">¿Interesado en colaborar?</p>
+    <h2 class="efm-cta__title">Conversemos.</h2>
+    <p class="efm-cta__desc">
+      Si tu música tiene alma y buscas un hogar profesional para publicarla,
+      cuéntanos tu proyecto.
+    </p>
+    <a href="{% url 'works:contact' %}" class="efm-btn efm-btn--primary">
+      Iniciar conversación →
+    </a>
+  </section>
+</div>
+{% endblock %}

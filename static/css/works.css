@@ -16,6 +16,7 @@
   --w-design:    #1B3A5C;
   --w-media:     #7C3A1A;
   --w-studio:    #3A3A3A;
+  --w-music:     #4A2B4A;
   --w-serif:     'Cormorant Garamond', serif;
   --w-sans:      'DM Sans', sans-serif;
   --w-ease:      0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -383,14 +384,21 @@
   padding: 6rem 2rem;
   background: var(--w-bg2);
 }
+
 .wh-divisions__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5px;
   background: var(--w-border);
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
 }
+@media (max-width: 1199px) {
+  .wh-divisions__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .wh-div-card {
   position: relative;
   display: flex;
@@ -415,6 +423,7 @@
 .wh-div-card--design::before { background: var(--w-design); }
 .wh-div-card--media::before  { background: var(--w-media); }
 .wh-div-card--studio::before { background: var(--w-studio); }
+.wh-div-card--music::before  { background: var(--w-music); }
 .wh-div-card::after {
   content: '';
   position: absolute;
@@ -426,6 +435,7 @@
 .wh-div-card--design::after { background: var(--w-design); }
 .wh-div-card--media::after  { background: var(--w-media); }
 .wh-div-card--studio::after { background: var(--w-studio); }
+.wh-div-card--music::after  { background: var(--w-music); }
 .wh-div-card:hover::before { transform: scaleX(1); }
 .wh-div-card:hover::after  { opacity: .15; }
 .wh-div-card:hover { transform: translateY(-4px); }
@@ -457,6 +467,7 @@
 .wh-div-card--design:hover .wh-div-card__name { color: #6fa3d4; }
 .wh-div-card--media:hover  .wh-div-card__name { color: #d4956f; }
 .wh-div-card--studio:hover .wh-div-card__name { color: #b0b0b0; }
+.wh-div-card--music:hover  .wh-div-card__name { color: #D4B8C8; }
 .wh-div-card__sub {
   font-family: var(--w-sans);
   font-size: .65rem;
@@ -700,9 +711,9 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
-  /* DIVISIONS — 3 columnas forzado, sin celda suelta */
+  /* DIVISIONS — 2 columnas (2x2) para 4 cards, sin celdas sueltas */
   .wh-divisions__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .wh-div-card {
     min-height: auto;

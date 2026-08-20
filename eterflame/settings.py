@@ -96,6 +96,7 @@ INSTALLED_APPS = [
     'design_app',
     'media_app',
     'studio_app',
+    'music_app',
     'songs',
     'chat',
     'shop',

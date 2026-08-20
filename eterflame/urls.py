@@ -58,6 +58,7 @@ urlpatterns += i18n_patterns(
     path("works/design/", include(("design_app.urls", "design"), namespace="design")),
     path("works/media/", include(("media_app.urls", "media"), namespace="media")),
     path("works/studio/", include(("studio_app.urls", "studio"), namespace="studio")),
+    path("works/music/", include(("music_app.urls", "music"), namespace="music")),
     path("aythnyk/", include(("aythnyk.urls", "aythnyk"), namespace="aythnyk")),
     path("aythnyk/", include(("poetry.urls", "poetry"), namespace="poetry")),
     path("aythnyk/songs/", include(("songs.urls", "songs"), namespace="songs")),

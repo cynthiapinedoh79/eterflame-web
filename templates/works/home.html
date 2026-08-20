@@ -22,11 +22,10 @@
       <h1 class="wh-hero__headline fade-in-up-initial">
         <span class="wh-hero__line1">ETER</span>
         <span class="wh-hero__line2">FLAME</span>
-        <span class="wh-hero__line3">WORKS</span>
       </h1>
-      <p class="wh-hero__sub fade-in-up-initial">Design · Media · Studio</p>
+      <p class="wh-hero__sub fade-in-up-initial">Design · Media · Studio · Music</p>
       <div class="wh-hero__ctas fade-in-up-initial">
-        <a href="{% url 'design:design_home' %}" class="wh-btn-primary">Explore Services</a>
+        <a href="#divisions" class="wh-btn-primary">Explore Services</a>
         <a href="{% url 'aythnyk:aythnyk_home' %}" class="wh-btn-ghost">Meet Aythnyk →</a>
       </div>
     </div>
@@ -109,7 +108,7 @@
   <!-- ══════════════════════════════════════
        5. DIVISIONS — 3 cards grandes
   ══════════════════════════════════════ -->
-  <section class="wh-divisions">
+  <section id="divisions" class="wh-divisions">
     <p class="wh-section-label">Our Divisions</p>
     <div class="wh-divisions__grid">
 
@@ -139,6 +138,16 @@
           <h3 class="wh-div-card__name">EF Studio</h3>
           <p class="wh-div-card__sub">Creative Writing &amp; Storytelling</p>
           <p class="wh-div-card__desc">Copywriting, editorial, ghostwriting, and narrative brand voice for projects that need a soul.</p>
+        </div>
+        <span class="wh-div-card__cta">View Services →</span>
+      </a>
+
+      <a href="{% url 'music:music_home' %}" class="wh-div-card wh-div-card--music fade-in-up">
+        <div class="wh-div-card__num">04</div>
+        <div class="wh-div-card__body">
+          <h3 class="wh-div-card__name">EF Music</h3>
+          <p class="wh-div-card__sub">Record Label · Publishing · Sync</p>
+          <p class="wh-div-card__desc">Distribución, promoción, administración y sync licensing. El sello discográfico de Eterflame Works.</p>
         </div>
         <span class="wh-div-card__cta">View Services →</span>
       </a>
