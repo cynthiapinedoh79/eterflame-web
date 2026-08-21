@@ -1732,3 +1732,63 @@ a:hover .res-card__logo--si {
 .wh-page > .wh-statement { text-align: center; }
 .wh-page > .wh-statement .wh-statement__inner { margin: 0 auto; }
 .wh-page > .wh-statement .wh-statement__body { margin: 0 auto; max-width: 620px; }
+
+
+/* ── HOW WE WORK como línea de tiempo ── */
+.ef-process__steps {
+  border: none !important;
+  gap: 2rem !important;
+  padding-top: 2.5rem;
+}
+.ef-process__steps::before {
+  content: "";
+  position: absolute;
+  top: 13px; left: 12%; right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent, var(--gold) 15%, var(--gold) 85%, transparent);
+  opacity: .45;
+}
+.ef-process__step {
+  border-right: none !important;
+  padding: 0 1rem !important;
+  text-align: center;
+}
+.ef-process__number {
+  position: relative;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  width: 26px; height: 26px;
+  margin-top: 0; margin-bottom: 1.2rem;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: #06030a;
+  color: var(--gold);
+}
+@media (max-width: 900px) {
+  .ef-process__steps { grid-template-columns: 1fr 1fr !important; }
+  .ef-process__steps::before { display: none; }
+  .ef-process__number { margin-top: 0; }
+}
+@media (max-width: 600px) {
+  .ef-process__steps { grid-template-columns: 1fr !important; }
+}
+
+/* ── WHAT WE BELIEVE — matriz ── */
+.wh-believe { padding: 6rem 2rem; text-align: center; }
+.wh-believe__inner { max-width: 720px; margin: 0 auto; }
+.wh-believe__label {
+  font-family: 'DM Mono', monospace; font-size: .6rem;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--w-gold); margin-bottom: 1.5rem;
+}
+.wh-believe__lead {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: clamp(1.4rem, 3vw, 2.1rem); font-weight: 300;
+  color: #f5e0b0; line-height: 1.4; margin-bottom: 1.75rem;
+}
+.wh-believe__body {
+  font-family: 'DM Sans', sans-serif; font-size: .95rem;
+  color: rgba(245,224,176,.65); line-height: 1.9; margin: 0;
+}
+@media (max-width: 600px) { .wh-believe { padding: 4rem 1.25rem; } }
