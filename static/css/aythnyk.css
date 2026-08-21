@@ -443,11 +443,12 @@
   text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;
 }
 .ah-hero__name {
-  display: flex; flex-direction: column; align-items: center;
+  display: flex; flex-direction: row; justify-content: center;
+  align-items: baseline; flex-wrap: nowrap;
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300; line-height: .85; margin: 0 0 1.5rem;
 }
-.ah-hero__line { font-size: clamp(4rem, 18vw, 12rem); color: #f5e0b0; letter-spacing: 14px; }
+.ah-hero__line { font-size: clamp(3.5rem, 16vw, 12rem); color: #f5e0b0; letter-spacing: 14px; }
 .ah-hero__line--gold { color: var(--gold); }
 .ah-hero__subtitle {
   font-family: 'Cormorant Garamond', serif; font-style: italic;
@@ -542,7 +543,7 @@
 }
 @media (max-width: 600px) {
   .ah-hero { padding: 5rem 1.25rem 3rem; }
-  .ah-hero__line { font-size: clamp(3.5rem, 20vw, 7rem); letter-spacing: 8px; }
+  .ah-hero__line { font-size: clamp(2.5rem, 17vw, 7rem); letter-spacing: 6px; }
   .ah-hero__ctas { flex-direction: column; align-items: center; }
   .ah-statement { padding: 5rem 1.25rem; }
   .ah-works-cta { padding: 4rem 1.25rem; }
