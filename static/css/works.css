@@ -114,13 +114,15 @@
   font-size: .68rem;
   letter-spacing: 6px;
   text-transform: uppercase;
-  color: var(--w-crimson);
+  color: var(--w-gold);
   margin-bottom: 1.5rem;
 }
 .wh-hero__headline {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: nowrap;
   font-family: var(--w-serif);
   font-weight: 300;
   line-height: .9;
@@ -612,6 +614,7 @@
 
   /* HERO */
   .wh-hero { padding: 5rem 1.25rem 3rem; }
+  .wh-hero__headline { flex-direction: column; align-items: center; }
   .wh-hero__line1,
   .wh-hero__line2 { font-size: clamp(3rem, 18vw, 5rem); letter-spacing: 6px; }
   .wh-hero__line3  { font-size: clamp(1.5rem, 10vw, 3rem); letter-spacing: 10px; }
