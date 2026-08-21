@@ -180,8 +180,8 @@
           <!-- Brand + tagline -->
           <div class="footer-col footer-col--brand fade-in-up">
             <p class="footer-logo">ETERFLAME</p>
-            <p class="footer-tagline">Creative &amp; Digital Production</p>
-            <p class="footer-tagline-sub">Design · Media · Studio</p>
+            <p class="footer-tagline">Creative Company</p>
+            <p class="footer-tagline-sub">Design · Media · Studio · Music</p>
           </div>
 
           <!-- Navigation -->
@@ -214,7 +214,7 @@
       </div>
 
       <!-- Newsletter band — Aythnyk audience signup -->
-      {% if request.path == "/" or request.path == "/en/" or "aythnyk" in request.path or "blog" in request.path %}
+      {% if "aythnyk" in request.path or "blog" in request.path %}
       <div class="footer-newsletter">
         <div class="footer-newsletter__inner">
           <p class="footer-newsletter__eyebrow">✦ Aythnyk in your inbox ✦</p>
