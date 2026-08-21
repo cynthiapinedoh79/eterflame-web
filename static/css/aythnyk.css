@@ -514,26 +514,28 @@
   font-family: 'DM Sans', sans-serif; font-size: .9rem;
   color: #6b5f45; line-height: 1.9; max-width: 560px;
 }
-.ah-works-cta { background: #c8102e; padding: 6rem 2rem; text-align: center; }
+.ah-works-cta { background: #0d0d0d; padding: 6rem 2rem; text-align: center; }
 .ah-works-cta__inner { max-width: 580px; margin: 0 auto; }
 .ah-works-cta__eyebrow {
   font-family: 'DM Sans', sans-serif; font-size: .63rem;
   letter-spacing: 5px; text-transform: uppercase;
-  color: rgba(255,255,255,.55); margin-bottom: 1rem;
+  color: var(--gold); margin-bottom: 1rem;
 }
 .ah-works-cta__name {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(2.5rem, 7vw, 5rem);
-  font-weight: 300; color: #fff; letter-spacing: 4px; margin: 0 0 1.25rem;
+  font-weight: 300; color: #f5e0b0; letter-spacing: 4px; margin: 0 0 1.25rem;
 }
+.ah-wcta__brand { color: #f5e0b0; }
+.ah-wcta__div   { color: var(--gold); }
 .ah-works-cta__desc {
   font-family: 'DM Sans', sans-serif; font-size: .88rem;
   color: rgba(255,255,255,.7); line-height: 1.8; margin-bottom: 2rem;
 }
 .ah-works-btn {
-  background: #fff !important;
-  color: #c8102e !important;
-  border: 2px solid #fff !important;
+  background: var(--gold) !important;
+  color: #0d0d0d !important;
+  border: 2px solid var(--gold) !important;
   transition: background .3s ease, color .3s ease, border-color .3s ease;
 }
 .ah-works-btn:hover {
@@ -1089,8 +1091,8 @@ a:hover .res-card__logo--si {
   transform: translate(-50%, -50%) !important;
   width: 580px !important;
   height: 580px !important;
-  opacity: 0.15 !important;
-  filter: blur(2px) brightness(3) !important;
+  opacity: 0.10 !important;
+  filter: blur(2px) brightness(1.4) !important;
   z-index: 0 !important;
   pointer-events: none !important;
 }
