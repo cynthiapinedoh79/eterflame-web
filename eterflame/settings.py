@@ -53,6 +53,7 @@ ALLOWED_HOSTS = [
     "dev.local",
     '[::1]',
     '.herokuapp.com',
+    '.eterflame.com',
 ]
 
 hostnames = os.environ.get('ALLOWED_HOSTS', '').split(',')
@@ -193,6 +194,8 @@ CSRF_TRUSTED_ORIGINS = [
     'https://eterflame-web-ab680e12c17d.herokuapp.com',
     "https://*.codeinstitute-ide.net",
     "https://*.githubpreview.dev",
+    "https://eterflame.com",
+    "https://www.eterflame.com",
 ]
 
 # Password validation
