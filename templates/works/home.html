@@ -35,12 +35,38 @@
   <!-- ══════════════════════════════════════
        2. TICKER — texto en movimiento
   ══════════════════════════════════════ -->
+  <!-- WHO WE ARE -->
+  <section class="wh-statement wh-statement--center">
+    <div class="wh-statement__inner fade-in-up">
+      <p class="wh-statement__label">Who We Are</p>
+      <h2 class="wh-statement__text">
+        One house.<br>
+        <em>Two ways of making things.</em>
+      </h2>
+      <div class="wh-statement__body">
+        <p>Eterflame is a creative company with two halves. <strong>Works</strong> builds the structure &mdash; design, media, production, and music for brands and artists. <strong>Aythnyk</strong> is the spirit, our artist &mdash; poetry, songs, and stories in Spanish.</p>
+        <p>Same hands, different languages.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUERTA WORKS -->
+  <section class="wh-works-door">
+    <img src="{% static 'images/ef_logo.webp' %}" class="ah-logo-watermark-img" aria-hidden="true">
+    <div class="wh-works-door__inner fade-in-up">
+      <p class="wh-works-door__eyebrow">The Studio</p>
+      <h2 class="wh-works-door__name"><span class="wh-wd__brand">Eterflame</span> <span class="wh-wd__div">Works</span></h2>
+      <p class="wh-works-door__desc">Design, media, Studio and music for brands and artists. The structure behind the work.</p>
+      <a href="{% url 'works:works_page' %}" class="wh-works-door__btn">Explore Works &rarr;</a>
+    </div>
+  </section>
+
   <section class="wh-aythnyk">
     <img src="{% static 'images/aythnyk/a_logo.webp' %}" class="ah-logo-watermark-img" aria-hidden="true">
     <div class="wh-aythnyk__inner fade-in-up">
       <p class="wh-aythnyk__eyebrow">The Artist Behind the Work</p>
       <h2 class="wh-aythnyk__name">Aythnyk</h2>
-      <p class="wh-aythnyk__desc">Alongside our studio work lives a poetic universe — a space of verses, silence, and stories in Spanish. Eterflame Works is the structure; Aythnyk is the spirit.</p>
+      <p class="wh-aythnyk__desc">Poetry, songs and stories in Spanish. The spirit behind the work.</p>
       <a href="{% url 'aythnyk:aythnyk_home' %}" class="wh-aythnyk__btn">Explore Aythnyk →</a>
     </div>
   </section>

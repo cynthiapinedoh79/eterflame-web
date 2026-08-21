@@ -1720,3 +1720,15 @@ a:hover .res-card__logo--si {
   .wh-works-door { padding: 4rem 1.25rem; }
   .wh-works-door .ah-logo-watermark-img { width: 380px !important; height: 380px !important; }
 }
+
+.wh-works-door__eyebrow {
+  font-family: 'DM Sans', sans-serif; font-size: .63rem;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--w-gold); margin-bottom: 1rem;
+}
+.wh-statement__label { color: var(--w-gold) !important; }
+
+/* Statement centrado en home matriz */
+.wh-page > .wh-statement { text-align: center; }
+.wh-page > .wh-statement .wh-statement__inner { margin: 0 auto; }
+.wh-page > .wh-statement .wh-statement__body { margin: 0 auto; max-width: 620px; }
