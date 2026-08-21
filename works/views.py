@@ -8,6 +8,9 @@ from .models import AffiliateLink
 def works_home(request):
     return render(request, 'works/home.html')
 
+def works_page(request):
+    return render(request, 'works/works_page.html')
+
 def resources(request):
     links = AffiliateLink.objects.filter(
         active=True,

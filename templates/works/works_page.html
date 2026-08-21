@@ -1,0 +1,325 @@
+{% extends "base.html" %}
+{% block head_title %}Eterflame Works — Creative & Digital Production Studio{% endblock %}
+{% load static %}
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/works.css' %}">
+{% endblock %}
+{% block content %}
+<div class="wh-page">
+  <!-- HERO WORKS -->
+  <section class="wh-hero parallax-hero">
+    <div class="wh-hero__logo-watermark"></div>
+    <div class="wh-hero__inner">
+      <p class="wp-hero__brand fade-in-up-initial">Eterflame</p>
+      <h1 class="wh-hero__headline fade-in-up-initial">
+        <span class="wh-hero__line2">WORKS</span>
+      </h1>
+      <p class="wh-hero__sub fade-in-up-initial">Design &middot; Media &middot; Studio &middot; Music</p>
+      <div class="wh-hero__ctas fade-in-up-initial">
+        <a href="#divisions" class="wh-btn-primary">Explore Services</a>
+        <a href="{% url 'works:contact' %}" class="wh-btn-ghost">Start a Project &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wh-ticker" aria-hidden="true">
+    <div class="wh-ticker__track">
+      <span>Design</span><span class="wh-ticker__dot">◆</span>
+      <span>Branding</span><span class="wh-ticker__dot">◆</span>
+      <span>Web Development</span><span class="wh-ticker__dot">◆</span>
+      <span>UI/UX</span><span class="wh-ticker__dot">◆</span>
+      <span>Media Production</span><span class="wh-ticker__dot">◆</span>
+      <span>Creative Direction</span><span class="wh-ticker__dot">◆</span>
+      <span>Storytelling</span><span class="wh-ticker__dot">◆</span>
+      <span>E-commerce</span><span class="wh-ticker__dot">◆</span>
+      <span>Design</span><span class="wh-ticker__dot">◆</span>
+      <span>Branding</span><span class="wh-ticker__dot">◆</span>
+      <span>Web Development</span><span class="wh-ticker__dot">◆</span>
+      <span>UI/UX</span><span class="wh-ticker__dot">◆</span>
+      <span>Media Production</span><span class="wh-ticker__dot">◆</span>
+      <span>Creative Direction</span><span class="wh-ticker__dot">◆</span>
+      <span>Storytelling</span><span class="wh-ticker__dot">◆</span>
+      <span>E-commerce</span><span class="wh-ticker__dot">◆</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       3. STATEMENT — una frase que golpea
+  ══════════════════════════════════════ -->
+  <section class="wh-statement">
+    <div class="wh-statement__inner fade-in-up">
+      <p class="wh-statement__label">Who We Are</p>
+      <h2 class="wh-statement__text">
+        A creative studio for brands<br>
+        that need more than<br>
+        <em>a website.</em>
+      </h2>
+      <div class="wh-statement__body">
+        <p>Eterflame Works builds digital experiences where technology, design, and storytelling move together. We create the structure behind a brand's presence — from full-stack web systems and visual identities to content, media, and data-driven experiences.</p>
+        <p>Our work is intentional, refined, and personal. Every project is shaped around the voice, goals, and emotional direction of the brand behind it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       4. WHY US — 4 razones en grid
+  ══════════════════════════════════════ -->
+  <section class="wh-why">
+    <p class="wh-section-label">Why Eterflame</p>
+    <div class="wh-why__grid">
+      <div class="wh-why__item fade-in-up">
+        <span class="wh-why__num">01</span>
+        <h3>Design with direction</h3>
+        <p>Every visual choice is connected to purpose, positioning, and brand perception.</p>
+      </div>
+      <div class="wh-why__item fade-in-up">
+        <span class="wh-why__num">02</span>
+        <h3>Technical execution</h3>
+        <p>We do not only make things look good — we build systems that work underneath.</p>
+      </div>
+      <div class="wh-why__item fade-in-up">
+        <span class="wh-why__num">03</span>
+        <h3>Story-first thinking</h3>
+        <p>Your brand should not feel generic. It should communicate voice, identity, and emotion.</p>
+      </div>
+      <div class="wh-why__item fade-in-up">
+        <span class="wh-why__num">04</span>
+        <h3>Small studio focus</h3>
+        <p>Intentional collaboration, refined detail, and work shaped around each project.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       5. DIVISIONS — 3 cards grandes
+  ══════════════════════════════════════ -->
+  <section id="divisions" class="wh-divisions">
+    <p class="wh-section-label">Our Divisions</p>
+    <div class="wh-divisions__grid">
+
+      <a href="{% url 'design:design_home' %}" class="wh-div-card wh-div-card--design fade-in-up">
+        <div class="wh-div-card__num">01</div>
+        <div class="wh-div-card__body">
+          <h3 class="wh-div-card__name">EF Design</h3>
+          <p class="wh-div-card__sub">Creative Technology &amp; Design</p>
+          <p class="wh-div-card__desc">Full-stack web development, UI/UX, branding, data visualisation, e-commerce, API integration, and database architecture.</p>
+        </div>
+        <span class="wh-div-card__cta">View Services →</span>
+      </a>
+
+      <a href="{% url 'media:media_home' %}" class="wh-div-card wh-div-card--media fade-in-up">
+        <div class="wh-div-card__num">02</div>
+        <div class="wh-div-card__body">
+          <h3 class="wh-div-card__name">EF Media</h3>
+          <p class="wh-div-card__sub">Video · Audio · Content</p>
+          <p class="wh-div-card__desc">Photography, video production, podcast, and digital content strategy built to move audiences.</p>
+        </div>
+        <span class="wh-div-card__cta">View Services →</span>
+      </a>
+
+      <a href="{% url 'studio:studio_home' %}" class="wh-div-card wh-div-card--studio fade-in-up">
+        <div class="wh-div-card__num">03</div>
+        <div class="wh-div-card__body">
+          <h3 class="wh-div-card__name">EF Studio</h3>
+          <p class="wh-div-card__sub">Creative Writing &amp; Storytelling</p>
+          <p class="wh-div-card__desc">Copywriting, editorial, ghostwriting, and narrative brand voice for projects that need a soul.</p>
+        </div>
+        <span class="wh-div-card__cta">View Services →</span>
+      </a>
+
+      <a href="{% url 'music:music_home' %}" class="wh-div-card wh-div-card--music fade-in-up">
+        <div class="wh-div-card__num">04</div>
+        <div class="wh-div-card__body">
+          <h3 class="wh-div-card__name">EF Music</h3>
+          <p class="wh-div-card__sub">Record Label · Publishing · Sync</p>
+          <p class="wh-div-card__desc">Distribución, promoción, administración y sync licensing. El sello discográfico de Eterflame Works.</p>
+        </div>
+        <span class="wh-div-card__cta">View Services →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       6. MISSION / VISION — lado a lado
+  ══════════════════════════════════════ -->
+  <section class="wh-mv">
+    <div class="wh-mv__card fade-in-up">
+      <p class="wh-mv__label">Mission</p>
+      <p class="wh-mv__text">To create digital work that feels intentional, elegant, and alive — where technical structure meets visual identity and emotional clarity.</p>
+    </div>
+    <div class="wh-mv__divider"></div>
+    <div class="wh-mv__card fade-in-up">
+      <p class="wh-mv__label">Vision</p>
+      <p class="wh-mv__text">To be the creative studio that founders, artists, and brands trust when they want a presence that feels premium, personal, and built to last.</p>
+    </div>
+  </section>
+
+  <!-- OUR PROCESS -->
+  <section class="ef-process">
+    <div class="ef-process__inner">
+      <p class="ef-process__eyebrow">How We Work</p>
+      <h2 class="ef-process__title">From idea to <em>live</em>.</h2>
+      <div class="ef-process__steps">
+
+        <div class="ef-process__step">
+          <span class="ef-process__number">01</span>
+          <h3 class="ef-process__step-title">Discover</h3>
+          <p class="ef-process__step-desc">We listen first. Goals, audience, brand voice, and constraints — everything that shapes the right solution.</p>
+        </div>
+
+        <div class="ef-process__step">
+          <span class="ef-process__number">02</span>
+          <h3 class="ef-process__step-title">Design</h3>
+          <p class="ef-process__step-desc">Strategy meets aesthetics. We craft the visual direction, structure, and experience before writing a single line of code.</p>
+        </div>
+
+        <div class="ef-process__step">
+          <span class="ef-process__number">03</span>
+          <h3 class="ef-process__step-title">Build</h3>
+          <p class="ef-process__step-desc">Full-stack execution. Clean architecture, performant code, and every detail refined to match the design intent.</p>
+        </div>
+
+        <div class="ef-process__step">
+          <span class="ef-process__number">04</span>
+          <h3 class="ef-process__step-title">Launch</h3>
+          <p class="ef-process__step-desc">Deployment, testing, and handover. We don't disappear — we make sure everything works exactly as intended.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="ef-faq">
+    <div class="ef-faq__inner">
+      <p class="ef-faq__eyebrow">FAQ</p>
+      <h2 class="ef-faq__title">Questions we <em>always</em> get.</h2>
+      <details class="ef-faq__toggle">
+        <summary class="ef-faq__toggle-btn">
+          <svg class="ef-faq__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 6l5 5 5-5" stroke="#c49a40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </summary>
+        <div class="ef-faq__list">
+
+        <details class="ef-faq__item">
+          <summary class="ef-faq__question">How long does a project take?</summary>
+          <p class="ef-faq__answer">It depends on scope. A focused branding project typically takes 2–4 weeks. A full web build runs 4–8 weeks. We'll give you a clear timeline after our first conversation.</p>
+        </details>
+
+        <details class="ef-faq__item">
+          <summary class="ef-faq__question">What is your pricing?</summary>
+          <p class="ef-faq__answer">Every project is scoped individually — we don't believe in one-size pricing. Budget range and timeline are part of our briefing form so we can give you an honest, accurate quote from the start.</p>
+        </details>
+
+        <details class="ef-faq__item">
+          <summary class="ef-faq__question">Do you work with clients outside the US?</summary>
+          <p class="ef-faq__answer">Yes. Eterflame works fully remote with clients across North America, Europe, and Latin America. Time zones have never stopped a good project.</p>
+        </details>
+
+        <details class="ef-faq__item">
+          <summary class="ef-faq__question">What do I need to get started?</summary>
+          <p class="ef-faq__answer">Just an idea and a rough sense of budget. You don't need a brief, a deck, or a finished concept — that's what the discovery process is for. Fill out our project form and we'll take it from there.</p>
+        </details>
+
+        <details class="ef-faq__item">
+          <summary class="ef-faq__question">Do you offer ongoing support after launch?</summary>
+          <p class="ef-faq__answer">Yes. We offer post-launch support, maintenance, and retainer arrangements depending on the project. We'd rather stay involved and make sure everything keeps working than hand off and disappear.</p>
+        </details>
+
+        <details class="ef-faq__item">
+          <summary class="ef-faq__question">Can you work with an existing brand or website?</summary>
+          <p class="ef-faq__answer">Absolutely. We work with brands at any stage — from zero to established. Whether you need a full rebuild or refinement of what's already there, we adapt to where you are.</p>
+        </details>
+
+        <details class="ef-faq__item">
+          <summary class="ef-faq__question">Do you sign NDAs?</summary>
+          <p class="ef-faq__answer">Yes, always. Confidentiality is standard on every project. We're happy to sign your NDA or provide our own before any conversation involving sensitive information.</p>
+        </details>
+
+        <details class="ef-faq__item">
+          <summary class="ef-faq__question">What makes Eterflame different?</summary>
+          <p class="ef-faq__answer">We're a small studio that works like a strategic partner, not a vendor. Every project gets senior-level attention, intentional design, and technical execution that actually holds up. We care about the work — not just the deliverable.</p>
+        </details>
+
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       7. CTA BOLD — una frase + botón
+  ══════════════════════════════════════ -->
+  <section class="wh-cta-bold">
+    <h2 class="wh-cta-bold__text">
+      Ready to build<br>something that lasts?
+    </h2>
+    <a href="{% url 'works:contact' %}" class="wh-btn-primary">Start a Project →</a>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       8b. RESOURCES CTA
+  ══════════════════════════════════════ -->
+  <section class="wh-resources-cta">
+    <div class="wh-resources-cta__inner fade-in-up">
+      <p class="wh-resources-cta__label">Eterflame Works · Tools</p>
+      <h3 class="wh-resources-cta__title">Tools We Recommend</h3>
+      <p class="wh-resources-cta__desc">
+        The stack behind our work — hosting, design, development,
+        and productivity tools we use every day.
+      </p>
+      <a href="{% url 'works:resources' %}" class="wh-btn-ghost">
+        Explore resources →
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       8c. TECH STACK STRIP
+  ══════════════════════════════════════ -->
+  <section class="ef-stack-strip">
+    <p class="ef-stack-label">Built With</p>
+    <div class="ef-stack-logos">
+      <div class="ef-stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" loading="lazy">
+        <span>Python</span>
+      </div>
+      <div class="ef-stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" loading="lazy">
+        <span>Django</span>
+      </div>
+      <div class="ef-stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" loading="lazy">
+        <span>PostgreSQL</span>
+      </div>
+      <div class="ef-stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" loading="lazy">
+        <span>JavaScript</span>
+      </div>
+      <div class="ef-stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" loading="lazy">
+        <span>Bootstrap</span>
+      </div>
+      <div class="ef-stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" loading="lazy">
+        <span>Git</span>
+      </div>
+      <div class="ef-stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg" alt="Heroku" loading="lazy">
+        <span>Heroku</span>
+      </div>
+      <div class="ef-stack-item ef-stack-item--text">
+        <span class="ef-stack-badge ef-stack-badge--cyan">CLD</span>
+        <span>Cloudinary</span>
+      </div>
+      <div class="ef-stack-item ef-stack-item--text">
+        <span class="ef-stack-badge">AI</span>
+        <span>Anthropic API</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

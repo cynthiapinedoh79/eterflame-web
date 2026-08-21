@@ -117,6 +117,16 @@
   color: var(--w-gold);
   margin-bottom: 1.5rem;
 }
+.wp-hero__brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+  font-weight: 300;
+  color: #f5e0b0;
+  letter-spacing: 14px;
+  text-transform: uppercase;
+  margin: 0 0 .25rem;
+  text-indent: 14px;
+}
 .wh-hero__headline {
   display: flex;
   flex-direction: row;
@@ -1633,4 +1643,80 @@ a:hover .res-card__logo--si {
     transition: none;
     animation: none;
   }
+}
+
+
+/* ── PUERTA WORKS en home matriz ── */
+.wh-works-door {
+  position: relative; overflow: hidden;
+  background: #0d0d0d; padding: 6rem 2rem; text-align: center;
+}
+.wh-works-door__inner { position: relative; z-index: 1; max-width: 580px; margin: 0 auto; }
+.wh-works-door__name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 300; letter-spacing: 4px; margin: 0 0 1.25rem;
+}
+.wh-wd__brand { color: #f5e0b0; }
+.wh-wd__div   { color: var(--w-gold); }
+.wh-works-door__desc {
+  font-family: 'DM Sans', sans-serif; font-size: .88rem;
+  color: rgba(245,224,176,.7); line-height: 1.8; margin-bottom: 2rem;
+}
+.wh-works-door__btn {
+  display: inline-block; padding: .9rem 2.2rem;
+  background: var(--w-gold); color: #0d0d0d;
+  font-family: 'DM Sans', sans-serif; font-size: .75rem;
+  letter-spacing: 3px; text-transform: uppercase; text-decoration: none;
+  border: 2px solid var(--w-gold);
+  transition: background .3s ease, color .3s ease;
+}
+.wh-works-door__btn:hover { background: transparent; color: var(--w-gold); }
+.wh-works-door .ah-logo-watermark-img {
+  position: absolute !important; top: 50% !important; left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 580px !important; height: 580px !important;
+  opacity: 0.08 !important; filter: blur(2px) !important;
+}
+@media (max-width: 600px) {
+  .wh-works-door { padding: 4rem 1.25rem; }
+  .wh-works-door .ah-logo-watermark-img { width: 380px !important; height: 380px !important; }
+}
+
+
+/* ── PUERTA WORKS en home matriz ── */
+.wh-works-door {
+  position: relative; overflow: hidden;
+  background: #0d0d0d; padding: 6rem 2rem; text-align: center;
+}
+.wh-works-door__inner { position: relative; z-index: 1; max-width: 580px; margin: 0 auto; }
+.wh-works-door__name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 300; letter-spacing: 4px; margin: 0 0 1.25rem;
+}
+.wh-wd__brand { color: #f5e0b0; }
+.wh-wd__div   { color: var(--w-gold); }
+.wh-works-door__desc {
+  font-family: 'DM Sans', sans-serif; font-size: .88rem;
+  color: rgba(245,224,176,.7); line-height: 1.8; margin-bottom: 2rem;
+}
+.wh-works-door__btn {
+  display: inline-block; padding: .9rem 2.2rem;
+  background: var(--w-gold); color: #0d0d0d;
+  font-family: 'DM Sans', sans-serif; font-size: .75rem;
+  letter-spacing: 3px; text-transform: uppercase; text-decoration: none;
+  border: 2px solid var(--w-gold);
+  transition: background .3s ease, color .3s ease;
+}
+.wh-works-door__btn:hover { background: transparent; color: var(--w-gold); }
+.wh-works-door .ah-logo-watermark-img {
+  position: absolute !important; top: 50% !important; left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 580px !important; height: 580px !important;
+  opacity: 0.08 !important; filter: blur(2px) !important;
+}
+@media (max-width: 600px) {
+  .wh-works-door { padding: 4rem 1.25rem; }
+  .wh-works-door .ah-logo-watermark-img { width: 380px !important; height: 380px !important; }
 }
