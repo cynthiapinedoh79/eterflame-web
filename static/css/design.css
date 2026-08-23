@@ -2061,8 +2061,8 @@
 /* Label centrado reutilizable */
 .ed-label {
   font-family: 'DM Sans', sans-serif;
-  font-size: .63rem;
-  letter-spacing: 6px;
+  font-size: .75rem;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: #00BCD4;
   text-align: center;
