@@ -18,12 +18,12 @@
     <meta property="og:type"        content="website">
     <meta property="og:site_name"   content="Eterflame">
     <meta property="og:title"       content="{% block og_title %}Eterflame — Creative Company{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}Creative studio building digital experiences where technology, design, and storytelling move together — poetry, music, and brand identity.{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}A creative company with two halves — Works builds the structure, Aythnyk is the spirit. Design, Media, Studio and Music for brands and artists; poetry and songs in Spanish.{% endblock %}">
     <meta property="og:url"         content="{{ request.build_absolute_uri }}">
     <meta property="og:image"       content="{% block og_image %}https://res.cloudinary.com/dam7n1lk3/image/upload/v1777998886/og-default_f6d0tp.webp{% endblock %}">
     <meta name="twitter:card"        content="summary_large_image">
     <meta name="twitter:title"       content="{% block tw_title %}Eterflame — Creative Company{% endblock %}">
-    <meta name="twitter:description" content="{% block tw_description %}Creative studio building digital experiences where technology, design, and storytelling move together — poetry, music, and brand identity.{% endblock %}">
+    <meta name="twitter:description" content="{% block tw_description %}A creative company with two halves — Works builds the structure, Aythnyk is the spirit. Design, Media, Studio and Music for brands and artists; poetry and songs in Spanish.{% endblock %}">
     <meta name="twitter:image"       content="{% block tw_image %}https://res.cloudinary.com/dam7n1lk3/image/upload/v1777998886/og-default_f6d0tp.webp{% endblock %}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover">
@@ -53,7 +53,7 @@
     {% if "/aythnyk/" in request.path %}{% include "components/schema_aythnyk.html" %}{% endif %}
     {# PWA — manifest + theme color + apple touch icon #}
     <link rel="manifest" href="{% url 'pwa_manifest' %}">
-    <meta name="theme-color" content="#0a1428">
+    <meta name="theme-color" content="#0d0d0d">
     <link rel="apple-touch-icon" href="{% static 'images/icon-192.png' %}">
 
     {% block extra_css %}{% endblock %}
