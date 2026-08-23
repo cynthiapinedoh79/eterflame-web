@@ -4,9 +4,10 @@
    ============================================================ */
 (function () {
   var services = {
-    design: ['Web Development', 'UI/UX Design', 'Branding', 'E-commerce', 'Data Visualization', 'API Integration'],
-    media:  ['Photography', 'Video Production', 'Podcast Production', 'Content Strategy'],
-    studio: ['Copywriting', 'Ghostwriting', 'Brand Voice', 'Creative Writing'],
+    design: ['Brand Identity', 'Art Direction', 'Graphic Design', 'Websites & Digital Experiences', 'Data & Intelligence'],
+    media:  ['Photography', 'Video Production', 'Social Media', 'Podcast Production', 'Content Strategy', 'Digital Campaigns'],
+    studio: ['Creative Writing', 'Copywriting', 'Ghostwriting', 'Brand Voice', 'Editorial Development', 'Books & Publications'],
+    music:  ['Distribution', 'Music Publishing', 'Promotion & Marketing', 'Sync Licensing', 'Artist Development'],
     other:  ['Other']
   };
 
@@ -15,7 +16,7 @@
     var select  = document.getElementById('service');
     if (!wrapper || !select) return;
     select.innerHTML = '<option value="">Select a service...</option>';
-    if (!division || division === 'other') {
+    if (!division || division === 'other' || !services[division]) {
       wrapper.style.display = 'none';
       return;
     }

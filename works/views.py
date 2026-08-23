@@ -33,7 +33,7 @@ def contact(request):
     if request.method == 'POST':
         name        = request.POST.get('name', '').strip()
         email       = request.POST.get('email', '').strip()
-        service     = request.POST.get('service', '').strip()
+        division    = request.POST.get('division', '').strip()
         budget      = request.POST.get('budget', '').strip()
         timeline    = request.POST.get('timeline', '').strip()
         description = request.POST.get('description', '').strip()
@@ -45,7 +45,7 @@ def contact(request):
                     message=(
                         f"Name: {name}\n"
                         f"Email: {email}\n"
-                        f"Service: {service}\n"
+                        f"Division: {division}\n"
                         f"Budget: {budget}\n"
                         f"Timeline: {timeline}\n\n"
                         f"Message:\n{description}"
