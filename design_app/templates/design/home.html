@@ -19,7 +19,7 @@
       <a href="{% url 'works:works_home' %}" class="ef-design-fw-hero__back">← Eterflame Works</a>
       
       <p class="ef-design-fw-hero__eyebrow fade-in-up-initial">Eterflame Works · División</p>
-      <h1 class="ef-design-fw-hero__title fade-in-up-initial">EF Design</h1>
+      <h1 class="ef-design-fw-hero__title fade-in-up-initial">DESIGN</h1>
       <p class="ef-design-fw-hero__subtitle fade-in-up-initial">Creative Technology · Design</p>
       <p class="ef-design-fw-hero__desc fade-in-up-initial">Elegant digital experiences built with strategy, clarity, and visual precision.</p>
     </div>
@@ -185,7 +185,7 @@
   </section>
 
   <!-- TESTIMONIALS -->
-  {% show_testimonials 'design' %}
+  {% include 'components/division_principle.html' with verb="SHAPE" phrase="Stories become identities." disciplines="Branding · Art Direction · Web · UI/UX" division="design" %}
 
   <!-- CTA — full width -->
   <section class="ef-design-cta">

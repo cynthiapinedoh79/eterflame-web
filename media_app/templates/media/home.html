@@ -17,7 +17,7 @@
     <div class="em-hero__inner">
       <a href="{% url 'works:works_home' %}" class="em-back">← Eterflame Works</a>
       <p class="em-eyebrow fade-in-up-initial">Eterflame Works · División</p>
-      <h1 class="em-title fade-in-up-initial">EF Media</h1>
+      <h1 class="em-title fade-in-up-initial">MEDIA</h1>
       <p class="em-subtitle fade-in-up-initial">Photography · Video · Podcast · Content</p>
       <p class="em-desc fade-in-up-initial">
         Visual storytelling and audio production built to move audiences.<br>
@@ -90,7 +90,7 @@
   </section>
 
     <!-- TESTIMONIALS -->
-  {% show_testimonials 'media' %}
+  {% include 'components/division_principle.html' with verb="AMPLIFY" phrase="Identities become experiences." disciplines="Photo · Video · Social · Podcast · Campaigns" division="media" %}
 
   <!-- CTA -->
   <section class="em-cta">

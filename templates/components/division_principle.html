@@ -1,0 +1,11 @@
+{% comment %}
+Bloque de principio por división.
+Uso: {% include 'components/division_principle.html' with verb="CREATE" phrase="Ideas become stories." disciplines="Writing · Storytelling · Editorial" division="studio" %}
+{% endcomment %}
+<section class="ef-principle" data-division="{{ division }}">
+  <div class="ef-principle__inner fade-in-up">
+    <h2 class="ef-principle__verb">{{ verb }}</h2>
+    <p class="ef-principle__phrase">{{ phrase }}</p>
+    <p class="ef-principle__disciplines">{{ disciplines }}</p>
+  </div>
+</section>

@@ -5,6 +5,7 @@
 {% block extra_css %}
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'css/music.css' %}">
+<link rel="stylesheet" href="{% static 'css/testimonials.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -16,7 +17,7 @@
     <div class="efm-hero__inner">
       <a href="{% url 'works:works_home' %}" class="efm-back">← Eterflame Works</a>
       <p class="efm-eyebrow fade-in-up-initial">Eterflame Works · División</p>
-      <h1 class="efm-title fade-in-up-initial">EF Music</h1>
+      <h1 class="efm-title fade-in-up-initial">MUSIC</h1>
       <p class="efm-subtitle fade-in-up-initial">Distribución · Promoción · Administración · Sync Licensing</p>
       <p class="efm-desc fade-in-up-initial">
         Where sound meets story.<br>
@@ -77,7 +78,7 @@
       <a href="{% url 'studio:studio_home' %}" class="efm-ecosystem__item">
         <span class="efm-ecosystem__num">03</span>
         <h3 class="efm-ecosystem__item-title">EF Studio</h3>
-        <p class="efm-ecosystem__item-desc">Producción musical, mezcla y mastering</p>
+        <p class="efm-ecosystem__item-desc">Biografías, storytelling y notas de prensa</p>
       </a>
     </div>
   </section>
@@ -101,6 +102,8 @@
   </section>
 
   <!-- IN DEVELOPMENT -->
+  {% include 'components/division_principle.html' with verb="RELEASE" phrase="Music becomes culture." disciplines="Record Label · Publishing · Distribution · Rights" division="music" %}
+
   <section class="efm-development">
     <p class="efm-section-label">En Desarrollo</p>
     <div class="efm-development__grid">
