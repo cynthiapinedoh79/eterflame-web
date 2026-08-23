@@ -16,6 +16,11 @@ class Post(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
+    editorial_author = models.ForeignKey(
+        'poetry.Author', on_delete=models.SET_NULL,
+        null=True, blank=True, related_name="blog_posts",
+        help_text="Nombre público que verá el lector. Si se deja vacío, muestra 'Eterflame'."
+    )
     featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)

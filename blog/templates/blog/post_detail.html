@@ -40,7 +40,7 @@
       <p class="bpd-hero__eyebrow fade-in-up-initial">Blog · Aythnyk</p>
       <h1 class="bpd-hero__title fade-in-up-initial">{{ post.title }}</h1>
       <p class="bpd-hero__meta">
-        By {{ post.author }} · {{ post.created_on|date:"M d, Y" }}
+        By {{ post.editorial_author|default:"Eterflame" }} · {{ post.created_on|date:"M d, Y" }}
       </p>
     </div>
   </div>
@@ -56,7 +56,7 @@
 <!-- ── AUTHOR STRIP ── -->
 <div class="bpd-author-strip">
   <span class="bpd-author-strip__label">Escrito por</span>
-  <span class="bpd-author-strip__name">{{ post.author }}</span>
+  <span class="bpd-author-strip__name">{{ post.editorial_author|default:"Eterflame" }}</span>
 </div>
 
 <!-- ── COMMENTS ── -->

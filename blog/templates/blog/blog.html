@@ -29,7 +29,7 @@
         <img class="card-img-top" src="{{ post.featured_image.url }}" alt="{{ post.title }}" loading="lazy">
         {% endif %}
         <div class="image-flash">
-          <p class="author">Author: {{ post.author }}</p>
+          <p class="author">{{ post.editorial_author|default:"Eterflame" }}</p>
         </div>
       </div>
       <div class="card-body">
