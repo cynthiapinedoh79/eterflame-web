@@ -155,7 +155,7 @@
 }
 .ef-cs-metric__label {
   font-family: 'DM Mono', monospace;
-  font-size: 0.55rem;
+  font-size: 0.68rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--cs-muted);
