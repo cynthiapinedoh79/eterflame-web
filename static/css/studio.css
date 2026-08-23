@@ -781,3 +781,18 @@
   text-transform: uppercase;
   margin-top: 2rem;
 }
+
+/* ── Servicio próximamente ── */
+.es-card--soon { opacity: .55; }
+.es-card__badge {
+  display: inline-block; margin-bottom: .5rem;
+  font-family: 'DM Mono', monospace; font-size: .55rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--es-lime); border: 1px solid var(--es-lime);
+  padding: .2rem .6rem; border-radius: 2px;
+}
+
+/* 6 servicios -> rejilla 3x2 */
+@media (min-width: 1101px) {
+  .es-grid { grid-template-columns: repeat(3, 1fr) !important; }
+}

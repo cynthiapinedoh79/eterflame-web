@@ -345,3 +345,8 @@
   text-transform: uppercase;
   color: var(--em-muted, #7a5c3a);
 }
+
+/* 6 servicios -> rejilla 3x2 */
+@media (min-width: 1101px) {
+  .em-grid { grid-template-columns: repeat(3, 1fr) !important; }
+}
