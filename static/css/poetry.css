@@ -22,8 +22,8 @@
 }
 
 .poetry-list .search-form {
-  max-width: 800px;
-  margin-left: 0;
+  max-width: 900px;
+  margin-left: auto;
   margin-right: auto;
 }
 
@@ -2589,3 +2589,15 @@ a.text-decoration-none:hover {
 }
 .poem-to-sonic__link:hover { color: #f5e0b0; border-color: #f5e0b0; }
 @media (max-width: 600px) { .poem-to-sonic { padding: 3rem 1.25rem 2rem; } }
+
+/* ── Barra de búsqueda de poemas: centrar y ensanchar ── */
+.poetry-list > .d-flex.justify-content-between {
+  justify-content: center !important;
+}
+.poetry-list .search-form .search-input[name="q"] {
+  min-width: 260px;
+}
+.poetry-list .search-form .form-select { min-width: 200px !important; }
+@media (max-width: 767px) {
+  .poetry-list .search-form .search-input[name="q"] { min-width: 100%; }
+}
