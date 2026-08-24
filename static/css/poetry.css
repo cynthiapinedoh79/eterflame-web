@@ -2079,12 +2079,13 @@ a.text-decoration-none:hover {
   --bs-gutter-x: 0 !important;
   --bs-gutter-y: 0 !important;
   display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: 1.5px !important;
-  row-gap: 3px !important;
-  background: rgba(196, 154, 64, 0.08) !important;
-  border-top: 1px solid rgba(196, 154, 64, 0.18) !important;
-  border-bottom: 1px solid rgba(196, 154, 64, 0.18) !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.75rem !important;
+  row-gap: 2.25rem !important;
+  background: transparent !important;
+  padding: 2.5rem 0 !important;
+  border-top: none !important;
+  border-bottom: none !important;
 }
 
 .poetry-list .poems-grid > [class*="col-"] {
@@ -2356,11 +2357,11 @@ a.text-decoration-none:hover {
 /* ─── RESPONSIVE ──────────────────────────────────────────────────── */
 
 @media (max-width: 991px) {
-  .poetry-list .poems-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  .poetry-list .poems-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
 }
 
 @media (max-width: 575px) {
-  .poetry-list .poems-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .poetry-list .poems-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
 }
 
 /* Collections — texto descripción beige, no rojo */
@@ -2600,4 +2601,19 @@ a.text-decoration-none:hover {
 .poetry-list .search-form .form-select { min-width: 200px !important; }
 @media (max-width: 767px) {
   .poetry-list .search-form .search-input[name="q"] { min-width: 100%; }
+}
+
+/* Gap proporcional al ancho — evita desbordes en móvil */
+@media (max-width: 991px) {
+  .poetry-list .poems-grid {
+    gap: 1rem !important;
+    row-gap: 1.25rem !important;
+  }
+}
+@media (max-width: 767px) {
+  .poetry-list .poems-grid {
+    gap: .75rem !important;
+    row-gap: 1rem !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
 }

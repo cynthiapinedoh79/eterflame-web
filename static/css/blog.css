@@ -258,10 +258,11 @@
 
 .blog-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5px;
-    row-gap: 3px;
-    background: rgba(196, 154, 64, 0.08);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+    row-gap: 2.25rem;
+    background: transparent;
+    padding: 2.5rem 0;
     border-top: 1px solid rgba(196, 154, 64, 0.18);
     border-bottom: 1px solid rgba(196, 154, 64, 0.18);
     align-items: stretch;
@@ -1045,4 +1046,12 @@
     gap: 2rem;
     padding: 2rem;
   }
+}
+
+/* Blog grid responsive — gap proporcional */
+@media (max-width: 991px) {
+  .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; row-gap: 1.75rem; }
+}
+@media (max-width: 575px) {
+  .blog-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 }
