@@ -94,7 +94,7 @@ def poem_detail(request, slug):
     poem = get_object_or_404(Poem, slug=slug)
     page_num = int(request.GET.get('page', 1))
 
-    STANZAS_PER_PAGE = 12
+    STANZAS_PER_PAGE = 6
 
     def paginate_poem(body):
         if not body:
@@ -103,8 +103,23 @@ def poem_detail(request, slug):
         # Split by double <br> or </p><p> or <br><br>
         import re as _re
         
+        body = body.strip()
+        
+        # Extraer wrapper <div class="poem-container"> si existe.
+        # Sin esto, al partir se quedan div/p huerfanos en la ultima
+        # pagina y colapsan el grid .poem-with-panel (Bug 2).
+        wrap_open, wrap_close = '', ''
+        m = _re.match(r'^(<div\b[^>]*>)\s*(.*?)\s*(</div>)$', body, _re.DOTALL)
+        if m:
+            wrap_open, body, wrap_close = m.group(1), m.group(2), m.group(3)
+        
+        def _wrap(pages):
+            if not wrap_open:
+                return pages
+            return [wrap_open + pg + wrap_close for pg in pages]
+        
         # Try splitting by </p><p> first
-        stanzas = _re.split(r'</p>\s*<p>', body.strip())
+        stanzas = _re.split(r'</p>\s*<p[^>]*>', body)
         
         # If only 1 chunk, try splitting by <br><br> or double newlines
         if len(stanzas) <= 1:
@@ -119,21 +134,21 @@ def poem_detail(request, slug):
             lines = _re.split(r'<br\s*/?>', body.strip())
             LINES_PER_PAGE = 20
             if len(lines) <= LINES_PER_PAGE:
-                return [body], 1
+                return _wrap([body]), 1
             chunks = [lines[i:i + LINES_PER_PAGE]
                       for i in range(0, len(lines), LINES_PER_PAGE)]
             pages = ['<br>'.join(chunk) for chunk in chunks]
-            return pages, len(pages)
+            return _wrap(pages), len(pages)
         
         if len(stanzas) <= STANZAS_PER_PAGE:
-            return [body], 1
+            return _wrap(['<p>' + '</p><p>'.join(stanzas) + '</p>']), 1
             
         chunks = [stanzas[i:i + STANZAS_PER_PAGE]
                   for i in range(0, len(stanzas), STANZAS_PER_PAGE)]
         pages = []
         for chunk in chunks:
-            pages.append('<br><br>'.join(chunk))
-        return pages, len(pages)
+            pages.append('<p>' + '</p><p>'.join(chunk) + '</p>')
+        return _wrap(pages), len(pages)
 
     pages_es, total_pages = paginate_poem(poem.body_es)
     pages_en, _ = paginate_poem(poem.body_en) if poem.body_en else ([''], 1)
