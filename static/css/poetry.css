@@ -527,7 +527,8 @@ a.page-link {
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  object-fit: fill !important;
+  object-fit: cover !important;
+  object-position: center bottom !important;
   z-index: 0 !important;
   pointer-events: none !important;
 }
