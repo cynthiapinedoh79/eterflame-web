@@ -35,11 +35,11 @@
   <a href="{% url 'poetry:poem_list' %}" class="eter-back-link">← Poemas</a>
 </div>
 
-<section class="songs-hero">
+<section class="pd-hero">
   <img src="{% static 'images/aythnyk/a_logo.webp' %}" class="ah-logo-watermark-img" aria-hidden="true">
-  <p class="songs-hero__eyebrow fade-in-up-initial">Aythnyk · Poesía</p>
-  <h1 class="songs-hero__title fade-in-up-initial">Poe<span>ma</span></h1>
-  <p class="songs-hero__sub">
+  <p class="pd-hero__eyebrow fade-in-up-initial">Aythnyk · Poesía</p>
+  <h1 class="pd-hero__title fade-in-up-initial">{{ poem.title }}</h1>
+  <p class="pd-hero__sub">
     {% if poem.collection %}Colección · {{ poem.collection.name_es|default:poem.collection.name_en }}{% elif poem.author %}{{ poem.author }}{% else %}Escritos{% endif %}
   </p>
 </section>
