@@ -748,3 +748,36 @@
 @media (max-width: 640px) {
   .songs-empty { padding: 4rem 1.25rem; }
 }
+/* ── FILTROS COMO TARJETAS RECTANGULARES ── */
+.songs-filter {
+  gap: .75rem !important;
+  padding: 2.5rem 1.5rem 2.5rem !important;
+}
+.songs-filter::after { display: none; }
+
+.songs-filter__btn {
+  border: 1px solid rgba(196,154,64,.22) !important;
+  background: rgba(255,255,255,.015) !important;
+  padding: 1rem 1.6rem !important;
+  min-width: 150px;
+  text-align: center;
+  color: rgba(245,224,176,.65) !important;
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
+}
+.songs-filter__btn::after { display: none !important; }
+
+.songs-filter__btn:hover {
+  background: rgba(196,154,64,.08) !important;
+  border-color: rgba(196,154,64,.5) !important;
+  color: #f5e0b0 !important;
+}
+
+.songs-filter__btn.is-active {
+  background: var(--s-crimson, #c8102e) !important;
+  border-color: var(--s-crimson, #c8102e) !important;
+  color: #fff !important;
+}
+
+@media (max-width: 600px) {
+  .songs-filter__btn { min-width: 130px; padding: .85rem 1rem !important; font-size: .62rem !important; }
+}

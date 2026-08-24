@@ -41,31 +41,13 @@
 {% endif %}
 
 {% include "poetry/_poem_list_section.html" with hide_page_title=True %}
+
+  <div class="poem-to-sonic">
+    <p class="poem-to-sonic__text">Algunos de estos poemas tienen voz.</p>
+    <a href="{% url 'songs:song_list' %}" class="poem-to-sonic__link">Escúchalos en Sonic &rarr;</a>
+  </div>
 </div>
 
-<!-- ═══ SERIES SECTION ═══ -->
-<section class="poem-series-section">
-  <img src="{% static 'images/aythnyk/a_logo.webp' %}" class="ah-logo-watermark-img" aria-hidden="true">
-  <div class="container">
-    <p class="poem-series-label">Aythnyk · Música</p>
-    <h2 class="poem-series-title">Serie<span>s</span></h2>
-    <p class="poem-series-sub">
-      Poemas convertidos en canciones, agrupados por emoción.
-    </p>
-
-    <div class="poem-series-grid">
-      {% for val, label in series_list %}
-      <a href="{% url 'songs:song_list' %}?series={{ val }}" class="poem-series-card">
-        <span class="poem-series-card__num">Serie</span>
-        <h3 class="poem-series-card__name">{{ label }}</h3>
-        <span class="poem-series-card__cta">Ver canciones →</span>
-      </a>
-      {% empty %}
-      <p class="poem-series-empty">Próximamente.</p>
-      {% endfor %}
-    </div>
-  </div>
-</section>
 {% endblock %}
 
 {% block full_width_banner %}
