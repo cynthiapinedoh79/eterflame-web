@@ -1753,8 +1753,10 @@ a:hover .res-card__logo--si {
 .ef-process__step {
   border-right: none !important;
   padding: 0 1rem !important;
-  text-align: center;
+  text-align: left;
 }
+.ef-process__number { margin-left: auto; margin-right: auto; }
+.ef-process__step-title { text-align: left; }
 .ef-process__number {
   position: relative;
   display: inline-flex;
@@ -1794,13 +1796,3 @@ a:hover .res-card__logo--si {
 }
 @media (max-width: 600px) { .wh-believe { padding: 4rem 1.25rem; } }
 
-/* Coherencia: número y título centrados como en How We Work */
-.wh-why__num,
-.wh-why__item h3,
-.wh-div-card__num,
-.wh-div-card__name,
-.wh-div-card__sub {
-  text-align: center;
-}
-.wh-why__num,
-.wh-div-card__num { display: block; }
