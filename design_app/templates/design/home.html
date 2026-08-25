@@ -187,12 +187,16 @@
   <!-- TESTIMONIALS -->
   {% include 'components/division_principle.html' with verb="SHAPE" phrase="Stories become identities." disciplines="Branding · Art Direction · Web · UI/UX" division="design" %}
 
-  <!-- CTA — full width -->
+    <!-- CTA — full width -->
   <section class="ef-design-cta">
     <p class="ef-design-cta__eyebrow">Ready to start?</p>
     <h2 class="ef-design-cta__title">Let's build something<br>that lasts.</h2>
     <a href="{% url 'works:contact' %}" class="ef-design-cta__btn">Get in touch →</a>
   </section>
+
+    <!-- NEXT DIVISION -->
+  {% url 'media:media_home' as next_url %}
+  {% include 'components/next_division.html' with eyebrow="Next Division" next="media" label="EF Media" url=next_url %}
 
 </div>
 {% endblock %}

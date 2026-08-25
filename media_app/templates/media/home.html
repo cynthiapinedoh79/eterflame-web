@@ -109,5 +109,9 @@
     <a href="{% url 'works:contact' %}" class="em-cta__btn">Request a Quote →</a>
   </section>
 
+    <!-- NEXT DIVISION -->
+  {% url 'studio:studio_home' as next_url %}
+  {% include 'components/next_division.html' with eyebrow="Next Division" next="studio" label="EF Studio" url=next_url %}
+
 </div>
 {% endblock %}

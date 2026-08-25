@@ -1974,3 +1974,55 @@ body.aythnyk-section .footer-newsletter {
   border-top: 1px solid #1a1510;
   border-bottom: none;
 }
+
+/* ============================================
+   NEXT DIVISION — franja de navegación entre ramas
+   Componente: templates/components/next_division.html
+   ============================================ */
+.ef-next {
+  display: block;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  border-top: 1px solid rgba(196, 154, 64, .18);
+  background: #0d0d0d;
+  transition: background .4s ease;
+}
+.ef-next__eyebrow {
+  display: block;
+  font-family: 'Courier Prime', monospace;
+  font-size: .68rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(245, 224, 176, .55);
+  margin-bottom: .9rem;
+  transition: color .4s ease;
+}
+.ef-next__label {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f5e0b0;
+  transition: color .4s ease;
+}
+.ef-next__arrow {
+  display: inline-block;
+  margin-left: .6rem;
+  transition: transform .4s ease;
+}
+.ef-next:hover .ef-next__arrow { transform: translateX(10px); }
+
+/* Color del DESTINO al hover */
+.ef-next[data-next="design"]:hover .ef-next__label { color: #00BCD4; }
+.ef-next[data-next="media"]:hover  .ef-next__label { color: #c4622a; }
+.ef-next[data-next="studio"]:hover .ef-next__label { color: #7FBA00; }
+.ef-next[data-next="music"]:hover  .ef-next__label { color: #D81B60; }
+.ef-next[data-next="works"]:hover  .ef-next__label { color: #d4a843; }
+.ef-next:hover { background: #111; }
+.ef-next:hover .ef-next__eyebrow { color: rgba(245, 224, 176, .8); }
+
+@media (max-width: 600px) {
+  .ef-next { padding: 2.5rem 1.25rem; }
+}

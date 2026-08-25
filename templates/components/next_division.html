@@ -1,0 +1,10 @@
+{% comment %}
+Franja de navegación al final de cada rama.
+Uso: {% include 'components/next_division.html' with eyebrow="Next Division" next="media" label="EF Media" url=media_url %}
+- next: slug del DESTINO (design|media|studio|music|works) — define el color del hover
+- url: href ya resuelto por {% url %} en la plantilla que incluye
+{% endcomment %}
+<a class="ef-next" data-next="{{ next }}" href="{{ url }}">
+  <span class="ef-next__eyebrow">{{ eyebrow }}</span>
+  <span class="ef-next__label">{{ label }}<span class="ef-next__arrow">&rarr;</span></span>
+</a>

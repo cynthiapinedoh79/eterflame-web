@@ -136,5 +136,10 @@
       Iniciar conversación →
     </a>
   </section>
+
+    <!-- NEXT DIVISION -->
+  {% url 'works:works_page' as next_url %}
+  {% include 'components/next_division.html' with eyebrow="All Divisions" next="works" label="Eterflame Works" url=next_url %}
+
 </div>
 {% endblock %}

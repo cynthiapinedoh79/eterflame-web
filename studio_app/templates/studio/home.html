@@ -96,5 +96,9 @@
     <a href="{% url 'works:contact' %}" class="es-cta__btn">Request a Quote →</a>
   </section>
 
+    <!-- NEXT DIVISION -->
+  {% url 'music:music_home' as next_url %}
+  {% include 'components/next_division.html' with eyebrow="Next Division" next="music" label="EF Music" url=next_url %}
+
 </div>
 {% endblock %}
