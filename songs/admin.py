@@ -4,12 +4,16 @@ from .models import Song
 
 @admin.register(Song)
 class SongAdmin(admin.ModelAdmin):
-    list_display = ['title', 'series', 'poem', 'created_on', 'active']
-    list_filter  = ['series', 'active']
+    list_display = ['catalog_number', 'title', 'release_date', 'release_type', 'series', 'active']
+    list_filter  = ['series', 'active', 'release_type']
+    ordering     = ['-release_date']
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ['title', 'lyrics']
     raw_id_fields = ['poem']
     fieldsets = (
+        ('Catálogo EF Music', {
+            'fields': ('catalog_number', 'release_date', 'release_type')
+        }),
         ('Info', {
             'fields': ('title', 'slug', 'series', 'poem', 'active', 'cover_image')
         }),

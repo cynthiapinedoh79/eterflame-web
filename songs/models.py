@@ -11,6 +11,22 @@ class Song(models.Model):
     ]
     title           = models.CharField(max_length=200)
     slug            = models.SlugField(unique=True)
+    catalog_number  = models.CharField(
+                        max_length=10, blank=True,
+                        help_text="Número de catálogo del sello, ej. EFM-001"
+                      )
+    release_date    = models.DateField(
+                        null=True, blank=True,
+                        help_text="Fecha real de lanzamiento en DistroKid"
+                      )
+    release_type    = models.CharField(
+                        max_length=10, default='single',
+                        choices=[('single', 'Single'), ('ep', 'EP'), ('album', 'Álbum')]
+                      )
+    upc             = models.CharField(
+                        max_length=20, blank=True,
+                        help_text="UPC del lanzamiento (DistroKid) — uso interno"
+                      )
     lyrics          = models.TextField(blank=True)
     poem            = models.ForeignKey(
                         'poetry.Poem',
