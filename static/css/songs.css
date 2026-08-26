@@ -175,6 +175,7 @@
   color: var(--s-white);
   margin: 0 0 .6rem;
   line-height: 1.15;
+  min-height: 3.6rem;
 }
 .song-card__cta {
   font-family: var(--s-sans);
