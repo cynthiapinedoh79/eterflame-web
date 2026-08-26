@@ -27,6 +27,22 @@ class Song(models.Model):
                         max_length=20, blank=True,
                         help_text="UPC del lanzamiento (DistroKid) — uso interno"
                       )
+    isrc            = models.CharField(
+                        max_length=20, blank=True,
+                        help_text="ISRC — identifica la GRABACIÓN"
+                      )
+    iswc            = models.CharField(
+                        max_length=20, blank=True,
+                        help_text="ISWC — identifica la COMPOSICIÓN (no cambia al regrabar)"
+                      )
+    bmi_work_number = models.CharField(
+                        max_length=20, blank=True,
+                        help_text="Número de obra en BMI"
+                      )
+    safe_creative_id = models.CharField(
+                        max_length=60, blank=True,
+                        help_text="Certificado Safe Creative + fecha de emisión"
+                      )
     lyrics          = models.TextField(blank=True)
     poem            = models.ForeignKey(
                         'poetry.Poem',

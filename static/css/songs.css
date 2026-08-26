@@ -170,7 +170,7 @@
 }
 .song-card__title {
   font-family: var(--s-serif);
-  font-size: 1.4rem;
+  font-size: 1.55rem;
   font-weight: 400;
   color: var(--s-white);
   margin: 0 0 .6rem;
@@ -507,11 +507,11 @@
   align-items: center;
   gap: .5rem;
   padding: .7rem 1.4rem;
-  border: 1px solid var(--s-border);
+  border: 1px solid #2e2e2e;
   border-radius: 3px;
   font-family: var(--s-sans);
   font-size: .75rem;
-  color: var(--s-muted);
+  color: #9a9a9a;
   text-decoration: none;
   transition: var(--s-ease);
 }
@@ -588,7 +588,7 @@
   display: grid;
   grid-template-columns: 320px 1fr;
   gap: 2rem;
-  align-items: center;
+  align-items: start;
 }
 .sd-reel-image {
   width: 100%;
@@ -610,13 +610,13 @@
 .sd-reel-btn {
   display: block;
   padding: 1rem 1.5rem;
-  border: 1px solid var(--s-border);
+  border: 1px solid #2e2e2e;
   border-radius: 3px;
   font-family: var(--s-sans);
   font-size: .78rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--s-muted);
+  color: #9a9a9a;
   text-decoration: none;
   transition: var(--s-ease);
 }

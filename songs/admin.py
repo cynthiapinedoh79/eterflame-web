@@ -12,7 +12,8 @@ class SongAdmin(admin.ModelAdmin):
     raw_id_fields = ['poem']
     fieldsets = (
         ('Catálogo EF Music', {
-            'fields': ('catalog_number', 'release_date', 'release_type')
+            'fields': ('catalog_number', 'release_date', 'release_type', 'upc',
+                       'isrc', 'iswc', 'bmi_work_number', 'safe_creative_id')
         }),
         ('Info', {
             'fields': ('title', 'slug', 'series', 'poem', 'active', 'cover_image')
