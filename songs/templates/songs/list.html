@@ -14,17 +14,25 @@
 </section>
 
 <div class="songs-filter">
-  <a href="{% url 'songs:song_list' %}"
+  <a href="{% url 'songs:song_list' %}{% if q %}?q={{ q }}{% endif %}"
      class="songs-filter__btn {% if not active_series %}is-active{% endif %}">
     Todas
   </a>
   {% for val, label in series_choices %}
-  <a href="{% url 'songs:song_list' %}?series={{ val }}"
+  <a href="{% url 'songs:song_list' %}?series={{ val }}{% if q %}&q={{ q }}{% endif %}"
      class="songs-filter__btn {% if active_series == val %}is-active{% endif %}">
     {{ label }}
   </a>
   {% endfor %}
 </div>
+
+<form class="songs-search" method="get" action="{% url 'songs:song_list' %}">
+  {% if active_series %}<input type="hidden" name="series" value="{{ active_series }}">{% endif %}
+  <input type="text" name="q" value="{{ q }}" class="songs-search__input"
+         placeholder="Buscar por título…" aria-label="Buscar canciones">
+  <button type="submit" class="songs-search__btn">Buscar</button>
+  {% if q %}<a href="{% url 'songs:song_list' %}{% if active_series %}?series={{ active_series }}{% endif %}" class="songs-search__clear">Limpiar</a>{% endif %}
+</form>
 
 <div class="songs-grid">
   {% for song in songs %}

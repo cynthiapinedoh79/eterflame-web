@@ -12,12 +12,16 @@ class SongListView(ListView):
         series = self.request.GET.get('series')
         if series:
             qs = qs.filter(series=series)
-        return qs
+        q = self.request.GET.get('q', '').strip()
+        if q:
+            qs = qs.filter(title__icontains=q)
+        return qs.order_by('-release_date', '-created_on')
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx['series_choices'] = Song.SERIES_CHOICES
         ctx['active_series']  = self.request.GET.get('series', '')
+        ctx['q']              = self.request.GET.get('q', '')
         return ctx
 
 
