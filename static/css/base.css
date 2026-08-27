@@ -2026,3 +2026,13 @@ body.aythnyk-section .footer-newsletter {
 @media (max-width: 600px) {
   .ef-next { padding: 2.5rem 1.25rem; }
 }
+
+/* ============================================
+   INDICADOR DE DIVISION EN LA MARCA
+   ============================================ */
+.ef-brand-sub[data-division] { opacity: 1; }
+.ef-brand-sub[data-division="design"]  { color: #00BCD4; }
+.ef-brand-sub[data-division="media"]   { color: #c4622a; }
+.ef-brand-sub[data-division="studio"]  { color: #7FBA00; }
+.ef-brand-sub[data-division="music"]   { color: #D81B60; }
+.ef-brand-sub[data-division="aythnyk"] { color: #c49a40; }

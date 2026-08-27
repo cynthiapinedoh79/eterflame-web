@@ -74,7 +74,19 @@
 
                 <div class="ef-brand-text">
                     <span class="ef-brand-main">ETERFLAME</span>
+                    {% if '/works/design' in request.path %}
+                    <span class="ef-brand-sub" data-division="design">EF Design</span>
+                    {% elif '/works/media' in request.path %}
+                    <span class="ef-brand-sub" data-division="media">EF Media</span>
+                    {% elif '/works/studio' in request.path %}
+                    <span class="ef-brand-sub" data-division="studio">EF Studio</span>
+                    {% elif '/works/music' in request.path %}
+                    <span class="ef-brand-sub" data-division="music">EF Music</span>
+                    {% elif '/aythnyk' in request.path or '/poems' in request.path or '/songs' in request.path or '/blog' in request.path %}
+                    <span class="ef-brand-sub" data-division="aythnyk">Aythnyk</span>
+                    {% else %}
                     <span class="ef-brand-sub">Creative Company</span>
+                    {% endif %}
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -257,10 +269,10 @@
         <a href="https://facebook.com/aythnyk" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fab fa-facebook" aria-hidden="true"></i>
         </a>
-        <a href="https://open.spotify.com" target="_blank" rel="noopener" aria-label="Spotify">
+        <a href="https://open.spotify.com/artist/5WaxnbGBMjrydASIjoiIrT" target="_blank" rel="noopener" aria-label="Spotify">
           <i class="fab fa-spotify" aria-hidden="true"></i>
         </a>
-        <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+        <a href="https://www.youtube.com/@aythnyk" target="_blank" rel="noopener" aria-label="YouTube">
           <i class="fab fa-youtube" aria-hidden="true"></i>
         </a>
       </div>
