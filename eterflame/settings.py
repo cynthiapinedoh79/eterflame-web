@@ -165,7 +165,7 @@ DATABASE_URL = os.environ.get("DATABASE_URL")
 if DATABASE_URL:
     # Parse Heroku/ElephantSQL URL
     DATABASES["default"] = dj_database_url.parse(
-        DATABASE_URL, conn_max_age=600
+        DATABASE_URL, conn_max_age=600, conn_health_checks=True
     )
 
     # Only keep SSL options for Postgres
