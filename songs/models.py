@@ -29,9 +29,9 @@ class Song(models.Model):
                       )
     isrc            = models.CharField(
                         max_length=20, blank=True,
-                        help_text="ISRC — identifica la GRABACIÓN"
+                        help_text="ISRC — identifica la GRABACIÓN (DistroKid)"
                       )
-    iswc            = models.CharField(
+    bmi_iswc            = models.CharField(
                         max_length=20, blank=True,
                         help_text="ISWC — identifica la COMPOSICIÓN (no cambia al regrabar)"
                       )
