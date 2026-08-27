@@ -6,6 +6,7 @@ class SongListView(ListView):
     model = Song
     template_name = 'songs/list.html'
     context_object_name = 'songs'
+    paginate_by = 24
 
     def get_queryset(self):
         qs = Song.objects.filter(active=True)

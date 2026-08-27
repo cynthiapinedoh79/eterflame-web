@@ -861,3 +861,42 @@
 
 /* Sin lineas sueltas en el borde de la rejilla */
 .songs-grid__cell:nth-child(4n) { border-right: none; }
+
+/* ============================================
+   PAGINACION DEL CATALOGO
+   ============================================ */
+.songs-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0 2rem 5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.songs-pagination__btn {
+  padding: .7rem 1.4rem;
+  border: 1px solid #2e2e2e;
+  border-radius: 3px;
+  font-family: var(--s-sans);
+  font-size: .72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #9a9a9a;
+  text-decoration: none;
+  transition: var(--s-ease);
+}
+.songs-pagination__btn:hover {
+  color: var(--s-gold);
+  border-color: var(--s-gold);
+}
+.songs-pagination__info {
+  font-family: var(--s-sans);
+  font-size: .75rem;
+  letter-spacing: 2px;
+  color: #6e6e6e;
+}
+
+@media (max-width: 600px) {
+  .songs-pagination { padding: 0 1.25rem 3rem; gap: 1rem; }
+}
