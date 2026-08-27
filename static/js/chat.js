@@ -21,6 +21,7 @@
         { label: 'Explore Design services',  msg: 'I want to learn about EF Design services and pricing.' },
         { label: 'Explore Media services',   msg: 'I want to learn about EF Media services.' },
         { label: 'Explore Studio services',  msg: 'I want to learn about EF Studio creative direction.' },
+        { label: 'Explore Music services',   msg: 'I want to learn about EF Music, the record label.' },
         { label: 'Get a project estimate',   msg: 'I have a project and need a cost estimate.' },
       ],
       farewell: 'Ready to start? <a href="/works/" style="color:#c49a40">Visit Eterflame Works →</a>',
